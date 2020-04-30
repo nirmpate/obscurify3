@@ -1,0 +1,34 @@
+<div class="artist">
+    <div class="header">
+        <h2 class="header__title">
+            Top Artists
+        </h2>
+    </div>
+
+    <div  class="artist__container" fxlayout="column" fxLayout.gt-sm="row">
+        <div fxLayout="column">   
+            <div fxFLex="100%" fxLayout="row wrap" fxLayoutGap="16px">
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card>
+            </div>
+
+            <div fxLayoutAlign="center center">
+                <button class="artist__button artist__button--primary">Show More</button>
+            </div>
+        </div>
+
+
+        <div fxFlex.gt-sm="30%">
+            <app-artist-nav></app-artist-nav>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+@import 'mixins';
+@import 'components/header';
+
+.artist {
+    min-height: 100vh;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 2rem 0px;
+
+    &__container {
+        margin-top: 2em;
+    }
+
+    &__button {
+        margin-top: 2em;
+        background: #D8D8D8;
+        border-radius: 23.5px;
+        font-size: 16px;
+        color: #090909;
+        text-align: center;
+        padding: 1em 2em;
+        border: none;
+        font-weight: bold;
+        &:hover {
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<div class="artist__nav" [ngClass]="{'active': navOpen}">
+    <div class="artist__nav__container">
+
+        <div class="artist__nav__mobile">
+            <button (click)="navOpen = !navOpen">
+                Options <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div class="artist__nav__content">
+            <div class="artist__nav__main" fxLayout="row" fxLayoutAlign="space-between start">
+                <button class="artist__nav__button">Artists</button>
+                <button class="artist__nav__button">Songs</button>
+            </div>
+            <div class="artist__nav__history">
+                <h3> View History </h3>
+    
+                <mat-radio-group
+                    aria-labelledby="select history date"
+                class="artist__nav__history--select"
+                [(ngModel)]="history"
+                fxLayout="column">
+                <mat-radio-button class="select__item" *ngFor="let date of historyList" [value]="date">
+                {{ date }}
+                </mat-radio-button>
+            </mat-radio-group>
+            </div>
+    
+            <div class="artist__nav__playlist" fxLayout="row" fxLayoutAlign="center">
+                <button class="artist__nav__button"><i class="fas fa-plus-circle"></i>Create Playlist</button>
+            </div>
+        </div>
+        
+    </div>
+</div>

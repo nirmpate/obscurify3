@@ -1,0 +1,76 @@
+@import 'variables';
+@import 'mixins';
+
+.artist__card {
+    width: 170px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1em;
+    
+    img {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &.active {
+        .artist__card__info {
+            height: 100%;
+        }
+    }
+    
+    &__info {
+        height: 50px;
+        transition: .3s cubic-bezier(.35,0,.25,1);
+        position: absolute;
+        width: 100%;
+        background: rgba(0,0,0,.55);
+        border-radius: 5px;
+        bottom: 0;  
+        box-sizing: border-box;  
+        padding: 1em 0.5em;
+        font-size: 1em;
+        &--secondary, &--primary {
+            text-align: center;
+            transition: .3s cubic-bezier(.35,0,.25,1);
+            margin-left: 1em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+    }
+
+    button {
+        margin-top: 1em;
+        background: transparent;
+        width: 125px;
+        height: 36px;
+        text-align: center;
+        font-size: 10px;
+        color: #fff;
+        display: block;
+        border-radius: 25px;
+        font-weight: 700;
+        margin: 0 auto;
+        border: 2px solid $primary-color;
+    }
+}
+
+@include tablet {
+    .artist__card {
+        width: 200px;
+    }
+}
+
+@include desktop {
+    .artist__card {
+        width: 200px;
+    }
+
+}

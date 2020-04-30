@@ -1,0 +1,24 @@
+<div class="artist__card" [ngClass]="{'active': activeView}">
+    <img src="assets/images/app/knxwledge.png" />
+    <div class="artist__card__info">
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+            <span fxFlex="0 1 auto"> 1 </span> /
+
+            <div fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center start">
+                <p class="artist__card__info--primary">
+                    Knxwledge
+                </p>
+                <p *ngIf="activeView" class="artist__card__info--secondary">
+                    wonky / abstract beats
+                </p>
+            </div>
+            <a *ngIf="activeView" fxFlex="0 1 auto"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div *ngIf="activeView">
+            <button >More Like This</button>
+        </div>
+
+
+    </div>
+</div>

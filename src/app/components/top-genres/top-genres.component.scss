@@ -1,0 +1,57 @@
+@import 'components/header';
+@import 'mixins';
+
+.slate {
+    padding: 2rem 0px;
+}
+
+.genre {
+    max-width: 1024px;
+    margin: 0 auto;
+
+    &__list {
+        margin-top: 2em;
+    }
+
+    &__card {
+        background-color: rgba(0, 0, 0, .2);
+        border-radius: 5px;
+        padding: 1.5em 1.5em;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: ease;
+        h3 {
+            font-size: 2em;
+        }
+
+    }
+    
+}
+
+@include desktop {
+
+    .genre {
+
+        &__card {
+            min-width: 636px;
+
+            h3 {
+                font-size: 3em;
+            }
+        }
+    }
+
+}
+
+@for $i from 0 through 10 {
+    .genre.show {
+        .genre__card {
+            opacity: 1;
+            transform: translateY(0px)
+        }
+        .genre__card:nth-child(#{$i + 1}) {
+            transition:  0.3s * $i;
+        }
+    }
+
+  }
