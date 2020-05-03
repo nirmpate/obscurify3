@@ -25,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthService, TokenService, AuthGuard, SpotifyAuthInterceptor } from './services/spotifyAuth';
 import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.component';
 import { InfoService } from './services/infoService';
+import ObscurityFuncs from './utilities/obscurityFuncs';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { InfoService } from './services/infoService';
     HttpClientModule
   ],
   providers: [
+    ObscurityFuncs,
     AuthService,
     TokenService,
     AuthGuard,

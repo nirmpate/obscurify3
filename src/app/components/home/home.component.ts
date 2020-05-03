@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenService } from '../../services/spotifyAuth';
+import { TokenService, AuthService } from '../../services/spotifyAuth';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { InfoService } from '../../services/infoService';
@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
     public tokenSvc: TokenService,
     public cookieService: CookieService,
     public router: Router,
-    public infoSvc: InfoService
+    public infoSvc: InfoService,
+    public authService: AuthService
   ) { }
   private stream: Subscription | null = null;
 
@@ -44,25 +45,44 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    const cookie = this.cookieService.get('spotifyResponse');
+
+    if (cookie || this.tokenSvc.oAuthToken) {
+      this.tokenSvc.setAuthTokenCache(cookie);
+      this.authService.authorized();
+    } else {
+      this.tokenSvc.clearToken();
+      this.router.navigate(['login']);
+    }
     const stream = this.tokenSvc.authTokens.pipe((x) => {
       return this.infoSvc.fetchUserInfo();
     });
 
-    this.stream = stream.subscribe((x: {}) =>  {
-      console.log('userInfo', x);
-    });
-
-    this.infoSvc.fetchAllTimeTracks().subscribe((x: any) => {
-      console.log('artist tracks', x);
+    this.infoSvc.getUserStream().subscribe((user) => {
+      console.log('user in home', user);
     });
 
     this.infoSvc.fetchAllTimeArtists().subscribe((x: any) => {
       console.log('artist tracks', x);
     });
 
-    this.infoSvc.getUserStream().subscribe((user) => {
-      console.log('user', user);
+
+    this.infoSvc.fetchAllTimeTracks().subscribe((x: any) => {
+      console.log('artist tracks', x);
     });
+
+    this.infoSvc.fetchCurrentTracks().subscribe((x: any) => {
+      console.log('artist tracks', x);
+    });
+
+    this.infoSvc.fetchCurrentArtists().subscribe((x: any) => {
+      console.log('artist tracks', x);
+    });
+
+    this.infoSvc.getUserStream().subscribe((x: any) => {
+      console.log('User Info::', x);
+    });
+
   }
 
 }

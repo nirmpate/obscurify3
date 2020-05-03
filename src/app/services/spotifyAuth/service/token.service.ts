@@ -41,8 +41,10 @@ export class TokenService {
 
   public setAuthToken(spotifyResponse: SpotifyAuthResponse): boolean {
     if (!!spotifyResponse && !!spotifyResponse.access_token) {
-      console.log('Spotify Repsonse', spotifyResponse)
-      this.cookieService.set('spotifyResponse', spotifyResponse.access_token, Number(spotifyResponse.expires_in));
+      console.log('Spotify Repsonse', spotifyResponse);
+      console.log('Spotify Time', spotifyResponse.expires_in)
+      const currentDate = new Date().getTime() + Number(spotifyResponse.expires_in);
+      this.cookieService.set('spotifyResponse', spotifyResponse.access_token, currentDate);
       this.token = spotifyResponse.access_token;
     } else {
       this.token = '';

@@ -8,7 +8,7 @@
 .genre {
     max-width: 1024px;
     margin: 0 auto;
-
+    opacity: 0;
     &__list {
         margin-top: 2em;
     }
@@ -45,6 +45,8 @@
 
 @for $i from 0 through 10 {
     .genre.show {
+        opacity: 1;
+        transform: translateY(0px);
         .genre__card {
             opacity: 1;
             transform: translateY(0px)

@@ -18,9 +18,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.authorizedStream.subscribe((x: boolean) => {
-      console.log('authorized', x);
-      console.log(this.tokenSvc.oAuthToken);
-
       if (x) {
         this.router.navigate(['home']);
       }
