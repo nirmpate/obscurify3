@@ -62,27 +62,6 @@ export class HomeComponent implements OnInit {
       console.log('user in home', user);
     });
 
-    this.infoSvc.fetchAllTimeArtists().subscribe((x: any) => {
-      console.log('artist tracks', x);
-    });
-
-
-    this.infoSvc.fetchAllTimeTracks().subscribe((x: any) => {
-      console.log('artist tracks', x);
-    });
-
-    this.infoSvc.fetchCurrentTracks().subscribe((x: any) => {
-      console.log('artist tracks', x);
-    });
-
-    this.infoSvc.fetchCurrentArtists().subscribe((x: any) => {
-      console.log('artist tracks', x);
-    });
-
-    this.infoSvc.getUserStream().subscribe((x: any) => {
-      console.log('User Info::', x);
-    });
-
   }
 
 }

@@ -42,10 +42,15 @@ export class InfoService {
   public fetchAllTimeTracks(): Observable<{}> {
     return this.http.get(this.apiAllTimeTracks).pipe(
       tap((tracks: {items: [{id: string, popularity: number}]}) => {
+
         const allTimeTrackIDs = [];
-        for (let i = 0; i < tracks.items.length; i++) {
-          allTimeTrackIDs.push(tracks.items[i].id);
+
+        for (const track of tracks.items) {
+          allTimeTrackIDs.push(track.id);
         }
+
+        console.log('info service', tracks.items);
+
         this.user = {
           ...this.user,
           allTimeTracks: tracks.items,
@@ -59,10 +64,15 @@ export class InfoService {
 
   public fetchCurrentTracks(): Observable<{}> {
     return this.http.get(this.apiCurrentTracks).pipe(
-      tap((tracks: {items: []}) => {
+      tap((tracks: {items: [{id: string, popularity: number}]}) => {
+        const currentTrackIDs = [];
+        for (const track of tracks.items) {
+          currentTrackIDs.push(track.id);
+        }
         this.user = {
           ...this.user,
-          currentTracks: tracks.items
+          currentTracks: tracks.items,
+          currentTrackIDs: [...currentTrackIDs]
         };
         this.user$.next(this.user);
       }),
@@ -76,12 +86,16 @@ export class InfoService {
         let allTimeObscurifyScore = 0;
         const genres: any = {};
         const topGenres: any = [];
+        const allTimeArtistIDs = [];
+
         // Loop Through All Time Artists
         // Get Obscure Score and Top Genres
         for (let i = 0; i < artists.items.length; i++) {
 
           allTimeObscurifyScore = allTimeObscurifyScore + (50 / artists.items.length) *
             Math.floor(artists.items[i].popularity * (1 - i / artists.items.length));
+
+          allTimeArtistIDs.push(artists.items[i].id);
 
           for (let y = 0; y < artists.items[i].genres.length; y++) {
             if (genres[artists.items[i].genres[y]] != null) {
@@ -106,7 +120,8 @@ export class InfoService {
           ...this.user,
           allTimeArtists: artists.items,
           allTimeObscurifyScore: (allTimeObscurifyScore),
-          topGenres: (topGenres)
+          topGenres: (topGenres),
+          allTimeArtistIDs: (allTimeArtistIDs)
         };
         this.user$.next(this.user);
       }),
@@ -118,10 +133,14 @@ export class InfoService {
     return this.http.get(this.apiCurrentArtists).pipe(
       tap((artists: {items: [{id: string, popularity: any}]}) => {
         let recentObscurifyScore = 0;
+        const currentArtistsIDs = [];
+
         for (let i = 0; i < artists.items.length; i++) {
 
-        recentObscurifyScore = recentObscurifyScore + (50 / artists.items.length) *
-          Math.floor(artists.items[i].popularity * (1 - i / artists.items.length));
+          currentArtistsIDs.push(artists.items[i]);
+
+          recentObscurifyScore = recentObscurifyScore + (50 / artists.items.length) *
+            Math.floor(artists.items[i].popularity * (1 - i / artists.items.length));
         }
 
         recentObscurifyScore = Math.floor(recentObscurifyScore / 10);

@@ -21,6 +21,8 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
     ) { }
   public items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   public show = false;
+
+  public genres = [];
   private intersectionObserverSubs: Subscription;
 
   private updateAppBackgroundColor() {
@@ -32,13 +34,19 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.infoSvc.getUserStream().subscribe((x: any) => {
       console.log('User in Genres', x);
+      if (x.topGenres) {
+        console.log('x.genres')
+        const genreArry = x.topGenres.slice(0, 10);
+        console.log(genreArry)
+        this.genres = [...genreArry];
+      }
     });
   }
 
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.50
+      threshold: 0.20
     });
     this.intersectionObserverSubs = this.intersectionObserverService
     .getSubject()
@@ -47,6 +55,8 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
       if (el.isIntersecting) {
         this.updateAppBackgroundColor();
         this.show = true;
+      } else {
+        this.show = false;
       }
 
     });

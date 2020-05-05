@@ -7,7 +7,8 @@
 
     <div  class="artist__container" fxlayout="column" fxLayout.gt-sm="row">
         <div fxLayout="column">   
-            <div fxFLex="100%" fxLayout="row wrap" fxLayoutGap="16px">
+            <div class="artist__container__grid" fxFLex="100%" fxLayout.gt-xs="row wrap" fxLayout="column nowrap" fxLayoutGap="16px">
+                <!-- <app-artist-card></app-artist-card>
                 <app-artist-card></app-artist-card>
                 <app-artist-card></app-artist-card>
                 <app-artist-card></app-artist-card>
@@ -17,8 +18,9 @@
                 <app-artist-card></app-artist-card>
                 <app-artist-card></app-artist-card>
                 <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
+                <app-artist-card></app-artist-card> -->
+
+                <app-artist-card [artist]="artist" [i]="i" *ngFor="let artist of allTimeArtist | slice:0:sliceLimit; let i = index"></app-artist-card>
             </div>
 
             <div fxLayoutAlign="center center">

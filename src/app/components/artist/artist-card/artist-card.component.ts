@@ -1,5 +1,6 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import BrowserCheck from 'src/app/services/browserCheck';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-artist-card',
@@ -8,11 +9,13 @@ import BrowserCheck from 'src/app/services/browserCheck';
 })
 export class ArtistCardComponent implements OnInit {
 
+  @Input() artist;
+  @Input() i;
   public activeView = false;
 
-  @HostListener('click', ['$event.target'])
+  @HostListener('touchend', ['$event.target'])
   onClick(btn) {
-    if (!this.browserCheck.checkIfBrowser && this.browserCheck.isDevice) {
+    if (this.browserCheck.isDevice) {
       this.activeView = !this.activeView;
     }
   }
@@ -31,7 +34,12 @@ export class ArtistCardComponent implements OnInit {
   }
 
 
-  constructor(public browserCheck: BrowserCheck) { }
+
+
+
+  constructor(
+    public browserCheck: BrowserCheck,
+    public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
 

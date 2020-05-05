@@ -11,6 +11,13 @@
         margin-top: 2em;
     }
 
+    &__container__grid {
+        &::after {
+            content: "";
+            flex: auto;
+          }
+    }
+
     &__button {
         margin-top: 2em;
         background: #D8D8D8;

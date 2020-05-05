@@ -25,9 +25,7 @@ export class AuthService {
 
   public authorize() {
     console.log('authorize()');
-    const tokenCookie = this.cookieService.get('spotifyResponse');
     window.location.href = this.buildAuthUrl();
-
   }
 
   // Signal someone, that router can navigate somewhere
