@@ -12,7 +12,7 @@
                     wonky / abstract beats
                 </p>
             </div>
-            <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(artist.uri)" *ngIf="activeView" fxFlex="0 1 auto"><i class="fas fa-external-link-alt"></i></a>
+            <a class="artist__card__external" [href]="this.sanitizer.bypassSecurityTrustResourceUrl(artist.uri)" *ngIf="activeView" fxFlex="0 1 auto"><i class="fas fa-external-link-alt"></i></a>
         </div>
 
         <div *ngIf="activeView">

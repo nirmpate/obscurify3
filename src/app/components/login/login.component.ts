@@ -70,16 +70,7 @@ export class LoginComponent implements OnInit {
       this.tokenSvc.setAuthTokenCache(cookie);
       this.authService.authorized();
     } else {
-      const scopes = 'user-read-private user-top-read playlist-modify-public playlist-modify-private';
-      const ac: AuthConfig = {
-        client_id: '31e362f6085c4309a2e1a6d2c0f8d8ec',  // WebPortal App Id. Shoud be config
-        response_type: 'token',
-        redirect_uri: 'http://localhost:4200/authorized',  // My URL
-        state: '',
-        show_dialog: true,
-        scope: scopes
-      };
-      this.authService.configure(ac).authorize();
+      this.authService.authorize();
     }
   }
 }

@@ -43,8 +43,8 @@ export class TokenService {
     if (!!spotifyResponse && !!spotifyResponse.access_token) {
       console.log('Spotify Repsonse', spotifyResponse);
       console.log('Spotify Time', spotifyResponse.expires_in);
-    
-      let now = new Date();
+
+      const now = new Date();
       now.setTime(now.getTime() + 1 * Number(spotifyResponse.expires_in) * 1000);
       this.cookieService.set('spotifyResponse', spotifyResponse.access_token, now);
       this.token = spotifyResponse.access_token;

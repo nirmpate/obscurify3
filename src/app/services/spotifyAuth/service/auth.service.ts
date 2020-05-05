@@ -15,12 +15,13 @@ export class AuthService {
   private authorized$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   private authConfig: AuthConfig = {
-    client_id: '3af5f43840144db2a5ef883b56c5fb7e',  // WebPortal App Id. Shoud be config
+    client_id: '31e362f6085c4309a2e1a6d2c0f8d8ec',  // WebPortal App Id. Shoud be config
     response_type: 'token',
-    redirect_uri: 'http://localhost:3000/authorized',  // My URL
+    redirect_uri: 'http://localhost:4200/authorized',  // My URL
     state: '',
     show_dialog: true,
-    scope: new ScopesBuilder().build()
+    scope: 'user-read-private user-top-read playlist-modify-public playlist-modify-private'
+
   };
 
   public authorize() {
