@@ -20,7 +20,7 @@
                 <app-artist-card></app-artist-card>
                 <app-artist-card></app-artist-card> -->
 
-                <app-artist-card [artist]="artist" [i]="i" *ngFor="let artist of allTimeArtist | slice:0:sliceLimit; let i = index"></app-artist-card>
+                <app-artist-card [artist]="artist" [i]="i" *ngFor="let artist of allTimeArtists | slice:0:sliceLimit; let i = index"></app-artist-card>
             </div>
 
             <div fxLayoutAlign="center center">
@@ -30,7 +30,7 @@
 
 
         <div fxFlex.gt-sm="30%">
-            <app-artist-nav></app-artist-nav>
+            <app-artist-nav *ngIf="showNav"></app-artist-nav>
         </div>
     </div>
 </div>

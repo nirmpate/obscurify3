@@ -9,7 +9,7 @@ import { InfoService } from 'src/app/services/infoService';
   styleUrls: ['./artist-list.component.scss'],
   providers: [IntersectionObserverService]
 })
-export class ArtistListComponent implements AfterViewInit {
+export class ArtistListComponent implements AfterViewInit, OnInit {
 
   @Output() appColor = new EventEmitter<number>();
 
@@ -18,9 +18,16 @@ export class ArtistListComponent implements AfterViewInit {
     public intersectionObserverService: IntersectionObserverService,
     public infoSvc: InfoService
     ) { }
-  public allTimeArtist = [];
+
+  public allTimeArtists = [];
+  public currentArtists = [];
+  public allTimeTracks = [];
+  public currentTracks = [];
 
   public sliceLimit = 10;
+
+  public showNav = false;
+
   private intersectionObserverSubs: Subscription;
   private updateAppBackgroundColor(): void {
     this.appColor.emit(4);
@@ -29,30 +36,37 @@ export class ArtistListComponent implements AfterViewInit {
 
   ngOnInit() {
     this.infoSvc.fetchAllTimeArtists().subscribe((x: any) => {
-      console.log('Artist List::', x);
 
       if (x.items) {
-        this.allTimeArtist = [...x.items];
-
-        console.log('artist List::', this.allTimeArtist);
+        this.allTimeArtists = [...x.items];
       }
+
     });
 
     this.infoSvc.fetchAllTimeTracks().subscribe((x: any) => {
 
+      if (x.items) {
+        this.allTimeTracks = [...x.items];
+      }
+
     });
 
     this.infoSvc.fetchCurrentTracks().subscribe((x: any) => {
-
+      if (x.items) {
+        this.currentTracks = [...x.items];
+      }
     });
-    this.infoSvc.fetchCurrentArtists().subscribe((x: any) => {
 
-  });
+    this.infoSvc.fetchCurrentArtists().subscribe((x: any) => {
+      if (x.items) {
+        this.currentTracks = [...x.items];
+      }
+    });
   }
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.50
+      threshold: 0.20
     });
     this.intersectionObserverSubs = this.intersectionObserverService
       .getSubject()
@@ -60,6 +74,9 @@ export class ArtistListComponent implements AfterViewInit {
         if (el.isIntersecting) {
           console.log('is intersecting artists');
           this.updateAppBackgroundColor();
+          this.showNav = true;
+        } else {
+          this.showNav = false;
         }
       });
   }

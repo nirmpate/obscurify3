@@ -37,14 +37,12 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
 
       if (el.isIntersecting) {
         this.updateAppBackgroundColor();
-        this.showComponent();
+        this.show = true;
+      } else {
+        this.show = false;
       }
     });
 
-  }
-
-  showComponent() {
-    this.show = true;
   }
 
 }
