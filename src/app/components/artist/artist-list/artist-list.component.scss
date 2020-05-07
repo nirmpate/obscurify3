@@ -6,6 +6,10 @@
     margin: 0 auto;
     padding: 2rem 0px;
 
+    .header__title {
+        text-transform: capitalize;
+    }
+
     &__container {
         margin-top: 2em;
     }

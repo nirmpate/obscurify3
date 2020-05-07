@@ -26,6 +26,8 @@ import { AuthService, TokenService, AuthGuard, SpotifyAuthInterceptor } from './
 import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.component';
 import { InfoService } from './services/infoService';
 import ObscurityFuncs from './utilities/obscurityFuncs';
+import { TrackCardComponent } from './components/artist/track-card/track-card.component';
+import { SpotifyProvider } from './services/spotifyProvider/spotifyProvider';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import ObscurityFuncs from './utilities/obscurityFuncs';
     RecommendationsComponent,
     LoginComponent,
     SpotifyAuthComponent,
+    TrackCardComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -61,6 +64,7 @@ import ObscurityFuncs from './utilities/obscurityFuncs';
     AuthGuard,
     CookieService,
     InfoService,
+    SpotifyProvider,
     [{
       provide:  HTTP_INTERCEPTORS,
       // Force interception to use your new shiny headers!

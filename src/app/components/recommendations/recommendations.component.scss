@@ -13,7 +13,7 @@
   min-height: 620px;
   opacity: 0;
   transform: translateY(100px);
-  transition: .3s ease-in;
+  transition: .3s cubic-bezier(.25,.1,.25,1);
   &.show {
     opacity: 1;
     transform: translateY(0px);
@@ -142,7 +142,7 @@
       align-content: flex-end;
       justify-content: flex-start;
       padding: 16px 16px 8px;
-      transition: 0.2s ease;
+      transition: .3s cubic-bezier(.25,.1,.25,1);
       top: 50px;
       box-sizing: border-box;
 
@@ -237,7 +237,7 @@
         align-content: flex-end;
         justify-content: flex-start;
         padding: 16px 16px 8px;
-        transition: .2s ease;
+        transition: .3s cubic-bezier(.25,.1,.25,1);
         top: 50px;
 
         h3 {

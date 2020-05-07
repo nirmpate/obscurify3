@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit } fr
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
+import { TokenService } from 'src/app/services/spotifyAuth';
+import { SpotifyProvider } from 'src/app/services/spotifyProvider/spotifyProvider';
 
 @Component({
   selector: 'app-artist-list',
@@ -16,19 +18,32 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
   constructor(
     public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
-    public infoSvc: InfoService
+    public infoSvc: InfoService,
+    public tokenSvc: TokenService,
+    public spotifyProvider: SpotifyProvider
     ) { }
+
+  public navState = {
+    listType: 'artists',
+    historyList: [
+      {name: 'Current', value: 'current'},
+      {name: 'All Time', value: 'allTime'},
+    ],
+    selectedHistory: {name: 'Current', value: 'current'}
+  };
 
   public allTimeArtists = [];
   public currentArtists = [];
   public allTimeTracks = [];
   public currentTracks = [];
+  public userInfo;
 
   public sliceLimit = 10;
 
   public showNav = false;
 
   private intersectionObserverSubs: Subscription;
+
   private updateAppBackgroundColor(): void {
     this.appColor.emit(4);
   }
@@ -59,8 +74,12 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
 
     this.infoSvc.fetchCurrentArtists().subscribe((x: any) => {
       if (x.items) {
-        this.currentTracks = [...x.items];
+        this.currentArtists = [...x.items];
       }
+    });
+
+    this.infoSvc.getUserStream().subscribe((user: any) => {
+      this.userInfo = {...user.userInfo};
     });
   }
 
@@ -79,5 +98,50 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
           this.showNav = false;
         }
       });
+  }
+
+  getHistory(data) {
+    this.navState = {...data};
+    console.log(this.navState);
+  }
+
+  createPlaylist() {
+    let playlistName = '';
+
+    if (this.navState.selectedHistory.name === 'Current') {
+      playlistName = 'Current';
+    } else {
+      playlistName = 'All-Time Top Tracks // Obscurify';
+    }
+
+    if (playlistName === 'Current') {
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ];
+      const dateObj = new Date();
+      const month = monthNames[dateObj.getMonth()]; // months from 1-12
+      const day = dateObj.getDate();
+      const year = dateObj.getFullYear() % 100;
+      const newdate = month + ' ' + day + ' \'' + year;
+      playlistName = newdate + ' // Obscurify';
+    }
+
+    const config = {
+      userID: this.userInfo.id,
+      token: this.tokenSvc.oAuthToken,
+      playlistName: (playlistName),
+      tracks: null
+    };
+
+    if (this.navState.selectedHistory.value === 'current') {
+      config.tracks = this.currentTracks;
+    } else {
+      config.tracks = this.allTimeTracks;
+    }
+
+    console.log(playlistName);
+    this.spotifyProvider.makePlaylist(config).then((results: any) => {
+      console.log(results);
+    });
   }
 }

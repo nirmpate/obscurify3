@@ -30,7 +30,9 @@ export class InfoService {
   public fetchUserInfo(): Observable<{}> {
     return this.http.get(this.apiUserUrl).pipe(
       tap((user: {}) => {
+        console.log('user info', user);
         this.user = {
+          ...this.user,
             userInfo: user
         };
         this.user$.next(this.user);

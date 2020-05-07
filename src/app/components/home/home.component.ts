@@ -54,10 +54,14 @@ export class HomeComponent implements OnInit {
       this.tokenSvc.clearToken();
       this.router.navigate(['login']);
     }
+
     const stream = this.tokenSvc.authTokens.pipe((x) => {
       return this.infoSvc.fetchUserInfo();
     });
 
+    stream.subscribe((user )=> {
+      console.log(user);
+    });
     this.infoSvc.getUserStream().subscribe((user) => {
       console.log('user in home', user);
     });
