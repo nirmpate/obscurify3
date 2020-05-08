@@ -8,13 +8,14 @@
     &__image {
         width: 200px;
         height: 200px;
-        border-radius: 50%;
         margin: 0 auto 2em;
         background: #e5e5e5;
 
         img {
             width: 100%;
             height: auto;
+            border-radius: 50%;
+
         }
     }
 

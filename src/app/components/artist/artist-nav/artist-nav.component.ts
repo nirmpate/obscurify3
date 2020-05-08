@@ -34,7 +34,8 @@ export class ArtistNavComponent implements OnInit {
   updateArtistTrack(type) {
     const navState = {
       listType: type,
-      selectedHistory: this.selectedHistory
+      selectedHistory: this.selectedHistory,
+      historyList: this.navState.historyList
     };
     this.updateHistory.next(navState);
   }

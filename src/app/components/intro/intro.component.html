@@ -1,6 +1,6 @@
 <div class="profile" fxLayout="column" fxLayoutAlign="center center">
     <div class="profile__image">
-        <img src="assets/images/app/profile-placeholder.png"/>
+        <img [src]="this.userImage ? this.userImage : 'assets/images/app/profile-placeholder.png'"/>
     </div>
-    <h1 class="profile__header">Hello, <span>Nirmal</span>. Let's see how obscure your taste is...</h1>
+    <h1 class="profile__header">Hello, <span>{{ userName }}</span>. Let's see how obscure your taste is...</h1>
 </div>
