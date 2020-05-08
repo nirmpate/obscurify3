@@ -10,7 +10,6 @@
     border-radius: 5px;
     box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.5);
     color: white;
-    margin-bottom: 1em;
     transition: .3s cubic-bezier(.25,.1,.25,1);
 
     img {
@@ -26,6 +25,10 @@
             height: 100%;
         }
     }
+
+    span {
+        margin-top: 2px;
+    }
     
     &__info {
         height: 60px;
@@ -36,16 +39,18 @@
         border-radius: 5px;
         bottom: 0;  
         box-sizing: border-box;  
-        padding: 1em 0.5em;
-        font-size: 1em;
+        padding: 1rem 0.5rem;
+        font-size: 1.2rem;
 
         &--secondary, &--primary {
             transition: .3s cubic-bezier(.25,.1,.25,1);
-            margin-left: 1em;
+            margin-left: 1rem;
         }
 
-        p {
-            margin-bottom: 0.5em;
+        &--primary {
+            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+
         }
     }
 
@@ -85,11 +90,16 @@
 
 @include desktop {
     .artist__card {
-        height: 150px;
+        height: 170px;
         width: 220px;
+        margin-bottom: 1em;
+
+        &__info {
+            font-size: 1rem;
+        }
 
         &.active {
-            height: 150px;
+            height: 170px;
         }
     }
 

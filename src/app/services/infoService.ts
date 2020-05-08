@@ -149,6 +149,7 @@ export class InfoService {
 
         this.user = {
           ...this.user,
+          currentArtistsIDs: [...currentArtistsIDs],
           currentArtists: artists.items,
           recentObscurifyScore: (recentObscurifyScore)
         };

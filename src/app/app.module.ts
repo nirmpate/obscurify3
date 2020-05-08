@@ -6,6 +6,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { CookieService } from 'ngx-cookie-service';
 
@@ -53,6 +54,7 @@ import { SpotifyProvider } from './services/spotifyProvider/spotifyProvider';
     BrowserAnimationsModule,
     PlatformModule,
     MatRadioModule,
+    MatSnackBarModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule

@@ -11,268 +11,27 @@
                   <i class="fas fa-sliders-h"></i>
                 </button> -->
           
-                <button id="add-playlist-btn" class="add-playlist-btn" (click)="makePlaylist(recommendedTracks, 'Recommended for You // Obscurify')">
+                <button id="add-playlist-btn" class="add-playlist-btn" (click)="makePlaylist()">
                   <span>Create Playlist</span>
                   <i class="fas fa-plus-circle"></i>
                 </button>
                 <div class="track-container">
                   <div class="card-track">
-                    <div class="card">
+                    <div class="card" *ngFor="let track of recommendedTracks">
                       <div class="card-content">
-                          <img item-start src="www.google.com">
+                          <img item-start [src]="track.album.images[1].url">
                       </div>
                       <div class="card-info">
-                        <a href="www.google.com">
+                        <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)">
                           <h3>
-                            dont be afraid
+                            {{ (track.name.length < 30) ? (track.name):(track.name | slice:0:25)+'...' }}
                           </h3>
                           <p>
-                            knxwledge
+                            {{ track.artists[0].name }}
                           </p>
                         </a>
                       </div>
-          
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-          
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-          
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-          
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-          
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-            
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-                      
-                      <div class="card">
-                        <div class="card-content">
-                            <img item-start src="www.google.com">
-                        </div>
-                        <div class="card-info">
-                          <a href="www.google.com">
-                            <h3>
-                              dont be afraid
-                            </h3>
-                            <p>
-                              knxwledge
-                            </p>
-                          </a>
-                        </div>
-            
-                      </div>
-
-
-
                   </div>
                 </div>
               </div>

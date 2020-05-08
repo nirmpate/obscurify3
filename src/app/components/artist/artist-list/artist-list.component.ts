@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
@@ -20,7 +22,8 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     public intersectionObserverService: IntersectionObserverService,
     public infoSvc: InfoService,
     public tokenSvc: TokenService,
-    public spotifyProvider: SpotifyProvider
+    public spotifyProvider: SpotifyProvider,
+    public snackBar: MatSnackBar
     ) { }
 
   public navState = {
@@ -139,9 +142,20 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
       config.tracks = this.allTimeTracks;
     }
 
-    console.log(playlistName);
     this.spotifyProvider.makePlaylist(config).then((results: any) => {
-      console.log(results);
+      console.log('playlist', results);
+      this.snackBar.open('Playlist Created in Spotify!', '' , { duration: 5000, panelClass: 'panel-success'});
+
+    }).catch((err: any) => {
+      console.log('playlist error', err);
+      this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
     });
+  }
+
+  showMore() {
+    this.sliceLimit = 50;
+  }
+  showLess() {
+    this.sliceLimit = 10;
   }
 }

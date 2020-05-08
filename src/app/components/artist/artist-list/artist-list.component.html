@@ -50,7 +50,9 @@
         </div>
 
             <div fxLayoutAlign="center center">
-                <button class="artist__button artist__button--primary">Show More</button>
+                <button *ngIf="this.sliceLimit === 10" class="artist__button artist__button--primary" (click)="showMore()">Show More</button>
+                <button *ngIf="this.sliceLimit === 50" class="artist__button artist__button--primary" (click)="showLess()">Show Less</button>
+
             </div>
         </div>
 
