@@ -30,15 +30,32 @@
             text-align: right;
             margin-top: 1em;
 
+            span {
+                float: left;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
             i {
                 margin-left: 1em;
             }
         }
     }
 
+    &__content {
+        h2 {
+            margin-bottom: .5em;
+        }
+    }
+
     
     &__main {
         margin-bottom: 2em;
+
+        .artist__nav__button {
+            margin-right: 1em;
+            font-size: 1em;
+        }
     }
 
     &__history {
@@ -91,7 +108,7 @@
 
     .artist__nav {
         box-shadow: 3px 14px 16px 8px #000;
-        
+
         &__container {
             margin: 0em 0 0;
         }

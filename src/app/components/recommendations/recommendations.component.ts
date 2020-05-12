@@ -15,7 +15,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RecommendationsComponent implements OnInit, AfterViewInit {
   @Output() appColor = new EventEmitter<number>();
-  recommendedTracks: any;
 
   constructor(
     public element: ElementRef,
@@ -25,8 +24,9 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
     public sanitizer: DomSanitizer,
     public snackBar: MatSnackBar) { }
     public show = false;
-    public user;
-    public tracks;
+    public user: any;
+    public recommendedTracks: any;
+
     private intersectionObserverSubs: Subscription;
     private initialTracks = false;
 
@@ -67,10 +67,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
         if (!this.initialTracks) {
           this.spotifyProvider.getRecommendations(config)
           .then((data: any) => {
-            console.log('data', data);
-            this.tracks = data.tracks;
-            this.recommendedTracks = this.tracks.slice(0, 16);
-            console.log('tracks', this.tracks);
+            this.recommendedTracks = data.tracks;
             this.initialTracks = true;
           })
           .catch((err) => {
@@ -82,6 +79,24 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
         this.show = false;
       }
 
+    });
+  }
+
+  refreshTracks() {
+    const config = {
+      allTimeArtistIDs: this.user.allTimeArtistIDs,
+      currentArtistsIDs: this.user.currentArtistsIDs,
+      allTimeTrackIDs: this.user.allTimeTrackIDs,
+      currentTrackIDs: this.user.currentTrackIDs,
+      country: this.user.userInfo.country
+    };
+
+    this.spotifyProvider.getRecommendations(config).then((data: any) => {
+      this.recommendedTracks = data.tracks;
+    }).catch((err) => {
+
+      console.log('playlist error', err);
+      this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
     });
   }
 

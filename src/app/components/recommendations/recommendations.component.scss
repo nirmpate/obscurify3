@@ -73,6 +73,7 @@
   position: absolute;
   z-index: 1;
   display: inline-block;
+  cursor: pointer;
   span {
     /* Create Playlist: */
     font-size: 14px;
@@ -83,6 +84,11 @@
     margin-right: 6px;
     z-index: 1;
   }
+}
+
+.refresh-btn {
+  @extend .add-playlist-btn;
+  right: auto;
 }
 
 .content {
@@ -281,7 +287,7 @@
 
   @include desktop {
     .recommendations {
-      max-width: 920px;
+      max-width: 820px;
 
       .header__title {
         border-color: white;

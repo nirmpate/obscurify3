@@ -1,3 +1,19 @@
+<nav>
+    <div fxLayout="row" fxLayoutAlign="end start">
+        <button [matMenuTriggerFor]="appMenu"> Settings <i class="fas fa-cog"> </i> </button>
+    </div>
+
+    <mat-menu #appMenu="matMenu">
+        <button mat-menu-item>Logout</button>
+        <button mat-menu-item>About</button>
+        <a  mat-menu-item href="https://www.spotify.com/us/account/apps/">Remove Obscurify Account</a>
+      </mat-menu>
+</nav>
+
+<div class="welcome" fxLayout="column" fxLayoutAlign="center center">
+    <h1>Welcome to <br /> Obscurify<span>.</span></h1>
+</div>
+
 <div class="profile" fxLayout="column" fxLayoutAlign="center center">
     <div class="profile__image">
         <img [src]="this.userImage ? this.userImage : 'assets/images/app/profile-placeholder.png'"/>

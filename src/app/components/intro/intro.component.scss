@@ -1,21 +1,57 @@
 @import 'variables';
 @import 'mixins';
 
+nav {
+    max-width: 1024px;
+    padding: 1em 1em;
+    margin: 0 auto;
+
+    color: rgba(0,0,0,0.5);
+
+    i {
+        font-size: 2em;
+        cursor: pointer;
+    }
+
+    button {
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1em;
+        i {
+            margin-left: 5px;
+        }
+    }
+}
+
+.welcome {
+    width: 100%;
+    font-size: 2em;
+    padding-top: 140px;
+    text-align: center;
+    span {
+        color: $primary-color;
+    }
+}
+
 .profile {
     width: 100%;
     padding: 140px 0;
+    text-align: center;
 
     &__image {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
         margin: 0 auto 2em;
         background: #e5e5e5;
+        border-radius: 50%;
 
         img {
             width: 100%;
             height: auto;
             border-radius: 50%;
-
         }
     }
 
@@ -31,8 +67,8 @@
 
     .profile {
         &__image {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
         }
 
         &__header {

@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { CookieService } from 'ngx-cookie-service';
 
@@ -29,6 +30,8 @@ import { InfoService } from './services/infoService';
 import ObscurityFuncs from './utilities/obscurityFuncs';
 import { TrackCardComponent } from './components/artist/track-card/track-card.component';
 import { SpotifyProvider } from './services/spotifyProvider/spotifyProvider';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { SpotifyProvider } from './services/spotifyProvider/spotifyProvider';
     LoginComponent,
     SpotifyAuthComponent,
     TrackCardComponent,
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -57,7 +62,8 @@ import { SpotifyProvider } from './services/spotifyProvider/spotifyProvider';
     MatSnackBarModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule
   ],
   providers: [
     ObscurityFuncs,

@@ -3,11 +3,12 @@
 
         <div class="artist__nav__mobile">
             <button (click)="navOpen = !navOpen">
-                Options <i class="fas fa-chevron-up"></i>
+                <span>Options</span> <i class="fas fa-chevron-up"></i>
             </button>
         </div>
         <div class="artist__nav__content">
-            <div class="artist__nav__main" fxLayout="row" fxLayoutAlign="space-between start">
+            <h2>Select</h2>
+            <div class="artist__nav__main" fxLayout="row" fxLayoutAlign="flex-start start">
                 <button class="artist__nav__button" [ngClass]="{'active': navState.listType === 'artists'}" (click)="updateArtistTrack('artists')">Artists</button>
                 <button class="artist__nav__button" [ngClass]="{'active': navState.listType === 'songs'}" (click)="updateArtistTrack('songs')">Songs</button>
             </div>

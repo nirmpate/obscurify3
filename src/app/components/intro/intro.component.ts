@@ -24,7 +24,7 @@ export class IntroComponent implements OnInit, AfterViewInit {
 
   private intersectionObserverSubs: Subscription;
   private updateAppBackgroundColor(): void {
-    this.appColor.emit(1);
+    this.appColor.emit(4);
   }
 
 
