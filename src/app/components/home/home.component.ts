@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
     });
     this.infoSvc.getUserStream().subscribe((user: any) => {
       if (user.userInfo && user.allTimeObscurifyScore) {
-        this.obscurifyService.getObscurifyData(user.userInfo.country, user.allTimeObscurifyScore).subscribe(
+        this.obscurifyService.getObscurifyData(user.userInfo.country, user.allTimeObscurifyScore, user.recentObscurifyScore).subscribe(
           (data) => {
             console.log('obscurify data', data);
           }

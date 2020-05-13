@@ -14,14 +14,10 @@ export class ObscurifyService {
 
     public obscurifyUrl = 'https://ktp0b5os1g.execute-api.us-east-2.amazonaws.com/dev';
 
-    getObscurifyData(countryID, obscurifyScore): Observable<{}> {
-        return this.http.get(this.obscurifyUrl + '/getObscurifyData', {
-            headers: new HttpHeaders({
-                code: countryID,
-                obscurifyScore: (obscurifyScore),
-                Authorization: 'Basic'
-            })
-        }).pipe(
+    getObscurifyData(countryID, obscurifyScore, recentObscurifyScore): Observable<{}> {
+        return this.http.get(this.obscurifyUrl + 
+            `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`)
+            .pipe(
             tap((data: {}) => {
               console.log('user info', data);
               this.obscurifyData = {...data};
