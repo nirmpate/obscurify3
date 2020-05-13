@@ -65,11 +65,13 @@ export class HomeComponent implements OnInit {
 
     });
     this.infoSvc.getUserStream().subscribe((user: any) => {
-      this.obscurifyService.getObscurifyData(user.userInfo, user.allTimeObscurifyScore).subscribe(
-        (data) => {
-          console.log('obscurify data', data);
-        }
-      );
+      if (user.userInfo && user.allTimeObscurifyScore) {
+        this.obscurifyService.getObscurifyData(user.userInfo.country, user.allTimeObscurifyScore).subscribe(
+          (data) => {
+            console.log('obscurify data', data);
+          }
+        );
+      }
     });
 
   }
