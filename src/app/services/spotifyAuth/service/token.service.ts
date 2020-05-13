@@ -51,7 +51,7 @@ export class TokenService {
       console.log('Spotify Time', spotifyResponse.expires_in);
 
       const now = new Date();
-      now.setTime(now.getTime() + 1 * Number(spotifyResponse.expires_in) * 1000);
+      now.setTime(now.getTime() + 1 * 3600 * 1000);
       this.cookieService.set('spotifyResponse', spotifyResponse.spotifyToken, now);
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;

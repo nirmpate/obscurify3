@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const cookie = this.cookieService.get('spotifyResponse');
 
-    if (cookie || this.tokenSvc.oAuthToken) {
+    if (cookie || this.tokenSvc.oAuthToken.spotifyToken) {
       this.tokenSvc.setAuthTokenCache(cookie);
       this.authService.authorized();
     } else {

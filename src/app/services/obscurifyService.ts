@@ -7,7 +7,9 @@ import { tap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ObscurifyService {
-    constructor(public http: HttpClient) {}
+    constructor(public http: HttpClient) {
+        this.obscurifyData$ = new BehaviorSubject<{}>(this.obscurifyData);
+    }
 
     private obscurifyData = {};
     private obscurifyData$: BehaviorSubject<{}>;
@@ -15,8 +17,11 @@ export class ObscurifyService {
     public obscurifyUrl = 'https://ktp0b5os1g.execute-api.us-east-2.amazonaws.com/dev';
 
     getObscurifyData(countryID, obscurifyScore, recentObscurifyScore): Observable<{}> {
-        return this.http.get(this.obscurifyUrl + 
-            `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`)
+        return this.http.get(this.obscurifyUrl +
+            `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`,
+            {
+                headers: new HttpHeaders().set('Authorization', 'asdf')
+            })
             .pipe(
             tap((data: {}) => {
               console.log('user info', data);
