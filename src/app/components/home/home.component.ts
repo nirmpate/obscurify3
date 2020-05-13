@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
     const cookie = this.cookieService.get('spotifyResponse');
 
     if (cookie || this.tokenSvc.oAuthToken) {
-      this.tokenSvc.setAuthTokenCache(cookie);
+      // this.tokenSvc.setAuthTokenCache(cookie);
       this.authService.authorized();
     } else {
       this.tokenSvc.clearToken();

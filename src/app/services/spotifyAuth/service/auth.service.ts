@@ -16,8 +16,8 @@ export class AuthService {
 
   private authConfig: AuthConfig = {
     client_id: '31e362f6085c4309a2e1a6d2c0f8d8ec',  // WebPortal App Id. Shoud be config
-    response_type: 'token',
-    redirect_uri: 'http://localhost:4200/authorized',  // My URL
+    response_type: 'code',
+    redirect_uri: 'https://ktp0b5os1g.execute-api.us-east-2.amazonaws.com/dev/callbackLocal',  // My URL
     state: '',
     show_dialog: true,
     scope: 'user-read-private user-top-read playlist-modify-public playlist-modify-private'

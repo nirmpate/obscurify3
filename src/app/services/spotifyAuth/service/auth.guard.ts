@@ -17,17 +17,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
   public canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const response = this.extractApiResponse(next.fragment);
-    if (response) {
+    const response = next.queryParams;
+    if (response.spotifyToken && response.obscurifyToken) {
       this.tokenSvc.setAuthToken(response);
     }
     return !!response;
-  }
-
-  private extractApiResponse(fragment: string): SpotifyAuthResponse | null {
-    if (!!fragment) {
-      return fromPairs(fragment.split('&').map((s) => s.split('='))) as SpotifyAuthResponse;
-    }
-    return null;
   }
 }

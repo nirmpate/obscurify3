@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (!!this.tokenSvc.oAuthToken) {
+    if (!!this.tokenSvc.oAuthToken.spotifyToken) {
       this.router.navigate(['home']);
     }
   }
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     const cookie = this.cookieService.get('spotifyResponse');
 
     if (cookie) {
-      this.tokenSvc.setAuthTokenCache(cookie);
+      // this.tokenSvc.setAuthTokenCache(cookie);
       this.authService.authorized();
     } else {
       this.authService.authorize();
