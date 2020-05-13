@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit } fr
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
-import { SpotifyProvider } from 'src/app/services/spotifyProvider/spotifyProvider';
+import { SpotifyService } from 'src/app/services/spotifyService';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -20,7 +20,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
     public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
     public infoSvc: InfoService,
-    public spotifyProvider: SpotifyProvider,
+    public spotifyService: SpotifyService,
     public sanitizer: DomSanitizer,
     public snackBar: MatSnackBar) { }
     public show = false;
@@ -65,7 +65,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
         };
 
         if (!this.initialTracks) {
-          this.spotifyProvider.getRecommendations(config)
+          this.spotifyService.getRecommendations(config)
           .then((data: any) => {
             this.recommendedTracks = data.tracks;
             this.initialTracks = true;
@@ -91,7 +91,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
       country: this.user.userInfo.country
     };
 
-    this.spotifyProvider.getRecommendations(config).then((data: any) => {
+    this.spotifyService.getRecommendations(config).then((data: any) => {
       this.recommendedTracks = data.tracks;
     }).catch((err) => {
 
@@ -106,7 +106,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
       playlistName: 'Recommended for You // Obscurify',
       tracks: this.recommendedTracks
     };
-    this.spotifyProvider.makePlaylist(config).then((results: any) => {
+    this.spotifyService.makePlaylist(config).then((results: any) => {
       console.log('playlist', results);
       this.snackBar.open('Playlist Created in Spotify!', '' , { duration: 5000, panelClass: 'panel-success'});
 

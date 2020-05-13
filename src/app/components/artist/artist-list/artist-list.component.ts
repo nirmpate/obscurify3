@@ -5,7 +5,7 @@ import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
 import { TokenService } from 'src/app/services/spotifyAuth';
-import { SpotifyProvider } from 'src/app/services/spotifyProvider/spotifyProvider';
+import { SpotifyService } from 'src/app/services/spotifyService';
 
 @Component({
   selector: 'app-artist-list',
@@ -22,7 +22,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     public intersectionObserverService: IntersectionObserverService,
     public infoSvc: InfoService,
     public tokenSvc: TokenService,
-    public spotifyProvider: SpotifyProvider,
+    public spotifyService: SpotifyService,
     public snackBar: MatSnackBar
     ) { }
 
@@ -142,7 +142,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
       config.tracks = this.allTimeTracks;
     }
 
-    this.spotifyProvider.makePlaylist(config).then((results: any) => {
+    this.spotifyService.makePlaylist(config).then((results: any) => {
       console.log('playlist', results);
       this.snackBar.open('Playlist Created in Spotify!', '' , { duration: 5000, panelClass: 'panel-success'});
 

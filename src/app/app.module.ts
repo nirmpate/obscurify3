@@ -29,7 +29,7 @@ import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.com
 import { InfoService } from './services/infoService';
 import ObscurityFuncs from './utilities/obscurityFuncs';
 import { TrackCardComponent } from './components/artist/track-card/track-card.component';
-import { SpotifyProvider } from './services/spotifyProvider/spotifyProvider';
+import { SpotifyService } from './services/spotifyService';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -72,7 +72,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AuthGuard,
     CookieService,
     InfoService,
-    SpotifyProvider,
+    SpotifyService,
     [{
       provide:  HTTP_INTERCEPTORS,
       // Force interception to use your new shiny headers!
