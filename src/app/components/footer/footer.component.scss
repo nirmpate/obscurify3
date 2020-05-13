@@ -1,0 +1,17 @@
+footer {
+    min-height: 100px;
+    padding: 3em;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    bottom: 0;
+
+    a {
+        color: white;
+        text-decoration: none;
+        margin-bottom: 1em;
+
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+    }
+}
