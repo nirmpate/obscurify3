@@ -1,11 +1,15 @@
 @import 'mixins';
 @import 'components/header';
+@import 'variables';
 
 .artist {
-    min-height: 100vh;
     max-width: 1024px;
     margin: 0 auto;
     padding: 2rem 0px;
+
+    .header__title {
+        text-transform: capitalize;
+    }
 
     &__container {
         margin-top: 2em;

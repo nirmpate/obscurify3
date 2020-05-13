@@ -40,3 +40,10 @@ h1,h2,h3,h4,h5,p,li,ul {
 $primary-font: 'Helvetica Neue', sans-serif;
 $secondary-font: -apple-system, BlinkMacSystemFont, 'Segoe UI';
 
+.panel-success {
+    color: $primary-color;
+}
+
+.panel-error {
+    color: red;
+}

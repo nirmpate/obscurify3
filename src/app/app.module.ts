@@ -6,6 +6,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { CookieService } from 'ngx-cookie-service';
 
@@ -26,6 +28,10 @@ import { AuthService, TokenService, AuthGuard, SpotifyAuthInterceptor } from './
 import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.component';
 import { InfoService } from './services/infoService';
 import ObscurityFuncs from './utilities/obscurityFuncs';
+import { TrackCardComponent } from './components/artist/track-card/track-card.component';
+import { SpotifyProvider } from './services/spotifyProvider/spotifyProvider';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +48,9 @@ import ObscurityFuncs from './utilities/obscurityFuncs';
     RecommendationsComponent,
     LoginComponent,
     SpotifyAuthComponent,
+    TrackCardComponent,
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -50,9 +59,11 @@ import ObscurityFuncs from './utilities/obscurityFuncs';
     BrowserAnimationsModule,
     PlatformModule,
     MatRadioModule,
+    MatSnackBarModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule
   ],
   providers: [
     ObscurityFuncs,
@@ -61,6 +72,7 @@ import ObscurityFuncs from './utilities/obscurityFuncs';
     AuthGuard,
     CookieService,
     InfoService,
+    SpotifyProvider,
     [{
       provide:  HTTP_INTERCEPTORS,
       // Force interception to use your new shiny headers!

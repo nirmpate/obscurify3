@@ -1,36 +1,64 @@
 <div class="artist">
     <div class="header">
         <h2 class="header__title">
-            Top Artists
+            {{ this.navState.selectedHistory.name }} Top {{ navState.listType}}
         </h2>
     </div>
 
     <div  class="artist__container" fxlayout="column" fxLayout.gt-sm="row">
         <div fxLayout="column">   
-            <div class="artist__container__grid" fxFLex="100%" fxLayout.gt-xs="row wrap" fxLayout="column nowrap" fxLayoutGap="16px">
-                <!-- <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card>
-                <app-artist-card></app-artist-card> -->
+            <div *ngIf="this.navState.selectedHistory.value == 'allTime' && this.navState.listType === 'artists'" 
+                class="artist__container__grid" 
+                fxFLex="100%" 
+                fxLayout.gt-xs="row wrap" 
+                fxLayout="column nowrap" 
+                fxLayoutGap="16px">
 
-                <app-artist-card [artist]="artist" [i]="i" *ngFor="let artist of allTimeArtist | slice:0:sliceLimit; let i = index"></app-artist-card>
+                    <app-artist-card [artist]="artist" [i]="i" *ngFor="let artist of allTimeArtists | slice:0:sliceLimit; let i = index"></app-artist-card>
+
+            </div>
+            <div *ngIf="this.navState.selectedHistory.value == 'current'  && this.navState.listType === 'artists'"
+                class="artist__container__grid" 
+                fxFLex="100%" 
+                fxLayout.gt-xs="row wrap" 
+                fxLayout="column nowrap" 
+                fxLayoutGap="16px"> 
+
+                <app-artist-card [artist]="artist" [i]="i" *ngFor="let artist of currentArtists | slice:0:sliceLimit; let i = index"></app-artist-card>
+
             </div>
 
+            <div *ngIf="this.navState.selectedHistory.value == 'allTime' && this.navState.listType === 'songs'" 
+            class="artist__container__grid" 
+            fxFLex="100%" 
+            fxLayout.gt-xs="row wrap" 
+            fxLayout="column nowrap" 
+            fxLayoutGap="16px">
+
+                <app-track-card [track]="track" [i]="i" *ngFor="let track of allTimeTracks | slice:0:sliceLimit; let i = index"></app-track-card>
+
+        </div>
+        <div *ngIf="this.navState.selectedHistory.value == 'current' && this.navState.listType === 'songs'"
+            class="artist__container__grid" 
+            fxFLex="100%" 
+            fxLayout.gt-xs="row wrap" 
+            fxLayout="column nowrap" 
+            fxLayoutGap="16px"> 
+
+            <app-track-card [track]="track" [i]="i" *ngFor="let track of currentTracks | slice:0:sliceLimit; let i = index"></app-track-card>
+
+        </div>
+
             <div fxLayoutAlign="center center">
-                <button class="artist__button artist__button--primary">Show More</button>
+                <button *ngIf="this.sliceLimit === 10" class="artist__button artist__button--primary" (click)="showMore()">Show More</button>
+                <button *ngIf="this.sliceLimit === 50" class="artist__button artist__button--primary" (click)="showLess()">Show Less</button>
+
             </div>
         </div>
 
 
         <div fxFlex.gt-sm="30%">
-            <app-artist-nav></app-artist-nav>
+            <app-artist-nav *ngIf="showNav" [navState]="navState" (createPlaylist)="createPlaylist($event)" (updateHistory)="getHistory($event)"></app-artist-nav>
         </div>
     </div>
 </div>

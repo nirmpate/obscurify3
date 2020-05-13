@@ -11,7 +11,7 @@ import ObscurityFuncs from '../utilities/obscurityFuncs';
 @Injectable()
 export class InfoService {
 
-  private apiUserUrl: string = 'https://api.spotify.com/v1/me';
+  private apiUserUrl = 'https://api.spotify.com/v1/me';
   private apiAllTimeArtists = 'https://api.spotify.com/v1/me/top/artists?limit=50&time_range=long_term';
   private apiCurrentArtists = 'https://api.spotify.com/v1/me/top/artists?limit=50&time_range=short_term';
   private apiAllTimeTracks = 'https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=long_term';
@@ -30,7 +30,9 @@ export class InfoService {
   public fetchUserInfo(): Observable<{}> {
     return this.http.get(this.apiUserUrl).pipe(
       tap((user: {}) => {
+        console.log('user info', user);
         this.user = {
+          ...this.user,
             userInfo: user
         };
         this.user$.next(this.user);
@@ -147,6 +149,7 @@ export class InfoService {
 
         this.user = {
           ...this.user,
+          currentArtistsIDs: [...currentArtistsIDs],
           currentArtists: artists.items,
           recentObscurifyScore: (recentObscurifyScore)
         };
