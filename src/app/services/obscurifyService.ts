@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
 
@@ -18,7 +18,8 @@ export class ObscurifyService {
         return this.http.get(this.obscurifyUrl + '/getObscurifyData', {
             headers: new HttpHeaders({
                 code: countryID,
-                obscurifyScore: (obscurifyScore)
+                obscurifyScore: (obscurifyScore),
+                Authorization: 'Basic'
             })
         }).pipe(
             tap((data: {}) => {
@@ -26,11 +27,17 @@ export class ObscurifyService {
               this.obscurifyData = {...data};
               this.obscurifyData$.next(this.obscurifyData);
             }),
-            catchError(
-                console.log('Failed to get Obscurify Data')
+            catchError(this.handleError('Error')
             )
           );
     }
+
+    private handleError<T>(operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+          (result as any) = error;
+          return of(result as T);
+        };
+      }
     // getHistoryIDs() {
     //   if (this.userData.userHistory == null || this.userData.userHistory.length == 0) {
     //     let url = 'https://obscurifymusic.com/api/getUserHistory?userID=' + this.userData.userID + '&hex=' + this.userData.hex;

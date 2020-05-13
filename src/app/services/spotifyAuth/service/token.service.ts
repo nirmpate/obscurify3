@@ -35,15 +35,15 @@ export class TokenService {
     return this.token$.asObservable();
   }
 
-  // public setAuthTokenCache(tokenCookie): boolean {
-  //   if (!!tokenCookie) {
-  //     this.token = tokenCookie;
-  //   } else {
-  //     this.token = '';
-  //   }
-  //   this.token$.next(this.token);
-  //   return !!this.token;
-  // }
+  public setAuthTokenCache(tokenCookie): boolean {
+    if (!!tokenCookie) {
+      this.token.spotifyToken = tokenCookie;
+    } else {
+      this.token.spotifyToken = '';
+    }
+    this.token$.next(this.token);
+    return !!this.token;
+  }
 
   public setAuthToken(spotifyResponse: any): boolean {
     if (!!spotifyResponse && !!spotifyResponse.spotifyToken && !!spotifyResponse.obscurifyToken) {
@@ -52,7 +52,7 @@ export class TokenService {
 
       const now = new Date();
       now.setTime(now.getTime() + 1 * Number(spotifyResponse.expires_in) * 1000);
-      // this.cookieService.set('spotifyResponse', spotifyResponse.access_token, now);
+      this.cookieService.set('spotifyResponse', spotifyResponse.spotifyToken, now);
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;
     } else {

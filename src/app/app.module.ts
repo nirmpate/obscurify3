@@ -32,6 +32,7 @@ import { TrackCardComponent } from './components/artist/track-card/track-card.co
 import { SpotifyService } from './services/spotifyService';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import ObscurifyService from './services/obscurifyService';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AuthGuard,
     CookieService,
     InfoService,
+    ObscurifyService,
     SpotifyService,
     [{
       provide:  HTTP_INTERCEPTORS,

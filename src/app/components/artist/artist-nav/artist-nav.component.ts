@@ -26,7 +26,9 @@ export class ArtistNavComponent implements OnInit {
   getRadioValue(data) {
     const navState = {
       listType: this.navState.listType,
-      selectedHistory: this.selectedHistory
+      selectedHistory: this.selectedHistory,
+      historyList: this.navState.historyList
+
     };
     this.updateHistory.next(navState);
   }

@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { InfoService } from '../../services/infoService';
 import { Subscription } from 'rxjs';
+import ObscurifyService from 'src/app/services/obscurifyService';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
     public cookieService: CookieService,
     public router: Router,
     public infoSvc: InfoService,
-    public authService: AuthService
+    public authService: AuthService,
+    public obscurifyService: ObscurifyService
   ) { }
   private stream: Subscription | null = null;
 
@@ -48,7 +50,7 @@ export class HomeComponent implements OnInit {
     const cookie = this.cookieService.get('spotifyResponse');
 
     if (cookie || this.tokenSvc.oAuthToken) {
-      // this.tokenSvc.setAuthTokenCache(cookie);
+      this.tokenSvc.setAuthTokenCache(cookie);
       this.authService.authorized();
     } else {
       this.tokenSvc.clearToken();
@@ -59,11 +61,15 @@ export class HomeComponent implements OnInit {
       return this.infoSvc.fetchUserInfo();
     });
 
-    stream.subscribe((user )=> {
-      console.log(user);
+    stream.subscribe((user: any ) => {
+
     });
-    this.infoSvc.getUserStream().subscribe((user) => {
-      console.log('user in home', user);
+    this.infoSvc.getUserStream().subscribe((user: any) => {
+      this.obscurifyService.getObscurifyData(user.userInfo, user.allTimeObscurifyScore).subscribe(
+        (data) => {
+          console.log('obscurify data', data);
+        }
+      );
     });
 
   }
