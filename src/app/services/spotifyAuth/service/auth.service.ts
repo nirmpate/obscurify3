@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
+import { environment } from '../../../../environments/environment'
+
 @Injectable()
 export class AuthService {
 
@@ -13,19 +15,31 @@ export class AuthService {
 
   private requestAuthUrl = 'https://accounts.spotify.com/authorize';
   private authorized$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private state = this.generateRandomString();
 
   private authConfig: AuthConfig = {
-    client_id: '31e362f6085c4309a2e1a6d2c0f8d8ec',  // WebPortal App Id. Shoud be config
-    response_type: 'token',
-    redirect_uri: 'http://localhost:4200/authorized',  // My URL
-    state: '',
-    show_dialog: true,
+    client_id: environment.client_id,  // WebPortal App Id. Shoud be config
+    response_type: 'code',
+    redirect_uri: environment.redirect_uri, // My URL
+    state: this.state,
+    show_dialog: false,
     scope: 'user-read-private user-top-read playlist-modify-public playlist-modify-private'
 
   };
 
+  private generateRandomString() {
+    var text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < 16; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  };
+
   public authorize() {
     console.log('authorize()');
+    console.log(this.buildAuthUrl())
+    this.cookieService.set('spotify_auth_state', this.state)
     window.location.href = this.buildAuthUrl();
   }
 
