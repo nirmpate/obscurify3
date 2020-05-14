@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { InfoService } from '../../services/infoService';
 import { Subscription } from 'rxjs';
 import ObscurifyService from 'src/app/services/obscurifyService';
+import { SpotifyService } from 'src/app/services/spotifyService';
 
 @Component({
   selector: 'app-home',
@@ -20,11 +21,15 @@ export class HomeComponent implements OnInit {
     public router: Router,
     public infoSvc: InfoService,
     public authService: AuthService,
-    public obscurifyService: ObscurifyService
+    public obscurifyService: ObscurifyService,
+    public spotifyService: SpotifyService
   ) { }
   private stream: Subscription | null = null;
 
   public bgColor = '#A9E5AC';
+
+  private user: any = {};
+  public audioFeatures;
 
   setColor(val: number) {
     switch (val) {
@@ -62,9 +67,15 @@ export class HomeComponent implements OnInit {
     });
 
     stream.subscribe((user: any ) => {
-
+      if (user.error && user.error.error.status === 401) {
+        console.log('Token Expired');
+        this.router.navigate(['login']);
+      }
     });
+
     this.infoSvc.getUserStream().subscribe((user: any) => {
+      this.user = {...user};
+
       if (user.userInfo && user.allTimeObscurifyScore) {
         this.obscurifyService.getObscurifyData(user.userInfo.country, user.allTimeObscurifyScore, user.recentObscurifyScore).subscribe(
           (data) => {
@@ -72,8 +83,19 @@ export class HomeComponent implements OnInit {
           }
         );
       }
-    });
 
+      if (this.user.allTimeTrackIDs && this.user.currentTrackIDs) {
+        const config = {
+          allTimeTrackIDs: this.user.allTimeTrackIDs,
+          currentTrackIDs: this.user.currentTrackIDs
+        };
+
+        this.spotifyService.getAudioFeatures(config).subscribe((data) => {
+          console.log('Audio Features', data);
+          this.audioFeatures = data;
+        });
+      }
+    });
   }
 
 }

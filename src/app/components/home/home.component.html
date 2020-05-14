@@ -4,7 +4,7 @@
     <app-top-genres (appColor)="setColor($event)"></app-top-genres>
     <app-obscurity-rating (appColor)="setColor($event)"></app-obscurity-rating> 
     <app-artist-list (appColor)="setColor($event)"></app-artist-list>
-    <app-moods-graph (appColor)="setColor($event)"></app-moods-graph>
+    <app-moods-graph *ngIf="audioFeatures" [audioFeatures]="audioFeatures" (appColor)="setColor($event)"></app-moods-graph>
     <app-recommendations (appColor)="setColor($event)"></app-recommendations>    
 </div>
 

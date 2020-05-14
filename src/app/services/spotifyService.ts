@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
+import { forkJoin } from 'rxjs';
 
 
 @Injectable()
@@ -12,6 +13,18 @@ export class SpotifyService {
       public http: HttpClient,
       public platform: Platform) {
   }
+
+    getAudioFeatures(config) {
+      if (config.allTimeTrackIDs && config.currentTrackIDs) {
+        const longTermUrl = `https://api.spotify.com/v1/audio-features?ids=${config.allTimeTrackIDs.join()}`;
+        const currentUrl = `https://api.spotify.com/v1/audio-features?ids=${config.currentTrackIDs.join()}`;
+
+        const longTermRequest = this.http.get(longTermUrl);
+        const currentRequest = this.http.get(currentUrl);
+
+        return forkJoin([longTermRequest, currentRequest]);
+      }
+    }
 
     getRecommendations(config) {
       let url;
