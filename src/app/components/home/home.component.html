@@ -1,11 +1,45 @@
 
 <div class="app" [ngStyle]="{'background-color': this.bgColor}">
-    <app-intro (appColor)="setColor($event)"></app-intro>
-    <app-top-genres (appColor)="setColor($event)"></app-top-genres>
-    <app-obscurity-rating (appColor)="setColor($event)"></app-obscurity-rating> 
-    <app-artist-list (appColor)="setColor($event)"></app-artist-list>
-    <app-moods-graph *ngIf="audioFeatures" [audioFeatures]="audioFeatures" (appColor)="setColor($event)"></app-moods-graph>
-    <app-recommendations (appColor)="setColor($event)"></app-recommendations>    
+    <app-intro *ngIf="user" [data]="user" (appColor)="setColor($event)"></app-intro>
+    <app-top-genres *ngIf="allTimeArtists" [data]="allTimeArtists" (appColor)="setColor($event)"></app-top-genres>
+    <app-obscurity-rating
+        *ngIf="obscurifyInfo"
+        [data]="obscurifyInfo" 
+        (appColor)="setColor($event)">
+    </app-obscurity-rating> 
+    <app-artist-list 
+        *ngIf="(allTimeArtists && allTimeTracks && currentArtists && currentTracks)"
+        [data]="{
+            allTimeArtists: allTimeArtists.allTimeArtists,
+            allTimeTracks: allTimeTracks.allTimeTracks,
+            currentArtists: currentArtists.currentArtists,
+            currentTracks: currentTracks.currentTracks,
+            userInfo: user
+        }" 
+        (appColor)="setColor($event)">
+    </app-artist-list>
+
+    <app-moods-graph 
+        *ngIf="(audioFeatures && obscurifyInfo)" 
+        [data]="{
+            audioFeatureAverages: obscurifyInfo.audioFeatureAverages,
+            userAudioFeatures: audioFeatures,
+            country: user.country
+        }"
+        (appColor)="setColor($event)">
+    </app-moods-graph>
+
+    <app-recommendations 
+        *ngIf="(allTimeArtists && allTimeTracks && currentArtists && currentTracks)"
+        [data]="{
+            allTimeArtistIDs: allTimeArtists.allTimeArtistIDs,
+            allTimeTrackIDs: allTimeTracks.allTimeTrackIDs,
+            currentArtistIDs: currentArtists.currentArtistIDs,
+            currentTrackIDs: currentTracks.currentTrackIDs,
+            userInfo: user
+        }" 
+        (appColor)="setColor($event)">
+    </app-recommendations>    
 </div>
 
 <app-footer [login]="false"></app-footer>

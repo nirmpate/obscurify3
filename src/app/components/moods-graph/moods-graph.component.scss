@@ -4,7 +4,7 @@
 
 
 .moods-graph {
-    max-width: 620px;
+    max-width: 1024px;    
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -65,6 +65,27 @@
     &__card__container {
         width: 50%;
     }
+
+    .moods-graph__container:nth-child(4n+0) {
+        .equalizer-container .bar {
+            background-color: rgb(162, 158, 255);
+        }
+    }
+    .moods-graph__container:nth-child(4n+1) {
+        .equalizer-container .bar {
+            background-color: rgb(229, 202, 169);
+        }
+    }
+    .moods-graph__container:nth-child(4n+2) {
+        .equalizer-container .bar {
+            background-color: rgb(158, 247, 255);
+        }
+    }
+    .moods-graph__container:nth-child(4n+3) {
+        .equalizer-container .bar {
+            background-color: rgb(169, 196, 229);
+        }
+    }
 }
 
 
@@ -94,7 +115,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: #81D6E3;;
               animation: grow-one#{$i} #{random(700) + 1500}ms alternate infinite;
 
           }
@@ -113,7 +133,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-two#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 
@@ -131,7 +150,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-three#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 
@@ -149,7 +167,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-four#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 
@@ -167,7 +184,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-five#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 
@@ -185,7 +201,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-six#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 
@@ -203,7 +218,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-seven#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 
@@ -221,7 +235,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-eight#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 
@@ -239,7 +252,6 @@ $multiplier: 100 / $bars;
       @for $i from 0 through $bars {
           .bar:nth-child(#{$i}) {
               $saturation: 100 - (($i + 1) * $multiplier);
-              background-color: hsla(140, 73%, 42%, 1);
               animation: grow-nine#{$i} #{random(700) + 1500}ms alternate infinite;
           }
 

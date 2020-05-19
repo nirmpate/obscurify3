@@ -31,13 +31,13 @@ export class SpotifyService {
       if (config.allTimeArtistIDs && config.allTimeTrackIDs) {
         url = 'https://api.spotify.com/v1/recommendations?seed_artists?country=' + ',' +
         config.allTimeArtistIDs[Math.floor(Math.random() * config.allTimeArtistIDs.length)] +
-        config.currentArtistsIDs[Math.floor(Math.random() * config.currentArtistsIDs.length)] + '&seed_tracks='
+        config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
         + config.allTimeTrackIDs[Math.floor(Math.random() * config.allTimeTrackIDs.length)] + ','
             + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
                 + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=16';
       } else {
         url = 'https://api.spotify.com/v1/recommendations?seed_artists?country=' + ',' +
-        config.currentArtistsIDs[Math.floor(Math.random() * config.currentArtistsIDs.length)] + '&seed_tracks='
+        config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
             + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
                 + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=16';
       }

@@ -18,10 +18,7 @@ export class ObscurifyService {
 
     getObscurifyData(countryID, obscurifyScore, recentObscurifyScore): Observable<{}> {
         return this.http.get(this.obscurifyUrl +
-            `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`,
-            {
-                headers: new HttpHeaders().set('Authorization', 'asdf')
-            })
+            `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`)
             .pipe(
             tap((data: {}) => {
               console.log('user info', data);

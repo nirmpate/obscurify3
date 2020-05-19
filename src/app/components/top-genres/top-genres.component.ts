@@ -1,7 +1,8 @@
-import { Component, OnInit, ElementRef, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, EventEmitter, AfterViewInit, Input } from '@angular/core';
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
+import ObscurityFuncs from 'src/app/utilities/obscurityFuncs';
 
 @Component({
   selector: 'app-top-genres',
@@ -12,17 +13,19 @@ import { InfoService } from 'src/app/services/infoService';
 })
 export class TopGenresComponent implements OnInit, AfterViewInit {
 
+  @Input() data: any;
   @Output() appColor = new EventEmitter<number>();
 
   constructor(
-    public element: ElementRef, 
+    public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
-    public infoSvc: InfoService
+    public infoSvc: InfoService,
+    private obscurifyFunc: ObscurityFuncs
     ) { }
   public items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   public show = false;
 
-  public genres = [];
+  public topGenres = [];
   private intersectionObserverSubs: Subscription;
 
   private updateAppBackgroundColor() {
@@ -32,15 +35,28 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.infoSvc.getUserStream().subscribe((x: any) => {
-      console.log('User in Genres', x);
-      if (x.topGenres) {
-        console.log('x.genres')
-        const genreArry = x.topGenres.slice(0, 10);
-        console.log(genreArry)
-        this.genres = [...genreArry];
+    const genres: any = {};
+    const topGenres: any = [];
+
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.data.allTimeArtists.length; i++) {
+      // tslint:disable-next-line: prefer-for-of
+      for (let y = 0; y < this.data.allTimeArtists[i].genres.length; y++) {
+        if (genres[this.data.allTimeArtists[i].genres[y]] != null) {
+        genres[this.data.allTimeArtists[i].genres[y]] = genres[this.data.allTimeArtists[i].genres[y]] + 1;
+      } else {
+        genres[this.data.allTimeArtists[i].genres[y]] = 1;
+        }
       }
-    });
+
+    }
+    for (const g in genres) {
+      if (genres.hasOwnProperty(g) && genres[g] > 4) {
+        topGenres.push([g, genres[g]]);
+      }
+    }
+    topGenres.sort(this.obscurifyFunc.comparator);
+    this.topGenres = [...topGenres.slice(0, 10)];
   }
 
 

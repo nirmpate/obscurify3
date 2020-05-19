@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
@@ -11,7 +11,7 @@ import { InfoService } from 'src/app/services/infoService';
 
 })
 export class IntroComponent implements OnInit, AfterViewInit {
-
+  @Input() data;
   @Output() appColor = new EventEmitter<number>();
 
   constructor(
@@ -29,13 +29,8 @@ export class IntroComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-    this.infoSvc.getUserStream().subscribe((user: any) => {
-      console.log('user', user);
-      if (user.userInfo) {
-        this.userImage = user.userInfo.images[0].url;
-        this.userName = user.userInfo.display_name;
-      }
-    });
+    this.userName = this.data.display_name.split(' ')[0];
+    this.userImage = this.data.images[0].url;
   }
 
   ngAfterViewInit(): void {

@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 
 import { Router } from '@angular/router';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import ObscurityFuncs from '../utilities/obscurityFuncs';
 
@@ -17,33 +17,23 @@ export class InfoService {
   private apiAllTimeTracks = 'https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=long_term';
   private apiCurrentTracks = 'https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=short_term';
 
-  private user = {};
-  private user$: BehaviorSubject<{}>;
 
   constructor(
-    private http: HttpClient,
-    private router: Router,
-    private obscurifyFuncs: ObscurityFuncs) {
-    this.user$ = new BehaviorSubject<{}>(this.user);
+    private http: HttpClient) {
   }
 
   public fetchUserInfo(): Observable<{}> {
     return this.http.get(this.apiUserUrl).pipe(
-      tap((user: {}) => {
-        console.log('user info', user);
-        this.user = {
-          ...this.user,
-            userInfo: user
-        };
-        this.user$.next(this.user);
-      }),
+      (user) => {
+        return user;
+      },
       catchError(this.handleError('getSelf'))
     );
   }
 
   public fetchAllTimeTracks(): Observable<{}> {
     return this.http.get(this.apiAllTimeTracks).pipe(
-      tap((tracks: {items: [{id: string, popularity: number}]}) => {
+      map((tracks: {items: [{id: string, popularity: number}]}) => {
 
         const allTimeTrackIDs = [];
 
@@ -53,12 +43,10 @@ export class InfoService {
 
         console.log('info service', tracks.items);
 
-        this.user = {
-          ...this.user,
+        return {
           allTimeTracks: tracks.items,
           allTimeTrackIDs: [...allTimeTrackIDs]
         };
-        this.user$.next(this.user);
       }),
       catchError(this.handleError('getSelfAlbums'))
     );
@@ -66,17 +54,17 @@ export class InfoService {
 
   public fetchCurrentTracks(): Observable<{}> {
     return this.http.get(this.apiCurrentTracks).pipe(
-      tap((tracks: {items: [{id: string, popularity: number}]}) => {
+      map((tracks: {items: [{id: string, popularity: number}]}) => {
         const currentTrackIDs = [];
+
         for (const track of tracks.items) {
           currentTrackIDs.push(track.id);
         }
-        this.user = {
-          ...this.user,
+
+        return {
           currentTracks: tracks.items,
           currentTrackIDs: [...currentTrackIDs]
         };
-        this.user$.next(this.user);
       }),
       catchError(this.handleError('getSelfAlbums'))
     );
@@ -84,10 +72,10 @@ export class InfoService {
 
   public fetchAllTimeArtists(): Observable<{}> {
     return this.http.get(this.apiAllTimeArtists).pipe(
-      tap((artists: {items: [{id: string, popularity: number, genres: []}]}) => {
+      map((artists: {items: [{id: string, popularity: number, genres: []}]}) => {
         let allTimeObscurifyScore = 0;
-        const genres: any = {};
-        const topGenres: any = [];
+        // const genres: any = {};
+        // const topGenres: any = [];
         const allTimeArtistIDs = [];
 
         // Loop Through All Time Artists
@@ -99,33 +87,31 @@ export class InfoService {
 
           allTimeArtistIDs.push(artists.items[i].id);
 
-          for (let y = 0; y < artists.items[i].genres.length; y++) {
-            if (genres[artists.items[i].genres[y]] != null) {
-              genres[artists.items[i].genres[y]] = genres[artists.items[i].genres[y]] + 1;
-            } else {
-              genres[artists.items[i].genres[y]] = 1;
-            }
-          }
+          // for (let y = 0; y < artists.items[i].genres.length; y++) {
+          //   if (genres[artists.items[i].genres[y]] != null) {
+          //     genres[artists.items[i].genres[y]] = genres[artists.items[i].genres[y]] + 1;
+          //   } else {
+          //     genres[artists.items[i].genres[y]] = 1;
+          //   }
+          // }
         }
 
-        for (const g in genres) {
-          if (genres.hasOwnProperty(g)) {
-            topGenres.push([g, genres[g]]);
-          }
-        }
+        // for (const g in genres) {
+        //   if (genres.hasOwnProperty(g)) {
+        //     topGenres.push([g, genres[g]]);
+        //   }
+        // }
 
-        topGenres.sort(this.obscurifyFuncs.comparator);
+        // topGenres.sort(this.obscurifyFuncs.comparator);
 
 
         allTimeObscurifyScore =  Math.floor(allTimeObscurifyScore / 10);
-        this.user = {
-          ...this.user,
+
+        return {
           allTimeArtists: artists.items,
           allTimeObscurifyScore: (allTimeObscurifyScore),
-          topGenres: (topGenres),
           allTimeArtistIDs: (allTimeArtistIDs)
         };
-        this.user$.next(this.user);
       }),
       catchError(this.handleError('getSelfAlbums'))
     );
@@ -133,13 +119,13 @@ export class InfoService {
 
   public fetchCurrentArtists(): Observable<{}> {
     return this.http.get(this.apiCurrentArtists).pipe(
-      tap((artists: {items: [{id: string, popularity: any}]}) => {
+      map((artists: {items: [{id: string, popularity: any}]}) => {
         let recentObscurifyScore = 0;
         const currentArtistsIDs = [];
 
         for (let i = 0; i < artists.items.length; i++) {
 
-          currentArtistsIDs.push(artists.items[i]);
+          currentArtistsIDs.push(artists.items[i].id);
 
           recentObscurifyScore = recentObscurifyScore + (50 / artists.items.length) *
             Math.floor(artists.items[i].popularity * (1 - i / artists.items.length));
@@ -147,35 +133,15 @@ export class InfoService {
 
         recentObscurifyScore = Math.floor(recentObscurifyScore / 10);
 
-        this.user = {
-          ...this.user,
-          currentArtistsIDs: [...currentArtistsIDs],
+        return {
+          currentArtistIDs: [...currentArtistsIDs],
           currentArtists: artists.items,
           recentObscurifyScore: (recentObscurifyScore)
         };
 
-        this.user$.next(this.user);
       }),
       catchError(this.handleError('getSelfAlbums'))
     );
-  }
-
-  public fetchRecommendations(): Observable<{}> {
-    return this.http.get(this.apiCurrentArtists).pipe(
-      tap((artists: {}) => {
-        this.user = {
-          ...this.user,
-          currentArtists: artists
-        };
-        this.user$.next(this.user);
-      }),
-      catchError(this.handleError('getSelfAlbums'))
-    );
-  }
-
-
-  public getUserStream(): Observable<{}> {
-    return this.user$.asObservable();
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

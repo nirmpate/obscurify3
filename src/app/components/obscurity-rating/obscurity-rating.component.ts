@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 
 })
 export class ObscurityRatingComponent implements OnInit, AfterViewInit {
-
+  @Input() data;
   @Output() appColor: EventEmitter<number> = new EventEmitter();
 
   constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }

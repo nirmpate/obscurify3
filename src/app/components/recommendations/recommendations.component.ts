@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 })
 export class RecommendationsComponent implements OnInit, AfterViewInit {
+  @Input() data;
   @Output() appColor = new EventEmitter<number>();
 
   constructor(
@@ -37,10 +38,10 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.infoSvc.getUserStream().subscribe((user) => {
-      console.log('recommendations');
-      this.user = {...user};
-    });
+    // this.infoSvc.getUserStream().subscribe((user) => {
+    //   console.log('recommendations');
+    //   this.user = {...user};
+    // });
   }
 
 
@@ -57,11 +58,11 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
         this.show = true;
 
         const config = {
-          allTimeArtistIDs: this.user.allTimeArtistIDs,
-          currentArtistsIDs: this.user.currentArtistsIDs,
-          allTimeTrackIDs: this.user.allTimeTrackIDs,
-          currentTrackIDs: this.user.currentTrackIDs,
-          country: this.user.userInfo.country
+          allTimeArtistIDs: this.data.allTimeArtistIDs,
+          currentArtistIDs: this.data.currentArtistIDs,
+          allTimeTrackIDs: this.data.allTimeTrackIDs,
+          currentTrackIDs: this.data.currentTrackIDs,
+          country: this.data.userInfo.country
         };
 
         if (!this.initialTracks) {
@@ -84,11 +85,11 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
 
   refreshTracks() {
     const config = {
-      allTimeArtistIDs: this.user.allTimeArtistIDs,
-      currentArtistsIDs: this.user.currentArtistsIDs,
-      allTimeTrackIDs: this.user.allTimeTrackIDs,
-      currentTrackIDs: this.user.currentTrackIDs,
-      country: this.user.userInfo.country
+      allTimeArtistIDs: this.data.allTimeArtistIDs,
+      currentArtistIDs: this.data.currentArtistIDs,
+      allTimeTrackIDs: this.data.allTimeTrackIDs,
+      currentTrackIDs: this.data.currentTrackIDs,
+      country: this.data.userInfo.country
     };
 
     this.spotifyService.getRecommendations(config).then((data: any) => {
@@ -102,7 +103,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
 
   makePlaylist() {
     const config = {
-      userID: this.user.userInfo.id,
+      userID: this.data.userInfo.id,
       playlistName: 'Recommended for You // Obscurify',
       tracks: this.recommendedTracks
     };

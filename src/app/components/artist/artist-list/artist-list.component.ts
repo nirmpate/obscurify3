@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
@@ -15,6 +15,7 @@ import { SpotifyService } from 'src/app/services/spotifyService';
 })
 export class ArtistListComponent implements AfterViewInit, OnInit {
 
+  @Input() data: any;
   @Output() appColor = new EventEmitter<number>();
 
   constructor(
@@ -35,10 +36,6 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     selectedHistory: {name: 'Current', value: 'current'}
   };
 
-  public allTimeArtists = [];
-  public currentArtists = [];
-  public allTimeTracks = [];
-  public currentTracks = [];
   public userInfo;
 
   public sliceLimit = 10;
@@ -53,37 +50,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
 
 
   ngOnInit() {
-    this.infoSvc.fetchAllTimeArtists().subscribe((x: any) => {
-
-      if (x.items) {
-        this.allTimeArtists = [...x.items];
-      }
-
-    });
-
-    this.infoSvc.fetchAllTimeTracks().subscribe((x: any) => {
-
-      if (x.items) {
-        this.allTimeTracks = [...x.items];
-      }
-
-    });
-
-    this.infoSvc.fetchCurrentTracks().subscribe((x: any) => {
-      if (x.items) {
-        this.currentTracks = [...x.items];
-      }
-    });
-
-    this.infoSvc.fetchCurrentArtists().subscribe((x: any) => {
-      if (x.items) {
-        this.currentArtists = [...x.items];
-      }
-    });
-
-    this.infoSvc.getUserStream().subscribe((user: any) => {
-      this.userInfo = {...user.userInfo};
-    });
+    this.userInfo = this.data.userInfo;
   }
 
   ngAfterViewInit(): void {
@@ -130,16 +97,16 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     }
 
     const config = {
-      userID: this.userInfo.id,
+      userID: this.data.userInfo.id,
       token: this.tokenSvc.oAuthToken,
       playlistName: (playlistName),
       tracks: null
     };
 
     if (this.navState.selectedHistory.value === 'current') {
-      config.tracks = this.currentTracks;
+      config.tracks = this.data.currentTracks;
     } else {
-      config.tracks = this.allTimeTracks;
+      config.tracks = this.data.allTimeTracks;
     }
 
     this.spotifyService.makePlaylist(config).then((results: any) => {
