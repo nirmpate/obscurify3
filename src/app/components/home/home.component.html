@@ -3,8 +3,13 @@
     <app-intro *ngIf="user" [data]="user" (appColor)="setColor($event)"></app-intro>
     <app-top-genres *ngIf="allTimeArtists" [data]="allTimeArtists" (appColor)="setColor($event)"></app-top-genres>
     <app-obscurity-rating
-        *ngIf="obscurifyInfo"
-        [data]="obscurifyInfo" 
+        *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)"
+        [data]="{
+            obscurifyInfo: obscurifyInfo,
+            country: user.country,
+            allTimeObscurifyScore: allTimeArtists.allTimeObscurifyScore,
+            recentObscurifyScore: currentArtists.recentObscurifyScore
+        }" 
         (appColor)="setColor($event)">
     </app-obscurity-rating> 
     <app-artist-list 
@@ -20,6 +25,7 @@
     </app-artist-list>
 
     <app-moods-graph 
+        (audioData)="postUserHistory($event)"
         *ngIf="(audioFeatures && obscurifyInfo)" 
         [data]="{
             audioFeatureAverages: obscurifyInfo.audioFeatureAverages,

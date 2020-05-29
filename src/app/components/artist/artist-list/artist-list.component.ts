@@ -55,13 +55,12 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.20
+      threshold: 0.50
     });
     this.intersectionObserverSubs = this.intersectionObserverService
       .getSubject()
       .subscribe(el => {
         if (el.isIntersecting) {
-          console.log('is intersecting artists');
           this.updateAppBackgroundColor();
           this.showNav = true;
         } else {
@@ -72,7 +71,6 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
 
   getHistory(data) {
     this.navState = {...data};
-    console.log(this.navState);
   }
 
   createPlaylist() {
@@ -110,11 +108,9 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     }
 
     this.spotifyService.makePlaylist(config).then((results: any) => {
-      console.log('playlist', results);
       this.snackBar.open('Playlist Created in Spotify!', '' , { duration: 5000, panelClass: 'panel-success'});
 
     }).catch((err: any) => {
-      console.log('playlist error', err);
       this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
     });
   }

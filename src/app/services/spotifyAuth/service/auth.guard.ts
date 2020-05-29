@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from '@angular/router';
-import { fromPairs } from 'lodash';
 
 import { AuthService } from './auth.service';
 import { TokenService } from './token.service';

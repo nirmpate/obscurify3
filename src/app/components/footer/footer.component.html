@@ -2,7 +2,7 @@
     <div class="footer__links" fxLayout="column nowrap">
         <a routerLink="/about"> About</a>
         <a (click)="login()" *ngIf="login">Login</a>
-        <a (click)="login()" *ngIf="!login"> Log Out</a>
+        <a (click)="logout()" *ngIf="!login"> Log Out</a>
     </div>
 
     <div class="social__links">

@@ -25,10 +25,6 @@
             height: 100%;
         }
     }
-
-    span {
-        margin-top: 2px;
-    }
     
     &__info {
         height: 60px;
@@ -40,7 +36,7 @@
         bottom: 0;  
         box-sizing: border-box;  
         padding: 1rem 0.5rem;
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         &--secondary, &--primary {
             transition: .3s cubic-bezier(.25,.1,.25,1);
@@ -48,7 +44,6 @@
         }
 
         &--primary {
-            font-size: 1.2em;
             margin-bottom: 0.5rem;
 
         }

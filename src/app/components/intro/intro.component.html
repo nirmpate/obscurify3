@@ -1,10 +1,15 @@
 <nav>
     <div fxLayout="row" fxLayoutAlign="end start">
-        <button [matMenuTriggerFor]="appMenu"> Settings <i class="fas fa-cog"> </i> </button>
+        <button [matMenuTriggerFor]="appMenu">
+            <span class="profile__image">
+                <img  [src]="this.userImage ? this.userImage : 'assets/images/app/profile-placeholder.png'">
+            </span> 
+             Menu 
+        </button>
     </div>
 
     <mat-menu #appMenu="matMenu">
-        <button mat-menu-item>Logout</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
         <button mat-menu-item>About</button>
         <a  mat-menu-item href="https://www.spotify.com/us/account/apps/">Remove Obscurify Account</a>
       </mat-menu>
@@ -15,8 +20,5 @@
 </div>
 
 <div class="profile" fxLayout="column" fxLayoutAlign="center center">
-    <div class="profile__image">
-        <img [src]="this.userImage ? this.userImage : 'assets/images/app/profile-placeholder.png'"/>
-    </div>
     <h1 class="profile__header">Hello, <span>{{ userName }}</span>. Let's see how obscure your taste is...</h1>
 </div>

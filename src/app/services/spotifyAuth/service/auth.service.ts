@@ -4,14 +4,13 @@ import { AuthConfig } from '../shared/spotify-auth-config.i';
 import { ScopesBuilder } from '../shared/scopes-builder';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
 
 import { environment } from '../../../../environments/environment'
 
 @Injectable()
 export class AuthService {
 
-  constructor(public cookieService: CookieService) {}
+  constructor() {}
 
   private requestAuthUrl = 'https://accounts.spotify.com/authorize';
   private authorized$: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -28,18 +27,15 @@ export class AuthService {
   };
 
   private generateRandomString() {
-    var text = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < 16; i++) {
+    let text = '';
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 16; i++) {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return text;
   };
 
   public authorize() {
-    console.log('authorize()');
-    console.log(this.buildAuthUrl())
-    this.cookieService.set('spotify_auth_state', this.state)
     window.location.href = this.buildAuthUrl();
   }
 

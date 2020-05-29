@@ -25,7 +25,9 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('this.data', this.data);
+  }
 
 
   ngAfterViewInit(): void {

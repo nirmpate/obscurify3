@@ -41,8 +41,6 @@ export class InfoService {
           allTimeTrackIDs.push(track.id);
         }
 
-        console.log('info service', tracks.items);
-
         return {
           allTimeTracks: tracks.items,
           allTimeTrackIDs: [...allTimeTrackIDs]

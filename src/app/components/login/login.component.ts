@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, AuthConfig, TokenService } from '../../services/spotifyAuth/index';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private tokenSvc: TokenService,
-    private router: Router,
-    private cookieService: CookieService
-  ) { }
+    private router: Router) { }
 
   ngOnInit() {
     if (!!this.tokenSvc.oAuthToken.spotifyToken) {
@@ -24,13 +21,6 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    const cookie = this.cookieService.get('spotifyResponse');
-
-    if (cookie) {
-      // this.tokenSvc.setAuthTokenCache(cookie);
-      this.authService.authorized();
-    } else {
-      this.authService.authorize();
-    }
+    this.authService.authorize();
   }
 }

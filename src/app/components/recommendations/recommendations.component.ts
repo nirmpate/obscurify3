@@ -47,7 +47,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.70
+      threshold: 0.20
     });
     this.intersectionObserverSubs = this.intersectionObserverService
     .getSubject()

@@ -20,14 +20,19 @@ export class ObscurifyService {
         return this.http.get(this.obscurifyUrl +
             `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`)
             .pipe(
-            tap((data: {}) => {
-              console.log('user info', data);
+            tap((data: any) => {
+              data.averageScore = Math.round(data.averageScore);
+              data.globalAverageScore = Math.round(data.globalAverageScore);
               this.obscurifyData = {...data};
               this.obscurifyData$.next(this.obscurifyData);
             }),
             catchError(this.handleError('Error')
             )
           );
+    }
+
+    saveUserHistory(config): Observable<{}> {
+      return this.http.post(this.obscurifyUrl, config);
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .slate {
-    padding: 2rem 0px;
+    margin: 8rem 0px;
 
 }
 
@@ -32,7 +32,11 @@
 }
 
 @include desktop {
-
+    .slate {
+        margin: 20rem 0px;
+    
+    }
+    
     .genre {
 
         &__card {

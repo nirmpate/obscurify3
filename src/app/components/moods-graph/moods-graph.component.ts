@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class MoodsGraphComponent implements OnInit, AfterViewInit {
   @Input() data;
   @Output() appColor = new EventEmitter<number>();
+  @Output() audioData = new EventEmitter<{}>();
 
   constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }
 
@@ -33,8 +34,6 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log('moods your audio features', this.data.userAudioFeatures);
-    console.log('moods obscurifyInfo', this.data.audioFeatureAverages);
 
     const longTermAudioFeatures = {
       danceability : 0,
@@ -106,7 +105,8 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
       allTime: this.createPercent(longTermAudioFeatures, 'acousticness')
     };
 
-    console.log(this.happinessGraphData);
+    this.audioData.emit(longTermAudioFeatures);
+
   }
 
   private createPercent(feature, type) {

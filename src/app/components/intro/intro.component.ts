@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Inp
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/spotifyAuth';
 
 @Component({
   selector: 'app-intro',
@@ -17,7 +19,9 @@ export class IntroComponent implements OnInit, AfterViewInit {
   constructor(
     public element: ElementRef, 
     public intersectionObserverService: IntersectionObserverService,
-    public infoSvc: InfoService) { }
+    public infoSvc: InfoService,
+    public router: Router,
+    public tokenSvc: TokenService) { }
 
   public userImage;
   public userName;
@@ -44,6 +48,11 @@ export class IntroComponent implements OnInit, AfterViewInit {
           this.updateAppBackgroundColor();
         }
       });
+  }
+
+  public logout() {
+    this.tokenSvc.clearToken();
+    this.router.navigate(['login']);
   }
 
 }

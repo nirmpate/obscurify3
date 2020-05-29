@@ -5,10 +5,9 @@
 
 .moods-graph {
     max-width: 1024px;    
-    margin: 0 auto;
+    margin: 5rem auto;
     display: flex;
     flex-direction: column;
-    padding: 5rem 0;
     opacity: 0;
     transform: translateY(100px);
     transition: .3s cubic-bezier(.25,.1,.25,1);
@@ -268,8 +267,10 @@ $multiplier: 100 / $bars;
 
 @include desktop {
     .moods-graph {
+        margin-bottom: 20em auto;
         &__container {
             width: 65%;
         }
     }
+
 }

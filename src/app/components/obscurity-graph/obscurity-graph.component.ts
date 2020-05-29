@@ -1,88 +1,176 @@
 import { Component, OnInit, Input, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Chart } from 'chart.js';
+import * as pluginAnnotations from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-obscurity-graph',
   templateUrl: './obscurity-graph.component.html',
   styleUrls: ['./obscurity-graph.component.scss']
 })
-export class ObscurityGraphComponent {
+export class ObscurityGraphComponent implements OnInit {
   @Input() data;
-  @ViewChild('globalAvgBar', {static: true}) globalBar;
-  @ViewChild('countryAvgBar', {static: true}) countryBar;
-  @ViewChild('allTimeBar', {static: true}) allTimeBar;
-  @ViewChild('recentBar', {static: true}) recentBar;
-
-  displayName: string;
-  imageURL = '';
-  country = '';
-  allTimeObscurifyScore: number;
-  recentObscurifyScore: number;
-  countryAverageScore: number;
-  globalAverageScore: number;
-  percentileByCountry: number;
-  userCountByCountry: number;
-  totalUserCount: number;
-  topGenres: any[];
-  longTermAudioFeatures: any;
-  shortTermAudioFeatures: any;
-  audioFeatureAverages: any;
-  doneLoading = false;
-  scoreArray: any[];
-  highestScoreElement;
-  highestScore: number;
-  lowestScore: number;
-  barActive = false;
 
   constructor(private renderer: Renderer2, public el: ElementRef, public sanitizer: DomSanitizer) {
 
-
-    // events.subscribe('graphInit', () => {
-
-    //   this.setGraph();
-    // });
-
   }
 
-  // ngOnInit(): void {
-  //   this.allTimeObscurifyScore = this.data.allTimeObscurifyScore;
-  //   this.recentObscurifyScore = this.data.recentObscurifyScore;
-  //   this.globalAverageScore = this.data.globalAverageScore;
-  //   this.countryAverageScore = this.data.countryAverageScore;
+  public histogram = [];
 
-  //   this.scoreArray = [[this.countryAverageScore, this.countryBar],
-  //   [this.globalAverageScore, this.globalBar],
-  //   [this.allTimeObscurifyScore, this.allTimeBar],
-  //   [this.recentObscurifyScore, this.recentBar]];
-  // }
+  ngOnInit() {
+    console.log('data in graph', this.data);
+    console.log(Object.entries(this.data.breakdown));
+
+    const oldData = Object.entries(this.data.breakdown);
+    const labels = [...oldData.map((val: any) => {
+      if (Number(val[0]) >= 130  && val[0] <= 235) {
+
+        return Number(val[0]);
+
+      } else {
+        return false;
+      }
+    })].filter((val) => {
+      if (true) {
+        return val;
+      }
+    });
+
+    const dataSet = [...oldData.map((val: any) => {
+      if (Number(val[0]) >= 130  && val[0] <= 235) {
+        return Number(val[1].N);
+      } else {
+        return false;
+      }
+    })].filter((val) => {
+      if (true) {
+        return val;
+      }
+    });
+
+    const userAllTimeAnnotation = {
+      type: 'line',
+      mode: 'vertical',
+      scaleID: 'x-axis-0',
+      value: this.data.userAllTimeScore,
+      borderColor: 'rgb(162, 158, 255)',
+      borderWidth: 2,
+
+      label: {
+        fontColor: 'rgb(162, 158, 255)',
+        content: `Your All Time ${this.data.userAllTimeScore}`,
+        enabled: true,
+        position: 'center',
+        fontSize: 10,
+        yAdjust: -40,
 
 
+      }
+    };
 
-  // setGraph(): void {
-  //   function sort(array) {
-  //     array.sort((a , b) => {
-  //       return b[0] - a[0];
-  //     });
-  //   }
+    const userRecentAnnotation = {
+      type: 'line',
+      mode: 'vertical',
+      scaleID: 'x-axis-0',
+      value: this.data.userRecentScore,
+      borderColor: 'rgb(229, 202, 169)',
+      borderWidth: 2,
 
-  //   if (!this.doneLoading) {
+      label: {
+        fontColor: 'rgb(229, 202, 169)',
+        content: `Your Recent ${this.data.userRecentScore}`,
+        enabled: true,
+        position: 'center',
+        yAdjust: -65,
+        fontSize: 10
 
-  //     sort(this.scoreArray);
-  //     const sortedArray = this.scoreArray;
-  //     this.highestScore = sortedArray[0][0];
+      }
+    };
 
-  //     this.renderer.setStyle(sortedArray[0][1].nativeElement, 'height', '100%');
-  //     this.barActive = true;
-  //     // highest score from array
-  //     sortedArray.shift();
-  //     let graphHeight;
+    const globalAverageAnnotation = {
+      type: 'line',
+      mode: 'vertical',
+      scaleID: 'x-axis-0',
+      value: this.data.averageScoreGlobal,
+      borderColor: 'rgb(169, 196, 229)',
+      borderWidth: 2,
+      z: 2,
+      label: {
+        fontColor: 'rgb(169, 196, 229)',
+        content: `Global Avg ${this.data.averageScoreGlobal}`,
+        enabled: true,
+        position: 'center',
+        fontSize: 10,
+        yAdjust: -10
+      }
+    };
 
-  //     sortedArray.forEach((val) => {
-  //       graphHeight = 100 - (Math.round(((this.highestScore / val[0]) - 1) * 100));
-  //       this.renderer.setStyle(val[1].nativeElement, 'height', String(graphHeight) + '%');
 
-  //     });
-  //     this.doneLoading = true;
-  //   }
-  // }
+    const data = {
+      labels: (labels),
+      datasets: [{
+          data: dataSet,
+          backgroundColor: '#fff'
+      }]
+    };
+    const option = {
+        global: {
+          defaultFontColor: '#fff',
+          defaultFontFamily	: '"Helvetica Neue", sans-serif'
+        },
+        animation: {
+          duration: 3000
+        },
+      tooltips: {
+            enabled: false
+        },
+      legend: {
+                  display: false
+        },
+      plugins: [
+        pluginAnnotations
+      ],
+      annotation: {
+        annotations: [userAllTimeAnnotation, userRecentAnnotation, globalAverageAnnotation]
+        },
+      scales: {
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            fontColor: '#fff',
+            labelString: 'User Count'
+          },
+          ticks: {
+            fontColor: '#fff',
+          },
+          gridLines: {
+            display: false
+          },
+        }],
+        xAxes: [{
+            barPercentage: 1.0,
+            categoryPercentage: 1.0,
+            gridLines: {
+              display: false
+            },
+            ticks: {
+              reverse: true,
+              fontColor: '#fff'
+            },
+            scaleLabel: {
+              fontColor: '#fff',
+              display: true,
+              labelString: 'Average Score from Most Popular to Least Popular'
+          }
+        }]
+      }
+    };
+    this.histogram = Chart.Bar('canvas', {
+      data,
+      options: option
+    });
+  }
+
+
 }

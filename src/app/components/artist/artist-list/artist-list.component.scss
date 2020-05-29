@@ -4,8 +4,7 @@
 
 .artist {
     max-width: 1024px;
-    margin: 0 auto;
-    padding: 2rem 0px;
+    margin: 8rem auto;
 
     .header__title {
         text-transform: capitalize;
@@ -36,5 +35,12 @@
             border: none;
             cursor: pointer;
         }
+    }
+}
+
+@include desktop {
+    .artist {
+        margin: 20rem auto;
+
     }
 }

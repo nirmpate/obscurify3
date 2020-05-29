@@ -4,8 +4,7 @@
 
 .obscurity {
     max-width: 1024px;
-    margin: 0 auto;
-    padding: 2rem 0px;
+    margin: 2rem auto;
     transform: translateY(100px);
     transition: .3s cubic-bezier(.25,.1,.25,1);
     opacity: 0;
@@ -32,11 +31,14 @@
     }
   
     p {
+        text-align: center;
         font-size: 1em;
         margin-top: 1em;
+        font-weight: 500;
     }
   
     &__card {
+      max-width: 600px;
       border-radius: 5px;
       background-color: #fff;
       display: flex;
@@ -44,7 +46,7 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
-      padding: 2em 2em 5em;
+      padding: 2em 6em 5em;
       box-shadow: 22px 21px 4px 4px rgba(0, 0, 0, 0.5);
     }
   }

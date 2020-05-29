@@ -9,80 +9,18 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    background-color: $primary-color;
+    background-color: #2d3436;
     box-shadow: 22px 21px 1px 0 rgba(0, 0, 0, 0.5);
-
-    &__container {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        width: 100%;
-        height: 300px;
-    
-        .obscurity__avg-bar {
-            // height: 263px;
-            will-change: height, opacity;
-    
-            background: #FFFBFA;
-            box-shadow: 12px 12px 1px 0 rgba(0,0,0,0.25);
-            width: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            margin-bottom: 5rem;
-    
-            &.active {
-                .bar-value {
-                    opacity: 1;
-                    visibility: visible;
-    
-                }
-            }
-    
-            .bar-value{
-                color: grey;
-                opacity: 0;
-                transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1) 1s;
-    
-            }
-    
-            .bar-title {
-                position: absolute;
-                bottom: -5em;
-                font-weight: bold;
-                font-size: 14px;
-                color: #000000;
-                letter-spacing: 0.87px;
-                text-align: center;
-                height: 35px;
-            }
-        }
-    
-        $timeList: 0.5, 1, 1.5, 2;
-        $count: 1;
-    
-        @each $time in $timeList {
-        .obscurity-avg-bar:nth-child(#{$count}) {
-            transition: all #{$time}s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-        $count: $count + 1;
-        }
-    }
-
-    &__info {
-        text-align: left;
-        padding: 0 2em;
-        margin-top: 1em;
-        font-size: 0.8rem;
-    }
+    color: white;
 }
 
 @include desktop {
     .obscurity__graph{
-        max-width: 600px;
+        margin-top: 8em;
+        max-width: 900px;
+        max-height: 500px;
         box-sizing: border-box;
-
+        position: relative;
         &__info {
             font-size: 1rem;
         }

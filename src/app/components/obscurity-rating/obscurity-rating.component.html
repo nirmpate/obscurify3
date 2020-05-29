@@ -11,22 +11,26 @@
         <div class="percentile">
             <div class="percentile__card">
                 <!-- <h2>{{this.data.percentileByCountry}}%</h2> -->
-                <h2>80%</h2>
+                <h2>{{ this.data.obscurifyInfo.percentileByCountryAllTime | number:'1.0-0' }}%</h2>
 
-                <p>Your music is more obscure than
-                    <strong>80%</strong>
-                    of 300000 US users on Obscurify.
+                <p>Your music is more obscure than <br>
+                    <strong>{{ this.data.obscurifyInfo.percentileByCountryAllTime | number:'1.0-0' }}%</strong>
+                    of <strong>{{ this.data.obscurifyInfo.userCountByCountry | number:'1.0-0':'en'  }} {{ this.data.country }}</strong> users on Obscurify.
                 </p>
 
-                <!-- <p>Your music is more obscure than
-                    <strong>{{this.data.percentileByCountry}}%</strong>
-                    of {{this.data.userCountByCountry | number}} {{this.data.label}} users on Obscurify.
-                </p> -->
+                <p><strong>{{ this.data.obscurifyInfo.totalUserCount| number:'1.0-0':'en' }} Global Users </strong> </p>
             </div>
         
         </div>
 
-        <app-obscurity-graph>
+        <app-obscurity-graph *ngIf="this.show" [data]="{
+            breakdown: data.obscurifyInfo.breakdown,
+            averageScoreCountry: data.obscurifyInfo.averageScore,
+            averageScoreGlobal: data.obscurifyInfo.globalAverageScore,
+            userRecentScore: data.recentObscurifyScore,
+            userAllTimeScore: data.allTimeObscurifyScore,
+            country: data.country
+        }">
             
         </app-obscurity-graph>
         

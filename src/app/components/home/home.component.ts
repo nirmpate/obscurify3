@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService, AuthService } from '../../services/spotifyAuth';
-import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { InfoService } from '../../services/infoService';
 import { Subscription} from 'rxjs';
@@ -19,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public tokenSvc: TokenService,
-    public cookieService: CookieService,
     public router: Router,
     public infoSvc: InfoService,
     public authService: AuthService,
@@ -59,21 +57,20 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    const cookie = this.cookieService.get('spotifyResponse');
-
-    if (cookie || this.tokenSvc.oAuthToken.spotifyToken) {
-      this.tokenSvc.setAuthTokenCache(cookie);
-      this.authService.authorized();
-    } else {
-      this.tokenSvc.clearToken();
-      this.router.navigate(['login']);
-    }
-
-    const stream = this.tokenSvc.authTokens.pipe((x) => {
+    const userStream = this.tokenSvc.authTokens.pipe((x) => {
+      if (this.tokenSvc.oAuthToken.spotifyToken) {
+        this.authService.authorized();
+      } else {
+        this.tokenSvc.clearToken();
+        this.router.navigate(['login']);
+      }
+      const stream = this.tokenSvc.authTokens.pipe(() => {
+        return this.infoSvc.fetchUserInfo();
+      });
       return this.infoSvc.fetchUserInfo();
     });
 
-    stream.subscribe((user: any ) => {
+    userStream.subscribe((user: any ) => {
       if (user.error && user.error.error.status === 401) {
         console.log('Token Expired');
         this.router.navigate(['login']);
@@ -81,18 +78,24 @@ export class HomeComponent implements OnInit {
         this.user = user;
         // Get the rest of Spotify Data
 
-        const trackStream = combineLatest([
+        const artistAndTrackStream = combineLatest([
           this.infoSvc.fetchAllTimeTracks(),
-          this.infoSvc.fetchCurrentTracks()
-        ]).pipe(map(([a$, b$]) => ({
+          this.infoSvc.fetchCurrentTracks(),
+          this.infoSvc.fetchAllTimeArtists(),
+          this.infoSvc.fetchCurrentArtists(),
+        ]).pipe(map(([a$, b$, c$, d$]) => ({
           allTimeTracks: a$,
-          currentTracks: b$
+          currentTracks: b$,
+          allTimeArtists: c$,
+          currentArtists: d$
         })));
 
-        trackStream.subscribe((data: any) => {
+        artistAndTrackStream.subscribe((data: any) => {
           if (!data.allTimeTracks.error || !data.currentTracks.error) {
             this.currentTracks = { ...data.currentTracks };
             this.allTimeTracks = { ...data.allTimeTracks };
+            this.allTimeArtists = { ...data.allTimeArtists };
+            this.currentArtists = { ...data.currentArtists };
 
             const config = {
               allTimeTrackIDs: this.allTimeTracks.allTimeTrackIDs,
@@ -102,21 +105,6 @@ export class HomeComponent implements OnInit {
             this.spotifyService.getAudioFeatures(config).subscribe((audioFeatures) => {
               this.audioFeatures = audioFeatures;
             });
-          }
-        });
-
-        const artistStream = combineLatest([
-          this.infoSvc.fetchAllTimeArtists(),
-          this.infoSvc.fetchCurrentArtists()]).pipe(map(([a$, b$]) => ({
-            allTimeArtists: a$,
-            currentArtists: b$,
-          })));
-
-        artistStream.subscribe((data: any) => {
-          if (!data.allTimeArtists.error || !data.currentArtists.error) {
-
-            this.currentArtists = { ...data.currentArtists };
-            this.allTimeArtists = { ...data.allTimeArtists };
 
             this.obscurifyService.getObscurifyData(
               this.user.country,
@@ -126,13 +114,29 @@ export class HomeComponent implements OnInit {
                   if (obscurifyData.error) {
                     console.log('Obscurify Server Error');
                   } else {
-                    console.log('Obscurify info', obscurifyData);
                     this.obscurifyInfo = { ...obscurifyData };
+
+                    console.log('this.user', this.user);
                   }
               }
             );
           }
         });
+
+        // const artistStream = combineLatest([
+        //   this.infoSvc.fetchAllTimeArtists(),
+        //   this.infoSvc.fetchCurrentArtists()]).pipe(map(([a$, b$]) => ({
+        //     allTimeArtists: a$,
+        //     currentArtists: b$,
+        //   })));
+
+        // artistStream.subscribe((data: any) => {
+        //   if (!data.allTimeArtists.error || !data.currentArtists.error) {
+
+        //     this.currentArtists = { ...data.currentArtists };
+        //     this.allTimeArtists = { ...data.allTimeArtists };
+        //   }
+        // });
       }
     });
 
@@ -168,6 +172,25 @@ export class HomeComponent implements OnInit {
     //     });
     //   }
     // });
+  }
+
+  postUserHistory(val) {
+    console.log(this.tokenSvc.oAuthToken);
+    const saveUserHistoryBody = {
+      country: this.user.country,
+      userID: this.user.userID,
+      longTermArtistIDs: this.allTimeArtists.allTimeArtistIDs,
+      longTermTrackIDs: this.allTimeTracks.allTimeTrackIDs,
+      obscurifyScore: this.allTimeArtists.allTimeObscurifyScore,
+      longTermAudioFeatures: val,
+      shortTermArtistIDs: this.currentArtists.currentArtistsIDs,
+      shortTermTrackIDs: this.currentTracks.currentTrackIDs,
+      hex: this.tokenSvc.oAuthToken.obscurifyToken
+    };
+
+    this.obscurifyService.saveUserHistory(saveUserHistoryBody).subscribe((res) => {
+      console.log(res);
+    });
   }
 
 }
