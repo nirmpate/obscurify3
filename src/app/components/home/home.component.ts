@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
         this.authService.authorized();
       } else {
         this.tokenSvc.clearToken();
-        this.router.navigate(['login']);
+        this.authService.authorize();
       }
       const stream = this.tokenSvc.authTokens.pipe(() => {
         return this.infoSvc.fetchUserInfo();
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
     userStream.subscribe((user: any ) => {
       if (user.error && user.error.error.status === 401) {
         console.log('Token Expired');
-        this.router.navigate(['login']);
+        this.authService.authorize();
       } else {
         this.user = user;
         // Get the rest of Spotify Data
@@ -178,12 +178,12 @@ export class HomeComponent implements OnInit {
     console.log(this.tokenSvc.oAuthToken);
     const saveUserHistoryBody = {
       country: this.user.country,
-      userID: this.user.userID,
+      userID: this.user.id,
       longTermArtistIDs: this.allTimeArtists.allTimeArtistIDs,
       longTermTrackIDs: this.allTimeTracks.allTimeTrackIDs,
       obscurifyScore: this.allTimeArtists.allTimeObscurifyScore,
       longTermAudioFeatures: val,
-      shortTermArtistIDs: this.currentArtists.currentArtistsIDs,
+      shortTermArtistIDs: this.currentArtists.currentArtistIDs,
       shortTermTrackIDs: this.currentTracks.currentTrackIDs,
       hex: this.tokenSvc.oAuthToken.obscurifyToken
     };

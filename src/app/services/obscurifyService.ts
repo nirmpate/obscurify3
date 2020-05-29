@@ -32,7 +32,7 @@ export class ObscurifyService {
     }
 
     saveUserHistory(config): Observable<{}> {
-      return this.http.post(this.obscurifyUrl, config);
+      return this.http.post(this.obscurifyUrl + '/saveUserHistory', config);
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
