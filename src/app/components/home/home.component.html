@@ -1,6 +1,6 @@
 
-<div class="app" [ngStyle]="{'background-color': this.bgColor}">
-    <app-intro *ngIf="user" [data]="user" (appColor)="setColor($event)"></app-intro>
+<div class="app" *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)"[ngStyle]="{'background-color': this.bgColor}">
+    <app-intro [data]="user" (appColor)="setColor($event)"></app-intro>
     <app-top-genres *ngIf="allTimeArtists" [data]="allTimeArtists" (appColor)="setColor($event)"></app-top-genres>
     <app-obscurity-rating
         *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)"
@@ -45,8 +45,12 @@
             userInfo: user
         }" 
         (appColor)="setColor($event)">
-    </app-recommendations>    
+    </app-recommendations>  
+    <app-footer [login]="false"></app-footer>  
 </div>
 
-<app-footer [login]="false"></app-footer>
 
+<div class="app__loading" fxLayout="column nowrap" fxLayoutAlign="center center" *ngIf="(!obscurifyInfo && !user && !allTimeArtists && !currentArtists)">
+    <h1>O<span>.</span></h1>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

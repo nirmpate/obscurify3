@@ -29,6 +29,8 @@ import { TrackCardComponent } from './components/artist/track-card/track-card.co
 import { SpotifyService } from './services/spotifyService';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import ObscurifyService from './services/obscurifyService';
 
 @NgModule({
@@ -61,7 +63,8 @@ import ObscurifyService from './services/obscurifyService';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
   ],
   providers: [
     ObscurityFuncs,

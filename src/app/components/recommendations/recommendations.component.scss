@@ -13,6 +13,8 @@
   opacity: 0;
   transform: translateY(100px);
   transition: .3s cubic-bezier(.25,.1,.25,1);
+  overflow: hidden;
+  
   &.show {
     opacity: 1;
     transform: translateY(0px);
