@@ -17,7 +17,7 @@ export class IntroComponent implements OnInit, AfterViewInit {
   @Output() appColor = new EventEmitter<number>();
 
   constructor(
-    public element: ElementRef, 
+    public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
     public infoSvc: InfoService,
     public router: Router,
@@ -25,6 +25,8 @@ export class IntroComponent implements OnInit, AfterViewInit {
 
   public userImage;
   public userName;
+  public welcomeMessage;
+  public greeting;
 
   private intersectionObserverSubs: Subscription;
   private updateAppBackgroundColor(): void {
@@ -35,6 +37,8 @@ export class IntroComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.userName = this.data.display_name.split(' ')[0];
     this.userImage = this.data.images[0].url;
+    this.welcomeMessage = this.getRandomWelcomeMessage();
+    this.greeting = this.getRandomGreeting();
   }
 
   ngAfterViewInit(): void {
@@ -53,6 +57,24 @@ export class IntroComponent implements OnInit, AfterViewInit {
   public logout() {
     this.tokenSvc.clearToken();
     this.router.navigate(['login']);
+  }
+
+  private getRandomGreeting () {
+    let greetings = [
+      "Hi",
+      "Hey",
+      "Hello"
+    ];
+    return greetings[Math.floor(Math.random() * greetings.length)];
+  }
+
+  private getRandomWelcomeMessage () {
+    let messages = [
+      "Let's see how obscure your taste is...",
+      "Check out your stats below",
+      "Find out more about your music taste below"
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
   }
 
 }

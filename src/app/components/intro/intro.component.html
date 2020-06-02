@@ -3,8 +3,8 @@
         <button [matMenuTriggerFor]="appMenu">
             <span class="profile__image">
                 <img  [src]="this.userImage ? this.userImage : 'assets/images/app/profile-placeholder.png'">
-            </span> 
-             Menu 
+            </span>
+             Menu
         </button>
     </div>
 
@@ -20,5 +20,5 @@
 </div>
 
 <div class="profile" fxLayout="column" fxLayoutAlign="center center">
-    <h1 class="profile__header">Hello, <span>{{ userName }}</span>. Let's see how obscure your taste is...</h1>
+    <h1 class="profile__header">{{ greeting }}, <span>{{ userName }}</span>. {{ welcomeMessage }}</h1>
 </div>
