@@ -52,6 +52,7 @@ export class IntroComponent implements OnInit, AfterViewInit {
 
   public logout() {
     this.tokenSvc.clearToken();
+    window.open('https://www.spotify.com/logout', '_blank');
     this.router.navigate(['login']);
   }
 

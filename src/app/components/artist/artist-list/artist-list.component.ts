@@ -38,7 +38,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
 
   public userInfo;
 
-  public sliceLimit = 10;
+  public sliceLimit = 12;
 
   public showNav = false;
 
@@ -119,6 +119,6 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     this.sliceLimit = 50;
   }
   showLess() {
-    this.sliceLimit = 10;
+    this.sliceLimit = 12;
   }
 }

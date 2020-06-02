@@ -34,12 +34,12 @@ export class SpotifyService {
         config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
         + config.allTimeTrackIDs[Math.floor(Math.random() * config.allTimeTrackIDs.length)] + ','
             + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
-                + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=16';
+                + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=15';
       } else {
         url = 'https://api.spotify.com/v1/recommendations?seed_artists?country=' + ',' +
         config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
             + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
-                + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=16';
+                + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=15';
       }
 
       return new Promise((resolve, reject) => {
