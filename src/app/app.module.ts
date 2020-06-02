@@ -28,6 +28,7 @@ import ObscurityFuncs from './utilities/obscurityFuncs';
 import { TrackCardComponent } from './components/artist/track-card/track-card.component';
 import { SpotifyService } from './services/spotifyService';
 import { AboutComponent } from './components/about/about.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
@@ -50,6 +51,7 @@ import ObscurifyService from './services/obscurifyService';
     SpotifyAuthComponent,
     TrackCardComponent,
     AboutComponent,
+    PrivacyComponent,
     FooterComponent,
   ],
   imports: [
