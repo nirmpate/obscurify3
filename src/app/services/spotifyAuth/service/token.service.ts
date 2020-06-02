@@ -36,9 +36,6 @@ export class TokenService {
 
   public setAuthToken(spotifyResponse: any): boolean {
     if (!!spotifyResponse && !!spotifyResponse.spotifyToken && !!spotifyResponse.obscurifyToken) {
-      console.log('Spotify Repsonse', spotifyResponse);
-      console.log('Spotify Time', spotifyResponse.expires_in);
-
       const now = new Date();
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;

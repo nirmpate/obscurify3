@@ -38,10 +38,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.infoSvc.getUserStream().subscribe((user) => {
-    //   console.log('recommendations');
-    //   this.user = {...user};
-    // });
+
   }
 
 
@@ -95,8 +92,6 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
     this.spotifyService.getRecommendations(config).then((data: any) => {
       this.recommendedTracks = data.tracks;
     }).catch((err) => {
-
-      console.log('playlist error', err);
       this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
     });
   }
@@ -108,11 +103,9 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
       tracks: this.recommendedTracks
     };
     this.spotifyService.makePlaylist(config).then((results: any) => {
-      console.log('playlist', results);
       this.snackBar.open('Playlist Created in Spotify!', '' , { duration: 5000, panelClass: 'panel-success'});
 
     }).catch((err: any) => {
-      console.log('playlist error', err);
       this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
     });
   }

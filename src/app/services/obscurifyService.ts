@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ObscurifyService {
@@ -14,7 +14,7 @@ export class ObscurifyService {
     private obscurifyData = {};
     private obscurifyData$: BehaviorSubject<{}>;
 
-    public obscurifyUrl = 'https://ktp0b5os1g.execute-api.us-east-2.amazonaws.com/dev';
+    public obscurifyUrl = environment.obscurifyApiUrl;
 
     getObscurifyData(countryID, obscurifyScore, recentObscurifyScore): Observable<{}> {
         return this.http.get(this.obscurifyUrl +
@@ -31,6 +31,10 @@ export class ObscurifyService {
           );
     }
 
+    getUserHistory(config): Observable<{}> {
+      return this.http.get(this.obscurifyUrl + `/getUserHistory?userID=${config.userID}&hex=${config.hex}`);
+    }
+
     saveUserHistory(config): Observable<{}> {
       return this.http.post(this.obscurifyUrl + '/saveUserHistory', config);
     }
@@ -41,38 +45,6 @@ export class ObscurifyService {
           return of(result as T);
         };
       }
-    // getHistoryIDs() {
-    //   if (this.userData.userHistory == null || this.userData.userHistory.length == 0) {
-    //     let url = 'https://obscurifymusic.com/api/getUserHistory?userID=' + this.userData.userID + '&hex=' + this.userData.hex;
-    //     return new Promise(resolve => {
-    //       this.http.get(url).subscribe((data : any) => {
-    //         resolve(data);
-    //         this.userData.userHistory = data;
-    //       }, err => {
-    //         console.log('rest.ts', err);
-    //       });
-    //     });
-    //   } else {
-    //     return new Promise(resolve => {
-    //       resolve({'status' : 'history already retrieved'})
-    //     })
-    //   }
-    // }
-
-
-    // getHistoryItems(history: any){
-    //   let url = 'https://obscurifymusic.com/spotifyData/getHistoryItems?artistIDs=' + history.shortTermArtistIDs.join() +
-    //     '&trackIDs=' + history.shortTermTrackIDs.join() +
-    //     '&accessToken=' + this.token;
-
-    //   return new Promise(resolve => {
-    //     this.http.get(url).subscribe((data : any) => {
-    //       resolve(data);
-    //     }, err => {
-    //       console.log('rest.ts', err);
-    //     });
-    //   });
-    // }
 
 }
 

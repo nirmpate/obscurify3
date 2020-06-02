@@ -18,7 +18,6 @@ export class ArtistNavComponent implements OnInit {
   public selectedHistory = { name: 'Current', value: 'songs' };
 
   ngOnInit() {
-    console.log(this.navState);
     this.historyList = [...this.navState.historyList];
     this.selectedHistory = this.historyList[0];
   }

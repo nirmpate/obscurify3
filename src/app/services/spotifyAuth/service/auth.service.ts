@@ -41,7 +41,6 @@ export class AuthService {
 
   // Signal someone, that router can navigate somewhere
   public authorized(): void {
-    console.log('Called auth');
     this.authorized$.next(true);
   }
 

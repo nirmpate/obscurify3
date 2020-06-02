@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService, AuthService } from './services/spotifyAuth';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ export class AppComponent implements OnInit {
   constructor(
     private tokenSvc: TokenService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public snackBar: MatSnackBar
+
   ) {}
 
   ngOnInit(): void {

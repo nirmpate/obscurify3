@@ -7,6 +7,7 @@ import { combineLatest } from 'rxjs/index';
 import ObscurifyService from 'src/app/services/obscurifyService';
 import { SpotifyService } from 'src/app/services/spotifyService';
 import { map } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -22,12 +23,13 @@ export class HomeComponent implements OnInit {
     public infoSvc: InfoService,
     public authService: AuthService,
     public obscurifyService: ObscurifyService,
-    public spotifyService: SpotifyService
+    public spotifyService: SpotifyService,
+    public snkBar: MatSnackBar
   ) { }
   private stream: Subscription | null = null;
 
   public bgColor = '#A9E5AC';
-
+  public userHistory;
   public user: any;
   public obscurifyInfo;
   public audioFeatures;
@@ -72,8 +74,9 @@ export class HomeComponent implements OnInit {
 
     userStream.subscribe((user: any ) => {
       if (user.error && user.error.error.status === 401) {
-        console.log('Token Expired');
         this.authService.authorize();
+      } else if (user.error && user.error.error.status === 402) {
+        this.router.navigate(['login', { serverError: true }]);
       } else {
         this.user = user;
         // Get the rest of Spotify Data
@@ -112,84 +115,44 @@ export class HomeComponent implements OnInit {
               this.currentArtists.recentObscurifyScore).subscribe(
                 (obscurifyData: any) => {
                   if (obscurifyData.error) {
-                    console.log('Obscurify Server Error');
+                    this.router.navigate(['login', { serverError: true }]);
                   } else {
                     this.obscurifyInfo = { ...obscurifyData };
-
-                    console.log('this.user', this.user);
                   }
               }
             );
           }
         });
-
-        // const artistStream = combineLatest([
-        //   this.infoSvc.fetchAllTimeArtists(),
-        //   this.infoSvc.fetchCurrentArtists()]).pipe(map(([a$, b$]) => ({
-        //     allTimeArtists: a$,
-        //     currentArtists: b$,
-        //   })));
-
-        // artistStream.subscribe((data: any) => {
-        //   if (!data.allTimeArtists.error || !data.currentArtists.error) {
-
-        //     this.currentArtists = { ...data.currentArtists };
-        //     this.allTimeArtists = { ...data.allTimeArtists };
-        //   }
-        // });
       }
     });
-
-    /*
-      Obscurify Info
-
-
-    */
-
-    // this.infoSvc.getUserStream().subscribe((user: any) => {
-    //   this.user = {...user};
-
-    //   if (user.userInfo && user.allTimeObscurifyScore) {
-    //     this.obscurifyService.getObscurifyData(user.userInfo.country, user.allTimeObscurifyScore, user.recentObscurifyScore).subscribe(
-    //       (data: any) => {
-    //         if (data.error) {
-    //           console.log('Obscurify Server Error');
-    //         } else {
-    //           this.obscurifyInfo = { ...data };
-    //         }
-    //       }
-    //     );
-    //   }
-
-    //   if (this.user.allTimeTrackIDs && this.user.currentTrackIDs) {
-    //     const config = {
-    //       allTimeTrackIDs: this.user.allTimeTrackIDs,
-    //       currentTrackIDs: this.user.currentTrackIDs
-    //     };
-
-    //     this.spotifyService.getAudioFeatures(config).subscribe((data) => {
-    //       this.audioFeatures = data;
-    //     });
-    //   }
-    // });
   }
 
-  postUserHistory(val) {
-    console.log(this.tokenSvc.oAuthToken);
-    const saveUserHistoryBody = {
-      country: this.user.country,
-      userID: this.user.id,
-      longTermArtistIDs: this.allTimeArtists.allTimeArtistIDs,
-      longTermTrackIDs: this.allTimeTracks.allTimeTrackIDs,
-      obscurifyScore: this.allTimeArtists.allTimeObscurifyScore,
-      longTermAudioFeatures: val,
-      shortTermArtistIDs: this.currentArtists.currentArtistIDs,
-      shortTermTrackIDs: this.currentTracks.currentTrackIDs,
-      hex: this.tokenSvc.oAuthToken.obscurifyToken
+  getUserHistory(val) {
+    const getUserHistoryBody = {
+      hex: this.tokenSvc.oAuthToken.obscurifyToken,
+      userID: this.user.id
     };
 
-    this.obscurifyService.saveUserHistory(saveUserHistoryBody).subscribe((res) => {
-      console.log(res);
+    this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res) => {
+      const saveUserHistoryBody = {
+        country: this.user.country,
+        userID: this.user.id,
+        longTermArtistIDs: this.allTimeArtists.allTimeArtistIDs,
+        longTermTrackIDs: this.allTimeTracks.allTimeTrackIDs,
+        obscurifyScore: this.allTimeArtists.allTimeObscurifyScore,
+        longTermAudioFeatures: val,
+        shortTermArtistIDs: this.currentArtists.currentArtistIDs,
+        shortTermTrackIDs: this.currentTracks.currentTrackIDs,
+        hex: this.tokenSvc.oAuthToken.obscurifyToken
+      };
+
+      this.obscurifyService.saveUserHistory(saveUserHistoryBody).subscribe((res: any) => {
+        if (res.error) {
+          this.snkBar.open('Server Error. Could not save history.', '' , { duration: 5000, panelClass: 'panel-error'});
+        } else {
+          this.userHistory = {...res};
+        }
+      });
     });
   }
 

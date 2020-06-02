@@ -18,9 +18,6 @@ export class ObscurityGraphComponent implements OnInit {
   public histogram = [];
 
   ngOnInit() {
-    console.log('data in graph', this.data);
-    console.log(Object.entries(this.data.breakdown));
-
     const oldData = Object.entries(this.data.breakdown);
     const labels = [...oldData.map((val: any) => {
       if (Number(val[0]) >= 130  && val[0] <= 235) {
