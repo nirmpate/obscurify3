@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
 
 
-import { Router } from '@angular/router';
 import { tap, catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import ObscurityFuncs from '../utilities/obscurityFuncs';
 
 @Injectable()
 export class InfoService {

@@ -1,11 +1,12 @@
+import { Injectable } from '@angular/core';
 
-
-class ObscurityFuncs {
+@Injectable()
+export class ObscurityFuncs {
     findRandomGenres(artist) {
         if (artist.genres.length > 1) {
             const random1 = Math.floor(Math.random() * artist.genres.length);
             let random2 = Math.floor(Math.random() * artist.genres.length);
-            while (random1 == random2) {
+            while (random1 === random2) {
                 random2 = Math.floor(Math.random() * artist.genres.length);
             }
             const returnData = { randomGenre1 : artist.genres[random1], randomGenre2 : artist.genres[random2] };

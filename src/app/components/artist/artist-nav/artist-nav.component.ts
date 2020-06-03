@@ -15,6 +15,7 @@ export class ArtistNavComponent implements OnInit {
   constructor() { }
 
   public historyList = [];
+  public navOpen;
   public selectedHistory = { name: 'Current', value: 'songs' };
 
   ngOnInit() {

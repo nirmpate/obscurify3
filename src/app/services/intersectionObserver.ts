@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
 
-class IntersectionObserverService {
+export class IntersectionObserverService {
     private intersectionObserverSubject = new Subject<any>();
 
     getSubject(): Subject<any> {

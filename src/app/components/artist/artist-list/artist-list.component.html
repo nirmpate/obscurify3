@@ -56,9 +56,8 @@
             </div>
         </div>
 
-
         <div fxFlex.gt-sm="30%">
-            <app-artist-nav *ngIf="showNav" [navState]="navState" (createPlaylist)="createPlaylist($event)" (updateHistory)="getHistory($event)"></app-artist-nav>
+            <app-artist-nav *ngIf="showNav" [navState]="navState" (createPlaylist)="createPlaylist()" (updateHistory)="getHistory($event)"></app-artist-nav>
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import IntersectionObserverService from 'src/app/services/intersectionObserver';
+import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
 import { TokenService } from 'src/app/services/spotifyAuth';

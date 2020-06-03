@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, Output, EventEmitter, AfterViewInit, Input } from '@angular/core';
-import IntersectionObserverService from 'src/app/services/intersectionObserver';
+import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
-import ObscurityFuncs from 'src/app/utilities/obscurityFuncs';
+import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 
 @Component({
   selector: 'app-top-genres',

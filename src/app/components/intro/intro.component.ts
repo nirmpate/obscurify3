@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
-import IntersectionObserverService from 'src/app/services/intersectionObserver';
+import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
 import { Router } from '@angular/router';
@@ -60,20 +60,20 @@ export class IntroComponent implements OnInit, AfterViewInit {
     this.router.navigate(['login']);
   }
 
-  private getRandomGreeting () {
-    let greetings = [
-      "Hi",
-      "Hey",
-      "Hello"
+  private getRandomGreeting() {
+    const greetings = [
+      'Hi',
+      'Hey',
+      'Hello'
     ];
     return greetings[Math.floor(Math.random() * greetings.length)];
   }
 
   private getRandomWelcomeMessage () {
-    let messages = [
-      "Let's see how obscure your taste is...",
-      "Check out your stats below",
-      "Find out more about your music taste below"
+    const messages = [
+      'Let\'s see how obscure your taste is...',
+      'Check out your stats below',
+      'Find out more about your music taste below'
     ];
     return messages[Math.floor(Math.random() * messages.length)];
   }

@@ -6,8 +6,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,7 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthService, TokenService, AuthGuard, SpotifyAuthInterceptor } from './services/spotifyAuth';
 import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.component';
 import { InfoService } from './services/infoService';
-import ObscurityFuncs from './utilities/obscurityFuncs';
+import { ObscurityFuncs } from './utilities/obscurityFuncs';
 import { TrackCardComponent } from './components/artist/track-card/track-card.component';
 import { SpotifyService } from './services/spotifyService';
 import { AboutComponent } from './components/about/about.component';
@@ -32,7 +32,8 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
-import ObscurifyService from './services/obscurifyService';
+import { ObscurifyService } from './services/obscurifyService';
+import { BrowserCheck } from './services/browserCheck';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import ObscurifyService from './services/obscurifyService';
     InfoService,
     ObscurifyService,
     SpotifyService,
+    BrowserCheck,
     [{
       provide:  HTTP_INTERCEPTORS,
       // Force interception to use your new shiny headers!

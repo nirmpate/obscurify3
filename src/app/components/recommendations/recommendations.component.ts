@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
-import IntersectionObserverService from 'src/app/services/intersectionObserver';
+import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
 import { SpotifyService } from 'src/app/services/spotifyService';

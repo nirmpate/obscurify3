@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { InfoService } from '../../services/infoService';
 import { Subscription} from 'rxjs';
 import { combineLatest } from 'rxjs/index';
-import ObscurifyService from 'src/app/services/obscurifyService';
+import { ObscurifyService } from 'src/app/services/obscurifyService';
 import { SpotifyService } from 'src/app/services/spotifyService';
 import { map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';

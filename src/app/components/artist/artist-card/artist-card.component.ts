@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
-import BrowserCheck from 'src/app/services/browserCheck';
+import { BrowserCheck } from 'src/app/services/browserCheck';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
