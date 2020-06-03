@@ -67,9 +67,6 @@
                 }
               ]
             }
-          },
-          "angularCompilerOptions": {
-            "fullTemplateTypeCheck": true
           }
         },
         "serve": {
