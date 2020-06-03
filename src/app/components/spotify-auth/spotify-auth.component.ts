@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService, TokenService } from 'src/app/services/spotifyAuth';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -7,14 +7,13 @@ import { CookieService } from 'ngx-cookie-service';
   template: `<h3>Authorizing&hellip;</h3>`,
   styles: [``]
 })
-export class SpotifyAuthComponent implements OnInit {
+export class SpotifyAuthComponent implements AfterViewInit {
 
   public constructor(private authService: AuthService, private cookieService: CookieService, private tknService: TokenService) {
 
   }
 
-  public ngOnInit(): void {
-    // Send it back to app home
+  public ngAfterViewInit() {
     this.authService.authorized();
   }
 }
