@@ -34,7 +34,7 @@ nav {
 .welcome {
     width: 100%;
     font-size: 2em;
-    padding-top: 140px;
+    padding-top: 70px;
     text-align: center;
     span {
         color: $primary-color;
@@ -43,7 +43,7 @@ nav {
 
 .profile {
     width: 100%;
-    padding: 140px 0;
+    padding: 70px 0;
     text-align: center;
 
     &__image {
@@ -71,6 +71,8 @@ nav {
 @include desktop {
 
     .profile {
+        padding-top: 140px;
+
         &__image {
             width: 50px;
             height: 50px;
@@ -80,4 +82,10 @@ nav {
             font-size: 3em;
         }
     }
+
+    .welcome {
+        padding-top: 140px;
+    }
+
+
 }

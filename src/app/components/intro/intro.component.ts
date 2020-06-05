@@ -35,6 +35,7 @@ export class IntroComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
+    console.log(this.data)
     this.userName = this.data.display_name.split(' ')[0];
     this.userImage = this.data.images[0].url;
     this.welcomeMessage = this.getRandomWelcomeMessage();
@@ -60,22 +61,32 @@ export class IntroComponent implements OnInit, AfterViewInit {
     this.router.navigate(['login']);
   }
 
+  private checkName(name) {
+    const nameArray = name.split('');
+    nameArray.forEach(element => {
+      if (Number(element)) {
+        return false;
+      }
+    });
+    return name;
+  }
+
   private getRandomGreeting() {
     const greetings = [
       'Hi',
       'Hey',
       'Hello'
     ];
-    return greetings[Math.floor(Math.random() * greetings.length)];
+    return greetings[Math.floor(Math.random() * Math.floor(greetings.length - 1))];
   }
 
-  private getRandomWelcomeMessage () {
+  private getRandomWelcomeMessage() {
     const messages = [
       'Let\'s see how obscure your taste is...',
       'Check out your stats below',
       'Find out more about your music taste below'
     ];
-    return messages[Math.floor(Math.random() * messages.length)];
+    return messages[Math.floor(Math.random() * Math.floor(messages.length - 1))];
   }
 
 }

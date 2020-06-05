@@ -60,8 +60,6 @@ export class ObscurityGraphComponent implements OnInit {
         position: 'center',
         fontSize: 10,
         yAdjust: -40,
-
-
       }
     };
 
@@ -115,6 +113,8 @@ export class ObscurityGraphComponent implements OnInit {
           defaultFontColor: '#fff',
           defaultFontFamily	: '"Helvetica Neue", sans-serif'
         },
+        responsive: true,
+        maintainAspectRatio: false,
         animation: {
           duration: 3000
         },
@@ -122,7 +122,7 @@ export class ObscurityGraphComponent implements OnInit {
             enabled: false
         },
       legend: {
-                  display: false
+          display: false
         },
       plugins: [
         pluginAnnotations
@@ -140,6 +140,8 @@ export class ObscurityGraphComponent implements OnInit {
           },
           ticks: {
             fontColor: '#fff',
+            stepSize: 4000
+
           },
           gridLines: {
             display: false
@@ -158,7 +160,7 @@ export class ObscurityGraphComponent implements OnInit {
             scaleLabel: {
               fontColor: '#fff',
               display: true,
-              labelString: 'Average Score from Most Popular to Least Popular'
+              labelString: 'Popularity Score Averages'
           }
         }]
       }

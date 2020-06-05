@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.serverError) {
-      this.snkBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
+      this.snkBar.open('Server Error. Please Try Again Later.', '' , {
+        duration: 5000,
+        panelClass: 'panel-error',
+        verticalPosition: 'top'
+      });
     }
     if (!!this.tokenSvc.oAuthToken.spotifyToken) {
       this.router.navigate(['home']);

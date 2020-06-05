@@ -1,11 +1,21 @@
 
 <div fxLayout="row" fxLayoutAlign="end center">
     <div class="obscurity__graph" fxLayout="column" fxLayoutAlign="center center" fxFlexAlign="end">
-        <canvas id="canvas">
-            {{ histogram }}
-        </canvas>
-
+        <div class="obscurity__canvas">
+            <canvas id="canvas">
+                {{ histogram }}
+            </canvas>
+    
+        </div>
+        <div class="obscurity__description">
+            <p>* Most Popular to Least Popular</p>
+            <p>* This graph shows the popularity score for users most listened to artists.
+                  The higher the score the more popular your music taste is.</p>
+           </div>
     </div>
+
+
+
 </div>
 
 

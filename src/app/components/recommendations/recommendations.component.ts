@@ -92,7 +92,7 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
     this.spotifyService.getRecommendations(config).then((data: any) => {
       this.recommendedTracks = data.tracks;
     }).catch((err) => {
-      this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
+      this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error', verticalPosition: 'top'});
     });
   }
 
@@ -103,10 +103,14 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
       tracks: this.recommendedTracks
     };
     this.spotifyService.makePlaylist(config).then((results: any) => {
-      this.snackBar.open('Playlist Created in Spotify!', '' , { duration: 5000, panelClass: 'panel-success'});
+      this.snackBar.open('Playlist Created in Spotify!', '' , { duration: 5000, panelClass: 'panel-success', verticalPosition: 'top'});
 
     }).catch((err: any) => {
-      this.snackBar.open('Server Error. Please Try Again Later.', '' , { duration: 5000, panelClass: 'panel-error'});
+      this.snackBar.open('Server Error. Please Try Again Later.', '' , {
+        duration: 5000,
+        panelClass: 'panel-error',
+        verticalPosition: 'top'
+      });
     });
   }
 }

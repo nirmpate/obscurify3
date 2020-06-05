@@ -2,9 +2,9 @@
 @import 'mixins';
 
 .artist__nav {
-    padding: 0em 2em 1em;
+    padding: 0em 2em 2em;
 
-    height: 4em;
+    height: 5em;
     width: 100%;
     box-sizing: border-box;
     position: fixed;
@@ -12,7 +12,8 @@
     background: white;
     margin-left: -1em;
     border: 1px solid #E4E4E4;
-
+    transition: .2s cubic-bezier(.25,.1,.25,1);
+    
     &.active {
         height: 70vh;
     }

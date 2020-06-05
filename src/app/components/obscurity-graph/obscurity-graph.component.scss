@@ -14,15 +14,34 @@
     color: white;
 }
 
+.obscurity__canvas {
+    min-height: 400px;
+    width: 100%;
+}
+
+.obscurity__description {
+    padding-top: 2em;
+    p {
+        font-size: 12px;
+        font-weight: normal;
+    }
+}
+
 @include desktop {
     .obscurity__graph{
         margin-top: 8em;
         max-width: 900px;
         max-height: 500px;
-        box-sizing: border-box;
         position: relative;
+        padding: 5em 5em;
+        box-sizing: content-box !important;
+
         &__info {
             font-size: 1rem;
         }
+    }
+
+    .obscurity__canvas {
+        width: 100%;
     }
 }

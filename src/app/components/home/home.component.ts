@@ -148,7 +148,11 @@ export class HomeComponent implements OnInit {
 
       this.obscurifyService.saveUserHistory(saveUserHistoryBody).subscribe((res: any) => {
         if (res.error) {
-          this.snkBar.open('Server Error. Could not save history.', '' , { duration: 5000, panelClass: 'panel-error'});
+          this.snkBar.open('Server Error. Could not save history.', '' , {
+            duration: 5000,
+            panelClass: 'panel-error',
+          verticalPosition: 'top'
+        });
         } else {
           this.userHistory = {...res};
         }

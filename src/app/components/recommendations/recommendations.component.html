@@ -23,9 +23,6 @@
                 <div class="track-container">
                   <div class="card-track">
                     <div class="card" *ngFor="let track of recommendedTracks">
-                      <div class="card-content">
-                          <img item-start [src]="track.album.images[1].url">
-                      </div>
                       <div class="card-info">
                         <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)">
                           <h3>
@@ -36,6 +33,10 @@
                           </p>
                         </a>
                       </div>
+                      <div class="card-content">
+                          <img item-start [src]="track.album.images[1].url">
+                      </div>
+
                     </div>
                   </div>
                 </div>
