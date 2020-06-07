@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, Inject } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-artist-nav',
   templateUrl: './artist-nav.component.html',
@@ -12,13 +13,18 @@ export class ArtistNavComponent implements OnInit {
   @Output() updateHistory: EventEmitter<any> = new EventEmitter();
   @Output() createPlaylist: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {
+
+   }
 
   public historyList = [];
   public navOpen;
   public selectedHistory = { name: 'Current', value: 'songs' };
 
   ngOnInit() {
+    if (this.data) {
+      this.navState = { ...this.data.navState };
+    }
     this.historyList = [...this.navState.historyList];
     this.selectedHistory = this.historyList[0];
   }

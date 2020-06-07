@@ -1,7 +1,7 @@
 <main>
-    <div class="app" *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)"[ngStyle]="{'background-color': this.bgColor}">
-        <app-intro [data]="user" (appColor)="setColor($event)"></app-intro>
-        <app-top-genres *ngIf="allTimeArtists" [data]="allTimeArtists" (appColor)="setColor($event)"></app-top-genres>
+    <div class="app" *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)">
+        <app-intro [data]="user"></app-intro>
+        <app-top-genres *ngIf="allTimeArtists" [data]="allTimeArtists"></app-top-genres>
         <app-obscurity-rating
             [data]="{
                 obscurifyInfo: obscurifyInfo,
@@ -9,7 +9,7 @@
                 allTimeObscurifyScore: allTimeArtists.allTimeObscurifyScore,
                 recentObscurifyScore: currentArtists.recentObscurifyScore
             }" 
-            (appColor)="setColor($event)">
+        >
         </app-obscurity-rating> 
         <app-artist-list 
             *ngIf="(allTimeArtists && allTimeTracks && currentArtists && currentTracks)"
@@ -20,7 +20,7 @@
                 currentTracks: currentTracks.currentTracks,
                 userInfo: user
             }" 
-            (appColor)="setColor($event)">
+        >
         </app-artist-list>
     
         <app-moods-graph 
@@ -31,7 +31,7 @@
                 userAudioFeatures: audioFeatures,
                 country: user.country
             }"
-            (appColor)="setColor($event)">
+        >
         </app-moods-graph>
     
         <app-recommendations 
@@ -43,7 +43,7 @@
                 currentTrackIDs: currentTracks.currentTrackIDs,
                 userInfo: user
             }" 
-            (appColor)="setColor($event)">
+        >
         </app-recommendations>  
     </div>
     

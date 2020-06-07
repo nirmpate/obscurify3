@@ -31,6 +31,7 @@ import { AboutComponent } from './components/about/about.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { ObscurifyService } from './services/obscurifyService';
 import { BrowserCheck } from './services/browserCheck';
@@ -67,7 +68,8 @@ import { BrowserCheck } from './services/browserCheck';
     AppRoutingModule,
     HttpClientModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatBottomSheetModule
   ],
   providers: [
     ObscurityFuncs,

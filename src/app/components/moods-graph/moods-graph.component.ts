@@ -27,12 +27,6 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
 
   private intersectionObserverSubs: Subscription;
 
-  private updateAppBackgroundColor() {
-
-    this.appColor.emit(2);
-
-  }
-
   ngOnInit() {
 
     const longTermAudioFeatures = {
@@ -169,7 +163,6 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     .subscribe(el => {
 
       if (el.isIntersecting) {
-        this.updateAppBackgroundColor();
         this.show = true;
       } else {
         this.show = false;

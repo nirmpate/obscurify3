@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .slate {
-    margin: 8rem 0px;
+    background: #FFA69E;
 
 }
 
@@ -19,12 +19,12 @@
     &__card {
         background-color: rgba(0, 0, 0, .2);
         border-radius: 5px;
-        padding: 1.5em 1.5em;
+        padding: 1em 1.5em;
         opacity: 0;
         transform: translateY(50px);
         transition: .3s cubic-bezier(.25,.1,.25,1);
         h3 {
-            font-size: 2em;
+            font-size: 1.5em;
         }
 
     }
@@ -40,6 +40,8 @@
     .genre {
 
         &__card {
+            padding: 1.5em 1.5em;
+
             min-width: 636px;
 
             h3 {

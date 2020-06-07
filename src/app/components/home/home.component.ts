@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   ) { }
   private stream: Subscription | null = null;
 
-  public bgColor = '#A9E5AC';
+  // public bgColor = '#A9E5AC';
   public userHistory;
   public user: any;
   public obscurifyInfo;
@@ -38,25 +38,25 @@ export class HomeComponent implements OnInit {
   public currentArtists;
   public currentTracks;
 
-  setColor(val: number) {
-    switch (val) {
-      case 1:
-        this.bgColor = '#A9E5AC';
-        break;
-      case 2:
-        this.bgColor = '#FFA69E';
-        break;
-      case 3:
-        this.bgColor = 'rgba(0,0,0,0.9)';
-        break;
-      case 4:
-        this.bgColor = '#FFF';
-        break;
-      case 5:
-        this.bgColor = '#759398';
-        break;
-    }
-  }
+  // setColor(val: number) {
+  //   switch (val) {
+  //     case 1:
+  //       this.bgColor = '#A9E5AC';
+  //       break;
+  //     case 2:
+  //       this.bgColor = '#FFA69E';
+  //       break;
+  //     case 3:
+  //       this.bgColor = 'rgba(0,0,0,0.9)';
+  //       break;
+  //     case 4:
+  //       this.bgColor = '#FFF';
+  //       break;
+  //     case 5:
+  //       this.bgColor = '#759398';
+  //       break;
+  //   }
+  // }
 
   ngOnInit() {
     const userStream = this.tokenSvc.authTokens.pipe((x) => {
@@ -155,6 +155,7 @@ export class HomeComponent implements OnInit {
         });
         } else {
           this.userHistory = {...res};
+          console.log('this.userHistory', this.userHistory);
         }
       });
     });

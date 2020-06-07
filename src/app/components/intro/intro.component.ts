@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/services/spotifyAuth';
   providers: [IntersectionObserverService]
 
 })
-export class IntroComponent implements OnInit, AfterViewInit {
+export class IntroComponent implements OnInit {
   @Input() data;
   @Output() appColor = new EventEmitter<number>();
 
@@ -28,31 +28,11 @@ export class IntroComponent implements OnInit, AfterViewInit {
   public welcomeMessage;
   public greeting;
 
-  private intersectionObserverSubs: Subscription;
-  private updateAppBackgroundColor(): void {
-    this.appColor.emit(4);
-  }
-
-
   ngOnInit() {
-    console.log(this.data)
     this.userName = this.data.display_name.split(' ')[0];
     this.userImage = this.data.images[0].url;
     this.welcomeMessage = this.getRandomWelcomeMessage();
     this.greeting = this.getRandomGreeting();
-  }
-
-  ngAfterViewInit(): void {
-    this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.70
-    });
-    this.intersectionObserverSubs = this.intersectionObserverService
-      .getSubject()
-      .subscribe(el => {
-        if (el.isIntersecting) {
-          this.updateAppBackgroundColor();
-        }
-      });
   }
 
   public logout() {

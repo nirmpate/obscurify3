@@ -31,12 +31,6 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
     private intersectionObserverSubs: Subscription;
     private initialTracks = false;
 
-  private updateAppBackgroundColor() {
-
-    this.appColor.emit(5);
-
-  }
-
   ngOnInit() {
 
   }
@@ -51,7 +45,6 @@ export class RecommendationsComponent implements OnInit, AfterViewInit {
     .subscribe(el => {
 
       if (el.isIntersecting) {
-        this.updateAppBackgroundColor();
         this.show = true;
 
         const config = {

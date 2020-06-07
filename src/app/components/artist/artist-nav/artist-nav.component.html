@@ -1,11 +1,11 @@
 <div class="artist__nav" [ngClass]="{'active': navOpen}">
     <div class="artist__nav__container">
 
-        <div class="artist__nav__mobile">
+        <!-- <div class="artist__nav__mobile">
             <button (click)="navOpen = !navOpen">
                 <span>Options</span> <i class="fas fa-chevron-up"></i>
             </button>
-        </div>
+        </div> -->
         <div class="artist__nav__content">
             <h2>Select</h2>
             <div class="artist__nav__main" fxLayout="row" fxLayoutAlign="flex-start start">
@@ -31,7 +31,7 @@
             </mat-radio-group>
             </div>
     
-            <div class="artist__nav__playlist" fxLayout="row" fxLayoutAlign="center">
+            <div class="artist__nav__playlist" fxLayout="row" fxLayoutAlign="center" *ngIf="this.navState.listType === 'songs'">
                 <button 
                     class="artist__nav__button" 
                     (click)="emitCreatePlaylist()">

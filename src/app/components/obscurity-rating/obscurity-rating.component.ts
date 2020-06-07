@@ -17,14 +17,6 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   public show = false;
   private intersectionObserverSubs: Subscription;
 
-  private updateAppBackgroundColor(val) {
-    if (val) {
-      this.appColor.emit(3);
-    } else {
-      this.appColor.emit(2);
-    }
-  }
-
   ngOnInit() {
   }
 
@@ -38,14 +30,9 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
       .subscribe(el => {
 
         if (el.isIntersecting) {
-          this.updateAppBackgroundColor(true);
           this.show = true;
         } else {
           this.show = false;
-        }
-
-        if (el.isVisible) {
-          this.updateAppBackgroundColor(false);
         }
       });
   }

@@ -13,7 +13,7 @@ export class ArtistCardComponent implements OnInit {
   @Input() i;
   public activeView = false;
 
-  @HostListener('touchend', ['$event.target'])
+  @HostListener('click', ['$event.target'])
   onClick(btn) {
     if (this.browserCheck.isDevice) {
       this.activeView = !this.activeView;

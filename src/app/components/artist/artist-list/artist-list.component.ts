@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
@@ -6,6 +6,9 @@ import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
 import { TokenService } from 'src/app/services/spotifyAuth';
 import { SpotifyService } from 'src/app/services/spotifyService';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ArtistNavComponent } from '../artist-nav/artist-nav.component';
+import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-artist-list',
@@ -18,14 +21,17 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
   @Input() data: any;
   @Output() appColor = new EventEmitter<number>();
 
+  @ViewChild('sentinelTop') sentinelTop;
+  @ViewChild('sentinelBottom') sentinelBottom;
+  @ViewChild('slate') slate;
   constructor(
-    public element: ElementRef,
-    public intersectionObserverService: IntersectionObserverService,
-    public infoSvc: InfoService,
-    public tokenSvc: TokenService,
-    public spotifyService: SpotifyService,
-    public snackBar: MatSnackBar
-    ) { }
+  public element: ElementRef,
+  public intersectionObserverService: IntersectionObserverService,
+  public infoSvc: InfoService,
+  public tokenSvc: TokenService,
+  public spotifyService: SpotifyService,
+  public snackBar: MatSnackBar,
+  private bottomSheet: MatBottomSheet) { }
 
   public navState = {
     listType: 'artists',
@@ -41,33 +47,91 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
   public sliceLimit = 12;
 
   public showNav = false;
+  public stickHeader = false;
 
-  private intersectionObserverSubs: Subscription;
-
-  private updateAppBackgroundColor(): void {
-    this.appColor.emit(4);
-  }
-
+  private componentIntersectObserverSub: Subscription;
+  private sentinelTopIntersectSub: Subscription;
+  private sentinelBottomIntersectSub: Subscription;
 
   ngOnInit() {
     this.userInfo = this.data.userInfo;
   }
 
   ngAfterViewInit(): void {
-    this.intersectionObserverService.init(this.element.nativeElement, {
-      rootMargin: '0px 0px 0px 0px',
-      threshold: 0.3
-    });
-    this.intersectionObserverSubs = this.intersectionObserverService
+
+    console.log('this.sentinelTop.nativeElement', this.sentinelTop.nativeElement);
+    // this.intersectionObserverService.init(this.element.nativeElement, {
+    //   rootMargin: '0px 0px 0px 0px',
+    //   threshold: 0.3
+    // });
+
+    this.intersectionObserverService.init(this.sentinelTop.nativeElement,
+      {
+        threshold: [0]
+      });
+
+    this.intersectionObserverService.init(this.sentinelBottom.nativeElement,
+      {
+        threshold: [1]
+      });
+
+    this.componentIntersectObserverSub = this.intersectionObserverService
       .getSubject()
       .subscribe(el => {
-        if (el.isIntersecting) {
-          this.updateAppBackgroundColor();
-          this.showNav = true;
-        } else {
-          this.showNav = false;
+        console.log('el', el);
+        const targetInfo = el.boundingClientRect;
+        const rootBoundsInfo = el.rootBounds;
+        const ratio = el.intersectionRatio;
+
+              // Started sticking.
+        if (el.target.classList[1] === 'sticky_sentinel--top') {
+          if (targetInfo.bottom < rootBoundsInfo.top) {
+            this.stickHeader = true;
+          }
+          // Stopped sticking.
+          if (targetInfo.bottom >= rootBoundsInfo.top &&
+            targetInfo.bottom < rootBoundsInfo.bottom) {
+                this.stickHeader = false;
+          }
         }
+
+        if (el.target.classList[1] === 'sticky_sentinel--bottom') {
+          if (targetInfo.bottom > rootBoundsInfo.top && ratio === 1) {
+            this.stickHeader = true;
+          }
+
+          // Stopped sticking.
+          if (targetInfo.top < rootBoundsInfo.top &&
+            targetInfo.bottom < rootBoundsInfo.bottom) {
+                this.stickHeader = false;
+          }
+        }
+  
+        // if (el.isIntersecting && el.target.classList[1] === 'sticky_sentinel--top') {
+        //   this.showNav = true;
+        // } else if (el.isIntersecting && el.target.classList[1] === 'sticky_sentinel--bottom') {
+        //   this.showNav = false;
+        // }
       });
+
+
+  }
+
+  openBottomSheet() {
+    const bottomsheetRef = this.bottomSheet.open(ArtistNavComponent, {
+      panelClass: 'bottom-sheet__artist__nav',
+      data: {
+        navState: this.navState
+      }});
+    console.log(bottomsheetRef);
+    bottomsheetRef.instance.updateHistory.subscribe((res) => {
+      this.getHistory(res);
+      bottomsheetRef.dismiss();
+    });
+    bottomsheetRef.instance.createPlaylist.subscribe((res)=> {
+      this.createPlaylist();
+      bottomsheetRef.dismiss();
+    });
   }
 
   getHistory(data) {

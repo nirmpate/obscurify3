@@ -2,13 +2,38 @@
 @import 'components/header';
 @import 'variables';
 
+.bottomsheet__btn {
+    margin-top: 1em;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    background-color: $primary-color;
+    font-weight: bold;
+}
+
+.header {
+    &.sticky {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+        width: calc(100% + 2em);
+        margin-left: -1em;
+        padding: 1em 1em;
+        box-sizing: border-box;
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    }
+}
+
 .artist {
     max-width: 1024px;
-    margin: 0 auto;
-    margin: 20rem auto;
+    position: relative;
+
 
     .header__title {
         text-transform: capitalize;
+        font-size: 2em;
+        width: 100;
     }
 
     &__container {
@@ -41,7 +66,11 @@
 
 @include desktop {
     .artist {
-        margin: 20rem auto;
+        margin: 0 auto;
 
+    }
+
+    .header__title {
+        font-size: inherit;
     }
 }

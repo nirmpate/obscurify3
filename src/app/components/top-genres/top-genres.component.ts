@@ -28,12 +28,6 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
   public topGenres = [];
   private intersectionObserverSubs: Subscription;
 
-  private updateAppBackgroundColor() {
-
-    this.appColor.emit(2);
-
-  }
-
   ngOnInit() {
     const genres: any = {};
     const topGenres: any = [];
@@ -62,19 +56,15 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.20
+      threshold: [0.50]
     });
     this.intersectionObserverSubs = this.intersectionObserverService
     .getSubject()
     .subscribe(el => {
 
       if (el.isIntersecting) {
-        this.updateAppBackgroundColor();
         this.show = true;
-      } else {
-        this.show = false;
       }
-
     });
   }
 

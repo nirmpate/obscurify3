@@ -13,7 +13,7 @@ export class TrackCardComponent implements OnInit {
   @Input() i: any;
   public activeView = false;
 
-  @HostListener('touchend', ['$event.target'])
+  @HostListener('click', ['$event.target'])
   onClick(btn) {
     if (this.browserCheck.isDevice) {
       this.activeView = !this.activeView;

@@ -4,14 +4,13 @@
 .artist__nav {
     padding: 0em 2em 2em;
 
-    height: 5em;
+    height: 20em;
     width: 100%;
     box-sizing: border-box;
-    position: fixed;
-    bottom: 0;
+    // position: fixed;
+    // bottom: 0;
     background: white;
     margin-left: -1em;
-    border: 1px solid #E4E4E4;
     transition: .2s cubic-bezier(.25,.1,.25,1);
     
     &.active {
@@ -108,8 +107,6 @@
 @include lt-md {
 
     .artist__nav {
-        box-shadow: 3px 14px 16px 8px #000;
-
         &__container {
             margin: 0em 0 0;
         }
