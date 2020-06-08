@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output, Inject } from '@angular/core';
+import { Component, OnInit, Input, Output, Inject, Optional } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-artist-nav',
   templateUrl: './artist-nav.component.html',
-  styleUrls: ['./artist-nav.component.scss']
+  styleUrls: ['./artist-nav.component.scss'],
 })
 
 export class ArtistNavComponent implements OnInit {
@@ -13,7 +13,7 @@ export class ArtistNavComponent implements OnInit {
   @Output() updateHistory: EventEmitter<any> = new EventEmitter();
   @Output() createPlaylist: EventEmitter<any> = new EventEmitter();
 
-  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {
+  constructor(@Optional() @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {
 
    }
 

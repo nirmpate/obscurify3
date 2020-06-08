@@ -62,11 +62,19 @@
             cursor: pointer;
         }
     }
+
+    &__nav--desktop {
+        display: none;
+    }
 }
 
 @include desktop {
     .artist {
         margin: 0 auto;
+
+        &__nav--desktop {
+            display: block;
+        }
 
     }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { BrowserCheck } from 'src/app/services/browserCheck';
 import { DomSanitizer } from '@angular/platform-browser';
+import ObscurityFuncs from 'src/app/utilities/obscurityFuncs';
 
 @Component({
   selector: 'app-track-card',
@@ -12,6 +13,7 @@ export class TrackCardComponent implements OnInit {
   @Input() track: any;
   @Input() i: any;
   public activeView = false;
+  public stars;
 
   @HostListener('click', ['$event.target'])
   onClick(btn) {
@@ -32,13 +34,14 @@ export class TrackCardComponent implements OnInit {
       this.activeView = false;
     }
   }
-
+  
   constructor(
     public browserCheck: BrowserCheck,
-    public sanitizer: DomSanitizer) { }
+    public sanitizer: DomSanitizer,
+    private obscurityFuncs: ObscurityFuncs) { }
 
   ngOnInit() {
-
+    this.stars = this.obscurityFuncs.findStarRating(parseInt(this.track.popularity, 10));
   }
 
 }

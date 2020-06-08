@@ -27,7 +27,7 @@ export class ObscurityFuncs {
 
   findStarRating(popularity) {
 
-    switch (popularity) {
+    switch (true) {
         case (popularity >= 90):
             return '★★★★★';
         case (popularity >= 80):

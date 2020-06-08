@@ -8,7 +8,7 @@ import { TokenService } from 'src/app/services/spotifyAuth';
 import { SpotifyService } from 'src/app/services/spotifyService';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ArtistNavComponent } from '../artist-nav/artist-nav.component';
-import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { BrowserCheck } from 'src/app/services/browserCheck';
 
 @Component({
   selector: 'app-artist-list',
@@ -25,13 +25,14 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
   @ViewChild('sentinelBottom') sentinelBottom;
   @ViewChild('slate') slate;
   constructor(
-  public element: ElementRef,
-  public intersectionObserverService: IntersectionObserverService,
-  public infoSvc: InfoService,
-  public tokenSvc: TokenService,
-  public spotifyService: SpotifyService,
-  public snackBar: MatSnackBar,
-  private bottomSheet: MatBottomSheet) { }
+    public element: ElementRef,
+    public intersectionObserverService: IntersectionObserverService,
+    public infoSvc: InfoService,
+    public tokenSvc: TokenService,
+    public spotifyService: SpotifyService,
+    public snackBar: MatSnackBar,
+    private bottomSheet: MatBottomSheet,
+    private browserCheck: BrowserCheck) { }
 
   public navState = {
     listType: 'artists',
@@ -55,30 +56,27 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.userInfo = this.data.userInfo;
+    if (!this.browserCheck.isDevice) {
+      this.showNav = true;
+    }
   }
 
   ngAfterViewInit(): void {
+    if (this.browserCheck.isDevice) {
+      this.intersectionObserverService.init(this.sentinelTop.nativeElement,
+        {
+          threshold: [0]
+        });
 
-    console.log('this.sentinelTop.nativeElement', this.sentinelTop.nativeElement);
-    // this.intersectionObserverService.init(this.element.nativeElement, {
-    //   rootMargin: '0px 0px 0px 0px',
-    //   threshold: 0.3
-    // });
-
-    this.intersectionObserverService.init(this.sentinelTop.nativeElement,
-      {
-        threshold: [0]
-      });
-
-    this.intersectionObserverService.init(this.sentinelBottom.nativeElement,
-      {
-        threshold: [1]
-      });
+      this.intersectionObserverService.init(this.sentinelBottom.nativeElement,
+        {
+          threshold: [1]
+        });
+    }
 
     this.componentIntersectObserverSub = this.intersectionObserverService
       .getSubject()
       .subscribe(el => {
-        console.log('el', el);
         const targetInfo = el.boundingClientRect;
         const rootBoundsInfo = el.rootBounds;
         const ratio = el.intersectionRatio;
@@ -106,15 +104,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
                 this.stickHeader = false;
           }
         }
-  
-        // if (el.isIntersecting && el.target.classList[1] === 'sticky_sentinel--top') {
-        //   this.showNav = true;
-        // } else if (el.isIntersecting && el.target.classList[1] === 'sticky_sentinel--bottom') {
-        //   this.showNav = false;
-        // }
       });
-
-
   }
 
   openBottomSheet() {
@@ -123,7 +113,6 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
       data: {
         navState: this.navState
       }});
-    console.log(bottomsheetRef);
     bottomsheetRef.instance.updateHistory.subscribe((res) => {
       this.getHistory(res);
       bottomsheetRef.dismiss();

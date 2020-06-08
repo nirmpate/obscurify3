@@ -55,7 +55,7 @@ export class ObscurityGraphComponent implements OnInit {
 
       label: {
         fontColor: 'rgb(162, 158, 255)',
-        content: `Your All Time ${this.data.userAllTimeScore}`,
+        content: `Your All Time ${Math.round(this.data.percentileByCountryAllTime)}%`,
         enabled: true,
         position: 'center',
         fontSize: 10,
@@ -73,7 +73,7 @@ export class ObscurityGraphComponent implements OnInit {
 
       label: {
         fontColor: 'rgb(229, 202, 169)',
-        content: `Your Recent ${this.data.userRecentScore}`,
+        content: `Your Recent ${Math.round(this.data.percentileByCountryRecent)}%`,
         enabled: true,
         position: 'center',
         yAdjust: -65,

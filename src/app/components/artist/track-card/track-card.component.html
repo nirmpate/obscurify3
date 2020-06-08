@@ -13,6 +13,9 @@
                 <p *ngIf="activeView" class="artist__card__info--secondary">
                     {{ track.artists[0].name }}
                 </p>
+
+                <p *ngIf="activeView" class="artist__card__info--secondary artist__card__stars"> {{ this.stars }}</p>
+
             </div>
             <a class="artist__card__external" [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="activeView" fxFlex="0 1 auto"><i class="fas fa-external-link-alt"></i></a>
         </div>

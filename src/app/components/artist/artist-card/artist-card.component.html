@@ -11,6 +11,7 @@
                 <p *ngIf="activeView" class="artist__card__info--secondary">
                     {{ artist.genres[0] }}, {{ artist.genres[1] }}
                 </p>
+                <p *ngIf="activeView" class="artist__card__info--secondary artist__card__stars"> {{ this.stars }}</p>
             </div>
             <a class="artist__card__external" [href]="this.sanitizer.bypassSecurityTrustResourceUrl(artist.uri)" *ngIf="activeView" fxFlex="0 1 auto"><i class="fas fa-external-link-alt"></i></a>
         </div>

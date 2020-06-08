@@ -117,10 +117,6 @@ $secondary-font: -apple-system, BlinkMacSystemFont, 'Segoe UI';
 
 .slate {
   padding: 8rem 1em;
-
-  @include desktop {
-    padding: 20em 1em;
-  }
 }
 
 .sticky_sentinel {
