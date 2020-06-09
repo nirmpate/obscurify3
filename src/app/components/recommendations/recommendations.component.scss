@@ -208,9 +208,15 @@
       &__container {
         position: relative;
       }
+
+      .track-container {
+        overflow: hidden;
+      }
+      
       .card-track {
         height: 100%;
         width: 100%;
+        overflow: hidden;
 
         .card {
           min-height: 230px;

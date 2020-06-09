@@ -72,7 +72,6 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "port": 3000,
-            "host": "192.168.1.9",
             "browserTarget": "obscurify3:build"
           },
           "configurations": {

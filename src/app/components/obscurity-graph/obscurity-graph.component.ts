@@ -82,23 +82,23 @@ export class ObscurityGraphComponent implements OnInit {
       }
     };
 
-    const globalAverageAnnotation = {
-      type: 'line',
-      mode: 'vertical',
-      scaleID: 'x-axis-0',
-      value: this.data.averageScoreGlobal,
-      borderColor: 'rgb(169, 196, 229)',
-      borderWidth: 2,
-      z: 2,
-      label: {
-        fontColor: 'rgb(169, 196, 229)',
-        content: `Global Avg ${this.data.averageScoreGlobal}`,
-        enabled: true,
-        position: 'center',
-        fontSize: 10,
-        yAdjust: -10
-      }
-    };
+    // const globalAverageAnnotation = {
+    //   type: 'line',
+    //   mode: 'vertical',
+    //   scaleID: 'x-axis-0',
+    //   value: this.data.averageScoreGlobal,
+    //   borderColor: 'rgb(169, 196, 229)',
+    //   borderWidth: 2,
+    //   z: 2,
+    //   label: {
+    //     fontColor: 'rgb(169, 196, 229)',
+    //     content: `Global Avg ${this.data.averageScoreGlobal}`,
+    //     enabled: true,
+    //     position: 'center',
+    //     fontSize: 10,
+    //     yAdjust: -10
+    //   }
+    // };
 
 
     const data = {
@@ -128,7 +128,7 @@ export class ObscurityGraphComponent implements OnInit {
         pluginAnnotations
       ],
       annotation: {
-        annotations: [userAllTimeAnnotation, userRecentAnnotation, globalAverageAnnotation]
+        annotations: [userAllTimeAnnotation, userRecentAnnotation]
         },
       scales: {
         yAxes: [{
@@ -155,7 +155,7 @@ export class ObscurityGraphComponent implements OnInit {
             },
             ticks: {
               reverse: true,
-              fontColor: '#fff'
+              display: false
             },
             scaleLabel: {
               fontColor: '#fff',
