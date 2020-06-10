@@ -14,6 +14,30 @@ export class SpotifyService {
       public platform: Platform) {
   }
 
+    getArtists(config) {
+      const url = `https://api.spotify.com/v1/artists?ids=${config.artistIDs.join()}`;
+
+      return new Promise((resolve, reject) => {
+        this.http.get(url).subscribe((data: any) => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        });
+      });
+    }
+
+    getTracks(config) {
+      const url = `https://api.spotify.com/v1/tracks?ids=${config.trackIDs.join()}`;
+
+      return new Promise((resolve, reject) => {
+        this.http.get(url).subscribe((data: any) => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        });
+      });
+    }
+
     getAudioFeatures(config) {
       if (config.allTimeTrackIDs && config.currentTrackIDs) {
         const longTermUrl = `https://api.spotify.com/v1/audio-features?ids=${config.allTimeTrackIDs.join()}`;

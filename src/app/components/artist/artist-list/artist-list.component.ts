@@ -34,14 +34,9 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     private bottomSheet: MatBottomSheet,
     private browserCheck: BrowserCheck) { }
 
-  public navState = {
-    listType: 'artists',
-    historyList: [
-      {name: 'Current', value: 'current'},
-      {name: 'All Time', value: 'allTime'},
-    ],
-    selectedHistory: {name: 'Current', value: 'current'}
-  };
+  public navState;
+  public selectedArtistsFromHistory;
+  public selectedTracksFromHistory;
 
   public userInfo;
 
@@ -59,6 +54,29 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     if (!this.browserCheck.isDevice) {
       this.showNav = true;
     }
+    const historyList = [
+      {name: 'Current', value: 'current'},
+      {name: 'All Time', value: 'allTime'}
+    ];
+
+    this.data.userHistory.forEach((item, index) => {
+      const historyItem = {
+        name: item.formattedDate,
+        value: index
+      };
+
+      historyList.push(historyItem);
+    });
+
+    this.navState = {
+      listType: 'artists',
+      historyList: [
+        ...historyList
+      ],
+      selectedHistory: {name: 'Current', value: 'current'}
+    };
+
+    console.log(this.navState);
   }
 
   ngAfterViewInit(): void {
@@ -115,16 +133,49 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
       }});
     bottomsheetRef.instance.updateHistory.subscribe((res) => {
       this.getHistory(res);
-      bottomsheetRef.dismiss();
     });
     bottomsheetRef.instance.createPlaylist.subscribe((res)=> {
       this.createPlaylist();
+    });
+
+    bottomsheetRef.instance.dismissBottomSheet.subscribe((res)=> {
       bottomsheetRef.dismiss();
     });
   }
 
   getHistory(data) {
-    this.navState = {...data};
+
+    if (data.selectedHistory.value !== 'current' && data.selectedHistory.value !== 'allTime') {
+      this.spotifyService.getArtists({artistIDs: this.data.userHistory[data.selectedHistory.value].shortTermArtistIDs})
+        .then((res: any) => {
+          console.log('res get artists', res);
+          this.selectedArtistsFromHistory = [...res.artists];
+          this.navState = {...data};
+        })
+        .catch(err => {
+          this.snackBar.open('Server Error. Could not get history', '' , {
+            duration: 5000,
+            panelClass: 'panel-error',
+            verticalPosition: 'top'
+          });
+        });
+      this.spotifyService.getTracks({trackIDs: this.data.userHistory[data.selectedHistory.value].shortTermTrackIDs})
+      .then((res: any) => {
+        console.log('res get tracks', res);
+        this.selectedTracksFromHistory = [...res.tracks];
+        this.navState = {...data};
+
+      })
+      .catch(err => {
+        this.snackBar.open('Server Error. Could not get history', '' , {
+          duration: 5000,
+          panelClass: 'panel-error',
+          verticalPosition: 'top'
+        });
+      });
+    } else {
+      this.navState = {...data};
+    }
   }
 
   createPlaylist() {

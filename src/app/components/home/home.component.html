@@ -12,13 +12,14 @@
         >
         </app-obscurity-rating> 
         <app-artist-list 
-            *ngIf="(allTimeArtists && allTimeTracks && currentArtists && currentTracks)"
+            *ngIf="(allTimeArtists && allTimeTracks && currentArtists && currentTracks && userHistory)"
             [data]="{
                 allTimeArtists: allTimeArtists.allTimeArtists,
                 allTimeTracks: allTimeTracks.allTimeTracks,
                 currentArtists: currentArtists.currentArtists,
                 currentTracks: currentTracks.currentTracks,
-                userInfo: user
+                userInfo: user,
+                userHistory: userHistory
             }" 
         >
         </app-artist-list>

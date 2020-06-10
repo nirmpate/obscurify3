@@ -56,6 +56,33 @@
 
             </div>
 
+            <div *ngIf="this.navState.selectedHistory.value != 'current' && 
+                this.navState.selectedHistory.value != 'allTime' && 
+                this.navState.listType === 'artists'"
+                class="artist__container__grid" 
+                fxFLex="100%" 
+                fxLayout.gt-xs="row wrap" 
+                fxLayout="column nowrap" 
+                fxLayoutGap="16px"> 
+                <app-artist-card [artist]="artist" [i]="i" *ngFor="let artist of selectedArtistsFromHistory | slice:0:sliceLimit; let i = index"></app-artist-card>
+
+
+                
+            </div>
+
+            <div *ngIf="this.navState.selectedHistory.value != 'current' && 
+                this.navState.selectedHistory.value != 'allTime' && 
+                this.navState.listType === 'songs'"
+                class="artist__container__grid" 
+                fxFLex="100%" 
+                fxLayout.gt-xs="row wrap" 
+                fxLayout="column nowrap" 
+                fxLayoutGap="16px"> 
+            <app-track-card [track]="track" [i]="i" *ngFor="let track of selectedTracksFromHistory | slice:0:sliceLimit; let i = index"></app-track-card>
+
+            
+        </div>
+
                 <div fxLayoutAlign="center center">
                     <button *ngIf="this.sliceLimit === 12" class="artist__button artist__button--primary" (click)="showMore()">Show More</button>
                     <button *ngIf="this.sliceLimit === 50" class="artist__button artist__button--primary" (click)="showLess()">Show Less</button>

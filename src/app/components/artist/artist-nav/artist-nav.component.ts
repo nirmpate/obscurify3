@@ -12,6 +12,7 @@ export class ArtistNavComponent implements OnInit {
   @Input() navState;
   @Output() updateHistory: EventEmitter<any> = new EventEmitter();
   @Output() createPlaylist: EventEmitter<any> = new EventEmitter();
+  @Output() dismissBottomSheet: EventEmitter<any> = new EventEmitter();
 
   constructor(@Optional() @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {
 
@@ -27,6 +28,10 @@ export class ArtistNavComponent implements OnInit {
     }
     this.historyList = [...this.navState.historyList];
     this.selectedHistory = this.historyList[0];
+  }
+
+  closeBottomSheet() {
+    this.dismissBottomSheet.emit(true);
   }
 
   getRadioValue(data) {

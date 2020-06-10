@@ -1,11 +1,11 @@
 <div class="artist__nav" [ngClass]="{'active': navOpen}">
     <div class="artist__nav__container">
 
-        <!-- <div class="artist__nav__mobile">
-            <button (click)="navOpen = !navOpen">
-                <span>Options</span> <i class="fas fa-chevron-up"></i>
+        <div class="artist__nav__mobile">
+            <button (click)="closeBottomSheet()">
+                <i class="fas fa-times"></i>
             </button>
-        </div> -->
+        </div>
         <div class="artist__nav__content">
             <h2>Select</h2>
             <div class="artist__nav__main" fxLayout="row" fxLayoutAlign="flex-start start">

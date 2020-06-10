@@ -134,7 +134,9 @@ export class HomeComponent implements OnInit {
       userID: this.user.id
     };
 
-    this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res) => {
+    this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res: any) => {
+      this.userHistory = [...res.userHistory];
+      console.log('this.userHistory', this.userHistory);
       const saveUserHistoryBody = {
         country: this.user.country,
         userID: this.user.id,
@@ -155,8 +157,7 @@ export class HomeComponent implements OnInit {
           verticalPosition: 'top'
         });
         } else {
-          this.userHistory = {...res};
-          console.log('this.userHistory', this.userHistory);
+          console.log('Save History', res);
         }
       });
     });

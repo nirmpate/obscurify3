@@ -81,23 +81,8 @@ export class InfoService {
             Math.floor(artists.items[i].popularity * (1 - i / artists.items.length));
 
           allTimeArtistIDs.push(artists.items[i].id);
-
-          // for (let y = 0; y < artists.items[i].genres.length; y++) {
-          //   if (genres[artists.items[i].genres[y]] != null) {
-          //     genres[artists.items[i].genres[y]] = genres[artists.items[i].genres[y]] + 1;
-          //   } else {
-          //     genres[artists.items[i].genres[y]] = 1;
-          //   }
-          // }
         }
 
-        // for (const g in genres) {
-        //   if (genres.hasOwnProperty(g)) {
-        //     topGenres.push([g, genres[g]]);
-        //   }
-        // }
-
-        // topGenres.sort(this.obscurifyFuncs.comparator);
 
 
         allTimeObscurifyScore =  Math.floor(allTimeObscurifyScore / 10);
