@@ -35,6 +35,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { ObscurifyService } from './services/obscurifyService';
 import { BrowserCheck } from './services/browserCheck';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import { BrowserCheck } from './services/browserCheck';
     HttpClientModule,
     MatMenuModule,
     MatProgressBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ObscurityFuncs,
