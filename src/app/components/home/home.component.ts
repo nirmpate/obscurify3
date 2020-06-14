@@ -29,34 +29,14 @@ export class HomeComponent implements OnInit {
   private stream: Subscription | null = null;
 
   // public bgColor = '#A9E5AC';
-  public userHistory;
-  public user: any;
-  public obscurifyInfo;
-  public audioFeatures;
-  public allTimeArtists;
-  public allTimeTracks;
-  public currentArtists;
-  public currentTracks;
-
-  // setColor(val: number) {
-  //   switch (val) {
-  //     case 1:
-  //       this.bgColor = '#A9E5AC';
-  //       break;
-  //     case 2:
-  //       this.bgColor = '#FFA69E';
-  //       break;
-  //     case 3:
-  //       this.bgColor = 'rgba(0,0,0,0.9)';
-  //       break;
-  //     case 4:
-  //       this.bgColor = '#FFF';
-  //       break;
-  //     case 5:
-  //       this.bgColor = '#759398';
-  //       break;
-  //   }
-  // }
+  public userHistory = null;
+  public user: any = null;
+  public obscurifyInfo = null;
+  public audioFeatures = null;
+  public allTimeArtists = null;
+  public allTimeTracks = null;
+  public currentArtists = null;
+  public currentTracks = null;
 
   ngOnInit() {
     const userStream = this.tokenSvc.authTokens.pipe((x) => {
@@ -136,7 +116,6 @@ export class HomeComponent implements OnInit {
 
     this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res: any) => {
       this.userHistory = [...res.userHistory];
-      console.log('this.userHistory', this.userHistory);
       const saveUserHistoryBody = {
         country: this.user.country,
         userID: this.user.id,

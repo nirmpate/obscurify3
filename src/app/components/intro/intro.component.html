@@ -20,5 +20,7 @@
 </div>
 
 <div class="profile" fxLayout="column" fxLayoutAlign="center center">
-    <h1 class="profile__header">{{ greeting }}, <span *ngIf="userName">{{ userName }}.</span> {{ welcomeMessage }}</h1>
+    <h1 *ngIf="userName" class="profile__header">{{ greeting }}, <span >{{ userName }}.</span> {{ welcomeMessage }}</h1>
+    <h1 *ngIf="!userName" class="profile__header"> {{ welcomeMessage }} </h1>
 </div>
+

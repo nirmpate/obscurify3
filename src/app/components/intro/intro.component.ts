@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, Input } from '@angular/core';
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
-import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/spotifyAuth';
@@ -29,7 +28,7 @@ export class IntroComponent implements OnInit {
   public greeting;
 
   ngOnInit() {
-    this.userName = this.data.display_name.split(' ')[0];
+    this.userName = this.checkName(this.data.display_name.split(' ')[0]);
     this.userImage = this.data.images[0].url;
     this.welcomeMessage = this.getRandomWelcomeMessage();
     this.greeting = this.getRandomGreeting();

@@ -1,58 +1,55 @@
-<main>
-    <div class="app" *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)">
-        <app-intro [data]="user"></app-intro>
-        <app-top-genres *ngIf="allTimeArtists" [data]="allTimeArtists"></app-top-genres>
-        <app-obscurity-rating
-            [data]="{
-                obscurifyInfo: obscurifyInfo,
-                country: user.country,
-                allTimeObscurifyScore: allTimeArtists.allTimeObscurifyScore,
-                recentObscurifyScore: currentArtists.recentObscurifyScore
-            }" 
-        >
-        </app-obscurity-rating> 
-        <app-artist-list 
-            *ngIf="(allTimeArtists && allTimeTracks && currentArtists && currentTracks && userHistory)"
-            [data]="{
-                allTimeArtists: allTimeArtists.allTimeArtists,
-                allTimeTracks: allTimeTracks.allTimeTracks,
-                currentArtists: currentArtists.currentArtists,
-                currentTracks: currentTracks.currentTracks,
-                userInfo: user,
-                userHistory: userHistory
-            }" 
-        >
-        </app-artist-list>
-    
-        <app-moods-graph 
-            (audioData)="getUserHistory($event)"
-            *ngIf="(audioFeatures && obscurifyInfo)" 
-            [data]="{
-                audioFeatureAverages: obscurifyInfo.audioFeatureAverages,
-                userAudioFeatures: audioFeatures,
-                country: user.country
-            }"
-        >
-        </app-moods-graph>
-    
-        <app-recommendations 
-            *ngIf="(allTimeArtists && allTimeTracks && currentArtists && currentTracks)"
-            [data]="{
-                allTimeArtistIDs: allTimeArtists.allTimeArtistIDs,
-                allTimeTrackIDs: allTimeTracks.allTimeTrackIDs,
-                currentArtistIDs: currentArtists.currentArtistIDs,
-                currentTrackIDs: currentTracks.currentTrackIDs,
-                userInfo: user
-            }" 
-        >
-        </app-recommendations>  
-    </div>
-    
-    <app-footer *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)" [login]="false"></app-footer>  
+<main class="app" *ngIf="(obscurifyInfo && 
+    user && 
+    allTimeArtists && 
+    allTimeTracks && 
+    currentArtists && 
+    currentTracks)">
+
+    <app-intro [data]="user"></app-intro>
+    <app-top-genres [data]="allTimeArtists"></app-top-genres>
+    <app-obscurity-rating
+        [data]="{
+            obscurifyInfo: obscurifyInfo,
+            country: user.country,
+            allTimeObscurifyScore: allTimeArtists.allTimeObscurifyScore,
+            recentObscurifyScore: currentArtists.recentObscurifyScore
+        }">
+    </app-obscurity-rating> 
+    <app-artist-list *ngIf="userHistory"
+        [data]="{
+            allTimeArtists: allTimeArtists.allTimeArtists,
+            allTimeTracks: allTimeTracks.allTimeTracks,
+            currentArtists: currentArtists.currentArtists,
+            currentTracks: currentTracks.currentTracks,
+            userInfo: user,
+            userHistory: userHistory
+        }">
+    </app-artist-list>
+
+    <app-moods-graph 
+        (audioData)="getUserHistory($event)"
+        *ngIf="(audioFeatures && obscurifyInfo)" 
+        [data]="{
+            audioFeatureAverages: obscurifyInfo.audioFeatureAverages,
+            userAudioFeatures: audioFeatures,
+            country: user.country
+        }">
+    </app-moods-graph>
+
+    <app-recommendations 
+        [data]="{
+            allTimeArtistIDs: allTimeArtists.allTimeArtistIDs,
+            allTimeTrackIDs: allTimeTracks.allTimeTrackIDs,
+            currentArtistIDs: currentArtists.currentArtistIDs,
+            currentTrackIDs: currentTracks.currentTrackIDs,
+            userInfo: user
+        }">
+    </app-recommendations>  
+    <app-footer *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)" [login]="false"></app-footer>      
 </main>
 
 
-<div class="app__loading" fxLayout="column nowrap" fxLayoutAlign="center center" *ngIf="(!obscurifyInfo && !user && !allTimeArtists && !currentArtists)">
+<div class="app__loading" fxLayout="column nowrap" fxLayoutAlign="center center" *ngIf="(!obscurifyInfo && !user && !allTimeArtists && !allTimeTracks && !currentArtists && !currentTracks)">
     <h1>O<span>.</span></h1>
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>

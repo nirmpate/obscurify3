@@ -35,10 +35,6 @@ export class ArtistCardComponent implements OnInit {
     }
   }
 
-
-
-
-
   constructor(
     public browserCheck: BrowserCheck,
     public sanitizer: DomSanitizer,
