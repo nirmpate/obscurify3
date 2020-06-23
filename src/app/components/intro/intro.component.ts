@@ -29,7 +29,7 @@ export class IntroComponent implements OnInit {
 
   ngOnInit() {
     this.userName = this.checkName(this.data.display_name.split(' ')[0]);
-    this.userImage = this.data.images[0].url;
+    this.userImage = this.data.images[0] ? this.data.images[0].url : null;
     this.welcomeMessage = this.getRandomWelcomeMessage();
     this.greeting = this.getRandomGreeting();
   }
