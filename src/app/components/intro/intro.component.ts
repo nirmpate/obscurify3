@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, Input } from '@angular/core';
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
-import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/spotifyAuth';
