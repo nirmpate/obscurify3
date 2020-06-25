@@ -52,13 +52,25 @@ export class SpotifyService {
 
     getRecommendations(config) {
       let url;
-      if (config.allTimeArtistIDs && config.allTimeTrackIDs) {
-        url = 'https://api.spotify.com/v1/recommendations?seed_artists?country=' + ',' +
-        config.allTimeArtistIDs[Math.floor(Math.random() * config.allTimeArtistIDs.length)] +
-        config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
-        + config.allTimeTrackIDs[Math.floor(Math.random() * config.allTimeTrackIDs.length)] + ','
-            + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
-                + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=15';
+      if (config.allTimeArtistIDs.length > 0 &&
+        config.allTimeTrackIDs.length > 0 &&
+        config.currentArtistIDs.length > 0 &&
+        config.currentTrackIDs.length > 0) {
+          url = 'https://api.spotify.com/v1/recommendations?seed_artists?country=' + ',' +
+          config.allTimeArtistIDs[Math.floor(Math.random() * config.allTimeArtistIDs.length)] +
+          config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
+          + config.allTimeTrackIDs[Math.floor(Math.random() * config.allTimeTrackIDs.length)] + ','
+              + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
+                  + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=15';
+      } else if (config.allTimeArtistIDs.length > 0 &&
+        config.allTimeTrackIDs.length > 0 &&
+        config.currentArtistIDs.length <= 0 &&
+        config.currentTrackIDs.length <= 0) {
+          url = 'https://api.spotify.com/v1/recommendations?seed_artists?country=' + ',' +
+          config.allTimeArtistIDs[Math.floor(Math.random() * config.allTimeArtistIDs.length)] + '&seed_tracks='
+          + config.allTimeTrackIDs[Math.floor(Math.random() * config.allTimeTrackIDs.length)]
+                  + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=25' + '&limit=15';
+
       } else {
         url = 'https://api.spotify.com/v1/recommendations?seed_artists?country=' + ',' +
         config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
