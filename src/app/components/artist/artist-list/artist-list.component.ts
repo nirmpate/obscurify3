@@ -57,10 +57,10 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
 
     const historyList = [];
 
-    if (this.data.currentArtists) {
+    if (this.data.currentArtists.length > 0) {
       historyList.push({name: 'Current', value: 'current'});
     }
-    if (this.data.allTimeArtists) {
+    if (this.data.allTimeArtists.length > 0) {
       historyList.push({name: 'All Time', value: 'allTime'});
     }
 
