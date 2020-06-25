@@ -34,7 +34,7 @@
                         </a>
                       </div>
                       <div class="card-content">
-                          <img item-start [src]="track.album.images[1].url">
+                          <img item-start *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url">
                       </div>
 
                     </div>
