@@ -1,5 +1,5 @@
 <div class="artist__card" [ngClass]="{'active': activeView}">
-    <img [src]="artist.images[1].url" />
+    <img *ngIf="artist.images.length > 1" [src]="artist.images[1].url " />
     <div class="artist__card__info">
         <div fxLayout="row" fxLayoutAlign="flex-start start">
             <span fxFlex="0 0 auto"> {{ i + 1 }} /</span> 

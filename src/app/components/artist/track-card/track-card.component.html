@@ -1,6 +1,6 @@
 <div class="artist__card" [ngClass]="{'active': activeView}">
 
-    <img [src]="track.album.images[1].url" />
+    <img *ngIf="track.images.length > 1" [src]="track.album.images[1].url" />
     
     <div class="artist__card__info">
         <div fxLayout="row" fxLayoutAlign="flex-start start">
