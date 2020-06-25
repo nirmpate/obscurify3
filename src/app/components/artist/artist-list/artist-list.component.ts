@@ -54,10 +54,15 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
     if (!this.browserCheck.isDevice) {
       this.showNav = true;
     }
-    const historyList = [
-      {name: 'Current', value: 'current'},
-      {name: 'All Time', value: 'allTime'}
-    ];
+
+    const historyList = [];
+
+    if (this.data.currentArtists) {
+      historyList.push({name: 'Current', value: 'current'});
+    }
+    if (this.data.allTimeArtists) {
+      historyList.push({name: 'All Time', value: 'allTime'});
+    }
 
     if (this.data.userHistory) {
       this.data.userHistory.forEach((item, index) => {
