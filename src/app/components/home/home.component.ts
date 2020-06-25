@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit {
 
     this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res: any) => {
       if (!res.error) {
-        this.userHistory = [...res.userHistory];
+        this.userHistory = {...res.userHistory};
         const saveUserHistoryBody = {
           country: this.user.country,
           userID: this.user.id,
