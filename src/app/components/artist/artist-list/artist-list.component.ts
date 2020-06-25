@@ -59,14 +59,16 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
       {name: 'All Time', value: 'allTime'}
     ];
 
-    this.data.userHistory.forEach((item, index) => {
-      const historyItem = {
-        name: item.formattedDate,
-        value: index
-      };
+    if (this.data.userHistory) {
+      this.data.userHistory.forEach((item, index) => {
+        const historyItem = {
+          name: item.formattedDate,
+          value: index
+        };
 
-      historyList.push(historyItem);
-    });
+        historyList.push(historyItem);
+      });
+    }
 
     this.navState = {
       listType: 'artists',

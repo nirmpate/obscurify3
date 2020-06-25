@@ -115,30 +115,32 @@ export class HomeComponent implements OnInit {
     };
 
     this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res: any) => {
-      this.userHistory = [...res.userHistory];
-      const saveUserHistoryBody = {
-        country: this.user.country,
-        userID: this.user.id,
-        longTermArtistIDs: this.allTimeArtists.allTimeArtistIDs,
-        longTermTrackIDs: this.allTimeTracks.allTimeTrackIDs,
-        obscurifyScore: this.allTimeArtists.allTimeObscurifyScore,
-        longTermAudioFeatures: val,
-        shortTermArtistIDs: this.currentArtists.currentArtistIDs,
-        shortTermTrackIDs: this.currentTracks.currentTrackIDs,
-        hex: this.tokenSvc.oAuthToken.obscurifyToken
-      };
+      if (!res.error && res.userHistory.length > 0) {
+        this.userHistory = [...res.userHistory];
+        const saveUserHistoryBody = {
+          country: this.user.country,
+          userID: this.user.id,
+          longTermArtistIDs: this.allTimeArtists.allTimeArtistIDs,
+          longTermTrackIDs: this.allTimeTracks.allTimeTrackIDs,
+          obscurifyScore: this.allTimeArtists.allTimeObscurifyScore,
+          longTermAudioFeatures: val,
+          shortTermArtistIDs: this.currentArtists.currentArtistIDs,
+          shortTermTrackIDs: this.currentTracks.currentTrackIDs,
+          hex: this.tokenSvc.oAuthToken.obscurifyToken
+        };
 
-      this.obscurifyService.saveUserHistory(saveUserHistoryBody).subscribe((res: any) => {
-        if (res.error) {
-          this.snkBar.open('Server Error. Could not save history.', '' , {
-            duration: 5000,
-            panelClass: 'panel-error',
-          verticalPosition: 'top'
+        this.obscurifyService.saveUserHistory(saveUserHistoryBody).subscribe((res: any) => {
+          if (res.error) {
+            this.snkBar.open('Server Error. Could not save history.', '' , {
+              duration: 5000,
+              panelClass: 'panel-error',
+            verticalPosition: 'top'
+          });
+          } else {
+            console.log('Save History', res);
+          }
         });
-        } else {
-          console.log('Save History', res);
-        }
-      });
+      }
     });
   }
 
