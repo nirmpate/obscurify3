@@ -80,7 +80,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
       historyList: [
         ...historyList
       ],
-      selectedHistory: {name: 'Current', value: 'current'}
+      selectedHistory: historyList[0]
     };
 
     console.log(this.navState);
