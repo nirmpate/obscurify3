@@ -5,7 +5,7 @@
     currentArtists && 
     currentTracks)">
 
-    <app-intro [data]="user" [error]="allTimeTracks.length == 0 ? true : false"></app-intro>
+    <app-intro [data]="user" [error]="allTimeTracks.allTimeTracks.length == 0 ? true : false"></app-intro>
     <div *ngIf="allTimeTracks.length > 0">
         <app-top-genres [data]="allTimeArtists"></app-top-genres>
         <app-obscurity-rating
