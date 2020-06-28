@@ -19,8 +19,16 @@
     <h1>Welcome to <br /> Obscurify<span>.</span></h1>
 </div>
 
-<div class="profile" fxLayout="column" fxLayoutAlign="center center">
-    <h1 *ngIf="userName" class="profile__header">{{ greeting }}, <span >{{ userName }}.</span> {{ welcomeMessage }}</h1>
-    <h1 *ngIf="!userName" class="profile__header"> {{ welcomeMessage }} </h1>
+<div *ngIf="!error">
+    <div class="profile" fxLayout="column" fxLayoutAlign="center center">
+        <h1 *ngIf="userName" class="profile__header">{{ greeting }}, <span >{{ userName }}.</span> {{ welcomeMessage }}</h1>
+        <h1 *ngIf="!userName" class="profile__header"> {{ welcomeMessage }} </h1>
+    </div>
 </div>
+
+<div *ngIf="error">
+    <h1>Looks like you haven't listened to music on Spotify enough to get a score.  Please try again later.</h1>
+</div>
+
+
 

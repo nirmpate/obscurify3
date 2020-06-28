@@ -3,6 +3,7 @@ import { IntersectionObserverService } from 'src/app/services/intersectionObserv
 import { InfoService } from 'src/app/services/infoService';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/spotifyAuth';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-intro',
@@ -13,6 +14,7 @@ import { TokenService } from 'src/app/services/spotifyAuth';
 })
 export class IntroComponent implements OnInit {
   @Input() data;
+  @Input() error;
   @Output() appColor = new EventEmitter<number>();
 
   constructor(
@@ -20,7 +22,9 @@ export class IntroComponent implements OnInit {
     public intersectionObserverService: IntersectionObserverService,
     public infoSvc: InfoService,
     public router: Router,
-    public tokenSvc: TokenService) { }
+    public tokenSvc: TokenService,
+    public snkBar: MatSnackBar
+    ) { }
 
   public userImage;
   public userName;
@@ -32,6 +36,13 @@ export class IntroComponent implements OnInit {
     this.userImage = this.data.images[0] ? this.data.images[0].url : null;
     this.welcomeMessage = this.getRandomWelcomeMessage();
     this.greeting = this.getRandomGreeting();
+    if (this.error) {
+      this.snkBar.open('No data. Try again later.', '' , {
+        duration: 5000,
+        panelClass: 'panel-error',
+      verticalPosition: 'top'
+    });
+    }
   }
 
   public logout() {
