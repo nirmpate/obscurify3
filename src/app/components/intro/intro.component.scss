@@ -66,7 +66,7 @@ nav {
     }
 
     &__header {
-        max-width: 800px;
+        max-width: 500px;
         text-align: center;
         font-size: 2em;
     }
@@ -89,6 +89,7 @@ nav {
 
         &__header {
             font-size: 3em;
+            max-width: 800px;
         }
     }
 
