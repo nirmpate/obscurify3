@@ -50,7 +50,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
   private sentinelBottomIntersectSub: Subscription;
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes:', changes);
+    console.log('changes in list:', changes);
     if (changes.data.currentValue.userHistory) {
 
       const historyList = [];
@@ -201,7 +201,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
     if (this.navState.selectedHistory.name === 'Current') {
       playlistName = 'Current';
     } else {
-      playlistName = 'All-Time Top Tracks // Obscurify';
+      playlistName = `${this.navState.selectedHistory.name} // Obscurify`;
     }
 
     if (playlistName === 'Current') {
