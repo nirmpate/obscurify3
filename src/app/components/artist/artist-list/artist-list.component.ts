@@ -50,23 +50,21 @@ export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
   private sentinelBottomIntersectSub: Subscription;
 
   ngOnChanges(changes: SimpleChanges) {
-
-    if (this.data.userHistory.length > 0) {
+    console.log('changes:', changes);
+    if (changes.data.currentValue.userHistory) {
 
       const historyList = [];
 
-      if (this.data.userHistory) {
-        this.data.userHistory.forEach((item, index) => {
-          const historyItem = {
-            name: item.formattedDate,
-            value: index
-          };
-          historyList.push(historyItem);
-        });
-        const newState = {...this.navState };
-        newState.historyList = [...this.navState.historyList, ...historyList];
-        this.navState = { ...newState }
-      }
+      changes.data.currentValue.userHistory.forEach((item, index) => {
+        const historyItem = {
+          name: item.formattedDate,
+          value: index
+        };
+        historyList.push(historyItem);
+      });
+      const newState = {...this.navState };
+      newState.historyList = [...this.navState.historyList, ...historyList];
+      this.navState = { ...newState };
     }
   }
 
