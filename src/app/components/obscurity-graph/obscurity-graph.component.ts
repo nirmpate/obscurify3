@@ -156,12 +156,7 @@ export class ObscurityGraphComponent implements OnInit {
             ticks: {
               reverse: true,
               display: false
-            },
-            scaleLabel: {
-              fontColor: '#fff',
-              display: true,
-              labelString: 'Popularity Score Averages'
-          }
+            }
         }]
       }
     };
