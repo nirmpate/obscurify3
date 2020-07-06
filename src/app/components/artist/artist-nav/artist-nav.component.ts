@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, Inject, Optional } from '@angular/core';
+import { Component, OnInit, Input, Output, Inject, Optional, OnChanges, SimpleChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 @Component({
@@ -7,7 +7,7 @@ import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
   styleUrls: ['./artist-nav.component.scss'],
 })
 
-export class ArtistNavComponent implements OnInit {
+export class ArtistNavComponent implements OnChanges {
 
   @Input() navState;
   @Output() updateHistory: EventEmitter<any> = new EventEmitter();
@@ -22,12 +22,13 @@ export class ArtistNavComponent implements OnInit {
   public navOpen;
   public selectedHistory = { name: 'Current', value: 'songs' };
 
-  ngOnInit() {
-    if (this.data) {
-      this.navState = { ...this.data.navState };
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('changes:', changes);
+    if (changes.navState) {
+      this.navState = {...changes.navState.currentValue };
+      this.historyList = [...this.navState.historyList];
+      this.selectedHistory = this.historyList[0];
     }
-    this.historyList = [...this.navState.historyList];
-    this.selectedHistory = this.historyList[0];
   }
 
   closeBottomSheet() {

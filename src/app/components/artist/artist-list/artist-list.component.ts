@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
@@ -16,7 +16,7 @@ import { BrowserCheck } from 'src/app/services/browserCheck';
   styleUrls: ['./artist-list.component.scss'],
   providers: [IntersectionObserverService]
 })
-export class ArtistListComponent implements AfterViewInit, OnInit {
+export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
 
   @Input() data: any;
   @Output() appColor = new EventEmitter<number>();
@@ -49,6 +49,27 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
   private sentinelTopIntersectSub: Subscription;
   private sentinelBottomIntersectSub: Subscription;
 
+  ngOnChanges(changes: SimpleChanges) {
+
+    if (this.data.userHistory.length > 0) {
+
+      const historyList = [];
+
+      if (this.data.userHistory) {
+        this.data.userHistory.forEach((item, index) => {
+          const historyItem = {
+            name: item.formattedDate,
+            value: index
+          };
+          historyList.push(historyItem);
+        });
+        const newState = {...this.navState };
+        newState.historyList = [...this.navState.historyList, ...historyList];
+        this.navState = { ...newState }
+      }
+    }
+  }
+
   ngOnInit() {
     this.userInfo = this.data.userInfo;
     if (!this.browserCheck.isDevice) {
@@ -64,16 +85,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit {
       historyList.push({name: 'All Time', value: 'allTime'});
     }
 
-    if (this.data.userHistory) {
-      this.data.userHistory.forEach((item, index) => {
-        const historyItem = {
-          name: item.formattedDate,
-          value: index
-        };
 
-        historyList.push(historyItem);
-      });
-    }
 
     this.navState = {
       listType: 'artists',
