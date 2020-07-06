@@ -8,25 +8,23 @@
     width: 100%;
     box-sizing: border-box;
     background: white;
-    margin-left: -1em;
     transition: .2s cubic-bezier(.25,.1,.25,1);
-    
+
     &.active {
         height: 70vh;
     }
 
     &__mobile {
-        margin-bottom: 2em;
+        margin-bottom: 1em;
         display: flex;
         justify-content: stretch;
-        
+
         button {
             font-size: 1em;
             border: none;
             background: none;
             width: 100%;
             text-align: right;
-            margin-top: 1em;
             cursor: pointer;
             span {
                 float: left;
@@ -46,7 +44,7 @@
         }
     }
 
-    
+
     &__main {
         margin-bottom: 2em;
 
@@ -92,7 +90,7 @@
 
     .select__item {
         margin-bottom: 1em;
-    }   
+    }
 }
 
 @include gt-xs {
@@ -143,7 +141,7 @@
         &.active {
             height: auto;
         }
-    
+
     }
 
 }

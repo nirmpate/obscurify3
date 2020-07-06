@@ -7,7 +7,7 @@ import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
   styleUrls: ['./artist-nav.component.scss'],
 })
 
-export class ArtistNavComponent implements OnChanges {
+export class ArtistNavComponent implements OnChanges, OnInit {
 
   @Input() navState;
   @Output() updateHistory: EventEmitter<any> = new EventEmitter();
@@ -22,6 +22,15 @@ export class ArtistNavComponent implements OnChanges {
   public navOpen;
   public selectedHistory = { name: 'Current', value: 'songs' };
 
+  ngOnInit() {
+    if (this.data.navState) {
+      this.navState = { ...this.data.navState };
+      this.historyList = [...this.data.navState.historyList];
+      this.selectedHistory = this.data.navState.historyList[0];
+
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     console.log('changes:', changes);
     if (changes.navState) {
@@ -29,7 +38,7 @@ export class ArtistNavComponent implements OnChanges {
       this.historyList = [...changes.navState.currentValue.historyList];
     }
     if (changes.navState.firstChange) {
-      this.selectedHistory = changes.navState.currentValue.historyList[0];
+      this.selectedHistory = this.data.navState.historyList[0];
     }
   }
 
