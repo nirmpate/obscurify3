@@ -20,6 +20,8 @@
         position: absolute;
         object-fit: cover;
         width: 100%;
+        transform: translateY(-50%);
+        top: 50%;
     }
 
     &.active {
