@@ -62,7 +62,7 @@ export class ObscurityGraphComponent implements OnInit {
       type: 'line',
       mode: 'vertical',
       scaleID: 'x-axis-0',
-      value: this.data.userRecentScore,
+      value: userAllTimeScoreToDisplay,
       borderColor: 'rgb(162, 158, 255)',
       borderWidth: 2,
 
@@ -80,7 +80,7 @@ export class ObscurityGraphComponent implements OnInit {
       type: 'line',
       mode: 'vertical',
       scaleID: 'x-axis-0',
-      value: this.data.userAllTimeScore,
+      value: userRecentScoreToDisplay,
       borderColor: 'rgb(229, 202, 169)',
       borderWidth: 2,
 
