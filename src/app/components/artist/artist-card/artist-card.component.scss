@@ -40,7 +40,7 @@
         bottom: 0;  
         box-sizing: border-box;  
         padding: 1rem 0.5rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
 
         &--secondary, &--primary {
             transition: .3s cubic-bezier(.25,.1,.25,1);
@@ -48,13 +48,13 @@
         }
 
         &--primary {
-            margin-bottom: 0.5rem;
-            font-size: 1.5em;
+            font-size: 1em;
+            margin-bottom: 0.5em;
 
         }
 
         &--secondary {
-            font-size: 1.2em;
+            font-size: 1em;
         }
     }
 
