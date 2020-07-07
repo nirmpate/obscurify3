@@ -58,14 +58,27 @@ export class ObscurityGraphComponent implements OnInit {
       userAllTimeScoreToDisplay = 110;
     }
 
+    let allTimeXAdjust = 0;
+    if (userAllTimeScoreToDisplay > 230) {
+      allTimeXAdjust = 45;
+    } else if (userAllTimeScoreToDisplay < 120) {
+      allTimeXAdjust = -45;
+    }
+    let recentXAdjust = 0;
+    if (userRecentScoreToDisplay > 230) {
+      recentXAdjust = 45;
+    } else if (userRecentScoreToDisplay < 120) {
+      recentXAdjust = -45;
+    }
+
     const userAllTimeAnnotation = {
+      drawTime: 'afterDraw',
       type: 'line',
       mode: 'vertical',
       scaleID: 'x-axis-0',
       value: userAllTimeScoreToDisplay,
       borderColor: 'rgb(162, 158, 255)',
       borderWidth: 2,
-
       label: {
         fontColor: 'rgb(162, 158, 255)',
         content: `Your All Time ${Math.round(this.data.percentileByCountryAllTime)}%`,
@@ -73,6 +86,7 @@ export class ObscurityGraphComponent implements OnInit {
         position: 'center',
         fontSize: 10,
         yAdjust: -40,
+        xAdjust: allTimeXAdjust
       }
     };
 
@@ -83,15 +97,14 @@ export class ObscurityGraphComponent implements OnInit {
       value: userRecentScoreToDisplay,
       borderColor: 'rgb(229, 202, 169)',
       borderWidth: 2,
-
       label: {
         fontColor: 'rgb(229, 202, 169)',
         content: `Your Recent ${Math.round(this.data.percentileByCountryRecent)}%`,
         enabled: true,
         position: 'center',
         yAdjust: -65,
-        fontSize: 10
-
+        fontSize: 10,
+        xAdjust: recentXAdjust
       }
     };
 
