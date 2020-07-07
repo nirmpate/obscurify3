@@ -72,7 +72,6 @@ export class ObscurityGraphComponent implements OnInit {
     }
 
     const userAllTimeAnnotation = {
-      drawTime: 'afterDraw',
       type: 'line',
       mode: 'vertical',
       scaleID: 'x-axis-0',
