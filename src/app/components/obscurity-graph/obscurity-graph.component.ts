@@ -121,6 +121,10 @@ export class ObscurityGraphComponent implements OnInit {
           backgroundColor: '#fff'
       }]
     };
+    let annotations = [userAllTimeAnnotation];
+    if (this.data.userRecentScore > 0) {
+      annotations.push(userRecentAnnotation);
+    }
     const option = {
         global: {
           defaultFontColor: '#fff',
@@ -141,8 +145,8 @@ export class ObscurityGraphComponent implements OnInit {
         pluginAnnotations
       ],
       annotation: {
-        annotations: [userAllTimeAnnotation, userRecentAnnotation]
-        },
+        annotations: annotations
+      },
       scales: {
         yAxes: [{
           display: true,
