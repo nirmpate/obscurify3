@@ -5,6 +5,11 @@ footer {
     color: white;
     bottom: 0;
 
+    .footer {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
     a {
         color: white;
         text-decoration: none;

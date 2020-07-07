@@ -23,7 +23,7 @@ export class ArtistNavComponent implements OnChanges, OnInit {
   public selectedHistory = { name: 'Current', value: 'songs' };
 
   ngOnInit() {
-    if (this.data.navState) {
+    if (this.data?.navState) {
       this.navState = { ...this.data.navState };
       this.historyList = [...this.data.navState.historyList];
       this.selectedHistory = this.data.navState.historyList[0];
