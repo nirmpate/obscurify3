@@ -38,7 +38,7 @@ export class ArtistNavComponent implements OnChanges, OnInit {
       this.historyList = [...changes.navState.currentValue.historyList];
     }
     if (changes.navState.firstChange) {
-      this.selectedHistory = this.data.navState.historyList[0];
+      this.selectedHistory = changes.navState.currentValue[0];
     }
   }
 
