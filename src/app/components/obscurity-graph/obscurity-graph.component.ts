@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Renderer2, ElementRef, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, SimpleChanges, OnChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Chart } from 'chart.js';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
@@ -8,20 +8,20 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
   templateUrl: './obscurity-graph.component.html',
   styleUrls: ['./obscurity-graph.component.scss']
 })
-export class ObscurityGraphComponent implements OnInit {
+export class ObscurityGraphComponent implements OnInit, OnChanges {
   @Input() data;
 
-  constructor(private renderer: Renderer2, public el: ElementRef, public sanitizer: DomSanitizer) {
+  constructor(public el: ElementRef, public sanitizer: DomSanitizer) {
 
   }
 
-  public histogram = [];
+  public histogram: Chart;
 
   ngOnChanges(changes: SimpleChanges) {
-    if(!changes.data.firstChange && changes.data.previousValue.country != changes.data.currentValue.country) {
+    if (!changes.data.firstChange && changes.data.previousValue.country !== changes.data.currentValue.country) {
       this.histogram.destroy();
       this.ngOnInit();
-    };
+    }
   }
 
   ngOnInit() {
@@ -35,9 +35,7 @@ export class ObscurityGraphComponent implements OnInit {
         return false;
       }
     })].filter((val) => {
-      if (true) {
-        return val;
-      }
+      return val;
     });
 
     const dataSet = [...oldData.map((val: any) => {
@@ -47,9 +45,7 @@ export class ObscurityGraphComponent implements OnInit {
         return false;
       }
     })].filter((val) => {
-      if (true) {
-        return val;
-      }
+      return val;
     });
 
     let userRecentScoreToDisplay = this.data.userRecentScore;
@@ -140,7 +136,7 @@ export class ObscurityGraphComponent implements OnInit {
           backgroundColor: '#fff'
       }]
     };
-    let annotations = [userAllTimeAnnotation];
+    const annotations = [userAllTimeAnnotation];
     if (this.data.userRecentScore > 0) {
       annotations.push(userRecentAnnotation);
     }
@@ -164,7 +160,7 @@ export class ObscurityGraphComponent implements OnInit {
         pluginAnnotations
       ],
       annotation: {
-        annotations: annotations
+        annotations: (annotations)
       },
       scales: {
         yAxes: [{

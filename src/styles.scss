@@ -153,6 +153,10 @@ a {
 $primary-font: 'Helvetica Neue', sans-serif;
 $secondary-font: -apple-system, BlinkMacSystemFont, 'Segoe UI';
 
+.obscurity__rating__select {
+  min-height: 500px;
+}
+
 .panel-success {
     color: $primary-color;
 }

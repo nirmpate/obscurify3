@@ -24,7 +24,7 @@
           <p>Switch country to</p>
 
           <mat-form-field color="primary" appearance="standard">
-            <mat-select (selectionChange)='switchCountry($event.value)'>
+            <mat-select (selectionChange)='switchCountry($event.value)' panelClass="obscurity__rating__select">
               <mat-option *ngFor="let country of countryList" [value]="country.value">
                 {{country.viewValue}}
               </mat-option>
