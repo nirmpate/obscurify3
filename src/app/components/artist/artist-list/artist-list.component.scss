@@ -37,8 +37,8 @@
 
     .header__title {
         text-transform: capitalize;
-        font-size: 2em;
         width: 100;
+        font-size: 2em;
     }
 
     &__container {
@@ -85,9 +85,9 @@
           display: none;
         }
 
-    }
+        .header__title {
+          font-size: 3em;
+      }
 
-    .header__title {
-        font-size: inherit;
     }
 }
