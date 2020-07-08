@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   @Input() data;
   @Output() appColor: EventEmitter<number> = new EventEmitter();
-
+  @Output() switchCountryEvent: EventEmitter<string> = new EventEmitter<string>();
   constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }
   public show = false;
   private intersectionObserverSubs: Subscription;
@@ -38,5 +38,9 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
           this.show = false;
         }
       });
+  }
+
+  switchCountry(code) {
+    this.switchCountryEvent.emit(code)
   }
 }

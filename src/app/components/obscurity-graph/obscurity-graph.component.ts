@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Renderer2, ElementRef, SimpleChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Chart } from 'chart.js';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
@@ -16,6 +16,12 @@ export class ObscurityGraphComponent implements OnInit {
   }
 
   public histogram = [];
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(!changes.data.firstChange && changes.data.previousValue.country != changes.data.currentValue.country) {
+      this.ngOnInit();
+    };
+  }
 
   ngOnInit() {
     const oldData = Object.entries(this.data.breakdown);
@@ -169,7 +175,7 @@ export class ObscurityGraphComponent implements OnInit {
           },
           ticks: {
             fontColor: '#fff',
-            stepSize: 4000
+            stepSize: 2500
 
           },
           gridLines: {
