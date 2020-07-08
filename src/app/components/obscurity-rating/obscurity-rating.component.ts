@@ -22,8 +22,29 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   private intersectionObserverSubs: Subscription;
   public countryList: any = [
     {value: 'US', viewValue: 'United States'},
+    {value: 'AR', viewValue: 'Argentina'},
+    {value: 'AU', viewValue: 'Australia'},
+    {value: 'BR', viewValue: 'Brazil'},
+    {value: 'CL', viewValue: 'Chile'},
+    {value: 'DK', viewValue: 'Denmark'},
+    {value: 'FI', viewValue: 'Finland'},
+    {value: 'FR', viewValue: 'France'},
+    {value: 'DE', viewValue: 'Germany'},
     {value: 'GB', viewValue: 'Great Britain'},
-    {value: 'BR', viewValue: 'Brazil'}
+    {value: 'ID', viewValue: 'Indonesia'},
+    {value: 'IE', viewValue: 'Ireland'},
+    {value: 'IT', viewValue: 'Italy'},
+    {value: 'MX', viewValue: 'Mexico'},
+    {value: 'NL', viewValue: 'Netherlands'},
+    {value: 'NZ', viewValue: 'New Zealand'},
+    {value: 'NO', viewValue: 'Norway'},
+    {value: 'PH', viewValue: 'Philippines'},
+    {value: 'PL', viewValue: 'Poland'},
+    {value: 'PT', viewValue: 'Portugal'},
+    {value: 'ES', viewValue: 'Spain'},
+    {value: 'SG', viewValue: 'Singapore'},
+    {value: 'SE', viewValue: 'Sweden'},
+    {value: 'TR', viewValue: 'Turkey'}
   ];
 
   ngOnInit() {

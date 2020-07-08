@@ -19,6 +19,7 @@ export class ObscurityGraphComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if(!changes.data.firstChange && changes.data.previousValue.country != changes.data.currentValue.country) {
+      this.histogram.destroy();
       this.ngOnInit();
     };
   }
