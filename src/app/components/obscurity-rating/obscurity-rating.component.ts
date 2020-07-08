@@ -23,13 +23,16 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.20
+      root: null,
+      rootMargin: '0px',
+      threshold: [0.20]
     });
     this.intersectionObserverSubs = this.intersectionObserverService
       .getSubject()
       .subscribe(el => {
 
         if (el.isIntersecting) {
+          console.log('is intersecting graph:');
           this.show = true;
         } else {
           this.show = false;

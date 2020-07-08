@@ -2,6 +2,10 @@
 @import 'components/header';
 @import 'variables';
 
+:host {
+  display: block;
+}
+
 .bottomsheet__btn {
     margin-top: 1em;
     padding: 1em 2em;
