@@ -64,7 +64,6 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
 
       if (el.isIntersecting) {
         this.show = true;
-        console.log('is intereseting genres')
       }
     });
   }
