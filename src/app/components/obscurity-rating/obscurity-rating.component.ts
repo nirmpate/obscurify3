@@ -69,6 +69,6 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   }
 
   switchCountry(code) {
-    this.switchCountryEvent.emit(code)
+    this.switchCountryEvent.emit(code);
   }
 }

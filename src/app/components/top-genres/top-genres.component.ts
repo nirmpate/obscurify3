@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Output, EventEmitter, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit, Input } from '@angular/core';
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
