@@ -14,7 +14,6 @@ import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 export class TopGenresComponent implements OnInit, AfterViewInit {
 
   @Input() data: any;
-  @Output() appColor = new EventEmitter<number>();
 
   constructor(
     public element: ElementRef,

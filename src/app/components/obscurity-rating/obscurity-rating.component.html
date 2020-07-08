@@ -7,7 +7,17 @@
                 Obscurity Rating
             </h2>
         </div>
-        <button type="button" name="button" (click)="switchCountry('GB')">Switch country?</button>
+        <div>
+          <mat-form-field>
+            <h3>Compare to others from </h3>
+            <mat-label>Country</mat-label>
+            <mat-select (selectionChange)='switchCountry($event.value)'>
+              <mat-option *ngFor="let country of countryList" [value]="country.value">
+                {{country.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
         <div class="percentile">
             <div class="percentile__card">
                 <!-- <h2>{{this.data.percentileByCountry}}%</h2> -->

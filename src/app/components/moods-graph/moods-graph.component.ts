@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 })
 export class MoodsGraphComponent implements OnInit, AfterViewInit {
   @Input() data;
-  @Output() appColor = new EventEmitter<number>();
   @Output() audioData = new EventEmitter<{}>();
 
   constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }
@@ -51,6 +50,20 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
   }
 
   private createAudioFeatures() {
+    this.longTermAudioFeatures = {
+      danceability : 0,
+      energy : 0,
+      happiness : 0,
+      acousticness : 0,
+      tracksCounted : 0
+    };
+    this.shortTermAudioFeatures = {
+      danceability : 0,
+      energy : 0,
+      happiness : 0,
+      acousticness : 0,
+      tracksCounted : 0
+    };
     for (const track of this.data.userAudioFeatures[0].audio_features) {
       if (track != null) {
         this.longTermAudioFeatures.danceability += track.danceability;
