@@ -28,9 +28,7 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
     const oldData = Object.entries(this.data.breakdown);
     const labels = [...oldData.map((val: any) => {
       if (Number(val[0]) >= 110  && val[0] <= 240) {
-
         return Number(val[0]);
-
       } else {
         return false;
       }
@@ -38,8 +36,12 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
       return val;
     });
 
+    let tempMax = 0;
     const dataSet = [...oldData.map((val: any) => {
       if (Number(val[0]) >= 110  && val[0] <= 240) {
+        if (Number(val[1].N) > tempMax) {
+          tempMax = Number(val[1].N);
+        }
         return Number(val[1].N);
       } else {
         return false;
@@ -172,7 +174,7 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
           },
           ticks: {
             fontColor: '#fff',
-            stepSize: 2500
+            stepSize: Math.ceil(tempMax/500)*100
 
           },
           gridLines: {
