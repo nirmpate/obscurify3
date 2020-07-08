@@ -7,17 +7,7 @@
                 Obscurity Rating
             </h2>
         </div>
-        <div>
-          <mat-form-field>
-            <h3>Compare to others from </h3>
-            <mat-label>Country</mat-label>
-            <mat-select (selectionChange)='switchCountry($event.value)'>
-              <mat-option *ngFor="let country of countryList" [value]="country.value">
-                {{country.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+
         <div class="percentile">
             <div class="percentile__card">
                 <!-- <h2>{{this.data.percentileByCountry}}%</h2> -->
@@ -30,6 +20,17 @@
 
                 <p><strong>{{ this.data.obscurifyInfo.totalUserCount| number:'1.0-0':'en' }} </strong>Global Users</p>
             </div>
+        </div>
+        <div class="dark-theme" fxLayout="row" fxLayoutAlign="end center">
+          <p>Switch country to</p>
+
+          <mat-form-field color="primary" appearance="standard">
+            <mat-select (selectionChange)='switchCountry($event.value)'>
+              <mat-option *ngFor="let country of countryList" [value]="country.value">
+                {{country.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
 
         <app-obscurity-graph [data]="{
