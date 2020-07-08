@@ -56,7 +56,7 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: [0.70]
+      threshold: [0.20]
     });
     this.intersectionObserverSubs = this.intersectionObserverService
     .getSubject()
@@ -64,7 +64,6 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
 
       if (el.isIntersecting) {
         this.show = true;
-        console.log('is intereseting genres')
       }
     });
   }

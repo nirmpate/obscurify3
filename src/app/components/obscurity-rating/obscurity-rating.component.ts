@@ -32,7 +32,6 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
       .subscribe(el => {
 
         if (el.isIntersecting) {
-          console.log('is intersecting graph:');
           this.show = true;
         } else {
           this.show = false;
