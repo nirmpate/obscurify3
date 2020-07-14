@@ -159,7 +159,7 @@ export class HomeComponent implements OnInit {
           verticalPosition: 'top'
         });
         } else {
-          console.log('Save History', res);
+          // console.log('Save History', res);
         }
       });
     });

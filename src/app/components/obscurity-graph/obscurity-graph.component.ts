@@ -194,7 +194,7 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
         }]
       }
     };
-    this.histogram = Chart.Bar('canvas', {
+    this.histogram = Chart.Bar('obscurityGraph', {
       data,
       options: option
     });

@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input, OnChanges,SimpleChanges } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
+import { Chart } from 'chart.js';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,15 +12,19 @@ import { Subscription } from 'rxjs';
 export class MoodsGraphComponent implements OnInit, AfterViewInit {
   @Input() data;
   @Output() audioData = new EventEmitter<{}>();
+  @ViewChild('happinessGraphElement') happinessGraphElement: ElementRef;
+  @ViewChild('danceabilityGraphElement') danceabilityGraphElement: ElementRef;
+  @ViewChild('energyGraphElement') energyGraphElement: ElementRef;
+  @ViewChild('acousticnessGraphElement') acousticnessGraphElement: ElementRef;
 
   constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }
 
   public show = false;
 
-  public happinessGraphData;
-  public danceabilityGraphData;
-  public energyGraphData;
-  public acousticnessGraphData;
+  public happinessGraph: Chart;
+  public danceabilityGraph: Chart;
+  public energyGraph: Chart;
+  public acousticnessGraph: Chart;
 
   private intersectionObserverSubs: Subscription;
   private longTermAudioFeatures = {
@@ -39,14 +44,16 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if(!changes.data.firstChange && changes.data.previousValue.country != changes.data.currentValue.country) {
+      this.happinessGraph.destroy();
+      this.danceabilityGraph.destroy();
+      this.energyGraph.destroy();
+      this.acousticnessGraph.destroy();
       this.createAudioFeatures();
     };
   }
 
   ngOnInit() {
-    this.createAudioFeatures();
     this.audioData.emit(this.longTermAudioFeatures);
-
   }
 
   private createAudioFeatures() {
@@ -94,81 +101,116 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     this.shortTermAudioFeatures.happiness /= this.shortTermAudioFeatures.tracksCounted;
     this.shortTermAudioFeatures.acousticness /= this.shortTermAudioFeatures.tracksCounted;
 
-    this.happinessGraphData = {
-      type: 'Happiness',
-      current: this.createPercent(this.shortTermAudioFeatures, 'happiness'),
-      allTime: this.createPercent(this.longTermAudioFeatures, 'happiness')
-    };
-
-    this.danceabilityGraphData = {
-      type: 'Danceability',
-      current: this.createPercent(this.shortTermAudioFeatures, 'danceability'),
-      allTime: this.createPercent(this.longTermAudioFeatures, 'danceability')
-    };
-
-    this.energyGraphData = {
-      type: 'Energy',
-      current: this.createPercent(this.shortTermAudioFeatures, 'energy'),
-      allTime: this.createPercent(this.longTermAudioFeatures, 'energy')
-    };
-
-    this.acousticnessGraphData = {
-      type: 'Acousticness',
-      current: this.createPercent(this.shortTermAudioFeatures, 'acousticness'),
-      allTime: this.createPercent(this.longTermAudioFeatures, 'acousticness')
-    };
-  }
-
-
-
-  private createPercent(feature, type) {
-    const ratioObject = {
-      ratio: 0,
-      message: '',
-      level: ''
-    };
-
-    const ratio = feature[type] / this.data.audioFeatureAverages[type].N;
-    let percentDifference;
-
-    if (ratio == null || ratio === 0) {
-      ratioObject.message = 'no data found';
-    } else if (ratio > 1.009) {
-      percentDifference = ratio * 100 - 100;
-      ratioObject.message = percentDifference.toFixed(1) + '% higher than the ' + this.data.country + ' average';
-    } else if (ratio < 0.999) {
-      percentDifference = 100 - ratio * 100;
-      ratioObject.message = percentDifference.toFixed(1) + '% lower than the '  + this.data.country + ' average';
-    } else {
-      ratioObject.message = 'right at the ' + this.data.country + ' average';
+    let data = {
+        labels: ['Current', 'All Time', this.data.country + ' Avg'],
+        datasets: [{
+            data: [],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
     }
-    ratioObject.ratio = ratio;
-    ratioObject.level = this.createLevel(ratio);
+    const option = {
+      global: {
+        defaultFontColor: '#000',
+        defaultFontFamily	: '"Helvetica Neue", sans-serif'
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: {
+        duration: 3000
+      },
+      tooltips: {
+        enabled: false
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            fontColor: '#000'
+          },
+          ticks: {
+            fontColor: '#000',
+            beginAtZero: true
+          },
+          gridLines: {
+            display: false
+          },
+        }],
+        xAxes: [{
+            barPercentage: 1.0,
+            categoryPercentage: 1.0,
+            gridLines: {
+              display: false
+            }
+        }]
+      }
+    };
 
-    return ratioObject;
+    var happinessGraphContext = this.happinessGraphElement.nativeElement;
+    let happinessData = data;
+    happinessData.datasets[0].data = [
+      this.shortTermAudioFeatures.happiness,
+      this.longTermAudioFeatures.happiness,
+      this.data.audioFeatureAverages.happiness.N
+    ]
+    this.happinessGraph = new Chart(happinessGraphContext, {
+      type: 'bar',
+      data: happinessData,
+      options: option
+    });
 
-  }
+    var danceabilityGraphContext = this.danceabilityGraphElement.nativeElement;
+    let danceabilityData = data;
+    danceabilityData.datasets[0].data = [
+      this.shortTermAudioFeatures.danceability,
+      this.longTermAudioFeatures.danceability,
+      this.data.audioFeatureAverages.danceability.N
+    ]
+    this.danceabilityGraph = new Chart(danceabilityGraphContext, {
+      type: 'bar',
+      data: danceabilityData,
+      options: option
+    });
 
-  private createLevel(ratio) {
-    if (ratio > 1.8) {
-      return 'level-nine';
-    } else if (ratio > 1.4) {
-      return 'level-eight';
-    } else if (ratio > 1.2) {
-      return 'level-seven';
-    } else if (ratio > 1.05) {
-      return 'level-six';
-    } else if (ratio > 0.95) {
-      return 'level-five';
-    } else if (ratio > 0.8) {
-      return 'level-four';
-    } else if (ratio > 0.6) {
-      return 'level-three';
-    } else if (ratio > 0.4) {
-      return 'level-two';
-    } else {
-      return 'level-one';
-    }
+    var energyGraphContext = this.energyGraphElement.nativeElement;
+    let energyData = data;
+    energyData.datasets[0].data = [
+      this.shortTermAudioFeatures.energy,
+      this.longTermAudioFeatures.energy,
+      this.data.audioFeatureAverages.energy.N
+    ]
+    this.energyGraph = new Chart(energyGraphContext, {
+      type: 'bar',
+      data: energyData,
+      options: option
+    });
+
+    var acousticnessGraphContext = this.acousticnessGraphElement.nativeElement;
+    let acousticnessData = data;
+    acousticnessData.datasets[0].data = [
+      this.shortTermAudioFeatures.acousticness,
+      this.longTermAudioFeatures.acousticness,
+      this.data.audioFeatureAverages.acousticness.N
+    ]
+    this.acousticnessGraph = new Chart(acousticnessGraphContext, {
+      type: 'bar',
+      data: acousticnessData,
+      options: option
+    });
+
   }
 
 
@@ -179,14 +221,13 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     this.intersectionObserverSubs = this.intersectionObserverService
     .getSubject()
     .subscribe(el => {
-
       if (el.isIntersecting) {
         this.show = true;
       } else {
         this.show = false;
       }
     });
-
+    this.createAudioFeatures();
   }
 
 }
