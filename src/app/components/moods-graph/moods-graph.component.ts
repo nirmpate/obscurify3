@@ -143,7 +143,8 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
           },
           ticks: {
             fontColor: '#000',
-            beginAtZero: true
+            beginAtZero: true,
+            stepSize: 0.2
           },
           gridLines: {
             display: false
