@@ -103,7 +103,7 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
       borderWidth: 2,
       label: {
         fontColor: 'rgb(229, 202, 169)',
-        content: `Your Recent ${Math.round(this.data.percentileByCountryRecent)}%`,
+        content: `Your Current ${Math.round(this.data.percentileByCountryRecent)}%`,
         enabled: true,
         position: 'center',
         yAdjust: -65,
@@ -175,7 +175,6 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
           ticks: {
             fontColor: '#fff',
             stepSize: Math.ceil(tempMax/500)*100
-
           },
           gridLines: {
             display: false
