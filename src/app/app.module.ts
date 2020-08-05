@@ -62,7 +62,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     FlexLayoutModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     PlatformModule,

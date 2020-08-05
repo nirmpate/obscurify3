@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Inp
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Chart } from 'chart.js';
 import { Subscription } from 'rxjs';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-moods-graph',
@@ -17,7 +18,10 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
   @ViewChild('energyGraphElement') energyGraphElement: ElementRef;
   @ViewChild('acousticnessGraphElement') acousticnessGraphElement: ElementRef;
 
-  constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }
+  constructor(
+    public element: ElementRef,
+    public intersectionObserverService: IntersectionObserverService,
+    public platform: Platform) { }
 
   public show = false;
 
@@ -101,7 +105,7 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     this.shortTermAudioFeatures.happiness /= this.shortTermAudioFeatures.tracksCounted;
     this.shortTermAudioFeatures.acousticness /= this.shortTermAudioFeatures.tracksCounted;
 
-    let data = {
+    const data = {
         labels: ['Current', 'All Time', this.data.country + ' Avg'],
         datasets: [{
             data: [],
@@ -159,58 +163,62 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
         }]
       }
     };
+    if (this.platform.isBrowser) {
+      const happinessGraphContext = this.happinessGraphElement.nativeElement;
+      const happinessData = data;
+      happinessData.datasets[0].data = [
+        this.shortTermAudioFeatures.happiness,
+        this.longTermAudioFeatures.happiness,
+        this.data.audioFeatureAverages.happiness.N
+      ];
+      this.happinessGraph = new Chart(happinessGraphContext, {
+        type: 'bar',
+        data: happinessData,
+        options: option
+      });
 
-    var happinessGraphContext = this.happinessGraphElement.nativeElement;
-    let happinessData = data;
-    happinessData.datasets[0].data = [
-      this.shortTermAudioFeatures.happiness,
-      this.longTermAudioFeatures.happiness,
-      this.data.audioFeatureAverages.happiness.N
-    ]
-    this.happinessGraph = new Chart(happinessGraphContext, {
-      type: 'bar',
-      data: happinessData,
-      options: option
-    });
+      const danceabilityGraphContext = this.danceabilityGraphElement.nativeElement;
+      const danceabilityData = data;
+      danceabilityData.datasets[0].data = [
+        this.shortTermAudioFeatures.danceability,
+        this.longTermAudioFeatures.danceability,
+        this.data.audioFeatureAverages.danceability.N
+      ];
 
-    var danceabilityGraphContext = this.danceabilityGraphElement.nativeElement;
-    let danceabilityData = data;
-    danceabilityData.datasets[0].data = [
-      this.shortTermAudioFeatures.danceability,
-      this.longTermAudioFeatures.danceability,
-      this.data.audioFeatureAverages.danceability.N
-    ]
-    this.danceabilityGraph = new Chart(danceabilityGraphContext, {
-      type: 'bar',
-      data: danceabilityData,
-      options: option
-    });
+      this.danceabilityGraph = new Chart(danceabilityGraphContext, {
+        type: 'bar',
+        data: danceabilityData,
+        options: option
+      });
 
-    var energyGraphContext = this.energyGraphElement.nativeElement;
-    let energyData = data;
-    energyData.datasets[0].data = [
-      this.shortTermAudioFeatures.energy,
-      this.longTermAudioFeatures.energy,
-      this.data.audioFeatureAverages.energy.N
-    ]
-    this.energyGraph = new Chart(energyGraphContext, {
-      type: 'bar',
-      data: energyData,
-      options: option
-    });
+      const energyGraphContext = this.energyGraphElement.nativeElement;
+      const energyData = data;
+      energyData.datasets[0].data = [
+        this.shortTermAudioFeatures.energy,
+        this.longTermAudioFeatures.energy,
+        this.data.audioFeatureAverages.energy.N
+      ];
 
-    var acousticnessGraphContext = this.acousticnessGraphElement.nativeElement;
-    let acousticnessData = data;
-    acousticnessData.datasets[0].data = [
-      this.shortTermAudioFeatures.acousticness,
-      this.longTermAudioFeatures.acousticness,
-      this.data.audioFeatureAverages.acousticness.N
-    ]
-    this.acousticnessGraph = new Chart(acousticnessGraphContext, {
-      type: 'bar',
-      data: acousticnessData,
-      options: option
-    });
+      this.energyGraph = new Chart(energyGraphContext, {
+        type: 'bar',
+        data: energyData,
+        options: option
+      });
+      const acousticnessGraphContext = this.acousticnessGraphElement.nativeElement;
+      const acousticnessData = data;
+      acousticnessData.datasets[0].data = [
+        this.shortTermAudioFeatures.acousticness,
+        this.longTermAudioFeatures.acousticness,
+        this.data.audioFeatureAverages.acousticness.N
+      ];
+
+      this.acousticnessGraph = new Chart(acousticnessGraphContext, {
+        type: 'bar',
+        data: acousticnessData,
+        options: option
+      });
+    }
+
 
   }
 

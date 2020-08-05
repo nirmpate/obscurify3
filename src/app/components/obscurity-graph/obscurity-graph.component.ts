@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ElementRef, SimpleChanges, OnChanges } from '
 import { DomSanitizer } from '@angular/platform-browser';
 import { Chart } from 'chart.js';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-obscurity-graph',
@@ -11,7 +12,10 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
 export class ObscurityGraphComponent implements OnInit, OnChanges {
   @Input() data;
 
-  constructor(public el: ElementRef, public sanitizer: DomSanitizer) {
+  constructor(
+    public el: ElementRef,
+    public sanitizer: DomSanitizer,
+    public platform: Platform) {
 
   }
 
@@ -193,10 +197,12 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
         }]
       }
     };
-    this.histogram = Chart.Bar('obscurityGraph', {
-      data,
-      options: option
-    });
+    if (this.platform.isBrowser) {
+      this.histogram = Chart.Bar('obscurityGraph', {
+        data,
+        options: option
+      });
+    }
   }
 
 

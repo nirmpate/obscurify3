@@ -8,6 +8,7 @@ import { ObscurifyService } from 'src/app/services/obscurifyService';
 import { SpotifyService } from 'src/app/services/spotifyService';
 import { map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SeoService } from '../../services/metaData';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class HomeComponent implements OnInit {
     public authService: AuthService,
     public obscurifyService: ObscurifyService,
     public spotifyService: SpotifyService,
-    public snkBar: MatSnackBar
+    public snkBar: MatSnackBar,
+    private seoService: SeoService
   ) { }
   private stream: Subscription | null = null;
 
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
   public currentTracks = null;
 
   ngOnInit() {
+    this.seoService.setMetaTags();
     const userStream = this.tokenSvc.authTokens.pipe((x) => {
       if (this.tokenSvc.oAuthToken.spotifyToken) {
         this.authService.authorized();
