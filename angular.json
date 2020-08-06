@@ -149,32 +149,6 @@
             }
           }
         },
-        "serverless": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/obscurify3/serverless",
-            "main": "serverless.ts",
-            "tsConfig": "tsconfig.serverless.json",
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/app/scss"
-              ]
-            }
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "sourceMap": false,
-              "optimization": true
-            }
-          }
-        },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {

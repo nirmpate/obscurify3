@@ -13,9 +13,9 @@
     "dev:ssr": "ng run obscurify3:serve-ssr",
     "serve:ssr": "node dist/obscurify3/server/main.js",
     "build:ssr": "ng build --prod && ng run obscurify3:server:production",
-    "prerender": "ng run obscurify3:prerender",
-    "serve:sls": "serverless offline start",
-    "build:sls": "ng build --base-href /dev/ && ng run obscurify3:serverless:production"
+    "build:ssr:dev": "ng build --configuration=develop && ng run obscurify3:server:production",
+    "build:ssr:prod": "ng build --prod && ng run obscurify3:server:production",
+    "prerender": "ng run obscurify3:prerender"
   },
   "private": true,
   "dependencies": {
