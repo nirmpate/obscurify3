@@ -172,6 +172,21 @@
               ],
               "sourceMap": false,
               "optimization": true
+            },
+            "develop": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "sourceMap": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "optimization": true
+
             }
           }
         },
@@ -191,7 +206,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "obscurify3:build:production",
+            "browserTarget": "obscurify3:build:develop",
             "serverTarget": "obscurify3:server:production",
             "routes": [
               "/"

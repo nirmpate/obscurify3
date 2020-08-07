@@ -106,22 +106,23 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     this.shortTermAudioFeatures.acousticness /= this.shortTermAudioFeatures.tracksCounted;
 
     const data = {
-        labels: ['Current', 'All Time', this.data.country + ' Avg'],
+        labels: ['Your Current', 'Your All Time', this.data.country + ' Avg'],
         datasets: [{
             data: [],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+                '#5AA9E6',
+                'rgba(0,0,0,0.9)',
+                '#A9E5AC'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+                '#fefefe',
+                '#fefefe',
+                '#fefefe'
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            barThickness: 50
         }]
-    }
+    };
     const option = {
       global: {
         defaultFontColor: '#000',
@@ -138,6 +139,7 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
       legend: {
         display: false
       },
+
       scales: {
         yAxes: [{
           display: true,
@@ -146,15 +148,24 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
             fontColor: '#000'
           },
           ticks: {
+            fontFamily: '"Helvetica Neue", sans-serif',
             fontColor: '#000',
             beginAtZero: true,
-            stepSize: 0.2
+            stepSize: 0.2,
+            fontStyle	: 'bold'
+
           },
           gridLines: {
             display: false
           },
         }],
         xAxes: [{
+            ticks: {
+              fontFamily: '"Helvetica Neue", sans-serif',
+              fontColor: '#000',
+              fontSize: '12',
+              fontStyle	: 'bold'
+            },
             barPercentage: 1.0,
             categoryPercentage: 1.0,
             gridLines: {

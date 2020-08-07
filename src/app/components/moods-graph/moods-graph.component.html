@@ -9,40 +9,89 @@
         <div class="moods-graph__container">
             <div class="moods-graph__content">
                 <h3>Happiness</h3>
-                <div class="obscurity__canvas">
-                    <canvas #happinessGraphElement id="happinessGraphElement">
-                    </canvas>
-                </div>
+
+                <div class="moods-graph__card">
+                  <div class="moods-graph__card__container">
+                    <p class="moods-graph__card__paragraph">
+                      Scores with a higher number sound more positive (e.g. happy, cheerful, euphoric),
+                       while tracks with a lower number sound more negative (e.g. sad, depressed, angry)
+                    </p>
+                  </div>
+
+                  <div class="moods-graph__card__container">
+                    <div class="obscurity__canvas">
+                      <canvas #happinessGraphElement id="happinessGraphElement">
+                      </canvas>
+                    </div>
+                  </div>
+
+              </div>
+
             </div>
         </div>
 
-        <div class="moods-graph__container" class="moods-graph__container--right">
+        <div class="moods-graph__container moods-graph__container--right">
             <div class="moods-graph__content">
                 <h3>Danceability</h3>
-                <div class="obscurity__canvas">
+
+                <div class="moods-graph__card">
+                <div class="moods-graph__card__container">
+                  <p class="moods-graph__card__paragraph">
+                    Danceability describes how suitable your music is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.
+                  </p>
+                </div>
+                <div class="moods-graph__card__container">
+                  <div class="obscurity__canvas">
                     <canvas #danceabilityGraphElement id="danceabilityGraphElement">
                     </canvas>
+                  </div>
                 </div>
+                </div>
+
             </div>
         </div>
 
         <div class="moods-graph__container">
             <div class="moods-graph__content">
                 <h3>Energy</h3>
-                <div class="obscurity__canvas">
+
+                <div class="moods-graph__card">
+                <div class="moods-graph__card__container">
+                  <p class="moods-graph__card__paragraph">
+                    Energy represents a perceptual measure of intensity and activity.
+                    Typically, energetic tracks feel fast, loud, and noisy.
+                  </p>
+                </div>
+
+                <div class="moods-graph__card__container">
+                  <div class="obscurity__canvas">
                     <canvas #energyGraphElement id="energyGraphElement">
                     </canvas>
+                  </div>
+                </div>
                 </div>
             </div>
         </div>
 
-        <div class="moods-graph__container" class="moods-graph__container--right">
+        <div class="moods-graph__container moods-graph__container--right">
             <div class="moods-graph__content">
                 <h3>Acousticness</h3>
-                <div class="obscurity__canvas">
-                    <canvas #acousticnessGraphElement id="acousticnessGraphElement">
-                    </canvas>
+
+                <div class="moods-graph__card">
+
+                <div class="moods-graph__card__container">
+                  <p class="moods-graph__card__paragraph">
+	                 A measure whether your music is acoustic. The higher the number the more acoustic sounding your music is.
+                  </p>
                 </div>
+
+                <div class="moods-graph__card__container">
+                  <div class="obscurity__canvas">
+                      <canvas #acousticnessGraphElement id="acousticnessGraphElement">
+                      </canvas>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
 
