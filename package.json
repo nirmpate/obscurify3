@@ -13,9 +13,10 @@
     "dev:ssr": "ng run obscurify3:serve-ssr",
     "serve:ssr": "node dist/obscurify3/server/main.js",
     "build:ssr": "ng build --prod && ng run obscurify3:server:production",
-    "build:ssr:dev": "ng build --configuration=develop && ng run obscurify3:server:production",
+    "build:ssr:dev": "ng build --configuration=develop && ng run obscurify3:server:develop",
     "build:ssr:prod": "ng build --prod && ng run obscurify3:server:production",
-    "prerender": "ng run obscurify3:prerender"
+    "prerender:dev": "ng run obscurify3:prerender --configuration=develop",
+    "prerender:prod": "ng run obscurify3:prerender --configuration=production"
   },
   "private": true,
   "dependencies": {
