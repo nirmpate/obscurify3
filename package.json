@@ -15,8 +15,7 @@
     "build:ssr": "ng build --prod && ng run obscurify3:server:production",
     "build:ssr:dev": "ng build --configuration=develop && ng run obscurify3:server:develop",
     "build:ssr:prod": "ng build --prod && ng run obscurify3:server:production",
-    "prerender:dev": "ng run obscurify3:prerender --configuration=develop",
-    "prerender:prod": "ng run obscurify3:prerender --configuration=production"
+    "prerender": "npx angular-prerender --exclude-routes /authorized"
   },
   "private": true,
   "dependencies": {

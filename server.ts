@@ -30,7 +30,7 @@ export function app() {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, { req });
+    res.render(indexHtml, { req, providers: [{ provide: '/', useValue: req.baseUrl }] });
   });
 
   return server;
