@@ -71,10 +71,11 @@
         font-family: $secondary-font;
         font-weight: normal;
         line-height: 1.5;
+        margin-bottom: 1em
     }
 
     &__card__container {
-        width: 50%;
+        width: 100%;
     }
 }
 
@@ -96,6 +97,17 @@
         }
       }
     }
+}
+
+@include tablet {
+  .moods-graph {
+    &__card__container {
+      width: 50%;
+    }
+    &__card__paragraph {
+      margin-bottom: 0em
+    }
+  }
 }
 
 

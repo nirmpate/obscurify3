@@ -140,7 +140,9 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
       datasets: [{
           data: dataSet,
           backgroundColor: '#fff'
-      }]
+      }],
+      barPercentage: 1.0,
+      categoryPercentage: 1.0,
     };
     const annotations = [userAllTimeAnnotation];
     if (this.data.userRecentScore > 0) {
@@ -185,8 +187,6 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
           },
         }],
         xAxes: [{
-            barPercentage: 1.0,
-            categoryPercentage: 1.0,
             gridLines: {
               display: false
             },
