@@ -25,5 +25,15 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "Obscurify API",
+      "urls": ["https://ktp0b5os1g.execute-api.us-east-2.amazonaws.com/dev"],
+      "cacheConfig": {
+        "maxSize": 5,
+        "maxAge": "1d"
+      }
+    }
   ]
 }

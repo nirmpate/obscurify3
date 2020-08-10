@@ -4,6 +4,7 @@ import { InfoService } from 'src/app/services/infoService';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/spotifyAuth';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-intro',
@@ -22,7 +23,8 @@ export class IntroComponent implements OnInit {
     public infoSvc: InfoService,
     public router: Router,
     public tokenSvc: TokenService,
-    public snkBar: MatSnackBar
+    public snkBar: MatSnackBar,
+    public platform: Platform
     ) { }
 
   public userImage;
