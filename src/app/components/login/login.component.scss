@@ -10,7 +10,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    min-height: 700px;
     color: white;
 
     .login__container {
@@ -70,7 +70,7 @@ main {
     .banner-container {
       padding: 1em;
       position: absolute;
-      bottom: 100px;
+      top: 50px;
     }
   }
 
