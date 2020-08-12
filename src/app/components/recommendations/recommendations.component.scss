@@ -55,15 +55,10 @@
 }
 
 .recommendations__ad {
-  margin-top: 2em;
   text-align: center;
-
-  margin-top: 2em;
-    text-align: center;
-    position: absolute;
-    bottom: -105px;
-    left: 50%;
-    transform: translateX(-50%);
+  background-color: #759398;
+  padding-bottom: 2em;
+  border: 1px solid #759398;
 }
 
 .filter-btn {
@@ -250,11 +245,4 @@
       }
     }
 
-  }
-
-  @include desktop {
-    .recommendations__ad {
-      position: static;
-      transform: translateX(0%);
-    }
   }
