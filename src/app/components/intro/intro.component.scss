@@ -4,7 +4,7 @@
 nav {
     max-width: 1024px;
     padding: 1em 1em;
-    margin: 0 auto;
+    margin: 0 auto 1em;
     position: relative;
     color: rgba(0,0,0,0.5);
 
@@ -47,7 +47,7 @@ nav {
 
 .profile {
     width: 100%;
-    padding: 8em 0;
+    padding: 4em 0;
     padding-left: 1em;
     padding-right: 1em;
     text-align: center;
@@ -86,7 +86,7 @@ nav {
     }
 
     .profile {
-        padding-top: 5em;
+        padding-top: 4em;
 
         &__image {
             width: 50px;
@@ -100,7 +100,7 @@ nav {
     }
 
     .welcome {
-        padding-top: 140px;
+        padding-top: 80px;
     }
 
 }

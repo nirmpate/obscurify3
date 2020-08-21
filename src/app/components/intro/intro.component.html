@@ -1,4 +1,4 @@
-<nav>
+<nav *ngIf="data">
     <div fxLayout="row" fxLayoutAlign="end start">
         <button [matMenuTriggerFor]="appMenu">
             <span class="profile__image">
@@ -15,7 +15,15 @@
     </mat-menu>
 </nav>
 
-<div class="welcome" fxLayout="column" fxLayoutAlign="center center">
+<div class="banner-container" fxLayout="column" fxLayoutAlign="center center" >
+  <!-- ObscurifyMusic_S2S_Leaderboard_ROS_ATF -->
+  <div id="bsa-zone_1597164528738-4_123456"></div>
+</div>
+
+
+
+<div *ngIf="data">
+  <div class="welcome" fxLayout="column" fxLayoutAlign="center center">
     <h1>Welcome to <br /> Obscurify<span>.</span></h1>
 </div>
 
@@ -36,3 +44,6 @@
 <div class="arrow" fxLayout="row nowrap" fxLayoutAlign="center center">
   <i class="fas fa-chevron-down"></i>
 </div>
+
+</div>
+

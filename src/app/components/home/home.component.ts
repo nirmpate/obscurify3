@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Directive } from '@angular/core';
 import { TokenService, AuthService } from '../../services/spotifyAuth';
 import { Router } from '@angular/router';
 import { InfoService } from '../../services/infoService';
@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit {
     public spotifyService: SpotifyService,
     public snkBar: MatSnackBar,
     private seoService: SeoService
-  ) { }
+  ) {
+    this.loaded = false;
+  }
   private stream: Subscription | null = null;
 
   // public bgColor = '#A9E5AC';
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
   public allTimeTracks = null;
   public currentArtists = null;
   public currentTracks = null;
+  public loaded = false;
 
   ngOnInit() {
     this.seoService.setMetaTags();
@@ -166,6 +169,10 @@ export class HomeComponent implements OnInit {
         }
       });
     });
+  }
+
+  loadEvent(val) {
+    this.loaded = val;
   }
 
 }

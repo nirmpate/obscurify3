@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, Input, OnChanges } from '@angular/core';
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { InfoService } from 'src/app/services/infoService';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Platform } from '@angular/cdk/platform';
   providers: [IntersectionObserverService]
 
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent implements OnInit, OnChanges {
   @Input() data;
   @Input() error;
 
@@ -32,11 +32,16 @@ export class IntroComponent implements OnInit {
   public welcomeMessage;
   public greeting;
 
+  ngOnChanges(change) {
+    if (!change.data.previousValue && change.data.currentValue) {
+      this.userName = this.checkName(this.data.display_name);
+      this.userImage = this.data.images[0] ? this.data.images[0].url : null;
+      this.welcomeMessage = this.getRandomWelcomeMessage();
+      this.greeting = this.getRandomGreeting();
+    }
+  }
+
   ngOnInit() {
-    this.userName = this.checkName(this.data.display_name);
-    this.userImage = this.data.images[0] ? this.data.images[0].url : null;
-    this.welcomeMessage = this.getRandomWelcomeMessage();
-    this.greeting = this.getRandomGreeting();
     if (this.error) {
       this.snkBar.open('No data. Try again later.', '' , {
         duration: 5000,
