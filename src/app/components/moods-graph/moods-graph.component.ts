@@ -46,6 +46,15 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     tracksCounted : 0
   };
 
+  public acousticnessCurrentText = " same as ";
+  public acousticnessAllTimeText = " same as ";
+  public energyCurrentText = " same as ";
+  public energyAllTimeText = " same as ";
+  public danceabilityCurrentText = " same as ";
+  public danceabilityAllTimeText = " same as ";
+  public happinessCurrentText = " same as ";
+  public happinessAllTimeText = " same as ";
+
   ngOnChanges(changes: SimpleChanges) {
     if(!changes.data.firstChange && changes.data.previousValue.country != changes.data.currentValue.country) {
       this.happinessGraph.destroy();
@@ -104,6 +113,55 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     this.shortTermAudioFeatures.energy /= this.shortTermAudioFeatures.tracksCounted;
     this.shortTermAudioFeatures.happiness /= this.shortTermAudioFeatures.tracksCounted;
     this.shortTermAudioFeatures.acousticness /= this.shortTermAudioFeatures.tracksCounted;
+
+    let shortTermHappinessDiff = this.shortTermAudioFeatures.happiness - this.data.audioFeatureAverages.happiness.N;
+    if (shortTermHappinessDiff > 0.02) {
+        this.happinessCurrentText = (shortTermHappinessDiff * 100).toFixed(1) + "% higher than";
+    } else if (shortTermHappinessDiff < -0.02) {
+        this.happinessCurrentText = (Math.abs(shortTermHappinessDiff) * 100).toFixed(1) + "% lower than";
+    }
+    let longTermHappinessDiff = this.longTermAudioFeatures.happiness - this.data.audioFeatureAverages.happiness.N;
+    if (longTermHappinessDiff > 0.02) {
+        this.happinessAllTimeText = (longTermHappinessDiff * 100).toFixed(1) + "% higher than";
+    } else if (longTermHappinessDiff < -0.02) {
+        this.happinessAllTimeText = (Math.abs(longTermHappinessDiff) * 100).toFixed(1) + "% lower than";
+    }
+    let shortTermEnergyDiff = this.shortTermAudioFeatures.energy - this.data.audioFeatureAverages.energy.N;
+    if (shortTermEnergyDiff > 0.02) {
+        this.energyCurrentText = (shortTermEnergyDiff * 100).toFixed(1) + "% higher than";
+    } else if (shortTermEnergyDiff < -0.02) {
+        this.energyCurrentText = (Math.abs(shortTermEnergyDiff) * 100).toFixed(1) + "% lower than";
+    }
+    let longTermEnergyDiff = this.longTermAudioFeatures.energy - this.data.audioFeatureAverages.energy.N;
+    if (longTermEnergyDiff > 0.02) {
+        this.energyAllTimeText = (longTermEnergyDiff * 100).toFixed(1) + "% higher than";
+    } else if (longTermEnergyDiff < -0.02) {
+        this.energyAllTimeText = (Math.abs(longTermEnergyDiff) * 100).toFixed(1) + "% lower than";
+    }
+    let shortTermDanceabilityDiff = this.shortTermAudioFeatures.danceability - this.data.audioFeatureAverages.danceability.N;
+    if (shortTermDanceabilityDiff > 0.02) {
+        this.danceabilityCurrentText = (shortTermDanceabilityDiff * 100).toFixed(1) + "% higher than";
+    } else if (shortTermEnergyDiff < -0.02) {
+        this.danceabilityCurrentText = (Math.abs(shortTermDanceabilityDiff) * 100).toFixed(1) + "% lower than";
+    }
+    let longTermDanceabilityDiff = this.longTermAudioFeatures.danceability - this.data.audioFeatureAverages.danceability.N;
+    if (longTermDanceabilityDiff > 0.02) {
+        this.danceabilityAllTimeText = (longTermDanceabilityDiff * 100).toFixed(1) + "% higher than";
+    } else if (longTermDanceabilityDiff < -0.02) {
+        this.danceabilityAllTimeText = (Math.abs(longTermDanceabilityDiff) * 100).toFixed(1) + "% lower than";
+    }
+    let shortTermAcousticnessDiff = this.shortTermAudioFeatures.acousticness - this.data.audioFeatureAverages.acousticness.N;
+    if (shortTermAcousticnessDiff > 0.02) {
+        this.acousticnessCurrentText = (shortTermAcousticnessDiff * 100).toFixed(1) + "% higher than";
+    } else if (shortTermAcousticnessDiff < -0.02) {
+        this.acousticnessCurrentText = (Math.abs(shortTermAcousticnessDiff) * 100).toFixed(1) + "% lower than";
+    }
+    let longTermAcousticnessDiff = this.longTermAudioFeatures.acousticness - this.data.audioFeatureAverages.acousticness.N;
+    if (longTermAcousticnessDiff > 0.02) {
+        this.acousticnessAllTimeText = (longTermAcousticnessDiff * 100).toFixed(1) + "% higher than";
+    } else if (longTermAcousticnessDiff < -0.02) {
+        this.acousticnessAllTimeText = (Math.abs(longTermAcousticnessDiff) * 100).toFixed(1) + "% lower than";
+    }
 
     const data = {
         labels: ['Your Current', 'Your All Time', this.data.country + ' Avg'],

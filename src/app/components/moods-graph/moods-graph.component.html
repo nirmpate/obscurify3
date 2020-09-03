@@ -13,12 +13,18 @@
                 <div class="moods-graph__card" fxLayout="column" fxLayout.gt-sm="row nowrap">
                   <div class="moods-graph__card__container">
                     <p class="moods-graph__card__paragraph">
-                      Scores with a higher number sound more positive (e.g. happy, cheerful, euphoric),
-                       while tracks with a lower number sound more negative (e.g. sad, depressed, angry)
+                      Scores with a higher number sound more positive (e.g. happy, cheerful),
+                       while tracks with a lower number sound more negative (e.g. sad, angry)
+                    </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>Current:</strong> {{happinessCurrentText}} the {{data.country}} avg
+                    </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>All Time:</strong> {{happinessAllTimeText}} the {{data.country}} avg
                     </p>
                   </div>
 
-                  <div class="moods-graph__card__container">
+                  <div class="moods-graph__card__container" fxLayout="row" fxLayoutAlign="center end">
                     <div class="obscurity__canvas">
                       <canvas #happinessGraphElement id="happinessGraphElement">
                       </canvas>
@@ -39,8 +45,14 @@
                     <p class="moods-graph__card__paragraph">
                       Danceability describes how suitable your music is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.
                     </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>Current:</strong> {{danceabilityCurrentText}} the {{data.country}} avg
+                    </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>All Time:</strong> {{danceabilityAllTimeText}} the {{data.country}} avg
+                    </p>
                   </div>
-                  <div class="moods-graph__card__container">
+                  <div class="moods-graph__card__container" fxLayout="row" fxLayoutAlign="center end">
                     <div class="obscurity__canvas">
                       <canvas #danceabilityGraphElement id="danceabilityGraphElement">
                       </canvas>
@@ -61,9 +73,15 @@
                       Energy represents a perceptual measure of intensity and activity.
                       Typically, energetic tracks feel fast, loud, and noisy.
                     </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>Current:</strong> {{energyCurrentText}} the {{data.country}} avg
+                    </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>All Time:</strong> {{energyAllTimeText}} the {{data.country}} avg
+                    </p>
                   </div>
 
-                  <div class="moods-graph__card__container">
+                  <div class="moods-graph__card__container" fxLayout="row" fxLayoutAlign="center end">
                     <div class="obscurity__canvas">
                       <canvas #energyGraphElement id="energyGraphElement">
                       </canvas>
@@ -83,9 +101,15 @@
                     <p class="moods-graph__card__paragraph">
                     A measure whether your music is acoustic. The higher the number the more acoustic sounding your music is.
                     </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>Current:</strong> {{acousticnessCurrentText}} the {{data.country}} avg
+                    </p>
+                    <p class="moods-graph__card__paragraph">
+                      <strong>All Time:</strong> {{acousticnessAllTimeText}} the {{data.country}} avg
+                    </p>
                   </div>
 
-                  <div class="moods-graph__card__container">
+                  <div class="moods-graph__card__container" fxLayout="row" fxLayoutAlign="center end">
                     <div class="obscurity__canvas">
                         <canvas #acousticnessGraphElement id="acousticnessGraphElement">
                         </canvas>
