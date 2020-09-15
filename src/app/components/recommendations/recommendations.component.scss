@@ -40,6 +40,7 @@
 
 .recommendations__content {
     position: relative;
+    min-height: 540px;
 }
 
 .recommendations__container {
@@ -52,7 +53,7 @@
   overflow: hidden;
   box-sizing: content-box;
   padding-top: 80px;
-  min-height: 620px;
+  min-height: 520px;
 }
 
 .recommendations__ad {
