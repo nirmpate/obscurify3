@@ -30,6 +30,11 @@
     border-bottom: 5px $primary-color solid;
 }
 
+.twitter-container {
+    text-align: center;
+    margin-top: 2em;
+}
+
 .percentile {
     display:flex;
     justify-content: flex-start;
@@ -81,7 +86,7 @@
     .percentile {
 
         &__card {
-            padding: 2em 2em 5em;
+            padding: 2em 2em 3em;
             min-width: 600px;
             box-sizing: border-box;
         }
