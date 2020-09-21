@@ -163,7 +163,7 @@
           },
           "configurations": {
             "production": {
-              "outputHashing": "media",
+              "outputHashing": "all",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
