@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, AfterViewInit, Input, ViewChild } from '@angular/core';
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   @Input() data;
   @Output() switchCountryEvent: EventEmitter<string> = new EventEmitter<string>();
 
+  @ViewChild('tweetContainer') tweetContainer;
   constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }
   public show = false;
   private intersectionObserverSubs: Subscription;
@@ -53,6 +54,14 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   ];
 
   ngOnInit() {
+      window['twttr'].ready().then((callback) => {
+          window['twttr'].widgets.createShareButton('obscurifymusic.com 🎧', this.tweetContainer.nativeElement, {
+              text: `My music taste is more obscure than ${Math.round(this.data.obscurifyInfo.percentileByCountryAllTime)}% of other listeners on Obscurify. \n\nFind yours at`,
+              size: 'large'
+          });
+
+
+      })
   }
 
   ngAfterViewInit(): void {

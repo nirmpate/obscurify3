@@ -3,7 +3,7 @@
   "short_name": "Obscurify",
   "start_url": "https://obscurifymusic.com/",
   "display": "standalone",
-  "scope": "/#/",
+  "scope": "/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
@@ -41,6 +41,9 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
+  ],
+  "routes": [
+
   ],
   "background_color": "#65d26e",
   "theme_color": "#65d26e"
