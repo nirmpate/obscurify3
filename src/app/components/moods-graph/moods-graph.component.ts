@@ -61,15 +61,15 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
       this.danceabilityGraph.destroy();
       this.energyGraph.destroy();
       this.acousticnessGraph.destroy();
-      this.createAudioFeatures();
+      this.createAudioFeatures(false);
     };
   }
 
   ngOnInit() {
-    this.audioData.emit(this.longTermAudioFeatures);
+
   }
 
-  private createAudioFeatures() {
+  private createAudioFeatures(emitAudioFeatureFlag) {
     this.longTermAudioFeatures = {
       danceability : 0,
       energy : 0,
@@ -113,6 +113,10 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     this.shortTermAudioFeatures.energy /= this.shortTermAudioFeatures.tracksCounted;
     this.shortTermAudioFeatures.happiness /= this.shortTermAudioFeatures.tracksCounted;
     this.shortTermAudioFeatures.acousticness /= this.shortTermAudioFeatures.tracksCounted;
+
+    if (emitAudioFeatureFlag) {
+        this.audioData.emit(this.longTermAudioFeatures);
+    }
 
     let shortTermHappinessDiff = this.shortTermAudioFeatures.happiness - this.data.audioFeatureAverages.happiness.N;
     if (shortTermHappinessDiff > 0.02) {
@@ -305,7 +309,7 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
         this.show = false;
       }
     });
-    this.createAudioFeatures();
+    this.createAudioFeatures(true);
   }
 
 }
