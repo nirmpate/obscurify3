@@ -55,8 +55,6 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
       window['twttr'].ready().then((callback) => {
-          console.log(callback, this.tweetContainer);
-
           window['twttr'].widgets.createShareButton('obscurifymusic.com 🎧', this.tweetContainer.nativeElement, {
               text: `My music taste is more obscure than ${Math.round(this.data.obscurifyInfo.percentileByCountryAllTime)}% of other listeners on Obscurify. \n\nFind yours at`,
               size: 'large'
@@ -82,8 +80,6 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
           this.show = false;
         }
       });
-
-      console.log(this.tweetContainer)
   }
 
   switchCountry(code) {
