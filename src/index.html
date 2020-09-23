@@ -46,7 +46,7 @@
       var bsa_optimize=document.createElement('script');
       bsa_optimize.type='text/javascript';
       bsa_optimize.async=true;
-      bsa_optimize.src='https://cdn4.buysellads.net/pub/obscurifymusic.js?'+(new Date()-new Date()%600000);
+      bsa_optimize.src='https://cdn4.buysellads.net/pub/obscurifymusic.js?'+(new Date()-new Date()%600000) +'&ngsw-bypass=true';
       (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa_optimize);
     })();
   </script>

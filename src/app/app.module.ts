@@ -76,7 +76,8 @@ import { SpyOnDirective } from './directives/spy-on.directive';
     HttpClientModule,
     MatMenuModule,
     MatProgressBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ObscurityFuncs,
