@@ -33,6 +33,15 @@
         "maxSize": 5,
         "maxAge": "1d"
       }
+    },
+    {
+      "name": "api",
+      "urls": ["https://cdn4.buysellads.net", "https://ads.servenobid.com", "https://static.criteo.net", "*.googlesyndication.*"],
+      "cacheConfig": {
+        "maxSize": 0,
+        "maxAge": "0u",
+        "strategy": "freshness"
+      }
     }
   ]
 }
