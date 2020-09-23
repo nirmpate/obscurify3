@@ -23,7 +23,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+<<<<<<< HEAD
             "serviceWorker": false,
+=======
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json",
+>>>>>>> develop
             "assets": [
               "src/favicon.ico",
               "src/assets",
