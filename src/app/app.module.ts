@@ -20,7 +20,6 @@ import { ArtistCardComponent } from './components/artist/artist-card/artist-card
 import { ArtistNavComponent } from './components/artist/artist-nav/artist-nav.component';
 import { MoodsGraphComponent } from './components/moods-graph/moods-graph.component';
 import { RecommendationsComponent } from './components/recommendations/recommendations.component';
-import { LoginComponent } from './components/login/login.component';
 import { AuthService, TokenService, AuthGuard, SpotifyAuthInterceptor } from './services/spotifyAuth';
 import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.component';
 import { InfoService } from './services/infoService';
@@ -29,7 +28,6 @@ import { TrackCardComponent } from './components/artist/track-card/track-card.co
 import { SpotifyService } from './services/spotifyService';
 import { AboutComponent } from './components/about/about.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
@@ -40,7 +38,9 @@ import { BrowserCheck } from './services/browserCheck';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SpyOnDirective } from './directives/spy-on.directive';
-
+import { ArticlesModule } from './articles/articles.module';
+import { LoginModule } from './login/login.module';
+import { GlobalModule } from './global/global.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,15 +54,16 @@ import { SpyOnDirective } from './directives/spy-on.directive';
     ArtistNavComponent,
     MoodsGraphComponent,
     RecommendationsComponent,
-    LoginComponent,
     SpotifyAuthComponent,
     TrackCardComponent,
     AboutComponent,
     PrivacyComponent,
-    FooterComponent,
     SpyOnDirective,
   ],
   imports: [
+    GlobalModule,
+    ArticlesModule,
+    LoginModule,
     FlexLayoutModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
@@ -77,7 +78,7 @@ import { SpyOnDirective } from './directives/spy-on.directive';
     MatMenuModule,
     MatProgressBarModule,
     MatBottomSheetModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     ObscurityFuncs,

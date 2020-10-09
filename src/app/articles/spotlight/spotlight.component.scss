@@ -1,0 +1,23 @@
+.spotlight {
+    min-height: 100vh;
+    background-color: white;
+
+    .line-break {
+        background: #A9E5AC;
+        width: 200px;
+        height: 5px;
+        margin: 2em auto;
+    }
+
+    &__container {
+        max-width: 1024px;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 2em;
+        }
+    }
+
+    
+}
