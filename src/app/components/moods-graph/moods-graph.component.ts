@@ -305,8 +305,6 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     .subscribe(el => {
       if (el.isIntersecting) {
         this.show = true;
-      } else {
-        this.show = false;
       }
     });
     this.createAudioFeatures(true);
