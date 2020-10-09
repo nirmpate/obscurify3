@@ -15,9 +15,8 @@ export class SeoService {
   setMetaTags(config?: any) {
     config = {
       title: `Obscurify Music`,
-      description: `Obscurify Music finds out about your music tastes and scored
-      you on how obscure your Spotify music is compared to other Obscurify Users.`,
-      image: `https://www.obscurifymusic.com/assets/icons/icon-72x72.png`,
+      description: `Learn more about your music taste and compare it to others' with Obscurify.`,
+      image: `https://www.obscurifymusic.com/assets/images/app/card-image.png`,
       url: `https://www.obscurifymusic.com/${this.router.url}`,
       ...config
     };
@@ -29,11 +28,11 @@ export class SeoService {
     this.meta.updateTag({ name: 'Description', content: config.description });
 
     // Twitter
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
-    this.meta.updateTag({ name: 'twitter:site', content: `@obscurifymusic` });
-    this.meta.updateTag({ name: 'twitter:title', content: config.title });
-    this.meta.updateTag({ name: 'twitter:description', content: config.description });
-    this.meta.updateTag({ name: 'twitter:image', content: config.image });
-    this.meta.updateTag({name: 'og:image', content: config.image });
+    // this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    // this.meta.updateTag({ name: 'twitter:site', content: `@obscurifymusic` });
+    // this.meta.updateTag({ name: 'twitter:title', content: config.title });
+    // this.meta.updateTag({ name: 'twitter:description', content: config.description });
+    // this.meta.updateTag({ name: 'twitter:image', content: config.image });
+    // this.meta.updateTag({name: 'og:image', content: config.image });
   }
 }
