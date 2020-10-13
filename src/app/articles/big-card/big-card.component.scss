@@ -1,0 +1,21 @@
+@import 'mixins';
+
+.post-card--big {
+
+    img {
+        width: 100%;
+    }
+
+    .post-card__description {
+        margin-top: 1em;
+        
+        p,h2 {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+}
+
+@include gt-xs {
+
+}

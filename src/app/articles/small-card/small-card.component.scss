@@ -1,0 +1,39 @@
+@import 'variables';
+
+.post-card--small {
+    background: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.50);
+    min-height: 270px;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    max-width: 275px;
+
+    p {
+        margin: 0.5em 0;
+        font-family: $secondary-font;
+        font-weight: normal;
+    }
+
+    .post-card__container {
+        display: flex;
+        flex-flow: column;
+        flex: 1;
+        padding: 1em 1em;
+
+    }
+
+    .post-card__buttons {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .post-card__button {
+        padding: 0.5rem;
+        border: 1px solid #979797;
+        font-weight: bold;
+        display: inline-block;
+    }
+}
