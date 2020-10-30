@@ -37,9 +37,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { ObscurifyService } from './services/obscurifyService';
 import { BrowserCheck } from './services/browserCheck';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SpyOnDirective } from './directives/spy-on.directive';
+import { ScriptService } from './services/scripts.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,6 @@ import { SpyOnDirective } from './directives/spy-on.directive';
     MatMenuModule,
     MatProgressBarModule,
     MatBottomSheetModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ObscurityFuncs,
@@ -88,6 +87,7 @@ import { SpyOnDirective } from './directives/spy-on.directive';
     ObscurifyService,
     SpotifyService,
     BrowserCheck,
+    ScriptService,
     [{
       provide:  HTTP_INTERCEPTORS,
       // Force interception to use your new shiny headers!
