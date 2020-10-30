@@ -14,7 +14,7 @@
     "serve:ssr": "node dist/obscurify3/server/main.js",
     "build:ssr": "ng build --prod && ng run obscurify3:server:production",
     "build:ssr:dev": "ng build --configuration=develop && ng run obscurify3:server:develop",
-    "build:ssr:prod": "ng build --prod && ng run obscurify3:server:production",
+    "build:ssr:prod": "ng build --prod && ng run obscurify3:server:production && cp dist/obscurify3/browser/safety-worker.js dist/obscurify3/browser/ngsw-worker.js ",
     "prerender": "npx angular-prerender --exclude-routes /authorized"
   },
   "private": true,

@@ -56,7 +56,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": false,
-              "serviceWorker": false,
+              "serviceWorker": true,
               "budgets": [
                 {
                   "type": "initial",
