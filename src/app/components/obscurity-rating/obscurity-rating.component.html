@@ -19,6 +19,10 @@
 
                 <p><strong>{{ this.data.obscurifyInfo.totalUserCount| number:'1.0-0':'en' }} </strong>Global Users</p>
 
+                <div class="summary-container">
+                    <button mat-button (click)="openSummary()">Screenshottable summary</button>
+                </div>
+
                 <div #tweetContainer class="twitter-container">
 
                 </div>

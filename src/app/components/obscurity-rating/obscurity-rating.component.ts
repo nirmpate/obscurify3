@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectChange } from '@angular/material/select';
+import { MatDialog } from '@angular/material/dialog';
+import { SummaryComponent } from '../summary/summary.component';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   @Output() switchCountryEvent: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild('tweetContainer') tweetContainer;
-  constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService) { }
+  constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService, public dialog: MatDialog) { }
   public show = false;
   private intersectionObserverSubs: Subscription;
   public countryList: any = [
@@ -62,6 +64,27 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
 
 
       })
+  }
+
+  openSummary() {
+    const dialogRef = this.dialog.open(SummaryComponent, {
+        data: {
+            percentileByCountryAllTime: this.data.obscurifyInfo.percentileByCountryAllTime,
+            percentileByCountryRecent: this.data.obscurifyInfo.percentileByCountryRecent,
+            country: this.data.country,
+            allTimeArtists: this.data.allTimeArtists,
+            allTimeTracks: this.data.allTimeTracks,
+            currentArtists: this.data.currentArtists,
+            currentTracks: this.data.currentTracks,
+            audioFeatureAverages: this.data.obscurifyInfo.audioFeatureAverages,
+            longTermAudioFeatures: this.data.longTermAudioFeatures,
+            shortTermAudioFeatures: this.data.shortTermAudioFeatures,
+            topGenres: this.data.topGenres
+        }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+    });
   }
 
   ngAfterViewInit(): void {

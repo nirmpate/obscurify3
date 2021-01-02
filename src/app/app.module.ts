@@ -34,12 +34,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { ObscurifyService } from './services/obscurifyService';
 import { BrowserCheck } from './services/browserCheck';
 import { environment } from '../environments/environment';
 import { SpyOnDirective } from './directives/spy-on.directive';
 import { ScriptService } from './services/scripts.service';
+import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ScriptService } from './services/scripts.service';
     PrivacyComponent,
     FooterComponent,
     SpyOnDirective,
+    SummaryComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -77,6 +79,7 @@ import { ScriptService } from './services/scripts.service';
     MatMenuModule,
     MatProgressBarModule,
     MatBottomSheetModule,
+    MatDialogModule
   ],
   providers: [
     ObscurityFuncs,

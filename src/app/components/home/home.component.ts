@@ -9,6 +9,7 @@ import { SpotifyService } from 'src/app/services/spotifyService';
 import { map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SeoService } from '../../services/metaData';
+import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,8 @@ export class HomeComponent implements OnInit {
     public obscurifyService: ObscurifyService,
     public spotifyService: SpotifyService,
     public snkBar: MatSnackBar,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private obscurifyFunc: ObscurityFuncs
   ) {
     this.loaded = false;
   }
@@ -36,9 +38,11 @@ export class HomeComponent implements OnInit {
   public userHistory = null;
   public user: any = null;
   public obscurifyInfo = null;
-  public audioFeatures = null;
+  public shortTermAudioFeatures = null;
+  public longTermAudioFeatures = null;
   public allTimeArtists = null;
   public allTimeTracks = null;
+  public topGenres = null;
   public currentArtists = null;
   public currentTracks = null;
   public loaded = false;
@@ -90,9 +94,13 @@ export class HomeComponent implements OnInit {
               allTimeTrackIDs: this.allTimeTracks.allTimeTrackIDs,
               currentTrackIDs: this.currentTracks.currentTrackIDs
             };
+            this.topGenres = this.obscurifyFunc.findTopGenres(this.allTimeArtists.allTimeArtists);
 
-            this.spotifyService.getAudioFeatures(config).subscribe((audioFeatures) => {
-              this.audioFeatures = audioFeatures;
+            this.spotifyService.getAudioFeatures(config).subscribe((audioFeatures: any) => {
+                if (audioFeatures && audioFeatures.length == 2) {
+                    this.longTermAudioFeatures = this.obscurifyFunc.calculateAudioFeatureAverages(audioFeatures[0].audio_features);
+                    this.shortTermAudioFeatures = this.obscurifyFunc.calculateAudioFeatureAverages(audioFeatures[1].audio_features);
+                }
             });
 
             this.obscurifyService.getObscurifyData(
