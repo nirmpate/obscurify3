@@ -17,10 +17,10 @@
                        while tracks with a lower number sound more negative (e.g. sad, angry)
                     </p>
                     <p *ngIf="longTermAudioFeatures.happiness - shortTermAudioFeatures.happiness > 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting more gloomy or melancholy recently!</strong>
+                        <strong>Your music has been getting more gloomy or melancholy recently.</strong>
                     </p>
                     <p *ngIf="longTermAudioFeatures.happiness - shortTermAudioFeatures.happiness < 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting happier recently!</strong>
+                        <strong>Your music has been getting happier recently.</strong>
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{happinessCurrentText}} the {{data.country}} avg
@@ -52,10 +52,10 @@
                       Danceability describes how suitable your music is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.
                     </p>
                     <p *ngIf="longTermAudioFeatures.danceability - shortTermAudioFeatures.danceability > 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting loungier or more freeform lately!</strong>
+                        <strong>Your music has been getting loungier, less structured or more irregular lately.</strong>
                     </p>
                     <p *ngIf="longTermAudioFeatures.danceability - shortTermAudioFeatures.danceability < 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting dancier lately!</strong>
+                        <strong>Your music has been getting dancier lately.</strong>
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{danceabilityCurrentText}} the {{data.country}} avg
@@ -86,10 +86,10 @@
                       Typically, energetic tracks feel fast, loud, and noisy.
                     </p>
                     <p *ngIf="longTermAudioFeatures.energy - shortTermAudioFeatures.energy > 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting more downtempo or relaxed recently!</strong>
+                        <strong>Your music has been getting more downtempo, chill or relaxed recently.</strong>
                     </p>
                     <p *ngIf="longTermAudioFeatures.energy - shortTermAudioFeatures.energy < 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting more energetic recently!</strong>
+                        <strong>Your music has been getting more bombastic recently.</strong>
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{energyCurrentText}} the {{data.country}} avg
@@ -117,13 +117,13 @@
 
                   <div class="moods-graph__card__container">
                     <p class="moods-graph__card__paragraph">
-                    A measure whether your music is acoustic. The higher the number the more acoustic sounding your music is.
+                    A measure whether your music is acoustic. The higher the number the more likely you've been listening to acoustic music.
                     </p>
                     <p *ngIf="longTermAudioFeatures.acousticness - shortTermAudioFeatures.acousticness > 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting more electronic lately!</strong>
+                        <strong>Your music has been getting less acoustic lately.</strong>
                     </p>
                     <p *ngIf="longTermAudioFeatures.acousticness - shortTermAudioFeatures.acousticness < 0" class="moods-graph__card__paragraph">
-                        <strong>Your music has been getting more acoustic lately!</strong>
+                        <strong>Your music has been getting more acoustic lately.</strong>
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{acousticnessCurrentText}} the {{data.country}} avg

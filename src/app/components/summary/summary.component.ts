@@ -35,7 +35,7 @@ export class SummaryComponent implements OnInit {
         this.audioFeatureAverages = data.audioFeatureAverages;
         this.longTermAudioFeatures = data.longTermAudioFeatures;
         this.shortTermAudioFeatures = data.shortTermAudioFeatures;
-        this.topGenres = data.topGenres.length > 5 ? data.topGenres.slice(0,5) : data.topGenres;
+        this.topGenres = data.topGenres.length > 6 ? data.topGenres.slice(0,6) : data.topGenres;
     }
 
     close() {
