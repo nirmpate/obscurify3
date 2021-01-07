@@ -10,8 +10,12 @@
     flex: 1;
     max-width: 275px;
 
+    h2 {
+      margin-bottom: 1em;
+    }
+
     p {
-        margin: 0.5em 0;
+        margin: 0 0 1em;
         font-family: $secondary-font;
         font-weight: normal;
     }
@@ -31,6 +35,7 @@
     }
 
     .post-card__button {
+        cursor: pointer;
         padding: 0.5rem;
         border: 1px solid #979797;
         font-weight: bold;

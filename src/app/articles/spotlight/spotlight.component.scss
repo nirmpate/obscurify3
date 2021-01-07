@@ -1,7 +1,9 @@
+@import 'mixins';
+
 .spotlight {
     min-height: 100vh;
     background-color: white;
-    padding: 0 1em;
+    padding: 0 1em 5em;
 
     .line-break {
         background: #A9E5AC;
@@ -16,7 +18,7 @@
 
         h1 {
             font-size: 36px;
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
         }
     }
 
@@ -25,6 +27,15 @@
             margin-bottom: 1rem;
         }
     }
+}
 
-    
+@include desktop {
+  .spotlight {
+    &__container {
+      h1 {
+        font-size: 4em;
+        margin-bottom: 2rem;
+      }
+    }
+  }
 }
