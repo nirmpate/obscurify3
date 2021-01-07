@@ -1,19 +1,28 @@
 @import 'mixins';
+@import 'variables';
 
 .post-card--big {
-
     img {
         width: 100%;
+        max-width: 750px;
     }
 
     .post-card__description {
         margin-top: 1em;
-        
+
         p,h2 {
             margin-bottom: 0.5rem;
         }
     }
+}
 
+@include gt-md {
+  h2 {
+    font-size: 2.5em;
+  }
+  p {
+    font-size: 1.5em;
+  }
 }
 
 @include gt-xs {

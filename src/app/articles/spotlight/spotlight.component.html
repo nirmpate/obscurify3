@@ -4,15 +4,18 @@
     <div class="spotlight__container">
         <h1>Obscurify Spotlight</h1>
 
-        <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="40px">
-            <div fxFlex="70%">
+        <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="5%">
+            <div fxFlex="50%">
                 <app-big-card></app-big-card>
             </div>
 
-            <div fxFlex="30%">
+            <div fxFlex="45%">
                 <div class="spotlight-recent" fxLayout="column">
                     <h2>Recent Posts</h2>
-                    <app-small-card></app-small-card>
+                    <div fxLayout="row" fxLayoutGap="1.5em">
+                      <app-small-card></app-small-card>
+                      <app-small-card></app-small-card>
+                    </div>
                 </div>
             </div>
         </div>
