@@ -41,6 +41,7 @@ import { SpyOnDirective } from './directives/spy-on.directive';
 import { ArticlesModule } from './articles/articles.module';
 import { LoginModule } from './login/login.module';
 import { GlobalModule } from './global/global.module';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +80,7 @@ import { GlobalModule } from './global/global.module';
     MatProgressBarModule,
     MatBottomSheetModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ScullyLibModule,
   ],
   providers: [
     ObscurityFuncs,

@@ -15,7 +15,9 @@
     "build:ssr": "ng build --prod && ng run obscurify3:server:production",
     "build:ssr:dev": "ng build --configuration=develop && ng run obscurify3:server:develop",
     "build:ssr:prod": "ng build --prod && ng run obscurify3:server:production",
-    "prerender": "npx angular-prerender --exclude-routes /authorized"
+    "prerender": "npx angular-prerender --exclude-routes /authorized",
+    "scully": "scully",
+    "scully:serve": "scully serve"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +35,9 @@
     "@angular/router": "~10.0.8",
     "@angular/service-worker": "~10.0.8",
     "@nguniversal/express-engine": "^9.1.1",
+    "@scullyio/init": "^1.0.1",
+    "@scullyio/ng-lib": "^1.0.0",
+    "@scullyio/scully": "^1.0.0",
     "chart.js": "^2.9.3",
     "chartjs-plugin-annotation": "^0.5.7",
     "intersection-observer": "^0.10.0",
