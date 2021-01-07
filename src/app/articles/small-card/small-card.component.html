@@ -1,11 +1,11 @@
 <div class="post-card--small">
-    <img src="https://www.placebear.com/200/100" alt=""/>
+    <img [src]="post.img" alt=""/>
     <div class="post-card__container">
-        <h2>Another article</h2>
-        <p>Our track picks from our most obscure users for this month.</p>
-    
+        <h2>{{post.title}}</h2>
+        <p>{{post.description}}</p>
+
         <div class="post-card__buttons">
-            <a class="post-card__button">
+            <a [routerLink]="post.route" class="post-card__button">
                 Read Article
             </a>
         </div>

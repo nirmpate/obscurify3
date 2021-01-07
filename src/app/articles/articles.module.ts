@@ -4,7 +4,7 @@ import { SpotlightComponent } from './spotlight/spotlight.component';
 import { BigCardComponent } from './big-card/big-card.component';
 import { SmallCardComponent } from './small-card/small-card.component';
 import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,7 +12,8 @@ import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
   imports: [
     CommonModule,
     FlexModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule
   ],
   exports: [SpotlightComponent, BigCardComponent, SmallCardComponent]
 })
