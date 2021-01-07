@@ -1,0 +1,18 @@
+<h3>Obscurify Spotlight</h3>
+<hr>
+
+<!-- This is where Scully will inject the static HTML -->
+<scully-content></scully-content>
+<hr>
+
+<h3>Other Posts</h3>
+<div *ngFor="let post of blogPosts">
+    <p>
+        {{post.title}}
+    </p>
+    <p>
+        {{post.description}}
+    </p>
+</div>
+
+<app-footer [login]="true"></app-footer>
