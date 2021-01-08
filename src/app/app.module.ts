@@ -42,6 +42,7 @@ import { ArticlesModule } from './articles/articles.module';
 import { LoginModule } from './login/login.module';
 import { GlobalModule } from './global/global.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { BlogHomeComponent } from './blog-home/blog-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
     AboutComponent,
     PrivacyComponent,
     SpyOnDirective,
+    BlogHomeComponent,
   ],
   imports: [
     GlobalModule,

@@ -1,0 +1,77 @@
+@import 'mixins';
+@import 'variables';
+
+.back__btn {
+  padding: 1em 1em;
+  background: #FFFFFF;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  width: 175px;
+  box-sizing: border-box;
+  box-shadow: $box-shadow;
+  font-family: $primary-font;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+
+  i {
+      margin-right: 5px;
+  }
+}
+
+header {
+  max-width: 1440px;
+  margin: 3em auto 2em;
+  padding: 0 1em;
+}
+
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.article__header {
+  position: relative;
+  .backdrop {
+    height: 130%;
+    width: 65%;
+    background: rgba(216, 216, 216, 0.15);
+    position: absolute;
+    top: 0;
+    transform: translate(-20%, -60px);
+    z-index: -1;
+  }
+
+  .article__tag {
+    color: $primary-color;
+  }
+
+  .article__info {
+    position: relative;
+  }
+
+  .grey-text {
+    color: #6e6d7a;
+  }
+
+  .article__description {
+    margin-top: 1em;
+    font-size: 1.5em;
+    font-weight: normal;
+  }
+
+  h1 {
+    margin: 1rem 0 2rem;
+  }
+}
+
+@include gt-md {
+  .article__header {
+    h1 {
+      font-size: 3em;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.com
 import { AboutComponent } from './components/about/about.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { LoginComponent } from './login/login/login.component';
+import { BlogHomeComponent } from './blog-home/blog-home.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,7 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     component: SpotifyAuthComponent
   },
-  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) }
+  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule), component: BlogHomeComponent }
 ];
 
 @NgModule({
