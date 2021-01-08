@@ -1,5 +1,5 @@
 <div class="post-card--big">
-    <img src="https://placebear.com/400/250" />
+    <img [src]="post.img" alt=""/>
     <div class="post-card__description">
 
         <p>{{post.date}}</p>
@@ -8,7 +8,7 @@
 
 
         <div class="post-card__buttons">
-          <a class="post-card__button">
+          <a [routerLink]="post.route" class="post-card__button">
               Read Article
           </a>
       </div>
