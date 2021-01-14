@@ -1,5 +1,5 @@
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router, ROUTES} from '@angular/router';
 
@@ -14,10 +14,18 @@ declare var ng: any;
 
 })
 export class BlogComponent implements OnInit {
+
+  constructor(private scully: ScullyRoutesService) {}
+
   links$: Observable<ScullyRoute[]> = this.scully.available$;
   blogPosts: any[] = [];
+  post: ScullyRoute;
+  sub: Subscription;
+
 
   ngOnInit() {
+    this.sub = this.scully.getCurrent().subscribe( temp => this.post = temp);
+
     // debug current pages
     this.links$.subscribe((links) => {
       console.log(links);
@@ -27,6 +35,8 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  constructor(private router: Router, private route: ActivatedRoute, private scully: ScullyRoutesService) {
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
+
 }

@@ -5,9 +5,13 @@
   border: 1px solid #979797;
   font-weight: bold;
   display: inline-block;
+  text-decoration: none;
   transition: .2s;
-  &:hover {
+  &:hover{
     border: 1px solid $primary-color;
     background-color: $primary-color;
+  }
+  &:visited, &:active {
+    color: black;
   }
 }

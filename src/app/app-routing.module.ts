@@ -36,12 +36,13 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     component: SpotifyAuthComponent
   },
-  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule), component: BlogHomeComponent }
+  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled'
+    initialNavigation: 'enabled',
+    scrollPositionRestoration: 'top'
 })],
   exports: [RouterModule]
 })

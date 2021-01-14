@@ -35,6 +35,8 @@ main {
 
 .article__header {
   position: relative;
+  margin-bottom: 2em;
+
   .backdrop {
     height: 130%;
     width: 65%;
@@ -45,12 +47,13 @@ main {
     z-index: -1;
   }
 
-  .article__tag {
-    color: $primary-color;
+  img {
+    max-width: 720px;
+    width: 100%;
   }
 
-  .article__info {
-    position: relative;
+  .article__tag {
+    color: $primary-color;
   }
 
   .grey-text {
@@ -66,10 +69,59 @@ main {
   h1 {
     margin: 1rem 0 2rem;
   }
+
+  .social__container {
+    margin-top: 2em;
+  }
+
+  .social__link {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #181818;
+
+    i {
+      color: #fff;
+    }
+  }
+}
+
+.article__body {
+
+  h1 {
+    margin: 0 0 1rem;
+  }
+
+  h2 {
+    margin: 0 0 1em;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  p+h3 {
+    margin-top: 40px;
+  }
+
+  h3 {
+    margin: 0 auto;
+    margin-bottom: 1em;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 1em;
+  }
 }
 
 @include gt-md {
   .article__header {
+    margin-bottom: 7em;
     h1 {
       font-size: 3em;
     }
