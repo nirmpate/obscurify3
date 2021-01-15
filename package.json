@@ -18,7 +18,7 @@
     "prerender": "npx angular-prerender --exclude-routes /authorized",
     "scully": "scully",
     "scully:serve": "scully serve",
-    "buildscully": "npm run build && npm run scully -- --scanRoutes --showGuessError",
+    "buildscully": "npm run build && npm run scully:serve -- --scanRoutes --showGuessError",
     "buildscully:prod": "npm run build -- --prod --stats-json && npm run scully -- --scanRoutes --showGuessError",
     "scanscully": "npm run scully -- --scanRoutes --showGuessError"
   },
