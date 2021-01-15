@@ -2,7 +2,7 @@ import { ScullyConfig } from '@scullyio/scully';
 export const config: ScullyConfig = {
   projectRoot: "./src",
   projectName: "obscurify3",
-  outDir: './dist/static',
+  outDir: './dist/obscurify3',
   routes: {
     '/blog/:slug': {
       type: 'contentFolder',
