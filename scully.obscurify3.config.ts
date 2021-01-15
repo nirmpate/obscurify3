@@ -4,5 +4,11 @@ export const config: ScullyConfig = {
   projectName: "obscurify3",
   outDir: './dist/static',
   routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: "./blog"
+      }
+    },
   }
 };
