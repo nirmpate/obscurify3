@@ -54,7 +54,7 @@
 
     <div class="article__list__container" fxLayout="row" fxLayoutGap="2rem">
 
-    <app-small-card *ngFor="let post of blogPosts" [post]="blogPosts[1]"></app-small-card>
+    <app-small-card *ngFor="let post of blogPosts" [post]="post"></app-small-card>
     </div>
 
   </div>
@@ -63,4 +63,3 @@
 
 </main>
 <app-footer [login]="true"></app-footer>
-
