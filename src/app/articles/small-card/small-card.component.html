@@ -1,0 +1,13 @@
+<div class="post-card--small">
+    <img [src]="post.img" alt=""/>
+    <div class="post-card__container">
+        <h2>{{post.title}}</h2>
+        <p>{{post.description}}</p>
+
+        <div class="post-card__buttons">
+            <a [href]="post.route" class="post-card__button">
+                Read Article
+            </a>
+        </div>
+    </div>
+</div>

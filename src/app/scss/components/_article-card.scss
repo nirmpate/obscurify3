@@ -1,0 +1,17 @@
+.post-card__button {
+  margin: 1em 0 0;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #979797;
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  transition: .2s;
+  &:hover{
+    border: 1px solid $primary-color;
+    background-color: $primary-color;
+  }
+  &:visited, &:active {
+    color: black;
+  }
+}

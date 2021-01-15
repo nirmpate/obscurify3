@@ -1,0 +1,66 @@
+<header>
+  <a class="back__btn" routerLink="/login"> <i class="fas fa-arrow-left"></i> Go back </a>
+
+</header>
+
+<main>
+  <div class="article__header" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%">
+    <div fxFlex="50">
+      <img [src]="post.img"/>
+
+    </div>
+    <div class="article__info">
+      <div class="backdrop"></div>
+      <p class="article__tag">Recommendations</p>
+      <h1>{{ post.title }}</h1>
+      <p *ngIf="post.author">by {{ post.author }}</p>
+      <p *ngIf="post.date"><span class="grey-text">{{ post.date }}</span></p>
+      <p *ngIf="post.description" class="article__description"> {{ post.description }}</p>
+
+      <div class="social__container" fxLayout="row" fxLayoutGap="1em">
+        <a class="social__link">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+
+        <a class="social__link">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+
+        <a class="social__link">
+          <i class="far fa-copy" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="article__body" fxLayout.lt-md="column" fxLayout="row nowrap">
+    <div class="article__social" fxFlex="10%">
+
+    </div>
+    <div class="article__content" fxFlex="70%">
+      <scully-content></scully-content>
+
+    </div>
+
+    <div class="article__extra" fxFlex="20%">
+
+    </div>
+  </div>
+
+  <div class="article__list">
+    <div class="line-break"></div>
+
+    <h1>Other Posts</h1>
+
+    <div class="article__list__container" fxLayout="row" fxLayoutGap="2rem">
+
+    <app-small-card *ngFor="let post of blogPosts" [post]="blogPosts[1]"></app-small-card>
+    </div>
+
+  </div>
+
+
+
+</main>
+<app-footer [login]="true"></app-footer>
+

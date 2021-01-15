@@ -20,7 +20,6 @@ import { ArtistCardComponent } from './components/artist/artist-card/artist-card
 import { ArtistNavComponent } from './components/artist/artist-nav/artist-nav.component';
 import { MoodsGraphComponent } from './components/moods-graph/moods-graph.component';
 import { RecommendationsComponent } from './components/recommendations/recommendations.component';
-import { LoginComponent } from './components/login/login.component';
 import { AuthService, TokenService, AuthGuard, SpotifyAuthInterceptor } from './services/spotifyAuth';
 import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.component';
 import { InfoService } from './services/infoService';
@@ -29,19 +28,22 @@ import { TrackCardComponent } from './components/artist/track-card/track-card.co
 import { SpotifyService } from './services/spotifyService';
 import { AboutComponent } from './components/about/about.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SummaryComponent } from './components/summary/summary.component';
 import { ObscurifyService } from './services/obscurifyService';
 import { BrowserCheck } from './services/browserCheck';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SpyOnDirective } from './directives/spy-on.directive';
-import { ScriptService } from './services/scripts.service';
-import { SummaryComponent } from './components/summary/summary.component';
-
+import { ArticlesModule } from './articles/articles.module';
+import { LoginModule } from './login/login.module';
+import { GlobalModule } from './global/global.module';
+import { ScullyLibModule } from '@scullyio/ng-lib';
+import { BlogHomeComponent } from './blog-home/blog-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,16 +57,18 @@ import { SummaryComponent } from './components/summary/summary.component';
     ArtistNavComponent,
     MoodsGraphComponent,
     RecommendationsComponent,
-    LoginComponent,
     SpotifyAuthComponent,
     TrackCardComponent,
     AboutComponent,
     PrivacyComponent,
-    FooterComponent,
     SpyOnDirective,
+    BlogHomeComponent,
     SummaryComponent,
   ],
   imports: [
+    GlobalModule,
+    ArticlesModule,
+    LoginModule,
     FlexLayoutModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
@@ -74,12 +78,14 @@ import { SummaryComponent } from './components/summary/summary.component';
     MatSnackBarModule,
     MatSelectModule,
     FormsModule,
+    MatDialogModule,
     AppRoutingModule,
     HttpClientModule,
     MatMenuModule,
     MatProgressBarModule,
     MatBottomSheetModule,
-    MatDialogModule
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ScullyLibModule,
   ],
   providers: [
     ObscurityFuncs,
@@ -90,7 +96,6 @@ import { SummaryComponent } from './components/summary/summary.component';
     ObscurifyService,
     SpotifyService,
     BrowserCheck,
-    ScriptService,
     [{
       provide:  HTTP_INTERCEPTORS,
       // Force interception to use your new shiny headers!

@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService, AuthService } from './services/spotifyAuth';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ScriptService } from './services/scripts.service';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +17,10 @@ export class AppComponent implements OnInit {
   title = 'obscurify3';
 
   constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: any,
-              private tokenSvc: TokenService,
-              private authService: AuthService,
-              private router: Router,
-              public snackBar: MatSnackBar,
-              private script: ScriptService
+    private tokenSvc: TokenService,
+    private authService: AuthService,
+    private router: Router,
+    public snackBar: MatSnackBar
 
   ) {}
 
@@ -39,8 +37,6 @@ export class AppComponent implements OnInit {
         bases[0].setAttribute('href', environment.baseHref);
       }
     }
-
-    this.script.loadScript('buysellads');
   }
 
   public getUserInfo(): void {
