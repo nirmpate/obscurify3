@@ -74,9 +74,9 @@ export class ObscurityFuncs {
 
   calculateMoodText(userFeatureAverage, obscurifyFeatureAverage) {
       let diff = userFeatureAverage - obscurifyFeatureAverage;
-      if (diff > 0.02) {
+      if (diff > 0.01) {
           return (diff * 100).toFixed(1) + "% higher than";
-      } else if (diff < -0.02) {
+      } else if (diff < -0.01) {
           return (Math.abs(diff) * 100).toFixed(1) + "% lower than";
       } else {
           return " same as ";

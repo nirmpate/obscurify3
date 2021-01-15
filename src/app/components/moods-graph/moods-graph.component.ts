@@ -58,6 +58,11 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
   public happinessCurrentText: string;
   public happinessAllTimeText: string;
 
+  public happinessTrack: any;
+  public energyTrack: any;
+  public danceabilityTrack: any;
+  public acousticnessTrack: any;
+
   ngOnChanges(changes: SimpleChanges) {
     if(!changes.data.firstChange && changes.data.previousValue.country != changes.data.currentValue.country) {
       this.happinessGraph.destroy();
@@ -70,6 +75,15 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
+      this.getMoodTracks();
+      console.log(this.energyTrack.album.images[0].url)
+  }
+
+  private getMoodTracks() {
+      this.happinessTrack = this.findTrackByAudioFeature("valence", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+      this.energyTrack = this.findTrackByAudioFeature("energy", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+      this.danceabilityTrack = this.findTrackByAudioFeature("danceability", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+      this.acousticnessTrack = this.findTrackByAudioFeature("acousticness", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
   }
 
   private createAudioFeatures(emitAudioFeatureFlag) {
@@ -218,6 +232,18 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     }
 
 
+  }
+
+  private findTrackByAudioFeature(audioFeature, trackIDs, trackAudioFeatures) {
+      let threshold = 0.9;
+      for (let threshold = 0.9; threshold > 0.3; threshold -= 0.05) {
+          for (let i = 0; i < trackAudioFeatures.length; i++) {
+              if (trackAudioFeatures[i][audioFeature] >= threshold) {
+                  return trackIDs[i];
+              }
+          }
+      }
+      return null;
   }
 
 

@@ -36,6 +36,8 @@
             *ngIf="(shortTermAudioFeatures && longTermAudioFeatures && obscurifyInfo && user)"
             [data]="{
                 audioFeatureAverages: obscurifyInfo.audioFeatureAverages,
+                currentTracks: currentTracks.currentTracks,
+                shortTermAudioFeaturesPerTrack: shortTermAudioFeaturesPerTrack,
                 shortTermAudioFeatures: shortTermAudioFeatures,
                 longTermAudioFeatures: longTermAudioFeatures,
                 country: user.country

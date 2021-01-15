@@ -31,6 +31,11 @@
             font-size: 1.5em;
         }
 
+        //
+        margin-top: 5px;
+        margin-bottom: 5px;
+        //
+
     }
 
 }
@@ -41,7 +46,8 @@
         &__card {
             padding: 1.5em 1.5em;
 
-            min-width: 636px;
+            // min-width: 636px;
+            min-width: 412px;
 
             h3 {
                 font-size: 3em;
