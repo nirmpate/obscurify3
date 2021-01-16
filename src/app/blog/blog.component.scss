@@ -45,13 +45,9 @@ main {
   margin-bottom: 2em;
 
   .backdrop {
-    height: 130%;
-    width: 65%;
+    display: none;
     background: rgba(216, 216, 216, 0.15);
-    position: absolute;
-    top: 0;
-    transform: translate(-20%, -60px);
-    z-index: -1;
+
   }
 
   img {
@@ -162,6 +158,17 @@ main {
     h1 {
       font-size: 3em;
     }
+
+    .backdrop {
+      display: block;
+      height: 130%;
+      width: 65%;
+      position: absolute;
+      top: 0;
+      transform: translate(-20%, -60px);
+      z-index: -1;
+    }
+
   }
 
   .article__content {

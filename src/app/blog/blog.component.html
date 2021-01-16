@@ -4,7 +4,7 @@
 </header>
 
 <main>
-  <div class="article__header" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%">
+  <div class="article__header" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign=" start center" fxLayoutGap="5%">
     <div fxFlex="50">
       <img [src]="post.img"/>
 
@@ -52,7 +52,7 @@
 
     <h1>Other Posts</h1>
 
-    <div class="article__list__container" fxLayout="row" fxLayoutGap="2rem">
+    <div class="article__list__container" fxLayout="column" fxLayout.gt-md="row wrap"  fxLayoutGap="2rem">
 
     <app-small-card *ngFor="let post of blogPosts" [post]="blogPosts[1]"></app-small-card>
     </div>

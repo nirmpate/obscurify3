@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 .post-card--small {
     background: #FFFFFF;
@@ -8,7 +9,7 @@
     display: flex;
     flex-flow: column;
     flex: 1;
-    max-width: 275px;
+    max-width: 80%;
 
     img {
         width: 100%;
@@ -39,4 +40,10 @@
         display: flex;
         align-items: flex-end;
     }
+}
+
+@include tablet {
+  .post-card--small {
+    max-width: 275px;
+  }
 }
