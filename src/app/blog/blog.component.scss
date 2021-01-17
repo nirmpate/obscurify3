@@ -59,6 +59,8 @@ main {
 
   .article__tag {
     color: #65d26E;
+    text-transform: uppercase;
+    font-weight: bold;
   }
 
   .grey-text {
@@ -150,6 +152,10 @@ main {
   .article__list__container {
     margin-bottom: 5em;
   }
+}
+
+.banner-container {
+  margin: 1em 0;
 }
 
 @include gt-md {

@@ -7,6 +7,7 @@
   display: inline-block;
   text-decoration: none;
   transition: .2s;
+  color: black;
   &:hover{
     border: 1px solid $primary-color;
     background-color: $primary-color;
