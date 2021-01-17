@@ -2,7 +2,7 @@
 
     <app-intro [data]="user" [error]="allTimeTracks?.allTimeTracks.length == 0 ? true : false"></app-intro>
     <div *ngIf="allTimeTracks && allTimeTracks.allTimeTracks.length > 0">
-        <app-top-genres [data]="allTimeArtists"></app-top-genres>
+        <app-top-genres [data]="{topGenres: topGenres}"></app-top-genres>
         <app-obscurity-rating
             *ngIf="obscurifyInfo && user && allTimeArtists && currentArtists"
             (switchCountryEvent)="switchCountry($event)"
@@ -10,7 +10,14 @@
                 obscurifyInfo: obscurifyInfo,
                 country: user.country,
                 allTimeObscurifyScore: allTimeArtists.allTimeObscurifyScore,
-                recentObscurifyScore: currentArtists.recentObscurifyScore
+                recentObscurifyScore: currentArtists.recentObscurifyScore,
+                allTimeArtists: allTimeArtists.allTimeArtists,
+                allTimeTracks: allTimeTracks.allTimeTracks,
+                currentArtists: currentArtists.currentArtists,
+                currentTracks: currentTracks.currentTracks,
+                shortTermAudioFeatures: shortTermAudioFeatures,
+                longTermAudioFeatures: longTermAudioFeatures,
+                topGenres: topGenres
             }">
         </app-obscurity-rating>
         <app-artist-list
@@ -26,10 +33,13 @@
 
         <app-moods-graph
             (audioData)="getUserHistory($event)"
-            *ngIf="(audioFeatures && obscurifyInfo && user)"
+            *ngIf="(shortTermAudioFeatures && longTermAudioFeatures && obscurifyInfo && user)"
             [data]="{
                 audioFeatureAverages: obscurifyInfo.audioFeatureAverages,
-                userAudioFeatures: audioFeatures,
+                currentTracks: currentTracks.currentTracks,
+                shortTermAudioFeaturesPerTrack: shortTermAudioFeaturesPerTrack,
+                shortTermAudioFeatures: shortTermAudioFeatures,
+                longTermAudioFeatures: longTermAudioFeatures,
                 country: user.country
             }">
         </app-moods-graph>

@@ -1,23 +1,20 @@
 ---
-title: Get Educated with Knxwledge
-description: A deep dive on the hypnotic style of the profilic California producer.
+title: Obscurify Top Picks February 2021
+description: Our picks from our obscure crowd for this month.
 published: true
-date: May 8th 2021
-author: Bob Lawblaw
-img: https://f4.bcbits.com/img/0008158198_0
-tags: artist,producer,hip-hop,lo-fi
+date: February 1st 2021
+author: Seymour Butts
+img: https://cdn2.photostockeditor.com/c/0401/person-person-picking-up-the-music-record-record-record-image.jpg
+tags: top-picks
 ---
 
-# Get Educated w/ Knxwledge
+# Obscurify Top Picks: February 2021
 
-<span class="intro">Hello</span> and welcome to the world of Knxwledge.
+<span class="intro">We</span> got some hot ones for you this month.
 <div>
-<iframe src="https://open.spotify.com/embed/track/5o9xRcKTgpXnoLj1UY46yJ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="https://open.spotify.com/embed/track/1SNiieXNyv5bRBbY9YAYVM" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 </div>
-<span class="highlight">I mean it's just great stuff.</span>
-<div>
-<img src="https://f4.bcbits.com/img/0008158198_0"></img>
-</div>
+<span class="highlight">These picks are great stuff.</span>
 
 
 

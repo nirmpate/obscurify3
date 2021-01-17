@@ -18,7 +18,7 @@
     "prerender": "npx angular-prerender --exclude-routes /authorized",
     "scully": "scully",
     "scully:serve": "scully serve",
-    "buildscully": "npm run build && npm run scully -- --scanRoutes --showGuessError",
+    "buildscully": "npm run build -- --prod && npm run scully -- --scanRoutes --showGuessError --np --prod --host=0.0.0.0 --serverTimeout=30000",
     "buildscully:prod": "npm run build -- --prod --stats-json && npm run scully -- --scanRoutes --showGuessError",
     "scanscully": "npm run scully -- --scanRoutes --showGuessError"
   },
@@ -39,7 +39,7 @@
     "@angular/service-worker": "~10.0.8",
     "@nguniversal/express-engine": "^9.1.1",
     "@scullyio/init": "^1.0.1",
-    "@scullyio/ng-lib": "^1.0.0",
+    "@scullyio/ng-lib": "^1.0.3-ppack",
     "@scullyio/scully": "^1.0.0",
     "chart.js": "^2.9.3",
     "chartjs-plugin-annotation": "^0.5.7",

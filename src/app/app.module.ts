@@ -32,7 +32,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { SummaryComponent } from './components/summary/summary.component';
 import { ObscurifyService } from './services/obscurifyService';
 import { BrowserCheck } from './services/browserCheck';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -62,6 +63,7 @@ import { BlogHomeComponent } from './blog-home/blog-home.component';
     PrivacyComponent,
     SpyOnDirective,
     BlogHomeComponent,
+    SummaryComponent,
   ],
   imports: [
     GlobalModule,
@@ -76,6 +78,7 @@ import { BlogHomeComponent } from './blog-home/blog-home.component';
     MatSnackBarModule,
     MatSelectModule,
     FormsModule,
+    MatDialogModule,
     AppRoutingModule,
     HttpClientModule,
     MatMenuModule,

@@ -20,6 +20,12 @@
     transition: .3s cubic-bezier(.25,.1,.25,1);
     align-items: flex-start;
 
+    img {
+        width: 90px;
+        height: 90px;
+        margin-right: 7px;
+    }
+
     &.show {
         opacity: 1;
         transform: translateY(0px);

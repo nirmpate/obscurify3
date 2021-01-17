@@ -2,7 +2,6 @@ import { Component, OnInit, ElementRef, AfterViewInit, Input } from '@angular/co
 import { IntersectionObserverService } from 'src/app/services/intersectionObserver';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/services/infoService';
-import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 
 @Component({
   selector: 'app-top-genres',
@@ -18,38 +17,16 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
   constructor(
     public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
-    public infoSvc: InfoService,
-    private obscurifyFunc: ObscurityFuncs
+    public infoSvc: InfoService
     ) { }
   public items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   public show = false;
 
-  public topGenres = [];
+  public topGenres;
   private intersectionObserverSubs: Subscription;
 
   ngOnInit() {
-    const genres: any = {};
-    const topGenres: any = [];
-
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.data.allTimeArtists.length; i++) {
-      // tslint:disable-next-line: prefer-for-of
-      for (let y = 0; y < this.data.allTimeArtists[i].genres.length; y++) {
-        if (genres[this.data.allTimeArtists[i].genres[y]] != null) {
-        genres[this.data.allTimeArtists[i].genres[y]] = genres[this.data.allTimeArtists[i].genres[y]] + 1;
-      } else {
-        genres[this.data.allTimeArtists[i].genres[y]] = 1;
-        }
-      }
-
-    }
-    for (const g in genres) {
-      if (genres.hasOwnProperty(g) && genres[g] > 4) {
-        topGenres.push([g, genres[g]]);
-      }
-    }
-    topGenres.sort(this.obscurifyFunc.comparator);
-    this.topGenres = [...topGenres.slice(0, 10)];
+      this.topGenres = this.data.topGenres;
   }
 
 
