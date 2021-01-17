@@ -54,7 +54,7 @@
 
     <div class="article__list__container" fxLayout="column" fxLayout.gt-md="row wrap"  fxLayoutGap="2rem">
 
-    <app-small-card *ngFor="let post of blogPosts" [post]="blogPosts[1]"></app-small-card>
+    <app-small-card *ngFor="let post of filteredPosts" [post]="post"></app-small-card>
     </div>
 
   </div>

@@ -1,16 +1,16 @@
 <div class="artist__card" [ngClass]="{'active': activeView}">
 
     <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" />
-    
+
     <div class="artist__card__info">
         <div fxLayout="row" fxLayoutAlign="flex-start start">
             <p fxFlex="0 0 auto">
-                <span > {{ i + 1 }} /</span> 
+                <span > {{ i + 1 }} /</span>
 
             </p>
-            <div fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center start">
+            <div class="artist__card__info--text" fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center start">
                 <p class="artist__card__info--primary">
-                    {{(track.name.length < 20) ? (track.name):(track.name | slice:0:28)+'...' }}
+                    {{(track.name.length < 20) ? (track.name):(track.name | slice:0:20)+'...' }}
                 </p>
                 <p *ngIf="activeView" class="artist__card__info--secondary">
                     {{ track.artists[0].name }}
@@ -21,7 +21,7 @@
             </div>
             <a class="artist__card__external" [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="activeView" fxFlex="0 1 auto"><i class="fas fa-external-link-alt"></i></a>
         </div>
-<!-- 
+<!--
         <div *ngIf="activeView">
             <button >More Like This</button>
         </div> -->
