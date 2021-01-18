@@ -31,7 +31,7 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SummaryComponent } from './components/summary/summary.component';
 import { ObscurifyService } from './services/obscurifyService';
@@ -44,6 +44,8 @@ import { LoginModule } from './login/login.module';
 import { GlobalModule } from './global/global.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +72,8 @@ import { BlogHomeComponent } from './blog-home/blog-home.component';
     ArticlesModule,
     LoginModule,
     FlexLayoutModule,
+    MatChipsModule,
+    MatButtonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,

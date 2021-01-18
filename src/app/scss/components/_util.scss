@@ -3,6 +3,6 @@ $sizes: 1, 2, 3, 4, 5;
 
 @each $size in $sizes {
     .mb-#{$size} {
-        margin-bottom: #{$size}em;
+        margin-bottom: #{$size}rem;
     }
 }
