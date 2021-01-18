@@ -5,4 +5,7 @@ $sizes: 1, 2, 3, 4, 5;
     .mb-#{$size} {
         margin-bottom: #{$size}rem;
     }
+    .mt-#{$size} {
+        margin-top: #{$size}rem;
+    }
 }

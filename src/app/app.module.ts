@@ -45,6 +45,7 @@ import { GlobalModule } from './global/global.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -68,15 +69,15 @@ import {MatButtonModule} from '@angular/material/button';
     SummaryComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     GlobalModule,
     ArticlesModule,
     LoginModule,
     FlexLayoutModule,
     MatChipsModule,
     MatButtonModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    BrowserAnimationsModule,
     PlatformModule,
     MatRadioModule,
     MatSnackBarModule,
@@ -88,6 +89,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatMenuModule,
     MatProgressBarModule,
     MatBottomSheetModule,
+    MatTabsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ScullyLibModule,
   ],
