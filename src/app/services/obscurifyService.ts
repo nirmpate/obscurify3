@@ -38,6 +38,21 @@ export class ObscurifyService {
       return this.http.post(this.obscurifyUrl + '/saveUserHistory', config);
     }
 
+    getPublicProfile(userID, shareCode): Observable<{}> {
+        return this.http.get(this.obscurifyUrl + `/publicProfile?userID=${userID}&code=${shareCode}`);
+    }
+
+    togglePublicProfile(userID, toggle, hex, displayName?, imageURL?): Observable<{}> {
+        const togglePublicProfileBody = {
+          userID: userID,
+          hex: hex,
+          toggle: toggle,
+          displayName: displayName,
+          imageURL: imageURL
+        };
+        return this.http.post(this.obscurifyUrl + '/publicProfile', togglePublicProfileBody);
+    }
+
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
           (result as any) = error;

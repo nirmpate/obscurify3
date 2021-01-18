@@ -1,0 +1,22 @@
+@import 'mixins';
+@import 'variables';
+
+.back__btn {
+  padding: 1em 1em;
+  background: #FFFFFF;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  width: 175px;
+  box-sizing: border-box;
+  box-shadow: $box-shadow;
+  font-family: $primary-font;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+
+  i {
+      margin-right: 5px;
+  }
+}

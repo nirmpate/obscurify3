@@ -1,0 +1,22 @@
+<header>
+  <a class="back__btn" routerLink="/login"> <i class="fas fa-arrow-left"></i> Go back </a>
+
+</header>
+
+<h1>{{displayName}}'s Obscurify</h1>
+
+<h1>{{country}}</h1>
+
+<img [src]="imageURL"/>
+
+<div *ngFor="let artist of longTermArtists">
+    {{artist.name}}
+</div>
+
+
+<div *ngFor="let track of longTermTracks">
+    {{track.name}}
+</div>
+
+
+<app-footer [login]="true"></app-footer>
