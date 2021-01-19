@@ -42,8 +42,8 @@ export class IntroComponent implements OnInit, OnChanges {
             this.userName = this.checkName(this.data.display_name);
             this.userImage = this.data.images[0] ? this.data.images[0].url : null;
         }
-      this.welcomeMessage = this.getRandomWelcomeMessage();
-      this.greeting = this.getRandomGreeting();
+        this.welcomeMessage = this.getRandomWelcomeMessage();
+        this.greeting = this.getRandomGreeting();
     }
   }
 

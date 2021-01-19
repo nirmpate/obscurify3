@@ -26,9 +26,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.authorizedStream.subscribe((x: boolean) => {
         if (this.tokenSvc.oAuthToken.state &&
-            this.tokenSvc.oAuthToken.state[0] == '/' &&
-            this.tokenSvc.oAuthToken.state.split('/').length == 4) {
-                let route = this.tokenSvc.oAuthToken.state.split('/');
+            this.tokenSvc.oAuthToken.state[0] === '/' &&
+            this.tokenSvc.oAuthToken.state.split('/').length === 4) {
+                const route = this.tokenSvc.oAuthToken.state.split('/');
                 this.router.navigate(['/user', `${route[2]}` ], { queryParams: { code: route[3] } });
         } else if (x) {
             this.router.navigate(['home']);

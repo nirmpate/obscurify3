@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
             this.topGenres = this.obscurifyFunc.findTopGenres(this.allTimeArtists.allTimeArtists);
 
             this.spotifyService.getAudioFeatures(config).subscribe((audioFeatures: any) => {
-                if (audioFeatures && audioFeatures.length == 2) {
+                if (audioFeatures && audioFeatures.length === 2) {
                     this.longTermAudioFeatures = this.obscurifyFunc.calculateAudioFeatureAverages(audioFeatures[0].audio_features);
                     this.shortTermAudioFeatures = this.obscurifyFunc.calculateAudioFeatureAverages(audioFeatures[1].audio_features);
                     this.shortTermAudioFeaturesPerTrack = audioFeatures[1].audio_features;
