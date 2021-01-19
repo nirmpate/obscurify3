@@ -18,7 +18,6 @@ import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 
 })
 export class HomeComponent implements OnInit {
-
   constructor(
     public tokenSvc: TokenService,
     public router: Router,
@@ -48,6 +47,7 @@ export class HomeComponent implements OnInit {
   public currentTracks = null;
   public loaded = false;
   public hex: string;
+  public isProfilePublic: boolean;
 
   ngOnInit() {
     this.seoService.setMetaTags();
@@ -150,6 +150,7 @@ export class HomeComponent implements OnInit {
     this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res: any) => {
       if (!res.error && res.userHistory != undefined) {
         this.userHistory = [...res.userHistory];
+        this.isProfilePublic = res.isProfilePublic != undefined;
         for (let history of this.userHistory) {
           let tempDate = history.formattedDate;
           if (tempDate.length > 2) {

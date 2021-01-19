@@ -18,6 +18,7 @@ import { environment } from '../../../environments/environment';
 export class IntroComponent implements OnInit, OnChanges {
   @Input() data;
   @Input() hex;
+  @Input() isProfilePublic;
   @Input() error;
 
   constructor(
