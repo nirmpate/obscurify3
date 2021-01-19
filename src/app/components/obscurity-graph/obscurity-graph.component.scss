@@ -20,7 +20,7 @@
 }
 
 .obscurity__canvas {
-    min-height: 350px;
+    min-height: 250px;
     width: 100%;
 
     &__labels--x {
@@ -55,5 +55,6 @@
 
     .obscurity__canvas {
         width: 100%;
+        min-height: 350px;
     }
 }
