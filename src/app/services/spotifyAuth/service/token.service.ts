@@ -10,7 +10,8 @@ export class TokenService {
   private token = {
     spotifyToken: '',
     obscurifyToken: '',
-    state: ''
+    state: '',
+    isPublic: ''
   };
 
   private token$ = new BehaviorSubject(this.token);
@@ -23,7 +24,8 @@ export class TokenService {
     this.token = {
       spotifyToken: '',
       obscurifyToken: '',
-      state: ''
+      state: '',
+      isPublic: ''
     };
     this.token$.next(this.token);
   }
@@ -45,11 +47,13 @@ export class TokenService {
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;
       this.token.state = spotifyResponse.state;
+      this.token.isPublic = spotifyResponse.isPublic;
     } else {
       this.token = {
         spotifyToken: '',
         obscurifyToken: '',
-        state: ''
+        state: '',
+        isPublic: ''
       };
     }
     this.token$.next(this.token);

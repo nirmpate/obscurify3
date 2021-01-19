@@ -67,6 +67,7 @@ export class IntroComponent implements OnInit, OnChanges {
               if (response.error) {
                 console.log(response.error)
               } else {
+                  this.isProfilePublic = true;
                 alert(`your URL is ${environment.obscurifyBaseUrl}/user/${this.data.id}?code=${response.shareCode}`)
               }
           }
@@ -77,6 +78,7 @@ export class IntroComponent implements OnInit, OnChanges {
               if (response.error) {
                 console.log(response.error)
               } else {
+                  this.isProfilePublic = false;
                 console.log(response)
               }
           }

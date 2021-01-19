@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
       } else {
         this.user = user;
         // Get the rest of Spotify Data
-
+        this.isProfilePublic = this.tokenSvc.oAuthToken.isPublic;
         const artistAndTrackStream = combineLatest([
           this.infoSvc.fetchAllTimeTracks(),
           this.infoSvc.fetchCurrentTracks(),
@@ -150,7 +150,6 @@ export class HomeComponent implements OnInit {
     this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res: any) => {
       if (!res.error && res.userHistory != undefined) {
         this.userHistory = [...res.userHistory];
-        this.isProfilePublic = res.isProfilePublic != undefined;
         for (let history of this.userHistory) {
           let tempDate = history.formattedDate;
           if (tempDate.length > 2) {
