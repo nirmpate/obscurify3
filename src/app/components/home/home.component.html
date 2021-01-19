@@ -3,6 +3,7 @@
     <app-intro
         [data]="user"
         [hex]="hex"
+        [isProfilePublic]="isProfilePublic"
         [error]="allTimeTracks?.allTimeTracks.length == 0 ? true : false">
     </app-intro>
     <div *ngIf="allTimeTracks && allTimeTracks.allTimeTracks.length > 0">

@@ -18,7 +18,6 @@ import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 
 })
 export class HomeComponent implements OnInit {
-
   constructor(
     public tokenSvc: TokenService,
     public router: Router,
@@ -48,6 +47,7 @@ export class HomeComponent implements OnInit {
   public currentTracks = null;
   public loaded = false;
   public hex: string;
+  public isProfilePublic: boolean;
 
   ngOnInit() {
     this.seoService.setMetaTags();
@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
       } else {
         this.user = user;
         // Get the rest of Spotify Data
-
+        this.isProfilePublic = this.tokenSvc.oAuthToken.isPublic;
         const artistAndTrackStream = combineLatest([
           this.infoSvc.fetchAllTimeTracks(),
           this.infoSvc.fetchCurrentTracks(),
