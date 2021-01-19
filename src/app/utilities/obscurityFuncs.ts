@@ -27,7 +27,7 @@ export class ObscurityFuncs {
 
   findTopGenres(allTimeArtists) {
       const genres: any = {};
-      let topGenres: any = [];
+      const topGenres: any = [];
       // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < allTimeArtists.length; i++) {
         // tslint:disable-next-line: prefer-for-of

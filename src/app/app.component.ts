@@ -17,11 +17,10 @@ export class AppComponent implements OnInit {
   title = 'obscurify3';
 
   constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: any,
-    private tokenSvc: TokenService,
-    private authService: AuthService,
-    private router: Router,
-    public snackBar: MatSnackBar
-
+              private tokenSvc: TokenService,
+              private authService: AuthService,
+              private router: Router,
+              public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {

@@ -58,10 +58,7 @@ export class HomeComponent implements OnInit {
         this.tokenSvc.clearToken();
         this.authService.authorize();
       }
-      const stream = this.tokenSvc.authTokens.pipe(() => {
-        this.hex = this.tokenSvc.oAuthToken.obscurifyToken;
-        return this.infoSvc.fetchUserInfo();
-      });
+      this.hex = this.tokenSvc.oAuthToken.obscurifyToken;
       return this.infoSvc.fetchUserInfo();
     });
 
