@@ -4,7 +4,7 @@
 </header>
 
 <main>
-  <div class="article__header" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%">
+  <div class="article__header" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign=" start center" fxLayoutGap="5%">
     <div fxFlex="50">
       <img [src]="post.img"/>
 
@@ -33,17 +33,20 @@
     </div>
   </div>
 
-  <div class="article__body" fxLayout.lt-md="column" fxLayout="row nowrap">
-    <div class="article__social" fxFlex="10%">
+  <div class="article__body" fxLayout.lt-md="column" fxLayout="row nowrap" fxLayoutGap="2em">
+    <div class="article__social" fxFlex="5%">
 
     </div>
-    <div class="article__content" fxFlex="70%">
+    <div class="article__content" fxFlex="65%">
       <scully-content></scully-content>
 
     </div>
 
-    <div class="article__extra" fxFlex="20%">
-
+    <div class="article__extra" fxFlex="30%">
+      <div class="artist__ad">
+        <!-- ObscurifyMusic_S2S_Sidebar_ROS_Pos1 -->
+        <div id="bsa-zone_1597164673990-7_123456"></div>
+      </div>
     </div>
   </div>
 
@@ -52,11 +55,16 @@
 
     <h1>Other Posts</h1>
 
-    <div class="article__list__container" fxLayout="row" fxLayoutGap="2rem">
+    <div class="article__list__container" fxLayout="column" fxLayout.gt-md="row wrap"  fxLayoutGap="2rem">
 
-    <app-small-card *ngFor="let post of blogPosts" [post]="post"></app-small-card>
+    <app-small-card *ngFor="let post of filteredPosts" [post]="post"></app-small-card>
     </div>
 
+  </div>
+
+  <div class="banner-container">
+    <!-- ObscurifyMusic_S2S_Leaderboard_ROS_BTF -->
+    <div id="bsa-zone_1597164587977-6_123456"></div>
   </div>
 
 

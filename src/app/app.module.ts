@@ -31,7 +31,7 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SummaryComponent } from './components/summary/summary.component';
 import { ObscurifyService } from './services/obscurifyService';
@@ -45,6 +45,9 @@ import { GlobalModule } from './global/global.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { PublicProfileComponent } from './components/public-profile/public-profile.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTabsModule} from '@angular/material/tabs';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,13 +71,15 @@ import { PublicProfileComponent } from './components/public-profile/public-profi
     PublicProfileComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     GlobalModule,
     ArticlesModule,
     LoginModule,
     FlexLayoutModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    MatChipsModule,
+    MatButtonModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     PlatformModule,
     MatRadioModule,
     MatSnackBarModule,
@@ -86,6 +91,7 @@ import { PublicProfileComponent } from './components/public-profile/public-profi
     MatMenuModule,
     MatProgressBarModule,
     MatBottomSheetModule,
+    MatTabsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ScullyLibModule,
   ],

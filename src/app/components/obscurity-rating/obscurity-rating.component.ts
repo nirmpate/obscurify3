@@ -68,6 +68,9 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
 
   openSummary() {
     const dialogRef = this.dialog.open(SummaryComponent, {
+        maxWidth: '450px',
+        maxHeight: '632px',
+        width: '100vw',
         data: {
             percentileByCountryAllTime: this.data.obscurifyInfo.percentileByCountryAllTime,
             percentileByCountryRecent: this.data.obscurifyInfo.percentileByCountryRecent,

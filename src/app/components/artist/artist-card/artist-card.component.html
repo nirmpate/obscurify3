@@ -7,9 +7,9 @@
 
             </p>
 
-            <div fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center start">
+            <div class="artist__card__info--text" fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center start">
                 <p class="artist__card__info--primary">
-                    {{(artist.name.length < 20) ? (artist.name):(artist.name | slice:0:28)+'...' }}
+                    {{(artist.name.length < 25) ? (artist.name):(artist.name | slice:0:28)+'...' }}
                 </p>
                 <p *ngIf="activeView && artist.genres.length > 1" class="artist__card__info--secondary">
                     {{ artist.genres[0] }}, {{ artist.genres[1] }}
