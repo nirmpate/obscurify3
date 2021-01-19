@@ -45,9 +45,9 @@ import { GlobalModule } from './global/global.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { PublicProfileComponent } from './components/public-profile/public-profile.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTabsModule} from '@angular/material/tabs';
-
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +69,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     BlogHomeComponent,
     SummaryComponent,
     PublicProfileComponent,
+    NavMenuComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -106,7 +107,6 @@ import {MatTabsModule} from '@angular/material/tabs';
     BrowserCheck,
     [{
       provide:  HTTP_INTERCEPTORS,
-      // Force interception to use your new shiny headers!
       useClass:  SpotifyAuthInterceptor,
       multi:  true
     }]],

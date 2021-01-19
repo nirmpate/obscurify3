@@ -58,10 +58,7 @@ export class HomeComponent implements OnInit {
         this.tokenSvc.clearToken();
         this.authService.authorize();
       }
-      const stream = this.tokenSvc.authTokens.pipe(() => {
-        this.hex = this.tokenSvc.oAuthToken.obscurifyToken;
-        return this.infoSvc.fetchUserInfo();
-      });
+      this.hex = this.tokenSvc.oAuthToken.obscurifyToken;
       return this.infoSvc.fetchUserInfo();
     });
 
@@ -100,7 +97,7 @@ export class HomeComponent implements OnInit {
             this.topGenres = this.obscurifyFunc.findTopGenres(this.allTimeArtists.allTimeArtists);
 
             this.spotifyService.getAudioFeatures(config).subscribe((audioFeatures: any) => {
-                if (audioFeatures && audioFeatures.length == 2) {
+                if (audioFeatures && audioFeatures.length === 2) {
                     this.longTermAudioFeatures = this.obscurifyFunc.calculateAudioFeatureAverages(audioFeatures[0].audio_features);
                     this.shortTermAudioFeatures = this.obscurifyFunc.calculateAudioFeatureAverages(audioFeatures[1].audio_features);
                     this.shortTermAudioFeaturesPerTrack = audioFeatures[1].audio_features;

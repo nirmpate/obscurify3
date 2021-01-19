@@ -5,14 +5,16 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable()
 export class AuthService {
 
-  constructor(@Inject(PLATFORM_ID) private platformId) {
+  constructor(@Inject(PLATFORM_ID) private platformId, private cookieService: CookieService) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
+
   private isBrowser: boolean;
   private requestAuthUrl = 'https://accounts.spotify.com/authorize';
   private authorized$: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -39,9 +41,10 @@ export class AuthService {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return text;
-  };
+  }
 
   public authorize() {
+
     if (this.isBrowser) {
       window.location.href = this.buildAuthUrl();
     }
@@ -65,6 +68,7 @@ export class AuthService {
   private buildAuthUrl(): string {
 
     const params = [];
+
     for (const [key, value] of Object.entries(this.authConfig)) {
       if (typeof (value) === 'object') {
         params.push(`${key}=${(value as string[]).join(' ')}`);
