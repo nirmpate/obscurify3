@@ -5,6 +5,8 @@ published: true
 date: March 27th 2021
 author: Prince Albert
 img: https://i.scdn.co/image/6aaa471aff3eb1cd81d331706e03c5d163b57c81
+category: Artist Spotlight
+imgCredit: Shawn Marie Hardy
 tags: artist,hip-hop,indie
 ---
 

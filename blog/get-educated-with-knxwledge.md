@@ -5,6 +5,8 @@ published: true
 date: May 8th 2021
 author: Bob Lawblaw
 img: https://f4.bcbits.com/img/0008158198_0
+category: Artist Spotlight
+imgCredit: Shawn Marie Hardy
 tags: artist,producer,hip-hop,lo-fi
 ---
 
