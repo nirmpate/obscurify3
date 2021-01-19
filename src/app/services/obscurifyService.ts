@@ -16,9 +16,9 @@ export class ObscurifyService {
     public obscurifyUrl = environment.obscurifyApiUrl;
 
     getObscurifyData(countryID, obscurifyScore, recentObscurifyScore): Observable<{}> {
-        return this.http.get(this.obscurifyUrl +
-            `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`)
-            .pipe(
+        let url = this.obscurifyUrl +
+                `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`;
+        return this.http.get(url).pipe(
             tap((data: any) => {
               data.averageScore = Math.round(data.averageScore);
               data.globalAverageScore = Math.round(data.globalAverageScore);
@@ -31,11 +31,11 @@ export class ObscurifyService {
     }
 
     getUserHistory(config): Observable<{}> {
-      return this.http.get(this.obscurifyUrl + `/getUserHistory?userID=${config.userID}&hex=${config.hex}`);
+        return this.http.get(this.obscurifyUrl + `/getUserHistory?userID=${config.userID}&hex=${config.hex}`);
     }
 
     saveUserHistory(config): Observable<{}> {
-      return this.http.post(this.obscurifyUrl + '/saveUserHistory', config);
+        return this.http.post(this.obscurifyUrl + '/saveUserHistory', config);
     }
 
     getPublicProfile(userID, shareCode): Observable<{}> {

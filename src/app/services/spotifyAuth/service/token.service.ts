@@ -9,7 +9,8 @@ export class TokenService {
 
   private token = {
     spotifyToken: '',
-    obscurifyToken: ''
+    obscurifyToken: '',
+    state: ''
   };
 
   private token$ = new BehaviorSubject(this.token);
@@ -21,7 +22,8 @@ export class TokenService {
   public clearToken(): void {
     this.token = {
       spotifyToken: '',
-      obscurifyToken: ''
+      obscurifyToken: '',
+      state: ''
     };
     this.token$.next(this.token);
   }
@@ -34,15 +36,20 @@ export class TokenService {
     return this.token$.asObservable();
   }
 
+  public resetState() {
+      this.token.state = "";
+  }
+
   public setAuthToken(spotifyResponse: any): boolean {
     if (!!spotifyResponse && !!spotifyResponse.spotifyToken && !!spotifyResponse.obscurifyToken) {
-      const now = new Date();
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;
+      this.token.state = spotifyResponse.state;
     } else {
       this.token = {
         spotifyToken: '',
-        obscurifyToken: ''
+        obscurifyToken: '',
+        state: ''
       };
     }
     this.token$.next(this.token);

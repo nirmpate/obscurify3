@@ -23,6 +23,7 @@ export class PublicProfileComponent implements OnInit {
     public longTermArtists: any[];
     public longTermAudioFeatures: any;
     public obscurifyScore: number;
+    public obscurifyPercentile: number;
     public userHistory: any[];
 
   constructor(
@@ -37,13 +38,16 @@ export class PublicProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      console.log(this.tokenSvc.oAuthToken)
-      // if (this.tokenSvc.oAuthToken.spotifyToken) {
-      //   this.authService.authorized();
-      // } else {
-      //   this.tokenSvc.clearToken();
-      //   this.authService.authorize();
-      // }
+      this.authService.setState(`/user/${this.userID}/${this.shareCode}`);
+      if (this.tokenSvc.oAuthToken.spotifyToken) {
+        this.authService.authorized();
+        this.getPublicProfile();
+        this.tokenSvc.resetState();
+
+      } else {
+        this.tokenSvc.clearToken();
+        this.authService.authorize();
+      }
   }
 
   getPublicProfile() {
@@ -63,9 +67,6 @@ export class PublicProfileComponent implements OnInit {
               this.obscurifyScore = (userData.obscurifyScore ? userData.obscurifyScore.N : null);
               this.userHistory = (userData.userHistory ?
                   userData.userHistory.L.map(x => x.M) : null);
-
-              console.log(this.longTermTrackIDs);
-
               this.spotifyService.getArtists({artistIDs: this.longTermArtistIDs})
                 .then((res: any) => {
                   this.longTermArtists = [...res.artists];
@@ -80,6 +81,19 @@ export class PublicProfileComponent implements OnInit {
               .catch(err => {
                 console.log(err)
               });
+              this.obscurifyService.getObscurifyData(
+                this.country,
+                this.obscurifyScore,
+                0).subscribe(
+                  (obscurifyData: any) => {
+                    if (obscurifyData.error) {
+                      console.log(obscurifyData.error)
+                    } else {
+                      this.obscurifyPercentile = obscurifyData.percentileByCountryAllTime;
+                    }
+                }
+              );
+
             }
         }
       );

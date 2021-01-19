@@ -3,8 +3,10 @@ import { IntersectionObserverService } from 'src/app/services/intersectionObserv
 import { InfoService } from 'src/app/services/infoService';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/spotifyAuth';
+import { ObscurifyService } from 'src/app/services/obscurifyService';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Platform } from '@angular/cdk/platform';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-intro',
@@ -15,12 +17,14 @@ import { Platform } from '@angular/cdk/platform';
 })
 export class IntroComponent implements OnInit, OnChanges {
   @Input() data;
+  @Input() hex;
   @Input() error;
 
   constructor(
     public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
     public infoSvc: InfoService,
+    public obscurifyService: ObscurifyService,
     public router: Router,
     public tokenSvc: TokenService,
     public snkBar: MatSnackBar,
@@ -34,8 +38,10 @@ export class IntroComponent implements OnInit, OnChanges {
 
   ngOnChanges(change) {
     if (!change.data.previousValue && change.data.currentValue) {
-      this.userName = this.checkName(this.data.display_name);
-      this.userImage = this.data.images[0] ? this.data.images[0].url : null;
+        if (this.data) {
+            this.userName = this.checkName(this.data.display_name);
+            this.userImage = this.data.images[0] ? this.data.images[0].url : null;
+        }
       this.welcomeMessage = this.getRandomWelcomeMessage();
       this.greeting = this.getRandomGreeting();
     }
@@ -49,6 +55,32 @@ export class IntroComponent implements OnInit, OnChanges {
       verticalPosition: 'top'
     });
     }
+  }
+
+  public toggle(toggleOn: boolean) {
+      if (toggleOn) {
+          this.obscurifyService.togglePublicProfile(
+              this.data.id, "y", this.hex, this.getFirstName(this.data.display_name), this.userImage
+          ).subscribe(
+            (response: any) => {
+              if (response.error) {
+                console.log(response.error)
+              } else {
+                alert(`your URL is ${environment.obscurifyBaseUrl}/user/${this.data.id}?code=${response.shareCode}`)
+              }
+          }
+        );
+      } else {
+          this.obscurifyService.togglePublicProfile(this.data.id, "n", this.hex).subscribe(
+            (response: any) => {
+              if (response.error) {
+                console.log(response.error)
+              } else {
+                console.log(response)
+              }
+          }
+        );
+      }
   }
 
   public logout() {
@@ -68,6 +100,14 @@ export class IntroComponent implements OnInit, OnChanges {
         }
       });
     }
+  }
+
+  public getFirstName(name) {
+      if (name.split(' ').length >= 2) {
+          return name.split(' ')[0]
+      } else {
+          return name
+      }
   }
 
   private getRandomGreeting() {

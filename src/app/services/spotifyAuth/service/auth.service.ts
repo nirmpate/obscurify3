@@ -25,8 +25,12 @@ export class AuthService {
     state: this.state,
     show_dialog: false,
     scope: 'user-read-private user-top-read playlist-modify-public playlist-modify-private'
-
   };
+
+  public setState(state) {
+      this.state = state;
+      this.authConfig.state = state;
+  }
 
   private generateRandomString() {
     let text = '';

@@ -2,7 +2,7 @@
     <div fxLayout="row" fxLayoutAlign="end start">
         <button [matMenuTriggerFor]="appMenu">
             <span class="profile__image">
-                <img  alt="User Image" [src]="this.userImage ? this.userImage : 'assets/images/app/profile-placeholder.png'">
+                <img  alt="User Image" [src]="userImage ? userImage : 'assets/images/app/profile-placeholder.png'">
             </span>
              Menu
         </button>
@@ -19,6 +19,15 @@
   <!-- ObscurifyMusic_S2S_Leaderboard_ROS_ATF -->
   <div id="bsa-zone_1597164528738-4_123456"></div>
 </div>
+
+
+<button (click)="toggle(true)">
+    Make public
+</button>
+
+<button (click)="toggle(false)">
+    Make private
+</button>
 
 
 <div *ngIf="data">
@@ -45,4 +54,3 @@
 </div>
 
 </div>
-

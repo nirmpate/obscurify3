@@ -26,9 +26,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.authorizedStream.subscribe((x: boolean) => {
-      if (x) {
-        this.router.navigate(['home']);
-      }
+        if (this.tokenSvc.oAuthToken.state &&
+            this.tokenSvc.oAuthToken.state[0] == '/' &&
+            this.tokenSvc.oAuthToken.state.split('/').length == 4) {
+                let route = this.tokenSvc.oAuthToken.state.split('/');
+                this.router.navigate(['/user', `${route[2]}` ], { queryParams: { code: route[3] } });
+        } else if (x) {
+            this.router.navigate(['home']);
+        }
     });
     if (!isPlatformBrowser(this.platformId)) {
       const bases = this.document.getElementsByTagName('base');

@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   public currentArtists = null;
   public currentTracks = null;
   public loaded = false;
+  public hex: string;
 
   ngOnInit() {
     this.seoService.setMetaTags();
@@ -58,6 +59,7 @@ export class HomeComponent implements OnInit {
         this.authService.authorize();
       }
       const stream = this.tokenSvc.authTokens.pipe(() => {
+        this.hex = this.tokenSvc.oAuthToken.obscurifyToken;
         return this.infoSvc.fetchUserInfo();
       });
       return this.infoSvc.fetchUserInfo();

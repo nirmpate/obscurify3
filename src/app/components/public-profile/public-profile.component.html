@@ -1,11 +1,11 @@
 <header>
-  <a class="back__btn" routerLink="/login"> <i class="fas fa-arrow-left"></i> Go back </a>
+  <a class="back__btn" routerLink="/home"> <i class="fas fa-arrow-left"></i> Go back </a>
 
 </header>
 
 <h1>{{displayName}}'s Obscurify</h1>
 
-<h1>{{country}}</h1>
+<h3>More obscure than {{obscurifyPercentile | number:'1.0-0' }}% of {{country}} users</h3>
 
 <img [src]="imageURL"/>
 

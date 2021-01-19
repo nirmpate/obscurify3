@@ -74,9 +74,7 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
       this.getMoodTracks();
-      console.log(this.energyTrack.album.images[0].url)
   }
 
   private getMoodTracks() {

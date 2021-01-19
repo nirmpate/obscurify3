@@ -1,6 +1,10 @@
 <main class="app" spyOn (loaded)="loadEvent($event)">
 
-    <app-intro [data]="user" [error]="allTimeTracks?.allTimeTracks.length == 0 ? true : false"></app-intro>
+    <app-intro
+        [data]="user"
+        [hex]="hex"
+        [error]="allTimeTracks?.allTimeTracks.length == 0 ? true : false">
+    </app-intro>
     <div *ngIf="allTimeTracks && allTimeTracks.allTimeTracks.length > 0">
         <app-top-genres [data]="{topGenres: topGenres}"></app-top-genres>
         <app-obscurity-rating
