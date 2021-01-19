@@ -6,7 +6,10 @@ date: February 1st 2021
 author: Seymour Butts
 img: https://cdn2.photostockeditor.com/c/0401/person-person-picking-up-the-music-record-record-record-image.jpg
 category: Recommendations
-imgCredit: Shawn Marie Hardy
+imgCredit: 
+instagram:
+facebook:
+twitter:
 tags: top-picks
 ---
 

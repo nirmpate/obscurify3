@@ -6,6 +6,9 @@ date: January 21st 2021
 author: Nicholas Little
 img: http://kolajmagazine.com/artistdirectory/wp-content/uploads/2017/02/shawn-marie-hardy-singing-the-body-electric.jpg
 category: Music Review
+instagram: @whiskey_pharroah
+facebook:
+twitter:
 imgCredit: Shawn Marie Hardy
 tags: music-review, opinion
 ---
