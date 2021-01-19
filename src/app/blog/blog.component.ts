@@ -19,20 +19,30 @@ export class BlogComponent implements OnInit {
 
   links$: Observable<ScullyRoute[]> = this.scully.available$;
   blogPosts: any[] = [];
+  filteredPosts: any[] = [];
   post: ScullyRoute;
   sub: Subscription;
 
 
   ngOnInit() {
-    this.sub = this.scully.getCurrent().subscribe( temp => this.post = temp);
+    this.sub = this.scully.getCurrent().subscribe( temp => {
+      this.post = temp;
+      this.filterPosts();
+    });
 
     // debug current pages
     this.links$.subscribe((links) => {
-      console.log(links);
       for (let link of links) {
-          if (link.title) this.blogPosts.push(link);
+          if (link.published) {
+            this.blogPosts.push(link);
+            this.filterPosts();
+          }
       }
     });
+  }
+
+  filterPosts() {
+    this.filteredPosts = this.blogPosts.filter((post) => post != this.post);
   }
 
   ngOnDestroy(): void {

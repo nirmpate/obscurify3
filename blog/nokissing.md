@@ -40,6 +40,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. quam illa ardentis amor
 
 Idem iste, inquam, de voluptate quid sentit? [tollenda est atque extrahenda radicitus.](http://loripsum.net/) isto modo ne improbos quidem, si essent boni viri.
 
+<div style="margin: 2em 0">
+    <div id="bsa-zone_1597164587977-6_123456"></div>
+</div>
+
+
 ## QUAE QUO SUNT EXCELSIORES, EO DANT CLARIORA INDICIA NATURAE.
 
 [Si longus, levis dictata sunt.](http://loripsum.net/) **certe non potest.** an eiusdem modi? erat enim res aperta. hanc quoque iucunditatem, si vis, transfer in animum; [uterque enim summo bono fruitur, id est voluptate.](http://loripsum.net/)

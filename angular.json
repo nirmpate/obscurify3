@@ -23,7 +23,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "serviceWorker": false,
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json",
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -56,7 +57,6 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": false,
-              "serviceWorker": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -84,7 +84,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": false,
-              "serviceWorker": false
+              "serviceWorker": false,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -205,7 +206,7 @@
               "/"
             ]
           },
-          "serviceWorker": false,
+          "serviceWorker": true,
           "configurations": {
             "production": {
               "browserTarget": "obscurify3:build:production",

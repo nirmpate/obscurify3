@@ -10,3 +10,16 @@
     height: 100%;
     border-radius: 0;
 }
+
+.summary__title {
+    margin-bottom: 0.5rem;
+}
+
+.summary__artist__list__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    img {
+        margin-right: 8px;
+    }
+}
