@@ -58,34 +58,6 @@ export class IntroComponent implements OnInit, OnChanges {
     }
   }
 
-  public toggle(toggleOn: boolean) {
-      if (toggleOn) {
-          this.obscurifyService.togglePublicProfile(
-              this.data.id, "y", this.hex, this.getFirstName(this.data.display_name), this.userImage
-          ).subscribe(
-            (response: any) => {
-              if (response.error) {
-                console.log(response.error)
-              } else {
-                  this.isProfilePublic = true;
-                alert(`your URL is ${environment.obscurifyBaseUrl}/user/${this.data.id}?code=${response.shareCode}`)
-              }
-          }
-        );
-      } else {
-          this.obscurifyService.togglePublicProfile(this.data.id, "n", this.hex).subscribe(
-            (response: any) => {
-              if (response.error) {
-                console.log(response.error)
-              } else {
-                  this.isProfilePublic = false;
-                console.log(response)
-              }
-          }
-        );
-      }
-  }
-
   public logout() {
     this.tokenSvc.clearToken();
     window.open('https://www.spotify.com/logout', '_blank');
@@ -107,9 +79,9 @@ export class IntroComponent implements OnInit, OnChanges {
 
   public getFirstName(name) {
       if (name.split(' ').length >= 2) {
-          return name.split(' ')[0]
+          return name.split(' ')[0];
       } else {
-          return name
+          return name;
       }
   }
 

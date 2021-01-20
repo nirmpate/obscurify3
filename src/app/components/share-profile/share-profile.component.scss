@@ -1,0 +1,25 @@
+.share__profile {
+    min-width: 420px;
+    min-height: 400px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        line-height: 1.5em;
+    }
+
+    .copy-btn {
+        margin-left: 3em;
+        i {
+            margin-right: 3px;
+        }
+    }
+}
+
+.share__profile__toggle {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+}
+

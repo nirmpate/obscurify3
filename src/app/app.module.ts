@@ -31,7 +31,7 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SummaryComponent } from './components/summary/summary.component';
 import { ObscurifyService } from './services/obscurifyService';
@@ -49,6 +49,11 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { UserService } from './services/userService';
+import { ShareProfileComponent } from './components/share-profile/share-profile.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +76,7 @@ import { UserService } from './services/userService';
     SummaryComponent,
     PublicProfileComponent,
     NavMenuComponent,
+    ShareProfileComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -83,13 +89,16 @@ import { UserService } from './services/userService';
     MatButtonModule,
     AppRoutingModule,
     PlatformModule,
+    MatInputModule,
     MatRadioModule,
+    MatSlideToggleModule,
     MatSnackBarModule,
     MatSelectModule,
     FormsModule,
     MatDialogModule,
     AppRoutingModule,
     HttpClientModule,
+    ClipboardModule,
     MatMenuModule,
     MatProgressBarModule,
     MatBottomSheetModule,

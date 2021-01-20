@@ -1,0 +1,27 @@
+
+    
+
+    <div class="share__profile">
+        <h3 class="mb-1"> Share Your Profile</h3>
+        <p class="mb-1">Below is the link to your public profile.  Share it with your friends!</p>
+        <mat-form-field class="mb-1">
+            <mat-label>Link to you're profile</mat-label>
+            <input #field [disabled]="!userState.profileCode"[readonly]="true" type="text" matInput [value]="userProfileUrl">
+        </mat-form-field>
+        
+
+        <div class="share__profile__toggle mb-1">
+            <mat-slide-toggle
+                color="accent"
+                [checked]="checked"
+                (change)="toggleChange($event)">
+                Make Profile Public
+            </mat-slide-toggle>
+
+            <button mat-raised-button color="primary" class="copy-btn" [cdkCopyToClipboard]="getProfileUrl()"><i class="fas fa-clipboard"></i> Copy Link </button>
+        </div>
+
+
+        <p class="share__profile--small-text" *ngIf="!checked"> You're profile is not public.  Other users won't be able to see it.</p>
+
+    </div>
