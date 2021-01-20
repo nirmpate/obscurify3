@@ -2,15 +2,22 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { lodash } from 'lodash-es';
 
+export interface UserState {
+    userImageUrl?: string;
+    profileCode?: string;
+    userName?: string;
+    userId?: string;
+    profileUrl?: string;
+}
 @Injectable()
 export class UserService {
     constructor() {}
 
-    private userState = {
+    private userState: UserState = {
         userImageUrl: '',
-        isProfilePublic: '',
+        profileCode: '',
         userName: '',
-        profileUrL: ''
+        userId: '',
     };
 
     private user$ = new BehaviorSubject(this.userState);
@@ -23,12 +30,12 @@ export class UserService {
         return this.user$.asObservable();
     }
 
-    public setUserState(config) {
+    public setUserState(config: UserState) {
         this.userState = {
-            userImageUrl: lodash.get(config, 'userImageUrl', ''),
-            isProfilePublic: lodash.get(config, 'isProfilePublic', ''),
-            userName: lodash.get(config, 'userName', ''),
-            profileUrL: lodash.get(config, 'profileUr;', '')
+            userImageUrl: lodash.get(config, 'userImageUrl', this.userState.userImageUrl),
+            userName: lodash.get(config, 'userName', this.userState.userName),
+            userId: lodash.get(config, 'userId', this.userState.userId),
+            profileCode: lodash.get(config, 'profileCode', this.userState.profileCode)
         };
 
         this.user$.next(this.userState);

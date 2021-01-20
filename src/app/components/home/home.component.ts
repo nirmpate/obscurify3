@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SeoService } from '../../services/metaData';
 import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
+import { UserService } from 'src/app/services/userService';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,8 @@ export class HomeComponent implements OnInit {
     public spotifyService: SpotifyService,
     public snkBar: MatSnackBar,
     private seoService: SeoService,
-    private obscurifyFunc: ObscurityFuncs
+    private obscurifyFunc: ObscurityFuncs,
+    private userService: UserService
   ) {
     this.loaded = false;
   }
@@ -68,7 +70,16 @@ export class HomeComponent implements OnInit {
       } else if (user.error && user.error.error.status === 402) {
         this.router.navigate(['login', { serverError: true }]);
       } else {
+        this.userService.setUserState({
+          userImageUrl: user.images[0].url ? user.images[0].url  : '',
+          userName: user.display_name ? user.display_name : '',
+          userId: user.id,
+        });
         this.user = user;
+
+        console.log(user);
+
+
         // Get the rest of Spotify Data
         this.isProfilePublic = this.tokenSvc.oAuthToken.isPublic;
         const artistAndTrackStream = combineLatest([

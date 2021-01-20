@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/spotifyAuth';
+import { UserService, UserState } from 'src/app/services/userService';
 
 @Component({
   selector: 'app-nav-menu',
@@ -9,12 +10,14 @@ import { TokenService } from 'src/app/services/spotifyAuth';
 })
 export class NavMenuComponent implements OnInit {
 
-  constructor(private tokenSvc: TokenService, private router: Router) { }
+  userImage: string;
+
+  constructor(private tokenSvc: TokenService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.tokenSvc.authTokens.subscribe(user => {
-      console.log('nav menu item', user);
-    })
+    this.userService.userStateSub().subscribe((userState: UserState) => {
+      this.userImage = userState.userImageUrl;
+    });
   }
 
   public logout() {

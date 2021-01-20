@@ -48,6 +48,7 @@ import { PublicProfileComponent } from './components/public-profile/public-profi
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { UserService } from './services/userService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +98,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ScullyLibModule,
   ],
   providers: [
+    UserService,
     ObscurityFuncs,
     AuthService,
     TokenService,

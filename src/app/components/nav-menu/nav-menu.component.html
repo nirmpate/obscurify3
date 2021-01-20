@@ -1,4 +1,4 @@
-<!-- <nav *ngIf="data">
+<nav *ngIf="userImage">
     <div fxLayout="row" fxLayoutAlign="end start">
         <button [matMenuTriggerFor]="appMenu">
             <span class="profile__image">
@@ -10,9 +10,9 @@
 
     <mat-menu #appMenu="matMenu">
       <button mat-menu-item routerLink="/about" >About</button>
+      <button mat-menu-item> Share </button>
       <button mat-menu-item (click)="logout()">Logout</button>
       <a  mat-menu-item href="https://www.spotify.com/us/account/apps/">Remove Obscurify account</a>
     </mat-menu>
-</nav> -->
+</nav>
 
-user works
