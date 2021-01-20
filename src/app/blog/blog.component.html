@@ -11,7 +11,7 @@
     </div>
     <div class="article__info">
       <div class="backdrop"></div>
-      <p class="article__tag">Recommendations</p>
+      <p class="article__tag">{{ post.category }}</p>
       <h1>{{ post.title }}</h1>
       <p *ngIf="post.author">by {{ post.author }}</p>
       <p *ngIf="post.date"><span class="grey-text">{{ post.date }}</span></p>
