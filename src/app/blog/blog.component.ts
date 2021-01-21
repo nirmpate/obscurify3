@@ -2,6 +2,7 @@ import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable, Subscription } from 'rxjs';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router, ROUTES} from '@angular/router';
+import { SeoService } from '../services/metaData';
 
 declare var ng: any;
 
@@ -15,7 +16,7 @@ declare var ng: any;
 })
 export class BlogComponent implements OnInit {
 
-  constructor(private scully: ScullyRoutesService) {}
+  constructor(private scully: ScullyRoutesService, private seoService: SeoService) {}
 
   links$: Observable<ScullyRoute[]> = this.scully.available$;
   blogPosts: any[] = [];
@@ -28,6 +29,11 @@ export class BlogComponent implements OnInit {
     this.sub = this.scully.getCurrent().subscribe( temp => {
       this.post = temp;
       this.filterPosts();
+      this.seoService.setMetaTags({
+        title: `Obscurify Music | ${this.post.title}`,
+        description: this.post.description,
+        image: this.post.img
+      });
     });
 
     // debug current pages

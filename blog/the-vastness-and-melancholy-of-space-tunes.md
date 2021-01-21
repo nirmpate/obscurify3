@@ -1,6 +1,6 @@
 ---
 title: The Vastness and Melancholy of Space Tunes
-description: A music review.
+description: Since the beginning of human consciousness, one of the main questions has always been- where do we fit in all of this?
 published: true
 date: January 21st 2021
 author: Nicholas Little
@@ -119,7 +119,7 @@ rings through the ears like chant mediation.
 
 Since the beginning of human
 consciousness, one of the main questions has always been: where do we fit in all of
-this? This song calmy reminds the listener, as a mother comforts a young one who
+this? This song calmly reminds the listener, as a mother comforts a young one who
 knows little about the world they exist in, that although we may experience the soul-
 sadness of never truly knowing an answer to that timeless question, we will always be
 exactly where we are, wherever we are. The spatial and temporal ambiguity of our exact

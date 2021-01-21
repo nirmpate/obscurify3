@@ -20,7 +20,7 @@ Despite all our highest hopes for 2021, it’s already be a shit show and we’v
 Between the songs on this playlist, you’ll dance to the vibe of 2021 we’re duly owed (after such a wack-ass 2020), crossing upbeat bops with velvety vocal arrangements that straight-up pop on some of the hottest beat drops you’ll hear all year.
 
 
-# Inspired
+# Inspired - Julian Cross
 
 <iframe src="https://open.spotify.com/embed/track/7fu51nyVR7DCWI4p02M7l2" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
@@ -30,7 +30,7 @@ Julian Cross is new to the scene and though this he’s still an up-and-comer, i
 
 
 
-# Walk On Water
+# Walk On Water - Kokiri
 
 <iframe src="https://open.spotify.com/embed/track/26OcKTbjJBj5Je0ohI61zu" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
@@ -42,7 +42,7 @@ It’s about regret, it’s about resilience, it’s about realizing that the en
 
 
 
-# A Love That’s Hard To Find (Dub Mix)
+# A Love That’s Hard To Find (Dub Mix) - Chicane
 
 <iframe src="https://open.spotify.com/embed/track/2kLI2XQQaRjj5Xo4zAlHZn" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
@@ -51,7 +51,7 @@ One word… beautiful. Chicane doesn’t disappoint with this flawless House tra
 It sounds like a hopeful future is in sights and there’s no rush (or stress) to chase it but rather, let yourself have it. There are lyrics but, they don’t matter. It’s about riding that hero of a high-vibe and galactic arpeggiator, that’s the bit we obscure listeners appreciate most.
 
 
-# One Last Time
+# One Last Time - THAT KIND
 
 <iframe src="https://open.spotify.com/embed/track/1Z2PovRUJeT4GuugSuIBoH" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
@@ -62,7 +62,7 @@ This song is the perfect exhibit of that 2021 energy. THAT KIND makes sure this 
 You’d expect an arpeggiator in Dance track like this however, the arpeggiation here is real. Not only does it serve as the melodic thread between verse and chorus, it’s the main sound carrying that energetic vibe that you’re loving so much. And when the beat drops, it brings it all together. Trust me, you’ll want to give it a replay (or five) as the bomb drops and it ends. It’s the track that gets you in the zone, whenever you need it.
 
 
-# Wait From Hell
+# Wait From Hell - GOLDHOUSE, Page
 
 <iframe src="https://open.spotify.com/embed/track/7C4yY36tSR0AlKnQtUq71y" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
@@ -76,4 +76,4 @@ Whether you’re stuck at home on yet another Zoom call, driving passengers in y
 
 # If you come to find yourself longing for the last time you were out dancing, pre-COVID… close your eyes, turn this playlist all the way up, and envision a better place.
 
-The energy of 2021 is yours.
+# The energy of 2021 is yours.
