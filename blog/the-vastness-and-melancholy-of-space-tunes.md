@@ -15,7 +15,7 @@ tags: music-review, opinion
 
 # An intricate, swirling feeling that we can all relate to, yet struggle to communicate;
 
-a state of subtle, unlocatable sadness, or unshakable loneliness,
+A state of subtle, unlocatable sadness, or unshakable loneliness,
 melancholy is possibly the most complex and profound feeling a human being can
 experience. Over the ages, artists, intellectuals and even psychologists have stayed
 steadily interested in developing an outlet to express and engage with the unique
@@ -36,9 +36,9 @@ that not only do a brilliant job at expressing the sound of the melancholy but d
 through an interesting method of conveying themes and feelings of the expansive outer
 space that envelopes our planet. There seems to be a powerful overlapping of the
 existential feelings engendered by a perpetually expanding universe we find ourselves
-placed somewhere within, and this feeling of a covertly present melancholic-loneliness,
+placed somewhere within, and this feeling of a covertly present melancholic-loneliness, confusion and yearning.
 
-confusion and yearning. Our interest in the unknown of space can be compared with the
+Our interest in the unknown of space can be compared with the
 need to know ourselves in entirety, exploring our deepest emotions in the same way our
 telescopes and spacecrafts hope to uncover the dazzling truths of our galactic
 inhabitance. There is a lot to be explored within the relationship of existing within a vast
@@ -189,3 +189,12 @@ our very souls, is what advances all experience forward towards life’s deepest
 remarkable truths. Next time you feel yourself feeling existentially lost, aimlessly sad or
 anxiety stricken by the absurdity of all that is unknown, remember; those feelings are
 part of a grander, endless wonderment for such a magical, strange and lovely universe.
+
+
+
+
+Citation:
+
+*Ferguson, Harvie. Melancholy and the Critique of Modernity – Soren Kierkegaard’s
+Religious Psychology. 1995. Routledge. London &amp; New York. Page: 7. [Accessed on
+Google Scholar.](https://books.google.co.nz/books?hl=en&amp;lr=&amp;id=5MJ3RrsG7QcC&amp;oi=fnd&amp;pg=PR7&amp;dq=Kierkegaard+and+melancholy+&amp;ots=q9FejrEX5q&amp;sig=pPUtdGI187niePkqjMpOGSDj_QE&amp;redir_esc=y#v=onepage&amp;q=Kierkegaard%20and%20melancholy&amp;f=false)
