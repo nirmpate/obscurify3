@@ -33,7 +33,7 @@ export class PublicProfileComponent implements OnInit {
       public obscurifyService: ObscurifyService,
       public spotifyService: SpotifyService
   ) {
-      this.userID = routeParams.snapshot.params.userID;
+      this.userID = routeParams.snapshot.queryParams.id;
       this.shareCode = routeParams.snapshot.queryParams.code;
   }
 

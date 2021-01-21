@@ -64,7 +64,7 @@ export class ShareProfileComponent implements OnInit, OnDestroy {
   }
 
   createProfileUrl() {
-    return this.userProfileUrl = `${environment.obscurifyBaseUrl}/user/${this.userState.userId}?code=${this.userState.profileCode}`;
+    return this.userProfileUrl = `${environment.obscurifyBaseUrl}/user?id=${this.userState.userId}&code=${this.userState.profileCode}`;
   }
 
   getProfileUrl() {
