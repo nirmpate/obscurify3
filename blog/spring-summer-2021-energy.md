@@ -13,7 +13,9 @@ twitter:
 tags: music-review, opinion, dance, house
 ---
 
-# 2020 was the absolute worst. All of your favorite fests and friends got locked down and somehow— you survived. Despite all our highest hopes for 2021, it’s already be a shit show and we’ve only begun. This is the cure, this is that energy we’ve been craving… no… lusting for, for the past 12 months.
+# 2020 was the absolute worst. All of your favorite fests and friends got locked down and somehow— you survived.
+
+Despite all our highest hopes for 2021, it’s already be a shit show and we’ve only begun. This is the cure, this is that energy we’ve been craving… no… lusting for, for the past 12 months.
 
 Between the songs on this playlist, you’ll dance to the vibe of 2021 we’re duly owed (after such a wack-ass 2020), crossing upbeat bops with velvety vocal arrangements that straight-up pop on some of the hottest beat drops you’ll hear all year.
 
@@ -55,7 +57,7 @@ It sounds like a hopeful future is in sights and there’s no rush (or stress) t
 
 This song is the perfect exhibit of that 2021 energy. THAT KIND makes sure this song stands out by using the lead vocal percussively to the point that the sounds of the “t” subs organically as a high-hat before the beat picks up.
 
-> To tell you I need you
+> <ins>T</ins>o <ins>t</ins>ell you I need you
 
 You’d expect an arpeggiator in Dance track like this however, the arpeggiation here is real. Not only does it serve as the melodic thread between verse and chorus, it’s the main sound carrying that energetic vibe that you’re loving so much. And when the beat drops, it brings it all together. Trust me, you’ll want to give it a replay (or five) as the bomb drops and it ends. It’s the track that gets you in the zone, whenever you need it.
 
