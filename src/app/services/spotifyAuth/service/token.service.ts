@@ -11,7 +11,8 @@ export class TokenService {
     spotifyToken: '',
     obscurifyToken: '',
     state: '',
-    isPublic: ''
+    isPublic: '',
+    spotifyTokenRefresh: null
   };
 
   private token$ = new BehaviorSubject(this.token);
@@ -25,8 +26,10 @@ export class TokenService {
       spotifyToken: '',
       obscurifyToken: '',
       state: '',
-      isPublic: ''
+      isPublic: '',
+      spotifyTokenRefresh: null
     };
+    window.localStorage.removeItem('userToken');
     this.token$.next(this.token);
   }
 
@@ -39,22 +42,30 @@ export class TokenService {
   }
 
   public resetState() {
-      this.token.state = "";
+      this.token.state = '';
   }
 
   public setAuthToken(spotifyResponse: any): boolean {
     if (!!spotifyResponse && !!spotifyResponse.spotifyToken && !!spotifyResponse.obscurifyToken) {
+      const date = new Date();
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;
       this.token.state = spotifyResponse.state;
       this.token.isPublic = spotifyResponse.isPublic;
+      this.token.spotifyTokenRefresh = date.setSeconds(date.getSeconds() + spotifyResponse.expiresIn);
+
+      if (window) {
+        window.localStorage.setItem('userToken', JSON.stringify(this.token));
+      }
     } else {
       this.token = {
         spotifyToken: '',
         obscurifyToken: '',
         state: '',
-        isPublic: ''
+        isPublic: '',
+        spotifyTokenRefresh: null
       };
+      window.localStorage.removeItem('userToken');
     }
     this.token$.next(this.token);
     return !!this.token;

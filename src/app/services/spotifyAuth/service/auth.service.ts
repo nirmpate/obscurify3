@@ -46,6 +46,18 @@ export class AuthService {
   public authorize() {
 
     if (this.isBrowser) {
+      const date  = new Date();
+      let localUserToken = null;
+
+      if (window) {
+        localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
+      }
+      if (localUserToken && localUserToken.spotifyTokenRefresh) {
+        if (date.getSeconds() < localUserToken.spotifyTokenRefresh) {
+          this.authorized();
+        }
+      }
+
       window.location.href = this.buildAuthUrl();
     }
   }

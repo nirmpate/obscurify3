@@ -16,7 +16,7 @@ export class ObscurifyService {
     public obscurifyUrl = environment.obscurifyApiUrl;
 
     getObscurifyData(countryID, obscurifyScore, recentObscurifyScore): Observable<{}> {
-        let url = this.obscurifyUrl +
+        const url = this.obscurifyUrl +
                 `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`;
         return this.http.get(url).pipe(
             tap((data: any) => {
@@ -44,11 +44,11 @@ export class ObscurifyService {
 
     togglePublicProfile(userID, toggle, hex, displayName?, imageURL?): Observable<{}> {
         const togglePublicProfileBody = {
-          userID: userID,
-          hex: hex,
-          toggle: toggle,
-          displayName: displayName,
-          imageURL: imageURL
+          userID,
+          hex,
+          toggle,
+          displayName,
+          imageURL
         };
         return this.http.post(this.obscurifyUrl + '/publicProfile', togglePublicProfileBody);
     }

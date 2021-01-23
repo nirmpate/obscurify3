@@ -156,12 +156,12 @@ export class HomeComponent implements OnInit {
     };
 
     this.obscurifyService.getUserHistory(getUserHistoryBody).subscribe((res: any) => {
-      if (!res.error && res.userHistory != undefined) {
+      if (!res.error && res.userHistory !== undefined) {
         this.userHistory = [...res.userHistory];
-        for (let history of this.userHistory) {
+        for (const history of this.userHistory) {
           let tempDate = history.formattedDate;
           if (tempDate.length > 2) {
-            tempDate = tempDate.slice(0, tempDate.length - 2) + "'" + tempDate.slice(tempDate.length - 2);
+            tempDate = tempDate.slice(0, tempDate.length - 2) + '"' + tempDate.slice(tempDate.length - 2);
           }
           history.formattedDate = tempDate;
         }

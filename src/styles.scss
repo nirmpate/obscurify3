@@ -5,6 +5,7 @@
 @import './app/scss/mixins';
 @import 'variables';
 @import './app/scss/components/index';
+@import 'mixins';
 
 // Plus imports for other components in your app.
 
@@ -171,7 +172,7 @@ a {
 }
 
 .slate {
-  padding: 8rem 1em;
+  padding: 4rem 1em;
 }
 
 .sticky_sentinel {
@@ -215,3 +216,9 @@ button {
   font-family:  "Helvetica Neue", sans-serif;
   cursor: pointer;
 }
+
+@include tablet {
+  .slate {
+    padding: 8rem 1em;
+  }
+} 

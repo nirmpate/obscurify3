@@ -3,12 +3,14 @@
     <div class="share__profile">
         <h3 class="mb-1">Share Your Profile</h3>
 
-        <p>
-            You can now share your Obscurify profile!
-            Enable the setting below and send the generated link to your friends.
-        </p>
+        <p class="mb-1">Below is the link to your public profile.  Share it with your friends!</p>        
+        
+        <mat-form-field class="mb-1">
+            <mat-label>Share this link to your profile!</mat-label>
+            <input #field placeholder="Turn on sharing"  [disabled]="!userState.profileCode"[readonly]="true" type="text" matInput [value]="userProfileUrl">
+        </mat-form-field>
 
-        <div class="share__profile__toggle mb-1">
+        <div class="share__profile__toggle mb-1" fxLayout="column" fxLayout.gt-sm="row" >
             <mat-slide-toggle
                 color="accent"
                 [checked]="checked"
@@ -19,15 +21,10 @@
             <button *ngIf="checked" mat-raised-button color="primary" class="copy-btn" [cdkCopyToClipboard]="getProfileUrl()"><i class="fas fa-clipboard"></i> Copy Link </button>
         </div>
 
-        <div *ngIf="checked">
-            <mat-form-field class="mb-1">
-                <mat-label>Share this link to your profile!</mat-label>
-                <input #field [disabled]="!userState.profileCode"[readonly]="true" type="text" matInput [value]="userProfileUrl">
-            </mat-form-field>
-        </div>
+
 
         <p class="share__profile--small-text" *ngIf="!checked">You aren't sharing your profile. Other users won't be able to see it.</p>
-
+<!-- 
         <p>
             If you have profile sharing enabled, anyone that clicks your unique link
             can see:
@@ -36,6 +33,6 @@
             <li>Top tracks & artists from Current & All-Time lists</li>
             <li>Obscurify rating</li>
             <li>Your first name and profile picture (from your Spotify account)</li>
-        </ul>
+        </ul> -->
 
     </div>

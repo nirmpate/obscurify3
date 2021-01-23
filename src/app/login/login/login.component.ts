@@ -27,9 +27,6 @@ export class LoginComponent implements OnInit {
         verticalPosition: 'top'
       });
     }
-    if (!!this.tokenSvc.oAuthToken.spotifyToken) {
-      this.router.navigate(['home']);
-    }
   }
 
   public login(): void {
