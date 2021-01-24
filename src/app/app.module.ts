@@ -53,6 +53,7 @@ import { ShareProfileComponent } from './components/share-profile/share-profile.
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     PublicProfileComponent,
     NavMenuComponent,
     ShareProfileComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserAnimationsModule,

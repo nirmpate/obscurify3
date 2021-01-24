@@ -13,7 +13,7 @@ export class PublicProfileComponent implements OnInit {
 
     private userID: string;
     private shareCode: string;
-
+    public loaded = false;
     public country: string;
     public displayName: string;
     public imageURL: string;
@@ -54,8 +54,9 @@ export class PublicProfileComponent implements OnInit {
         this.obscurifyService.getPublicProfile(this.userID, this.shareCode).subscribe(
           (userData: any) => {
             if (userData.error) {
-              console.log(userData.error)
+              console.log(userData.error);
             } else {
+              this.loaded = true;
               this.country = (userData.country ? userData.country.S : null);
               this.displayName = (userData.displayName ? userData.displayName.S : null);
               this.imageURL = (userData.imageURL ? userData.imageURL.S : null);

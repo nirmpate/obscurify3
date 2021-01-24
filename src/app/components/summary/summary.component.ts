@@ -28,14 +28,14 @@ export class SummaryComponent implements OnInit {
         console.log(data);
         this.percentileByCountryAllTime = data.percentileByCountryAllTime;
         this.country = data.country;
-        this.allTimeArtists = data.allTimeArtists.length > 5 ? data.allTimeArtists.slice(0,5) : data.allTimeArtists;
-        this.allTimeTracks = data.allTimeTracks.length > 5 ? data.allTimeTracks.slice(0,5) : data.allTimeTracks;
-        this.currentArtists = data.currentArtists.length > 5 ? data.currentArtists.slice(0,5) : data.currentArtists;
-        this.currentTracks = data.currentTracks.length > 5 ? data.currentTracks.slice(0,5) : data.currentTracks;
+        this.allTimeArtists = data.allTimeArtists.length > 5 ? data.allTimeArtists.slice(0, 5) : data.allTimeArtists;
+        this.allTimeTracks = data.allTimeTracks.length > 5 ? data.allTimeTracks.slice(0, 5) : data.allTimeTracks;
+        this.currentArtists = data.currentArtists.length > 5 ? data.currentArtists.slice(0, 5) : data.currentArtists;
+        this.currentTracks = data.currentTracks.length > 5 ? data.currentTracks.slice(0, 5) : data.currentTracks;
         this.audioFeatureAverages = data.audioFeatureAverages;
         this.longTermAudioFeatures = data.longTermAudioFeatures;
         this.shortTermAudioFeatures = data.shortTermAudioFeatures;
-        this.topGenres = data.topGenres.length > 6 ? data.topGenres.slice(0,6) : data.topGenres;
+        this.topGenres = data.topGenres.length > 6 ? data.topGenres.slice(0, 5) : data.topGenres;
     }
 
     close() {
