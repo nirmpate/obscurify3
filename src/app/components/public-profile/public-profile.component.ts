@@ -56,7 +56,6 @@ export class PublicProfileComponent implements OnInit {
         this.tokenSvc.resetState();
 
       } else {
-        this.tokenSvc.clearToken();
         this.authService.authorize();
       }
   }
