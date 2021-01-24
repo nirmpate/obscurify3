@@ -20,3 +20,132 @@
       margin-right: 5px;
   }
 }
+
+.slate {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding-top: 3em;
+}
+
+header {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+main {
+  max-width: 1024px;
+  margin: 4em auto;
+}
+
+.profile__image {
+  margin: 0 auto;
+  img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 100%;
+  }
+}
+
+.profile__header {
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.profile__obscure__block {
+
+  h1.obscure__score {
+    font-size: 6em;
+  }
+}
+
+.genre__chip {
+  text-align: center;
+  padding: 1em 1.5em;
+  background: #a9e5ac;
+  border-radius: 25px;
+  color: black;
+  margin-top: 1em;
+  margin-right: 1em;
+  font-size: 14px;
+}
+
+.top__genres {
+  max-width: 900px;
+}
+
+.tracks__artists {
+  a, a:visited, a:active {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.list__title {
+  margin-bottom: 0.5rem;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1em;
+  img {
+      width: 35px;
+      height: 35px;
+      margin-right: 8px;
+  }
+}
+
+@include tablet {
+
+  .profile__image {
+    margin: 0;
+
+    img {
+      max-width: 250px;
+      max-height: 250px;
+      border-radius: 100%;
+    }
+  }
+
+  .profile__header {
+    text-align: left;
+    h1 {
+      font-size: 3em;
+    }
+  }
+
+  .profile__obscure__block {
+
+    .profile__obscure__block__header {
+      margin-bottom: 0em;
+    }
+
+    h1.obscure__score {
+      font-size: 8em;
+    }
+
+    p {
+      font-size: 2em;
+      max-width: 400px;
+    }
+  }
+
+  .genre__chip {
+    padding: 0.5em 1.5em;
+    font-size: 1em;
+  }
+
+  .list__item {
+    font-size: 1.5em;
+    img {
+        width: 100px;
+        height: 100px;
+        margin-right: 16px;
+    }
+  }
+  
+}

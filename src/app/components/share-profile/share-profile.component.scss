@@ -28,8 +28,12 @@
     .share__profile__toggle {
         align-items: center;
     }
-    .copy-btn {
-        margin-left: 3em;
+    
+    .share__profile { 
+        .copy-btn {
+            margin-top: 0;
+            margin-left: 3em;
+        }
     }
 }
 

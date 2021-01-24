@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 
 @Component({
@@ -23,6 +24,7 @@ export class SummaryComponent implements OnInit {
     constructor(
         public dialogRef: MatDialogRef<SummaryComponent>,
         public obscurifyFunc: ObscurityFuncs,
+        public sanitizer: DomSanitizer,
         @Optional() @Inject(MAT_DIALOG_DATA) public data: any
     ) {
         console.log(data);

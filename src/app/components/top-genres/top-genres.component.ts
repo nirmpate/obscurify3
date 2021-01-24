@@ -26,7 +26,7 @@ export class TopGenresComponent implements OnInit, AfterViewInit {
   private intersectionObserverSubs: Subscription;
 
   ngOnInit() {
-      this.topGenres = this.data.topGenres;
+    this.topGenres = this.data.topGenres;
   }
 
 
