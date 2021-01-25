@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
       } else {
         this.userService.setUserState({
           userImageUrl: user.images[0].url ? user.images[0].url  : '',
-          userName: user.display_name ? user.display_name : '',
+          userName: user.display_name ? this.checkName(user.display_name) : '',
           userId: user.id,
         });
         this.user = user;
@@ -149,6 +149,14 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  private checkName(name) {
+    if (name.split(' ').length >= 2) {
+      return name.split(' ')[0];
+    } else {
+      return name;
+    }
+  }
+
   getUserHistory(val) {
     const getUserHistoryBody = {
       hex: this.tokenSvc.oAuthToken.obscurifyToken,
@@ -161,7 +169,7 @@ export class HomeComponent implements OnInit {
         for (const history of this.userHistory) {
           let tempDate = history.formattedDate;
           if (tempDate.length > 2) {
-            tempDate = tempDate.slice(0, tempDate.length - 2) + '"' + tempDate.slice(tempDate.length - 2);
+            tempDate = tempDate.slice(0, tempDate.length - 2) + '\'' + tempDate.slice(tempDate.length - 2);
           }
           history.formattedDate = tempDate;
         }

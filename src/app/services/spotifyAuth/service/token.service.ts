@@ -5,7 +5,16 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class TokenService {
 
-  constructor() {}
+  constructor() {
+      let localUserToken;
+
+      if (window) {
+          localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
+          if (localUserToken) {
+              this.setAuthToken(localUserToken);
+          }
+      }
+  }
 
   private token = {
     spotifyToken: '',
@@ -44,6 +53,11 @@ export class TokenService {
   public resetState() {
       this.token.state = '';
   }
+
+  setState(state) {
+      this.token.state = state;
+  }
+
 
   public setAuthToken(spotifyResponse: any): boolean {
     if (!!spotifyResponse && !!spotifyResponse.spotifyToken && !!spotifyResponse.obscurifyToken) {

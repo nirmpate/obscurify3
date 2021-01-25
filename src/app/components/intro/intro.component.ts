@@ -71,7 +71,7 @@ export class IntroComponent implements OnInit, OnChanges {
       const nameArray = name.split('');
       nameArray.forEach(element => {
         if (Number(element)) {
-          return '.';
+          return '!';
         }
       });
     }

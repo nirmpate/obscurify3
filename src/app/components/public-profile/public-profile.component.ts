@@ -50,6 +50,7 @@ export class PublicProfileComponent implements OnInit {
 
   ngOnInit(): void {
       this.authService.setState(`/user/${this.userID}/${this.shareCode}`);
+      this.tokenSvc.setState(`/user/${this.userID}/${this.shareCode}`);
       if (this.tokenSvc.oAuthToken.spotifyToken) {
         this.authService.authorized();
         this.getPublicProfile();
@@ -59,7 +60,7 @@ export class PublicProfileComponent implements OnInit {
         this.authService.authorize();
       }
   }
-
+  
   getPublicProfile() {
         this.obscurifyService.getPublicProfile(this.userID, this.shareCode).subscribe(
           (userData: any) => {

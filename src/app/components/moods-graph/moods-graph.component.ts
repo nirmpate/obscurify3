@@ -3,6 +3,7 @@ import { IntersectionObserverService } from 'src/app/services/intersectionObserv
 import { Chart } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { Platform } from '@angular/cdk/platform';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 
 @Component({
@@ -23,6 +24,7 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
     public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
     public platform: Platform,
+    public sanitizer: DomSanitizer,
     private obscurifyFunc: ObscurityFuncs
     ) { }
 

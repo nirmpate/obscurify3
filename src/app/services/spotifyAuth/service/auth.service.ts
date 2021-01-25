@@ -6,18 +6,18 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
-
+import { TokenService } from './token.service';
 
 @Injectable()
 export class AuthService {
 
-  constructor(@Inject(PLATFORM_ID) private platformId, private cookieService: CookieService) {
+  constructor(@Inject(PLATFORM_ID) private platformId, private tokenSvc: TokenService) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   private isBrowser: boolean;
   private requestAuthUrl = 'https://accounts.spotify.com/authorize';
-  private authorized$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private authorized$: BehaviorSubject<boolean> = new BehaviorSubject();
   private state = this.generateRandomString();
 
   private authConfig: AuthConfig = {
@@ -54,11 +54,13 @@ export class AuthService {
       }
       if (localUserToken && localUserToken.spotifyTokenRefresh) {
         if (date.getSeconds() < localUserToken.spotifyTokenRefresh) {
+          this.tokenSvc.setAuthToken(localUserToken);
           this.authorized();
         }
-      }
+    } else {
+        window.location.href = this.buildAuthUrl();
+    }
 
-      window.location.href = this.buildAuthUrl();
     }
   }
 

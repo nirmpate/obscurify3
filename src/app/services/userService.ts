@@ -11,7 +11,15 @@ export interface UserState {
 }
 @Injectable()
 export class UserService {
-    constructor() {}
+    constructor() {
+        let localUserProfile;
+        if (window) {
+            localUserProfile = JSON.parse(window.localStorage.getItem('userProfile'));
+            if (localUserProfile) {
+                this.setUserState(localUserProfile);
+            }
+        }
+    }
 
     private userState: UserState = {
         userImageUrl: '',
@@ -37,6 +45,10 @@ export class UserService {
             userId: lodash.get(config, 'userId', this.userState.userId),
             profileCode: lodash.get(config, 'profileCode', this.userState.profileCode)
         };
+
+        if (window) {
+            window.localStorage.setItem('userProfile', JSON.stringify(this.userState));
+        }
 
         this.user$.next(this.userState);
     }

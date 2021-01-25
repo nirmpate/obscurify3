@@ -16,17 +16,36 @@ section {
         font-family: $secondary-font;
     }
 
+    P:last-child {
+        margin-bottom: 0;
+    }
+
     h1, h2, h3 {
         margin-bottom: 1rem;
     }
 }
 
-.about {
-  height: 100%;
-}
-
 .about__ad {
   margin-top:3em;
+}
+
+.team {
+    img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        margin-bottom: 1em;
+    }
+
+    h3 {
+        margin-bottom: 0;
+    }
+
+    a:visited,a:active {
+        text-decoration-color: black;
+        text-decoration: none;
+        color: black;
+    }
 }
 
 .back__btn {

@@ -18,7 +18,9 @@
                     </p> -->
                     <div class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
-                            <img [src]="happinessTrack.album.images[0].url" alt=""/>
+                            <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(happinessTrack.uri)">
+                                <img [src]="happinessTrack.album.images[0].url" alt=""/>
+                            </a>
                             <div fxLayout="column" fxLayoutAlign="center">
                                 <div>Your favorite example</div>
                                 <div><strong>{{happinessTrack.name}}</strong></div>
@@ -26,10 +28,10 @@
                         </div>
                     </div>
                     <p *ngIf="longTermAudioFeatures.happiness - shortTermAudioFeatures.happiness > 0.01" class="mb-1">
-                        <strong>Your music is getting sadder or angrier 😞</strong>
+                        Your music is getting sadder or angrier 😞
                     </p>
                     <p *ngIf="longTermAudioFeatures.happiness - shortTermAudioFeatures.happiness < -0.01" class="mb-1">
-                        <strong>Your music is getting happier or more cheerful 😄</strong>
+                        Your music is getting happier or more cheerful 😄
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{happinessCurrentText}} the {{data.country}} avg
@@ -62,7 +64,9 @@
                     </p> -->
                     <div class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
-                            <img [src]="danceabilityTrack.album.images[0].url" alt=""/>
+                            <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(danceabilityTrack.uri)">
+                                <img [src]="danceabilityTrack.album.images[0].url" alt=""/>
+                            </a>
                             <div fxLayout="column" fxLayoutAlign="center">
                                 <div>Your favorite example</div>
                                 <div><strong>{{danceabilityTrack.name}}</strong></div>
@@ -70,10 +74,10 @@
                         </div>
                     </div>
                     <p *ngIf="longTermAudioFeatures.danceability - shortTermAudioFeatures.danceability > 0.01" class="mb-1">
-                        <strong>Lately your music has been a little more off-beat 🎷</strong>
+                        Lately your music has been a little more off-beat 🎷
                     </p>
                     <p *ngIf="longTermAudioFeatures.danceability - shortTermAudioFeatures.danceability < -0.01" class="mb-1">
-                        <strong>Lately your music has been getting dancier with a stronger beat 🕺🏼</strong>
+                        Lately your music has been getting dancier with a stronger beat 🕺🏼
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{danceabilityCurrentText}} the {{data.country}} avg
@@ -99,13 +103,11 @@
 
                 <div class="moods-graph__card" fxLayout="column" fxLayout.gt-xs="row nowrap">
                   <div class="moods-graph__card__container">
-                    <!-- <p class="moods-graph__card__paragraph">
-                      Energy represents a perceptual measure of intensity and activity.
-                      Typically, energetic tracks feel fast, loud, and noisy.
-                    </p> -->
                     <div class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
-                            <img [src]="energyTrack.album.images[0].url" alt=""/>
+                            <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(energyTrack.uri)">
+                                <img [src]="energyTrack.album.images[0].url" alt=""/>
+                            </a>
                             <div fxLayout="column" fxLayoutAlign="center">
                                 <div>Your favorite example</div>
                                 <div><strong>{{energyTrack.name}}</strong></div>
@@ -113,10 +115,10 @@
                         </div>
                     </div>
                     <p *ngIf="longTermAudioFeatures.energy - shortTermAudioFeatures.energy > 0.01" class="mb-1">
-                        <strong>Your music has been getting more subtle and downtempo recently 🕶️</strong>
+                        Your music has been getting more subtle and downtempo recently 🕶️
                     </p>
                     <p *ngIf="longTermAudioFeatures.energy - shortTermAudioFeatures.energy < -0.01" class="mb-1">
-                        <strong>Your music has been getting more energetic and noisy recently ⚡</strong>
+                        Your music has been getting more energetic and noisy recently ⚡
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{energyCurrentText}} the {{data.country}} avg
@@ -143,12 +145,11 @@
                 <div class="moods-graph__card" fxLayout="column" fxLayout.gt-xs="row nowrap">
 
                   <div class="moods-graph__card__container">
-                    <!-- <p class="moods-graph__card__paragraph">
-                    A measure whether your music is acoustic. The higher the number the more likely you've been listening to acoustic music.
-                    </p> -->
                     <div class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
-                            <img [src]="acousticnessTrack.album.images[0].url" alt=""/>
+                            <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(acousticnessTrack.uri)">
+                                <img [src]="acousticnessTrack.album.images[0].url" alt=""/>
+                            </a>
                             <div fxLayout="column" fxLayoutAlign="center">
                                 <div>Your favorite example</div>
                                 <div><strong>{{acousticnessTrack.name}}</strong></div>
@@ -156,10 +157,10 @@
                         </div>
                     </div>
                     <p *ngIf="longTermAudioFeatures.acousticness - shortTermAudioFeatures.acousticness > 0.01" class="mb-1">
-                        <strong>You haven't been into acoustic tracks as much lately 🤖</strong>
+                        You haven't been into acoustic tracks as much lately 🤖
                     </p>
                     <p *ngIf="longTermAudioFeatures.acousticness - shortTermAudioFeatures.acousticness < -0.01" class="mb-1">
-                        <strong>You've been into some more acoustic tracks lately 🏕️</strong>
+                        You've been into some more acoustic tracks lately 🏕️
                     </p>
                     <p class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{acousticnessCurrentText}} the {{data.country}} avg

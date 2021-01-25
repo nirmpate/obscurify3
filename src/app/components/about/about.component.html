@@ -1,5 +1,5 @@
 
-<div class="about" fxLayout.gt-sm="row" fxLayout="column">
+<div fxLayout.gt-sm="row" fxLayout="column">
 
   <aside fxFlex="0 0 40%" fxLayoutAlign="start center" fxLayout="column nowrap" >
     <a class="back__btn" routerLink="/login"> <i class="fas fa-arrow-left"></i> Go back </a>
@@ -10,7 +10,7 @@
   <main fxLayout="column">
     <section>
         <h1>
-            About Us
+            About Obscurify
           </h1>
           <p>
             The goal of Obscurify is to help you better understand your own music taste. It uses
@@ -18,21 +18,56 @@
             your top genres, and to recommend under-the-radar songs you might like.
           </p>
           <p>
-            The global popularity ratings of the artists in your lists are aggregated to result in an Obscurity score
-            which is compared to the Obscurify users in your country to show how unique (or energetic, danceable, and happy) a music taste you have.
+            Obscurify allows you to share your profile with your friends. Turn on "Share profile" in the menu and send the unique generated link
+            to whoever you want to show off your favorite tracks, artists, and of course your Obscurity rating.
+            As your privacy is our priority, you can always turn off others' ability to access your profile at any time.
           </p>
           <p>
             Obscurify can also make playlists of the music in your track lists and place them in your Spotify library - including the historical snapshots
-            that are saved when you view your Obscurify profile each month.
+            that are saved when you view your Obscurify profile once every three weeks.
+          </p>
+          <p>
+            Obscurify is open source! Check out the code <a href="https://github.com/alexolivero/Obscurify">here.</a>
           </p>
     </section>
 
     <section>
-        <h2>F.A.Q.</h2>
+        <div class="team">
+            <h2>The Team</h2>
+            <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="4em">
+                <div fxLayout="column" fxLayoutAlign="center">
+                    <img src="https://avatars.githubusercontent.com/u/11236592?s=460&u=d2d661e98d51559494079a71301417cf1bea5f3d&v=4" alt="Alex Olivero">
+                    <h3>Alex Olivero</h3>
+                    <p>Backend & Cloud</p>
+                    <a href="mailto:oliveroalex@gmail.com">
+                        <i class="fa fa-envelope fa-2x"></i>
+                    </a>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center">
+                    <img src="https://avatars.githubusercontent.com/u/17192239?s=400&u=7e79d9fe01f3825665dbb7349960723b4ad67939&v=4" alt="Nirmal Patel">
+                    <h3>Nirmal Patel</h3>
+                    <p>UI / UX</p>
+                    <a href="mailto:npatel663@gmail.com">
+                        <i class="fa fa-envelope fa-2x"></i>
+                    </a>
+                  </div>
+              </div>
+           </div>
+    </section>
+
+    <section>
+        <h2>FAQ</h2>
+
+        <h3>What is an Obscurity rating?</h3>
+        <p>
+          Our algorithm finds your Obscurity rating by comparing the global popularity of the artists in your Spotify history
+          to the other Obscurify users in your country. A high Obscurity rating indicates that your music taste is more unique than
+          most, while a low rating can mean your taste tends to be more popular or relateable.
+        </p>
 
         <h3>Is it secure?</h3>
         <p>
-          Obscurify adheres to all the latest standards in web security. And as logging in to Obscurify is
+          Obscurify adheres to all modern standards in web security. And as logging in to Obscurify is
           handled by Spotify, it's as secure as logging in to Spotify itself.
         </p>
 
