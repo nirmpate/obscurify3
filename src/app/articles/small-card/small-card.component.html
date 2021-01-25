@@ -4,6 +4,10 @@
         <h2>{{post.title}}</h2>
         <p>{{post.description}}</p>
 
+        <p class="tags">
+            {{post.tags}}
+        </p>
+
         <div class="post-card__buttons">
             <a [href]="post.route" class="post-card__button">
                 Read Article

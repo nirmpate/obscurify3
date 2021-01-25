@@ -9,8 +9,8 @@ category: Music Review
 instagram: whiskey_pharroah
 facebook:
 twitter:
-imgCredit: Shawn Marie Hardy
-tags: music-review, opinion
+caption: Photo credit Shawn Marie Hardy
+tags: philosophy, meta
 ---
 
 # An intricate, swirling feeling that we can all relate to, yet struggle to communicate;
@@ -192,9 +192,11 @@ part of a grander, endless wonderment for such a magical, strange and lovely uni
 
 
 
-
+<div class="citation__header">
 Citation:
+</div>
 
+<div class="citation">
 *Ferguson, Harvie. Melancholy and the Critique of Modernity – Soren Kierkegaard’s
-Religious Psychology. 1995. Routledge. London &amp; New York. Page: 7. [Accessed on
-Google Scholar.](https://books.google.co.nz/books?hl=en&amp;lr=&amp;id=5MJ3RrsG7QcC&amp;oi=fnd&amp;pg=PR7&amp;dq=Kierkegaard+and+melancholy+&amp;ots=q9FejrEX5q&amp;sig=pPUtdGI187niePkqjMpOGSDj_QE&amp;redir_esc=y#v=onepage&amp;q=Kierkegaard%20and%20melancholy&amp;f=false)
+Religious Psychology. 1995. Routledge. London &amp; New York. Page: 7.
+</div>

@@ -1,7 +1,7 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 
 import { AuthConfig } from '../shared/spotify-auth-config.i';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
@@ -17,7 +17,7 @@ export class AuthService {
 
   private isBrowser: boolean;
   private requestAuthUrl = 'https://accounts.spotify.com/authorize';
-  private authorized$: BehaviorSubject<boolean> = new BehaviorSubject();
+  private authorized$: Subject<any> = new Subject();
   private state = this.generateRandomString();
 
   private authConfig: AuthConfig = {

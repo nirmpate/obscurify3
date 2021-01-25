@@ -77,9 +77,6 @@ export class HomeComponent implements OnInit {
         });
         this.user = user;
 
-        console.log(user);
-
-
         // Get the rest of Spotify Data
         this.isProfilePublic = this.tokenSvc.oAuthToken.isPublic;
         const artistAndTrackStream = combineLatest([

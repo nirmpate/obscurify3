@@ -40,6 +40,11 @@
         display: flex;
         align-items: flex-end;
     }
+
+    .tags {
+        color: #6e6d7a;
+        font-size: 12px;
+    }
 }
 
 @include tablet {

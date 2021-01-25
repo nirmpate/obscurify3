@@ -7,7 +7,7 @@
   <div class="article__header" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign=" start center" fxLayoutGap="5%">
     <div fxFlex="50">
       <img [src]="post.img"/>
-
+      <p class="caption">{{ post.caption }}</p>
     </div>
     <div class="article__info">
       <div class="backdrop"></div>
@@ -39,7 +39,9 @@
     </div>
     <div class="article__content" fxFlex="65%">
       <scully-content></scully-content>
-
+      <div class="author__credit" *ngIf="post.instagram">
+          Written by {{post.author}}, who you can find on <a href="https://www.instagram.com/{{post.instagram}}">Instagram</a>.
+      </div>
     </div>
 
     <div class="article__extra" fxFlex="30%">

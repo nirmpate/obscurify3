@@ -14,6 +14,11 @@
             margin-bottom: 0.5rem;
         }
     }
+
+    .tags {
+        color: #6e6d7a;
+        font-size: 12px;
+    }
 }
 
 @include gt-md {

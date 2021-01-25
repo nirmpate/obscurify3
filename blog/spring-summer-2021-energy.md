@@ -6,11 +6,11 @@ date: January 26th 2021
 author: Terrance Nixon
 img: https://i.scdn.co/image/6aaa471aff3eb1cd81d331706e03c5d163b57c81
 category: Music Review
-imgCredit:
+caption:
 instagram: Teransu
 facebook:
 twitter:
-tags: music-review, opinion, dance, house
+tags: dance, house, electronic
 ---
 
 # 2020 was the absolute worst. All of your favorite fests and friends got locked down and somehow— you survived.

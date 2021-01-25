@@ -50,6 +50,12 @@ main {
 
   }
 
+  .caption {
+    font-size: 14px;
+    font-style: italic;
+    color: #6e6d7a;
+  }
+
   img {
     max-width: 720px;
     max-height: 420px;
@@ -104,6 +110,19 @@ main {
 
   h1,h2,h3 {
     margin: 1rem 0 2rem;
+  }
+
+  .citation {
+      margin-bottom: 0;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: normal;
+  }
+
+  .citation__header {
+      margin-top: 6em;
+      font-size: 12px;
+      font-weight: normal;
   }
 
   p, li {
@@ -200,6 +219,13 @@ main {
 
      p {
          padding: 10px;
+     }
+
+     .author__credit {
+         margin-top: 6em;
+         font-weight: normal;
+         font-size: 14px;
+         color: #6e6d7a;
      }
 
     blockquote {

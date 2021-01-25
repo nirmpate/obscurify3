@@ -3,7 +3,7 @@ import { TokenService, AuthService } from '../../services/spotifyAuth';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { ObscurifyService } from 'src/app/services/obscurifyService';
 import { SpotifyService } from 'src/app/services/spotifyService';
-import ObscurityFuncs from 'src/app/utilities/obscurityFuncs';
+import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -60,7 +60,7 @@ export class PublicProfileComponent implements OnInit {
         this.authService.authorize();
       }
   }
-  
+
   getPublicProfile() {
         this.obscurifyService.getPublicProfile(this.userID, this.shareCode).subscribe(
           (userData: any) => {
