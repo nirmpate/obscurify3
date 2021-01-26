@@ -11,6 +11,8 @@ export class FooterComponent implements OnInit {
 
   @Input() login;
   @Input() spotlight;
+  @Input() privacy;
+  @Input() about;
 
   constructor(
     public router: Router,
