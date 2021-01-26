@@ -2,7 +2,9 @@
 title: Spring/Summer 2021— Energy.
 description: If you come to find yourself longing for the last time you were out dancing, pre-COVID… close your eyes, turn this playlist all the way up, and envision a better place.
 published: true
-date: January 26th 2021
+date: February 1st 2021
+isoDate: 2021-02-01
+featured: no
 author: Terrance Nixon
 img: https://i.scdn.co/image/6aaa471aff3eb1cd81d331706e03c5d163b57c81
 category: Music Review

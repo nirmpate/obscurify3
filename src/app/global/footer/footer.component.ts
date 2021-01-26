@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenService } from 'src/app/services/spotifyAuth';
+import { TokenService, AuthService } from 'src/app/services/spotifyAuth';
 
 @Component({
   selector: 'app-footer',
@@ -10,10 +10,12 @@ import { TokenService } from 'src/app/services/spotifyAuth';
 export class FooterComponent implements OnInit {
 
   @Input() login;
+  @Input() spotlight;
 
   constructor(
     public router: Router,
-    public tokenSvc: TokenService
+    public tokenSvc: TokenService,
+    private authService: AuthService
     ) { }
 
 
@@ -24,6 +26,10 @@ export class FooterComponent implements OnInit {
     this.tokenSvc.clearToken();
     window.open('https://www.spotify.com/logout', '_blank');
     this.router.navigate(['login']);
+  }
+
+  public authorize(): void {
+    this.authService.authorize();
   }
 
 }

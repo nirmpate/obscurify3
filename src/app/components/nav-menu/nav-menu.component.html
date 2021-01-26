@@ -9,10 +9,9 @@
     </div>
 
     <mat-menu #appMenu="matMenu">
+      <button mat-menu-item (click)="openShareDialog()">Share profile</button>
       <button mat-menu-item routerLink="/about">About</button>
-      <button mat-menu-item (click)="openShareDialog()"> Share </button>
       <button mat-menu-item (click)="logout()">Logout</button>
       <a  mat-menu-item href="https://www.spotify.com/us/account/apps/">Remove Obscurify account</a>
     </mat-menu>
 </nav>
-

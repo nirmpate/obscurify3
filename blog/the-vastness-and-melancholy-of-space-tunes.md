@@ -3,14 +3,16 @@ title: The Vastness and Melancholy of Space Tunes
 description: Since the beginning of human consciousness, one of the main questions has always been- where do we fit in all of this?
 published: true
 date: January 21st 2021
+isoDate: 2021-01-21
+featured: yes
 author: Nicholas Little
-img: http://kolajmagazine.com/artistdirectory/wp-content/uploads/2017/02/shawn-marie-hardy-singing-the-body-electric.jpg
+img: https://d129l1mriif4tx.cloudfront.net/vastness-of-space-tunes.jpg
 category: Music Review
 instagram: whiskey_pharroah
 facebook:
 twitter:
 caption: Photo credit Shawn Marie Hardy
-tags: philosophy, meta
+tags: music philosophy
 ---
 
 # An intricate, swirling feeling that we can all relate to, yet struggle to communicate;

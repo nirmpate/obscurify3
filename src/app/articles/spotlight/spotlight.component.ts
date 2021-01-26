@@ -1,5 +1,6 @@
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
+import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,17 +12,12 @@ export class SpotlightComponent implements OnInit {
     links$: Observable<ScullyRoute[]> = this.scully.available$;
     blogPosts: any[] = [];
 
+    constructor(private scully: ScullyRoutesService, private obscurifyFunc: ObscurityFuncs) { }
+
     ngOnInit() {
-      // debug current pages
       this.links$.subscribe((links) => {
-        console.log(links);
-        for (let link of links) {
-            if (link.title) this.blogPosts.push(link);
-        }
+          this.blogPosts = this.obscurifyFunc.sortBlogPosts(links);
       });
     }
-
-  constructor(private scully: ScullyRoutesService) { }
-
 
 }

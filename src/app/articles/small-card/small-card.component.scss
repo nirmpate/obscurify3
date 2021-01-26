@@ -10,6 +10,7 @@
     flex-flow: column;
     flex: 1;
     max-width: 100%;
+    margin-bottom: 1em;
 
     img {
         width: 100%;
@@ -44,6 +45,7 @@
     .tags {
         color: #6e6d7a;
         font-size: 12px;
+        margin-bottom: 0;
     }
 }
 

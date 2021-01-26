@@ -2,9 +2,15 @@
 @import 'variables';
 
 .post-card--big {
+
+    margin-bottom: 2em;
+
     img {
         width: 100%;
-        max-width: 750px;
+        max-width: 720px;
+        max-height: 420px;
+        object-fit: cover;
+
     }
 
     .post-card__description {
@@ -18,6 +24,7 @@
     .tags {
         color: #6e6d7a;
         font-size: 12px;
+        margin-bottom: 0;
     }
 }
 

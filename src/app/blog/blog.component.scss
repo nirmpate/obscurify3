@@ -181,6 +181,13 @@ main {
   justify-content: center;
 }
 
+.author__credit {
+    margin-top: 6em;
+    font-weight: normal;
+    font-size: 14px;
+    color: #6e6d7a;
+}
+
 @include gt-md {
   .article__header {
     margin-bottom: 7em;
@@ -219,13 +226,6 @@ main {
 
      p {
          padding: 10px;
-     }
-
-     .author__credit {
-         margin-top: 6em;
-         font-weight: normal;
-         font-size: 14px;
-         color: #6e6d7a;
      }
 
     blockquote {

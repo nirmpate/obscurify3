@@ -1,13 +1,15 @@
 ---
 title: The Unwavering Sincerity of Bedroom Pop
-description: Settle in and dive into the beautiful world of Bedroom Pop with these artist and song suggestions to start your journey.
+description: Settle in and dive into the beautiful world of bedroom pop with these suggestions to start your journey.
 published: true
-date: January 29, 2021
+date: January 24th 2021
+isoDate: 2021-01-24
+featured: no
 author: Alex Klunk
-img: https://d14wch1fpzoq5q.cloudfront.net/2016/01/14115555/Jakob-Ogawa.jpg
+img: https://d129l1mriif4tx.cloudfront.net/jakob-ogawa.jpg
 category: Music Review
 caption: Jakob Ogawa, bedroom pop icon.
-instagram:
+instagram: aklunkk
 facebook:
 twitter:
 tags: bedroom pop, lo-fi, indie

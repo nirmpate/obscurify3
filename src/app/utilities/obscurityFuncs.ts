@@ -73,13 +73,28 @@ export class ObscurityFuncs {
   }
 
   calculateMoodText(userFeatureAverage, obscurifyFeatureAverage) {
-      let diff = userFeatureAverage - obscurifyFeatureAverage;
+      const diff = userFeatureAverage - obscurifyFeatureAverage;
       if (diff > 0.01) {
           return (diff * 100).toFixed(1) + "% higher than";
       } else if (diff < -0.01) {
           return (Math.abs(diff) * 100).toFixed(1) + "% lower than";
       } else {
           return " same as ";
+      }
+  }
+
+  sortBlogPosts(links) {
+      const sortedLinks = links.filter(link => link.title).sort(this.blogDateComparator);
+      const featuredPostIndex = sortedLinks.findIndex(link => {
+          return link.featured === "yes";
+      });
+      if (featuredPostIndex > -1) {
+          const featuredPost = sortedLinks[featuredPostIndex];
+          sortedLinks.splice(featuredPostIndex, 1);
+          sortedLinks.unshift(featuredPost);
+          return sortedLinks;
+      } else {
+          return sortedLinks;
       }
   }
 
@@ -100,11 +115,17 @@ export class ObscurityFuncs {
       }
   }
 
+  blogDateComparator(a, b) {
+      if (new Date(a.isoDate) > new Date(b.isoDate)) { return -1; }
+      if (new Date(a.isoDate) < new Date(b.isoDate)) { return 1; }
+      return 0;
+  }
+
   comparator(a, b) {
     if (a[1] > b[1]) { return -1; }
     if (a[1] < b[1]) { return 1; }
     return 0;
-    }
+  }
 }
 
 export default ObscurityFuncs;
