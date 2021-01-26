@@ -50,7 +50,7 @@ export class BlogComponent implements OnInit {
 
   filterPosts() {
     const posts = this.blogPosts.filter((post) => post !== this.post);
-    this.filterPosts = this.obscurifyFunc.sortBlogPosts(posts);
+    this.filteredPosts = this.obscurifyFunc.sortBlogPosts(posts);
   }
 
   ngOnDestroy(): void {

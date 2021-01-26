@@ -149,6 +149,11 @@
             height: auto;
         }
 
+        &__history {
+            max-height: 450px;
+            overflow-y: auto;
+        }
+
     }
 
 }
