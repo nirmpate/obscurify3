@@ -9,9 +9,9 @@ author: Kristen Paige
 img: https://d129l1mriif4tx.cloudfront.net/sinatra-and-sid-vicious.jpg
 category: Music Review
 caption:
-instagram:
+instagram: kristenepaige
 facebook:
-twitter: kristenepaige
+twitter:
 tags:
 ---
 
