@@ -62,5 +62,12 @@
         }">
     </app-recommendations>
 
-    <app-footer *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)" [login]="false" [spotlight]="true"></app-footer>
+    <app-footer
+        *ngIf="(obscurifyInfo && user && allTimeArtists && currentArtists)"
+        [login]="false" 
+        [spotlight]="true"
+        [about]="true"
+        [privacy]="true"
+        >
+    </app-footer>
 </main>

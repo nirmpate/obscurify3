@@ -2,9 +2,9 @@
   <div class="footer" fxflex="row nowrap" fxLayoutAlign="space-between center">
     <div class="footer__links" fxLayout="column nowrap">
       <a (click)="authorize()" *ngIf="login">Login</a>
-      <a *ngIf="spotlight" routerLink="/blog">Spotlight</a>
-      <a routerLink="/about">About</a>
-      <a routerLink="/privacy">Privacy</a>
+      <a *ngIf="spotlight" href="/blog">Spotlight</a>
+      <a *ngIf="about" routerLink="/about">About</a>
+      <a *ngIf="privacy" routerLink="/privacy">Privacy</a>
       <a (click)="logout()" *ngIf="!login"> Log Out</a>
   </div>
 

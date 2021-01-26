@@ -8,7 +8,7 @@ featured: yes
 author: Nicholas Little
 img: https://d129l1mriif4tx.cloudfront.net/vastness-of-space-tunes.jpg
 category: Music Review
-instagram: whiskey_pharroah
+instagram: whiskey__pharroah
 facebook:
 twitter:
 caption: Photo credit Shawn Marie Hardy

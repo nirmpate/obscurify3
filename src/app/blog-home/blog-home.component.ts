@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 import { Observable } from 'rxjs';
@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-blog-home',
   templateUrl: './blog-home.component.html',
-  styleUrls: ['./blog-home.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./blog-home.component.scss']
 })
 export class BlogHomeComponent implements OnInit {
     links$: Observable<ScullyRoute[]> = this.scully.available$;

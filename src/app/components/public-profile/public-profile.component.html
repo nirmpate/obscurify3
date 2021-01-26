@@ -116,7 +116,14 @@
     </div>
   </main>
 </div>
-<app-footer [login]="true" [spotlight]="true"></app-footer>
+
+<app-footer
+    [login]="true"
+    [spotlight]="true"
+    [about]="true"
+    [privacy]="true"
+    >
+</app-footer>
 
 
 <app-loader *ngIf="!loaded"></app-loader>
