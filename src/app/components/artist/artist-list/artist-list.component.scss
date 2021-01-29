@@ -6,6 +6,13 @@
   display: block;
 }
 
+.dark-theme {
+    .header__title {
+        color: white;
+        border-bottom: 8px #A9E5AC solid;
+    }
+}
+
 .bottomsheet__btn {
     margin-top: 1em;
     padding: 0.5rem 1rem;

@@ -1,5 +1,5 @@
-<div #slate class="slate">
-  <div class="artist">
+<div #slate>
+  <div class="artist" [ngClass]="theme">
     <div class="header" [ngClass]="{ sticky: stickHeader }">
       <h2 class="header__title">
         {{ this.navState.selectedHistory.name }} Top {{ navState.listType }}
@@ -76,6 +76,7 @@
             "
           ></app-track-card>
         </div>
+        
         <div
           *ngIf="
             this.navState.selectedHistory.value == 'current' &&

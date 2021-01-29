@@ -19,10 +19,11 @@ import { BrowserCheck } from 'src/app/services/browserCheck';
 export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
 
   @Input() data: any;
-
+  @Input() color: any;
   @ViewChild('sentinelTop') sentinelTop;
   @ViewChild('sentinelBottom') sentinelBottom;
   @ViewChild('slate') slate;
+
   constructor(
     public element: ElementRef,
     public intersectionObserverService: IntersectionObserverService,
@@ -32,6 +33,10 @@ export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
     public snackBar: MatSnackBar,
     private bottomSheet: MatBottomSheet,
     private browserCheck: BrowserCheck) { }
+
+  get theme() {
+    return this.color === 'dark' ? 'dark-theme' : 'light-theme';
+  }
 
   public navState;
   public selectedArtistsFromHistory;
@@ -49,7 +54,7 @@ export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
   private sentinelBottomIntersectSub: Subscription;
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.data.currentValue.userHistory) {
+    if (changes.data.currentValue.userHistory && !changes.data.firstChange) {
 
       const historyList = [];
 
@@ -74,10 +79,10 @@ export class ArtistListComponent implements AfterViewInit, OnInit, OnChanges {
 
     const historyList = [];
 
-    if (this.data.currentArtists.length > 0) {
+    if (this.data.currentArtists && this.data.currentArtists.length > 0) {
       historyList.push({name: 'Current', value: 'current'});
     }
-    if (this.data.allTimeArtists.length > 0) {
+    if (this.data.allTimeArtists && this.data.allTimeArtists.length > 0) {
       historyList.push({name: 'All Time', value: 'allTime'});
     }
 

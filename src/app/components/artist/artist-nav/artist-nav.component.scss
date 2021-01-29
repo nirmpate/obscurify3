@@ -3,7 +3,7 @@
 
 .artist__nav {
     padding: 0em 2em 2em;
-
+    color: black;
     height: 20em;
     width: 100%;
     box-sizing: border-box;
@@ -123,7 +123,7 @@
 @include gt-md {
 
     .artist__nav {
-        padding: 1em 1em;
+        padding: 2em 2em;
         border-radius: 5px;
 
         height: auto;

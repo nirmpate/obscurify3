@@ -137,9 +137,12 @@ $custom-typography: mat-typography-config(
 @include angular-material-theme($obscurify3-theme);
 
 .dark-theme {
-  @include angular-material-theme($dark-theme)
+  @include angular-material-theme($dark-theme);
 }
 
+.light-theme {
+  @include angular-material-theme($obscurify3-theme);
+}
 
 
 html, body { height: 100%; width: 100%; scroll-behavior: smooth;}
