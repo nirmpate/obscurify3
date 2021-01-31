@@ -6,9 +6,9 @@ date: January 25th 2021
 isoDate: 2021-01-25
 featured: no
 author: Kristen Paige
-img: https://d129l1mriif4tx.cloudfront.net/sinatra-and-sid-vicious.jpg
+img: https://d129l1mriif4tx.cloudfront.net/sinatra.jpeg
 category: Music Review
-caption:
+caption: Frank Sinatra, 1954 © Shutterstock
 instagram: kristenepaige
 facebook:
 twitter:

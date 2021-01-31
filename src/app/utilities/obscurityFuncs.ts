@@ -84,7 +84,7 @@ export class ObscurityFuncs {
   }
 
   sortBlogPosts(links) {
-      const sortedLinks = links.filter(link => link.title).sort(this.blogDateComparator);
+      const sortedLinks = links.filter(link => link.published).sort(this.blogDateComparator);
       const featuredPostIndex = sortedLinks.findIndex(link => {
           return link.featured === "yes";
       });
