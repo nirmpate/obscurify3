@@ -61,8 +61,6 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
               text: `My music taste is more obscure than ${Math.round(this.data.obscurifyInfo.percentileByCountryAllTime)}% of other listeners on Obscurify. \n\nFind yours at`,
               size: 'large'
           });
-
-
       })
   }
 

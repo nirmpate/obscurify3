@@ -57,6 +57,16 @@ nav {
         text-align: center;
         font-size: 2em;
     }
+
+    button {
+      font-size: 1.2em;
+      line-height: 1.2em;
+      padding: 0.5em 1em;
+
+      i {
+        margin-bottom: 5px;
+      }
+    }
 }
 
 .arrow {

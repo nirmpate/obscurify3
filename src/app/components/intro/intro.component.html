@@ -12,17 +12,22 @@
 
 <div *ngIf="!error">
     <div class="profile" fxLayout="column" fxLayoutAlign="center center">
-        <h1 *ngIf="userName" class="profile__header">{{ greeting }}<span >{{ userName }}</span> {{ welcomeMessage }}</h1>
-        <h1 *ngIf="!userName" class="profile__header"> {{ welcomeMessage }} </h1>
+        <h1 *ngIf="userName" class="profile__header mb-2">{{ greeting }}<span >{{ userName }}</span> {{ welcomeMessage }}</h1>
+        <h1 *ngIf="!userName" class="profile__header mb-2"> {{ welcomeMessage }} </h1>
+
+        <button color="primary" mat-raised-button (click)="shareProfile()"><i class="fas fa-share-square"></i> Share profile</button>
+
     </div>
 </div>
 
 <div *ngIf="error">
-    <div class="profile" fxLayout="column" fxLayoutAlign="center center">
+    <div class="profile" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2em">
         <h1 class="profile__header">Looks like you haven't listened to music on Spotify enough to get a score.  Please try again later.</h1>
-
     </div>
 </div>
+
+
+
 
 <div class="arrow" fxLayout="row nowrap" fxLayoutAlign="center center">
   <i class="fas fa-chevron-down"></i>

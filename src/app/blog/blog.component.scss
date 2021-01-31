@@ -40,6 +40,10 @@ main {
   padding: 0 1em;
 }
 
+iframe {
+  margin: 1em auto;
+}
+
 .social__container {
   margin-top: 2em;
 }
@@ -61,6 +65,13 @@ main {
   i {
     color: #fff;
   }
+}
+
+.lyric__quote {
+  line-height: 2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 1em 1em 2em;
 }
 
 .article__header {
@@ -160,9 +171,8 @@ main {
       position: absolute;
       color: $primary-color;
 
-      left: -25px;
+    left: -25px;
     font-size: 40px;
-    margin-top: -4px;
     }
     p {
       font-weight: bold;

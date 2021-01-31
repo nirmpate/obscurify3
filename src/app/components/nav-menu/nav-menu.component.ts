@@ -14,7 +14,6 @@ export class NavMenuComponent implements OnInit {
 
   userImage: string;
   userState: UserState;
-  @ViewChild('dialog') dialogTemp: TemplateRef<any>;
 
   constructor(
     private tokenSvc: TokenService,

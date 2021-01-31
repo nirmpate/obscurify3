@@ -40,12 +40,14 @@ This year I felt undeniable pressure to find a song that encapsulated the year b
 <iframe src="https://open.spotify.com/embed/track/3spdoTYpuCpmq19tuD0bOe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 
-> For what is a man, what has he got
+<div class="lyric__quote"> 
+For what is a man, what has he got
 <br>If not himself then he has not
 <br>To say all the things he truly feels
 <br>And not the words of one who kneels
 <br>The record shows, I took the blows
 <br>But I did it my way
+</div>
 
 
-# As we shouted the words of ‘My Way’ from the tops of our lungs in the most personal way, it felt good to acknowledge the one thing we could control – ourselves.
+ As we shouted the words of ‘My Way’ from the tops of our lungs in the most personal way, it felt good to acknowledge the one thing we could control – ourselves.
