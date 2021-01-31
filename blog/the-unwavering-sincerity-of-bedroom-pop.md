@@ -1,6 +1,6 @@
 ---
 title: The Unwavering Sincerity of Bedroom Pop
-description: Settle in and dive into the beautiful world of bedroom pop with these suggestions to start your journey.
+description: The quintessential genre for lovingly lo-fi moments.
 published: true
 date: January 24th 2021
 isoDate: 2021-01-24
