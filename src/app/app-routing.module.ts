@@ -38,7 +38,7 @@ const routes: Routes = [
     component: SpotifyAuthComponent
 },
 {
-  path: 'user',
+  path: 'profile',
   component: PublicProfileComponent
 },
 { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },

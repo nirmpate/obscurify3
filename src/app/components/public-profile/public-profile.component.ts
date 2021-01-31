@@ -53,8 +53,8 @@ export class PublicProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userID = this.userService.getUserState().userId;
 
-    this.authService.setState(`/user/${this.profileUserID}/${this.shareCode}`);
-    this.tokenSvc.setState(`/user/${this.profileUserID}/${this.shareCode}`);
+    this.authService.setState(`/profile/${this.profileUserID}/${this.shareCode}`);
+    this.tokenSvc.setState(`/profile/${this.profileUserID}/${this.shareCode}`);
     if (this.tokenSvc.oAuthToken.spotifyToken) {
         this.authService.authorized();
         this.getPublicProfile();

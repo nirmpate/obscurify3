@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
                 this.tokenSvc.oAuthToken.state[0] === '/' &&
                 this.tokenSvc.oAuthToken.state.split('/').length === 4) {
                     const route = this.tokenSvc.oAuthToken.state.split('/');
-                    this.router.navigate(['/user'], { queryParams: { id: route[2], code: route[3] } });
+                    this.router.navigate(['/profile'], { queryParams: { id: route[2], code: route[3] } });
             } else {
                 this.router.navigate(['home']);
             }
