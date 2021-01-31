@@ -55,7 +55,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.seoService.setMetaTags();
     const userStream = this.tokenSvc.authTokens.pipe((x) => {
-        console.log(this.tokenSvc.oAuthToken)
       if (this.tokenSvc.oAuthToken.spotifyToken) {
         this.authService.authorized();
       } else {

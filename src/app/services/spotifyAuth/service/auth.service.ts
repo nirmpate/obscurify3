@@ -50,7 +50,6 @@ export class AuthService {
       if (window) {
         localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
       }
-      console.log(localUserToken);
       if (localUserToken && localUserToken.spotifyTokenRefresh) {
           if (date.getTime() < localUserToken.spotifyTokenRefresh) {
               this.tokenSvc.setAuthTokenFromStorage(localUserToken);
@@ -81,7 +80,6 @@ export class AuthService {
   private buildAuthUrl(): string {
 
     const params = [];
-    console.log(this.authConfig);
     for (const [key, value] of Object.entries(this.authConfig)) {
       if (typeof (value) === 'object') {
         params.push(`${key}=${(value as string[]).join(' ')}`);

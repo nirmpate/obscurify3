@@ -11,7 +11,6 @@ export abstract class SpotifyAuthInterceptor implements HttpInterceptor {
   abstract doOnError(err: any): void;
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log(req)
     const authReq = req.clone({ setHeaders: this.tokenSvc.authHeader });
     return next.handle(authReq).pipe(tap(
         (event: HttpEvent<any>) => {},
