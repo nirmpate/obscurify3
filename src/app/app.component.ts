@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.authorizedStream.subscribe((x: boolean) => {
-        // if (x) {
+        if (x) {
             if (this.tokenSvc.oAuthToken.state &&
                 this.tokenSvc.oAuthToken.state[0] === '/' &&
                 this.tokenSvc.oAuthToken.state.split('/').length === 4) {
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
             } else {
                 this.router.navigate(['home']);
             }
-        // }
+        }
 
     });
     if (!isPlatformBrowser(this.platformId)) {

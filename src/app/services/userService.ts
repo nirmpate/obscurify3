@@ -40,10 +40,10 @@ export class UserService {
 
     public setUserState(config: UserState) {
         this.userState = {
-            userImageUrl: get(config, 'userImageUrl', this.userState.userImageUrl),
-            userName: get(config, 'userName', this.userState.userName),
-            userId: get(config, 'userId', this.userState.userId),
-            profileCode: get(config, 'profileCode', this.userState.profileCode)
+            userImageUrl: config.userImageUrl,
+            userName: config.userName,
+            userId: config.userId,
+            profileCode: config.profileCode
         };
 
         if (window) {
