@@ -44,24 +44,23 @@ export class AuthService {
   }
 
   public authorize() {
-
     if (this.isBrowser) {
       const date  = new Date();
       let localUserToken = null;
-
       if (window) {
         localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
       }
+      console.log(localUserToken);
       if (localUserToken && localUserToken.spotifyTokenRefresh) {
-        if (date.getSeconds() < localUserToken.spotifyTokenRefresh) {
-          this.tokenSvc.setAuthTokenFromStorage(localUserToken);
-          this.authorized();
-        }
+          if (date.getSeconds() < localUserToken.spotifyTokenRefresh) {
+              this.tokenSvc.setAuthTokenFromStorage(localUserToken);
+              this.authorized();
+          }
         } else {
             window.location.href = this.buildAuthUrl();
         }
 
-        }
+    }
   }
 
   // Signal someone, that router can navigate somewhere

@@ -17,6 +17,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   public canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const response = next.queryParams;
+    console.log(response);
     if (response.spotifyToken && response.obscurifyToken && response.expiresIn) {
       this.tokenSvc.setAuthTokenFromSpotify(response);
     }
