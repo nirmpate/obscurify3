@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { lodash } from 'lodash-es';
+import  get  from 'lodash/get';
 
 export interface UserState {
     userImageUrl?: string;
@@ -40,10 +40,10 @@ export class UserService {
 
     public setUserState(config: UserState) {
         this.userState = {
-            userImageUrl: lodash.get(config, 'userImageUrl', this.userState.userImageUrl),
-            userName: lodash.get(config, 'userName', this.userState.userName),
-            userId: lodash.get(config, 'userId', this.userState.userId),
-            profileCode: lodash.get(config, 'profileCode', this.userState.profileCode)
+            userImageUrl: get(config, 'userImageUrl', this.userState.userImageUrl),
+            userName: get(config, 'userName', this.userState.userName),
+            userId: get(config, 'userId', this.userState.userId),
+            profileCode: get(config, 'profileCode', this.userState.profileCode)
         };
 
         if (window) {
