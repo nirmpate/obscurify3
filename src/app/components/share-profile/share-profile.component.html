@@ -5,11 +5,11 @@
 
         <p class="mb-1">
             If you have profile sharing enabled, anyone that clicks your unique link
-            can see your top tracks, artists, genres, and Obscurify Rating. 
+            can see your top tracks, artists, genres, and Obscurify Rating.
         </p>
 
-        <p class="mb-1">Below is the link to your public profile.  Share it with your friends!</p>        
-        
+        <p class="mb-1">Below is the link to your public profile.  Share it with your friends!</p>
+
         <mat-form-field class="mb-1">
             <mat-label>Share this link to your profile!</mat-label>
             <input #field placeholder="Turn on sharing"  [disabled]="!userState.profileCode"[readonly]="true" type="text" matInput [value]="userProfileUrl">
@@ -23,13 +23,13 @@
                 Share your profile
             </mat-slide-toggle>
 
-            <button *ngIf="checked" mat-raised-button color="primary" class="copy-btn" [cdkCopyToClipboard]="getProfileUrl()"><i class="fas fa-clipboard"></i> Copy Link </button>
+            <button *ngIf="checked" mat-raised-button (click)="openSnackBarClipBoard()"color="primary" class="copy-btn" [cdkCopyToClipboard]="getProfileUrl()"><i class="fas fa-clipboard"></i> Copy Link </button>
         </div>
 
 
 
         <p class="share__profile--small-text" *ngIf="!checked">You aren't sharing your profile. Other users won't be able to see it.</p>
-<!-- 
+<!--
         <p>
             If you have profile sharing enabled, anyone that clicks your unique link
             can see:

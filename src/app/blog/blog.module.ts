@@ -7,9 +7,11 @@ import {GlobalModule} from '../global/global.module';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ArticlesModule } from '../articles/articles.module';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [BlogComponent],
-  imports: [ArticlesModule, CommonModule, BlogRoutingModule, ScullyLibModule, GlobalModule, RouterModule, FlexLayoutModule],
+  imports: [ArticlesModule, CommonModule, BlogRoutingModule, ScullyLibModule, GlobalModule, RouterModule, FlexLayoutModule, ClipboardModule, MatSnackBarModule],
 })
 export class BlogModule {}

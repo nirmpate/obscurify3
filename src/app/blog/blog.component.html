@@ -1,16 +1,16 @@
 <header>
-  <a class="back__btn" routerLink="/login"> <i class="fas fa-arrow-left"></i> Go back </a>
+  <a class="back__btn" href="/home"> <i class="fas fa-arrow-left"></i> Go back </a>
 
 </header>
 
 <main>
   <div class="article__header" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign=" start center" fxLayoutGap="5%">
+    <div class="backdrop"></div>
     <div fxFlex="50">
       <img [src]="post.img"/>
       <p class="caption">{{ post.caption }}</p>
     </div>
     <div class="article__info">
-      <div class="backdrop"></div>
       <p class="article__tag">{{ post.category }}</p>
       <h1>{{ post.title }}</h1>
       <p *ngIf="post.author">by {{ post.author }}</p>
@@ -18,26 +18,36 @@
       <p *ngIf="post.description" class="article__description"> {{ post.description }}</p>
 
       <div class="social__container" fxLayout="row" fxLayoutGap="1em">
-        <a class="social__link">
+        <a class="social__link" target=_blank rel="canonical" (click)="twitterShare()">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
 
-        <a class="social__link">
+        <a class="social__link" (click)="facebookShare()" target="_blank">
           <i class="fab fa-facebook-f" aria-hidden="true"></i>
         </a>
-
-        <a class="social__link">
+        <a class="social__link" [cdkCopyToClipboard]="location" (click)="openSnackBarClipBoard()">
           <i class="far fa-copy" aria-hidden="true"></i>
         </a>
       </div>
     </div>
   </div>
 
-  <div class="article__body" fxLayout.lt-md="column" fxLayout="row nowrap" fxLayoutGap="2em">
-    <div class="article__social" fxFlex="5%">
+  <div class="article__body" fxLayout.lt-md="column" fxLayout="row nowrap" fxLayoutGap="2em" fxLayoutAlign="center" >
+    <div class="article__social" fxFlex="20%" fxHide.lt-md>
+      <div class="social__container  social__container--sticky" fxLayout="column" fxLayoutGap="1em">
+        <a class="social__link" target=_blank rel="canonical" (click)="twitterShare()">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
 
+        <a class="social__link" (click)="facebookShare()" target="_blank">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a class="social__link" [cdkCopyToClipboard]="location" (click)="openSnackBarClipBoard()">
+          <i class="far fa-copy" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
-    <div class="article__content" fxFlex="65%">
+    <div class="article__content" fxFlex="70%">
       <scully-content></scully-content>
       <div class="author__credit" *ngIf="post.instagram">
           Written by {{post.author}}, who you can find on <a href="https://www.instagram.com/{{post.instagram}}">Instagram</a>.
@@ -73,7 +83,7 @@
 
 
 <app-footer
-    [login]="true" 
+    [login]="true"
     [spotlight]="true"
     [about]="true"
     [privacy]="true"
