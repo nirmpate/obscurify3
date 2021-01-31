@@ -88,7 +88,6 @@ export class PublicProfileComponent implements OnInit {
                 .then((res: any) => {
                   this.longTermArtists = [...res.artists];
                   this.genres = this.obscurityFunc.findTopGenres(this.longTermArtists);
-                  console.log(this.genres);
                 })
                 .catch(err => {
                   console.log(err);

@@ -11,7 +11,7 @@ export class TokenService {
       if (window) {
           localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
           if (localUserToken) {
-              this.setAuthToken(localUserToken);
+              this.setAuthTokenFromStorage(localUserToken);
           }
       }
   }
@@ -59,8 +59,43 @@ export class TokenService {
   }
 
 
-  public setAuthToken(spotifyResponse: any): boolean {
-    if (!!spotifyResponse && !!spotifyResponse.spotifyToken && !!spotifyResponse.obscurifyToken) {
+    public setAuthTokenFromStorage(localResponse: any): boolean {
+      if (!!localResponse &&
+          !!localResponse.spotifyToken &&
+          !!localResponse.obscurifyToken &&
+          !!localResponse.spotifyTokenRefresh
+      ) {
+        const date = new Date();
+        this.token.spotifyToken = localResponse.spotifyToken;
+        this.token.obscurifyToken = localResponse.obscurifyToken;
+        this.token.state = localResponse.state;
+        this.token.isPublic = localResponse.isPublic;
+        this.token.spotifyTokenRefresh = localResponse.spotifyTokenRefresh;
+
+        if (window) {
+          window.localStorage.setItem('userToken', JSON.stringify(this.token));
+        }
+      } else {
+        this.token = {
+          spotifyToken: '',
+          obscurifyToken: '',
+          state: '',
+          isPublic: '',
+          spotifyTokenRefresh: null
+        };
+        window.localStorage.removeItem('userToken');
+      }
+      this.token$.next(this.token);
+      return !!this.token;
+    }
+
+
+  public setAuthTokenFromSpotify(spotifyResponse: any): boolean {
+    if (!!spotifyResponse &&
+        !!spotifyResponse.spotifyToken &&
+        !!spotifyResponse.obscurifyToken &&
+        !!spotifyResponse.expiresIn
+    ) {
       const date = new Date();
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;

@@ -54,14 +54,14 @@ export class AuthService {
       }
       if (localUserToken && localUserToken.spotifyTokenRefresh) {
         if (date.getSeconds() < localUserToken.spotifyTokenRefresh) {
-          this.tokenSvc.setAuthToken(localUserToken);
+          this.tokenSvc.setAuthTokenFromStorage(localUserToken);
           this.authorized();
         }
-    } else {
-        window.location.href = this.buildAuthUrl();
-    }
+        } else {
+            window.location.href = this.buildAuthUrl();
+        }
 
-    }
+        }
   }
 
   // Signal someone, that router can navigate somewhere

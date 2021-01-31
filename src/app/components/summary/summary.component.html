@@ -5,31 +5,33 @@
           </button>
     </div>
 
-    <div class="mb-1">Your all-time results:</div>
+    <div *ngIf="currentSelectedTab == 'All Time'" class="mb-1">Your all-time results:</div>
+    <div *ngIf="currentSelectedTab == 'Current'" class="mb-1">Your current results:</div>
 
     <div class="mb-1" fxLayout="row" fxLayoutGap="1em">
         <div>
-            <h1>{{percentileByCountryAllTime | number:'1.0-0'}}%</h1>
+            <h1 *ngIf="currentSelectedTab == 'All Time'">{{percentileByCountryAllTime | number:'1.0-0'}}%</h1>
+            <h1 *ngIf="currentSelectedTab == 'Current'">{{percentileByCountryRecent | number:'1.0-0'}}%</h1>
         </div>
         <div>
             <h3>Obscurity Rating</h3>
-            <p class="mb-">More obscure than {{percentileByCountryAllTime | number:'1.0-0'}}% of {{country}} users.</p>
+            <p *ngIf="currentSelectedTab == 'All Time'" class="mb-">More obscure than {{percentileByCountryAllTime | number:'1.0-0'}}% of {{country}} users.</p>
+            <p *ngIf="currentSelectedTab == 'Current'" class="mb-">More obscure than {{percentileByCountryRecent | number:'1.0-0'}}% of {{country}} users.</p>
+
         </div>
     </div>
 
     <h2 class="mb-1">Top Genres</h2>
     <div class="mb-1" fxLayout="row wrap" fxLayoutAlign="flex-start start" fxLayoutGap="0.5em">
-        <mat-chip-list>
-            <mat-chip *ngFor="let item of topGenres; let i = index"selected color="accent" [selectable]="false" [disableRipple]="true">{{ item[0] }}</mat-chip>
-
+        <mat-chip-list *ngIf="currentSelectedTab == 'All Time'">
+            <mat-chip *ngFor="let item of topGenresAllTime; let i = index"selected color="accent" [selectable]="false" [disableRipple]="true">{{ item[0] }}</mat-chip>
         </mat-chip-list>
-        <!-- <div class="" *ngFor="let item of topGenres; let i = index">
-            <mat-chip selected color="accent">{{ item[0] }}</mat-chip>
-
-        </div> -->
+        <mat-chip-list *ngIf="currentSelectedTab == 'Current'">
+            <mat-chip *ngFor="let item of topGenresCurrent; let i = index"selected color="accent" [selectable]="false" [disableRipple]="true">{{ item[0] }}</mat-chip>
+        </mat-chip-list>
     </div>
 
-    <mat-tab-group mat-align-tabs="start">
+    <mat-tab-group mat-align-tabs="start" #tabGroup (selectedTabChange)="tabChanged($event)">
         <mat-tab class="mb-1" label="All Time">
             <div class="mb-1 mt-1" fxLayout="row nowrap" fxLayoutGap="1rem">
 
@@ -42,10 +44,10 @@
                                 {{ item.name }}
                             </p>
                         </a>
-                    </div>   
+                    </div>
                 </div>
 
-                
+
                 <div fxLayout="column">
                     <h3 class="mb-1">Tracks</h3>
                     <div *ngFor="let item of allTimeTracks; let i = index">
@@ -60,7 +62,7 @@
 
             </div>
 
-            
+
         </mat-tab>
 
         <mat-tab class="mb-1" label="Current">
@@ -76,7 +78,7 @@
                             </p>
                         </a>
 
-                    </div>   
+                    </div>
                 </div>
 
                 <div fxLayout="column">
@@ -93,7 +95,7 @@
 
             </div>
 
-            
+
         </mat-tab>
 
     </mat-tab-group>

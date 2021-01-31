@@ -44,7 +44,8 @@ export class HomeComponent implements OnInit {
   public longTermAudioFeatures = null;
   public allTimeArtists = null;
   public allTimeTracks = null;
-  public topGenres = null;
+  public topGenresAllTime = null;
+  public topGenresCurrent = null;
   public currentArtists = null;
   public currentTracks = null;
   public loaded = false;
@@ -102,8 +103,8 @@ export class HomeComponent implements OnInit {
               allTimeTrackIDs: this.allTimeTracks.allTimeTrackIDs,
               currentTrackIDs: this.currentTracks.currentTrackIDs
             };
-            this.topGenres = this.obscurifyFunc.findTopGenres(this.allTimeArtists.allTimeArtists);
-
+            this.topGenresAllTime = this.obscurifyFunc.findTopGenres(this.allTimeArtists.allTimeArtists);
+            this.topGenresCurrent = this.obscurifyFunc.findTopGenres(this.currentArtists.currentArtists);
             this.spotifyService.getAudioFeatures(config).subscribe((audioFeatures: any) => {
                 if (audioFeatures && audioFeatures.length === 2) {
                     this.longTermAudioFeatures = this.obscurifyFunc.calculateAudioFeatureAverages(audioFeatures[0].audio_features);
