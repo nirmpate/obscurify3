@@ -5,7 +5,7 @@
   <div id="bsa-zone_1597164528738-4_123456"></div>
 </div>
 
-<div *ngIf="data">
+<div class="intro" *ngIf="data">
   <div class="welcome" fxLayout="column" fxLayoutAlign="center center">
     <h1>Welcome to <br /> Obscurify<span>.</span></h1>
 </div>
@@ -14,9 +14,6 @@
     <div class="profile" fxLayout="column" fxLayoutAlign="center center">
         <h1 *ngIf="userName" class="profile__header mb-2">{{ greeting }}<span >{{ userName }}</span> {{ welcomeMessage }}</h1>
         <h1 *ngIf="!userName" class="profile__header mb-2"> {{ welcomeMessage }} </h1>
-
-        <button color="primary" mat-raised-button (click)="shareProfile()"><i class="fas fa-share-square"></i> Share profile</button>
-
     </div>
 </div>
 

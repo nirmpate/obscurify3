@@ -32,6 +32,22 @@ nav {
     }
 }
 
+.intro {
+  max-width: 1024px;
+  padding: 0 1em;
+  margin: 0 auto;
+
+  button {
+    font-size: 1.2em;
+    line-height: 1.2em;
+    padding: 0.5em 1em;
+
+    i {
+      margin-bottom: 5px;
+    }
+  }
+}
+
 .welcome {
     width: 100%;
     font-size: 1.5em;
@@ -56,16 +72,6 @@ nav {
         max-width: 500px;
         text-align: center;
         font-size: 2em;
-    }
-
-    button {
-      font-size: 1.2em;
-      line-height: 1.2em;
-      padding: 0.5em 1em;
-
-      i {
-        margin-bottom: 5px;
-      }
     }
 }
 

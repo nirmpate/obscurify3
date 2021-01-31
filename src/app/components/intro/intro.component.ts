@@ -34,14 +34,13 @@ export class IntroComponent implements OnInit, OnChanges {
     public snkBar: MatSnackBar,
     public platform: Platform,
     public dialog: MatDialog,
-    public userService: UserService
     ) { }
 
   public userImage;
   public userName;
   public welcomeMessage;
   public greeting;
-  public userState
+
   ngOnChanges(change) {
     if (!change.data.previousValue && change.data.currentValue) {
         if (this.data) {
@@ -55,11 +54,6 @@ export class IntroComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
-    this.userService.userStateSub().subscribe((userState: UserState) => {
-      this.userState = userState;
-      this.userImage = userState.userImageUrl;
-    });
-
     if (this.error) {
       this.snkBar.open('No data. Try again later.', '' , {
         duration: 5000,
@@ -67,11 +61,6 @@ export class IntroComponent implements OnInit, OnChanges {
       verticalPosition: 'top'
     });
     }
-  }
-
-  public shareProfile() {
-      this.dialog.open(ShareProfileComponent).componentInstance.userState = this.userState;
-
   }
 
   public logout() {
