@@ -25,7 +25,9 @@
                 topGenres: topGenres
             }">
         </app-obscurity-rating>
-        <app-artist-list
+
+        <div class="slate">
+            <app-artist-list
             [data]="{
                 allTimeArtists: allTimeArtists.allTimeArtists,
                 allTimeTracks: allTimeTracks.allTimeTracks,
@@ -34,7 +36,8 @@
                 userInfo: user,
                 userHistory: userHistory
             }">
-        </app-artist-list>
+            </app-artist-list>
+        </div>
 
         <app-moods-graph
             (audioData)="getUserHistory($event)"
