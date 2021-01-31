@@ -44,22 +44,20 @@ export class AuthService {
   }
 
   public authorize() {
-
     if (this.isBrowser) {
       const date  = new Date();
       let localUserToken = null;
-
       if (window) {
         localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
       }
       if (localUserToken && localUserToken.spotifyTokenRefresh) {
-        if (date.getSeconds() < localUserToken.spotifyTokenRefresh) {
-          this.tokenSvc.setAuthToken(localUserToken);
-          this.authorized();
+          if (date.getTime() < localUserToken.spotifyTokenRefresh) {
+              this.tokenSvc.setAuthTokenFromStorage(localUserToken);
+              this.authorized();
+          }
+        } else {
+            window.location.href = this.buildAuthUrl();
         }
-    } else {
-        window.location.href = this.buildAuthUrl();
-    }
 
     }
   }
@@ -82,7 +80,6 @@ export class AuthService {
   private buildAuthUrl(): string {
 
     const params = [];
-
     for (const [key, value] of Object.entries(this.authConfig)) {
       if (typeof (value) === 'object') {
         params.push(`${key}=${(value as string[]).join(' ')}`);

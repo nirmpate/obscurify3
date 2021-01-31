@@ -25,22 +25,22 @@ export class ObscurityFuncs {
         }
   }
 
-  findTopGenres(allTimeArtists) {
+  findTopGenres(artists) {
       const genres: any = {};
       const topGenres: any = [];
       // tslint:disable-next-line: prefer-for-of
-      for (let i = 0; i < allTimeArtists.length; i++) {
+      for (let i = 0; i < artists.length; i++) {
         // tslint:disable-next-line: prefer-for-of
-        for (let y = 0; y < allTimeArtists[i].genres.length; y++) {
-          if (genres[allTimeArtists[i].genres[y]] != null) {
-          genres[allTimeArtists[i].genres[y]] = genres[allTimeArtists[i].genres[y]] + 1;
+        for (let y = 0; y < artists[i].genres.length; y++) {
+          if (genres[artists[i].genres[y]] != null) {
+          genres[artists[i].genres[y]] = genres[artists[i].genres[y]] + 1;
         } else {
-          genres[allTimeArtists[i].genres[y]] = 1;
+          genres[artists[i].genres[y]] = 1;
           }
         }
       }
       for (const g in genres) {
-        if (genres.hasOwnProperty(g) && genres[g] > 4) {
+        if (genres.hasOwnProperty(g) && genres[g] > 2) {
           topGenres.push([g, genres[g]]);
         }
       }

@@ -80,11 +80,12 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
             audioFeatureAverages: this.data.obscurifyInfo.audioFeatureAverages,
             longTermAudioFeatures: this.data.longTermAudioFeatures,
             shortTermAudioFeatures: this.data.shortTermAudioFeatures,
-            topGenres: this.data.topGenres
+            topGenresAllTime: this.data.topGenresAllTime,
+            topGenresCurrent: this.data.topGenresCurrent
         }
     });
     dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        // console.log(`Dialog result: ${result}`);
     });
   }
 
