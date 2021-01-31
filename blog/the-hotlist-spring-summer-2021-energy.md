@@ -14,7 +14,7 @@ facebook: null
 twitter: null
 tags: 'dance, house, electronic'
 slugs:
-    - ___UNPUBLISHED___kkkttzj6_lONT5ZSWzLRAZAOY7zc4w85WK6hmTI0e
+    - ___UNPUBLISHED___kkku9ufz_As7pELVYqoqRiZEI8azBSWJXbR8euIz5
 ---
 
 # 2020 was the absolute worst. All of your favorite fests and friends got locked down and somehow— you survived.
