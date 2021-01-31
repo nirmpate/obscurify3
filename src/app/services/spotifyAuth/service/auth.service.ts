@@ -52,7 +52,7 @@ export class AuthService {
       }
       console.log(localUserToken);
       if (localUserToken && localUserToken.spotifyTokenRefresh) {
-          if (date.getSeconds() < localUserToken.spotifyTokenRefresh) {
+          if (date.getTime() < localUserToken.spotifyTokenRefresh) {
               this.tokenSvc.setAuthTokenFromStorage(localUserToken);
               this.authorized();
           }

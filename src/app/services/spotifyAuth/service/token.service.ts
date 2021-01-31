@@ -96,7 +96,7 @@ export class TokenService {
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;
       this.token.state = spotifyResponse.state;
-      this.token.spotifyTokenRefresh = date.setSeconds(date.getSeconds() + spotifyResponse.expiresIn);
+      this.token.spotifyTokenRefresh = date.setTime(date.getTime() + spotifyResponse.expiresIn * 1000);
 
       if (window) {
         window.localStorage.setItem('userToken', JSON.stringify(this.token));
