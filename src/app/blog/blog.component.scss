@@ -40,6 +40,29 @@ main {
   padding: 0 1em;
 }
 
+.social__container {
+  margin-top: 2em;
+}
+
+.social__container--sticky {
+  position: sticky;
+  top: 20px;
+}
+
+.social__link {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #181818;
+
+  i {
+    color: #fff;
+  }
+}
+
 .article__header {
   position: relative;
   margin-bottom: 2em;
@@ -47,7 +70,6 @@ main {
   .backdrop {
     display: none;
     background: rgba(216, 216, 216, 0.15);
-
   }
 
   .caption {
@@ -81,24 +103,6 @@ main {
 
   h1 {
     margin: 1rem 0 2rem;
-  }
-
-  .social__container {
-    margin-top: 2em;
-  }
-
-  .social__link {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #181818;
-
-    i {
-      color: #fff;
-    }
   }
 }
 
@@ -182,10 +186,14 @@ main {
 }
 
 .author__credit {
-    margin-top: 6em;
+    margin-top: 3em;
     font-weight: normal;
     font-size: 14px;
     color: #6e6d7a;
+    border-top: 1px solid rgb(199, 199, 199);
+    border-bottom: 1px solid rgb(199, 199, 199);
+    padding: 3em 1em;
+
 }
 
 @include gt-md {
@@ -198,10 +206,10 @@ main {
     .backdrop {
       display: block;
       height: 130%;
-      width: 50%;
+      width: 100%;
       position: absolute;
       top: 0;
-      transform: translate(-20%, -60px);
+      transform: translate(40%, -60px);
       z-index: -1;
     }
 

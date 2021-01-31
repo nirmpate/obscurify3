@@ -5,6 +5,7 @@ import { ObscurifyService } from 'src/app/services/obscurifyService';
 import { TokenService } from 'src/app/services/spotifyAuth';
 import { UserService, UserState } from 'src/app/services/userService';
 import { environment } from 'src/environments/environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-share-profile',
@@ -18,7 +19,7 @@ export class ShareProfileComponent implements OnInit, OnDestroy {
   public userProfileUrl = '';
   public checked;
   public userSub: Subscription;
-  constructor(public userService: UserService, public obscurifyService: ObscurifyService, public tokenSvc: TokenService) { }
+  constructor(public userService: UserService, public obscurifyService: ObscurifyService, public tokenSvc: TokenService, public snkBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.checked = this.userState.profileCode ? true : false;
@@ -73,6 +74,10 @@ export class ShareProfileComponent implements OnInit, OnDestroy {
 
   toggleChange($event) {
     this.toggle($event.checked);
+  }
+
+  openSnackBarClipBoard() {
+    this.snkBar.open('Copied to Clipboard', '' , { duration: 5000, panelClass: 'panel-success', verticalPosition: 'top'});
   }
 
   ngOnDestroy() {

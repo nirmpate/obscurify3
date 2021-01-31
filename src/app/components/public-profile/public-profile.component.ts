@@ -5,6 +5,7 @@ import { ObscurifyService } from 'src/app/services/obscurifyService';
 import { SpotifyService } from 'src/app/services/spotifyService';
 import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 import { DomSanitizer } from '@angular/platform-browser';
+import { UserService } from 'src/app/services/userService';
 
 @Component({
   selector: 'app-public-profile',
@@ -13,7 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class PublicProfileComponent implements OnInit {
 
-    private userID: string;
+    public profileUserID: string;
     private shareCode: string;
     public loaded = false;
     public country: string;
@@ -32,7 +33,7 @@ export class PublicProfileComponent implements OnInit {
     public obscurifyPercentile: number;
     public userHistory: any[];
     public genres: any[];
-
+    public userID: string;
     public sliceLimit = 12;
 
   constructor(
@@ -42,16 +43,19 @@ export class PublicProfileComponent implements OnInit {
       public tokenSvc: TokenService,
       public authService: AuthService,
       public obscurifyService: ObscurifyService,
-      public spotifyService: SpotifyService
+      public spotifyService: SpotifyService,
+      public userService: UserService
   ) {
-      this.userID = routeParams.snapshot.queryParams.id;
+      this.profileUserID = routeParams.snapshot.queryParams.id;
       this.shareCode = routeParams.snapshot.queryParams.code;
   }
 
   ngOnInit(): void {
-      this.authService.setState(`/user/${this.userID}/${this.shareCode}`);
-      this.tokenSvc.setState(`/user/${this.userID}/${this.shareCode}`);
-      if (this.tokenSvc.oAuthToken.spotifyToken) {
+    this.userID = this.userService.getUserState().userId;
+
+    this.authService.setState(`/user/${this.profileUserID}/${this.shareCode}`);
+    this.tokenSvc.setState(`/user/${this.profileUserID}/${this.shareCode}`);
+    if (this.tokenSvc.oAuthToken.spotifyToken) {
         this.authService.authorized();
         this.getPublicProfile();
         this.tokenSvc.resetState();
@@ -62,7 +66,7 @@ export class PublicProfileComponent implements OnInit {
   }
 
   getPublicProfile() {
-        this.obscurifyService.getPublicProfile(this.userID, this.shareCode).subscribe(
+        this.obscurifyService.getPublicProfile(this.profileUserID, this.shareCode).subscribe(
           (userData: any) => {
             if (userData.error) {
               console.log(userData.error);
@@ -80,23 +84,6 @@ export class PublicProfileComponent implements OnInit {
               this.obscurifyScore = (userData.obscurifyScore ? userData.obscurifyScore.N : null);
               this.userHistory = (userData.userHistory ?
                   userData.userHistory.L.map(x => x.M) : null);
-
-              // this.spotifyService.getArtists({artistIDs: this.currentArtistIDs}).then(
-              //   (res: any) => {
-              //     this.currentArtists = [...res.artists];
-              //   }
-              // ).catch(err => {
-              //   console.log(err);
-              // });
-
-              // this.spotifyService.getTracks({trackIDs: this.currentTrackIDs}).then(
-              //   (res: any) => {
-              //     this.currentTracks = [...res.artists];
-              //   }
-              // ).catch(err => {
-              //   console.log(err);
-              // });
-
               this.spotifyService.getArtists({artistIDs: this.longTermArtistIDs})
                 .then((res: any) => {
                   this.longTermArtists = [...res.artists];
@@ -121,7 +108,7 @@ export class PublicProfileComponent implements OnInit {
                 0).subscribe(
                   (obscurifyData: any) => {
                     if (obscurifyData.error) {
-                      console.log(obscurifyData.error)
+                      console.log(obscurifyData.error);
                     } else {
                       this.obscurifyPercentile = obscurifyData.percentileByCountryAllTime;
                     }

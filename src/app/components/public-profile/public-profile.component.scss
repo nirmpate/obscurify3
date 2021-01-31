@@ -1,6 +1,19 @@
 @import 'mixins';
 @import 'variables';
 
+
+.public__profile {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-top: 3em;
+  padding-bottom: 6em;
+  color: white;
+}
+
+.public__profile__container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
 .back__btn {
   padding: 1em 1em;
   background: #FFFFFF;
@@ -21,12 +34,6 @@
   }
 }
 
-.slate {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding-top: 3em;
-}
-
 header {
   max-width: 1440px;
   margin: 0 auto;
@@ -35,7 +42,7 @@ header {
 
 main {
   max-width: 1024px;
-  margin: 4em auto;
+  margin: 4em auto 0;
 }
 
 .profile__image {
