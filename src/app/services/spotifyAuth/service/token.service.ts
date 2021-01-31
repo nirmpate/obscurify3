@@ -20,7 +20,6 @@ export class TokenService {
     spotifyToken: '',
     obscurifyToken: '',
     state: '',
-    isPublic: '',
     spotifyTokenRefresh: null
   };
 
@@ -35,7 +34,6 @@ export class TokenService {
       spotifyToken: '',
       obscurifyToken: '',
       state: '',
-      isPublic: '',
       spotifyTokenRefresh: null
     };
     window.localStorage.removeItem('userToken');
@@ -69,7 +67,6 @@ export class TokenService {
         this.token.spotifyToken = localResponse.spotifyToken;
         this.token.obscurifyToken = localResponse.obscurifyToken;
         this.token.state = localResponse.state;
-        this.token.isPublic = localResponse.isPublic;
         this.token.spotifyTokenRefresh = localResponse.spotifyTokenRefresh;
 
         if (window) {
@@ -80,7 +77,6 @@ export class TokenService {
           spotifyToken: '',
           obscurifyToken: '',
           state: '',
-          isPublic: '',
           spotifyTokenRefresh: null
         };
         window.localStorage.removeItem('userToken');
@@ -100,7 +96,6 @@ export class TokenService {
       this.token.spotifyToken = spotifyResponse.spotifyToken;
       this.token.obscurifyToken = spotifyResponse.obscurifyToken;
       this.token.state = spotifyResponse.state;
-      this.token.isPublic = spotifyResponse.isPublic;
       this.token.spotifyTokenRefresh = date.setSeconds(date.getSeconds() + spotifyResponse.expiresIn);
 
       if (window) {
@@ -111,7 +106,6 @@ export class TokenService {
         spotifyToken: '',
         obscurifyToken: '',
         state: '',
-        isPublic: '',
         spotifyTokenRefresh: null
       };
       window.localStorage.removeItem('userToken');

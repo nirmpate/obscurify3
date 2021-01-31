@@ -81,7 +81,7 @@ export class AuthService {
   private buildAuthUrl(): string {
 
     const params = [];
-
+    console.log(this.authConfig);
     for (const [key, value] of Object.entries(this.authConfig)) {
       if (typeof (value) === 'object') {
         params.push(`${key}=${(value as string[]).join(' ')}`);

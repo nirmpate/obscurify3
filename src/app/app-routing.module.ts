@@ -25,7 +25,6 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    canActivate: [ AuthGuard ],
     component: HomeComponent
   },
   {
@@ -40,7 +39,6 @@ const routes: Routes = [
 },
 {
   path: 'profile',
-  canActivate: [ AuthGuard ],
   component: PublicProfileComponent
 },
 { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },

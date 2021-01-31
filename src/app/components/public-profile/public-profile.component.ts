@@ -48,9 +48,12 @@ export class PublicProfileComponent implements OnInit {
   ) {
       this.profileUserID = routeParams.snapshot.queryParams.id;
       this.shareCode = routeParams.snapshot.queryParams.code;
+      console.log(this.shareCode);
   }
 
   ngOnInit(): void {
+    console.log("public profile init");
+    console.log(this.tokenSvc.oAuthToken)
     this.userID = this.userService.getUserState().userId;
 
     this.authService.setState(`/profile/${this.profileUserID}/${this.shareCode}`);

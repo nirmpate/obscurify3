@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.seoService.setMetaTags();
     const userStream = this.tokenSvc.authTokens.pipe((x) => {
+        console.log(this.tokenSvc.oAuthToken)
       if (this.tokenSvc.oAuthToken.spotifyToken) {
         this.authService.authorized();
       } else {
@@ -79,7 +80,6 @@ export class HomeComponent implements OnInit {
         this.user = user;
 
         // Get the rest of Spotify Data
-        this.isProfilePublic = this.tokenSvc.oAuthToken.isPublic;
         const artistAndTrackStream = combineLatest([
           this.infoSvc.fetchAllTimeTracks(),
           this.infoSvc.fetchCurrentTracks(),
