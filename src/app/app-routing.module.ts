@@ -37,11 +37,12 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     component: SpotifyAuthComponent
 },
-{ path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
 {
   path: 'user',
   component: PublicProfileComponent
 },
+{ path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
+
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 
 
 <div class="public__profile dark-theme">
-  
+
   <header class="public__profile__container">
     <a class="back__btn" routerLink="/home"> <i class="fas fa-arrow-left"></i> Go back </a>
 
@@ -14,7 +14,7 @@
         <div class="profile__image">
           <img [src]="imageURL" alt="Profile Picture">
         </div>
-  
+
         <div class="profile__header">
           <h1 class="mb-1">{{displayName}}'s Obscurify</h1>
           <p>
@@ -22,20 +22,20 @@
           </p>
         </div>
       </div>
-  
+
       <div class="mb-4 profile__obscure__block">
         <h1 class="profile__obscure__block__header">Obscurify Score</h1>
         <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="2rem" fxLayoutGap.gt-md="4rem" fxLayoutAlign="start center">
           <h1 class="obscure__score">
             {{obscurifyPercentile | number:'1.0-0' }}%
           </h1>
-  
+
           <p>
             They’re more obscure than {{obscurifyPercentile | number:'1.0-0' }}% of {{country}} listeners.
           </p>
         </div>
       </div>
-  
+
       <div class="mb-4 top__genres">
         <h1 class="mb-1">Top Genres</h1>
           <div fxLayout="row wrap" >
@@ -46,7 +46,7 @@
       </div>
       <div class="tracks__artists">
         <h1 class="mb-1">Listening History</h1>
-        
+
       </div>
     </div>
 
