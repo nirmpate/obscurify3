@@ -1,5 +1,5 @@
 ---
-title: The Hotlist Spring/Summer ‘21 (Energy) 
+title: The Hotlist Spring/Summer ‘21 (Energy)
 description: If you come to find yourself longing for the last time you were out dancing, pre-COVID… close your eyes, turn this playlist all the way up, and envision a better place.
 published: true
 date: February 1st 2021
@@ -65,7 +65,7 @@ This song is the perfect exhibit of that 2021 energy. THAT KIND makes sure this 
 You’d expect an arpeggiator in Dance track like this however, the arpeggiation here is real. Not only does it serve as the melodic thread between verse and chorus, it’s the main sound carrying that energetic vibe that you’re loving so much. And when the beat drops, it brings it all together. Trust me, you’ll want to give it a replay (or five) as the bomb drops and it ends. It’s the track that gets you in the zone, whenever you need it.
 
 
-# Wait From Hell - GOLDHOUSE, Page
+# Wait For Hell - GOLDHOUSE, Page
 
 <iframe src="https://open.spotify.com/embed/track/7C4yY36tSR0AlKnQtUq71y" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
