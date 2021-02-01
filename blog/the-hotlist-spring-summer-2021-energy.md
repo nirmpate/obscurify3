@@ -1,5 +1,5 @@
 ---
-title: The Hotlist Spring/Summer 2021
+title: The Hotlist Spring/Summer ‘21 \#Energy
 description: If you come to find yourself longing for the last time you were out dancing, pre-COVID… close your eyes, turn this playlist all the way up, and envision a better place.
 published: true
 date: February 1st 2021
