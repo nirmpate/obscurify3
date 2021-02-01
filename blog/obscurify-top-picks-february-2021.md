@@ -21,7 +21,7 @@ From the beginning, the attempted goal of Obscurify was to see if it was possibl
 
 # Presenting: Obscurify Top Picks
 
-We wanted to know: what tracks are most commonly enjoyed amongst our most obscure users over the last couple of months? The top results were a delight to see: from [recent meme fame, Dreams by Fleetwood Mac](https://www.insidehook.com/article/music/what-makes-fleetwood-macs-dreams-so-endlessly-meme-worthy) to a surprising number of results for Canadian indie rock group [Mother Mother](https://open.spotify.com/artist/0e86yPdC41PGRkLp2Q1Bph) - here are the 10 tracks we found most interesting.
+We wanted to know: what tracks are most commonly enjoyed amongst our 10% most obscure users over the last couple of months? The top results were a delight to see: from [recent meme fame, Dreams by Fleetwood Mac](https://www.insidehook.com/article/music/what-makes-fleetwood-macs-dreams-so-endlessly-meme-worthy) to a surprising number of results for Canadian indie rock group [Mother Mother](https://open.spotify.com/artist/0e86yPdC41PGRkLp2Q1Bph) - here are the 10 tracks we found most interesting.
 
 
 # Mayonaka no Door / Stay With Me - Miki Matsubara (1980)
@@ -79,7 +79,3 @@ Penelope Scott recently rose to prominence on [TikTok](https://www.tiktok.com/@w
 <iframe src="https://open.spotify.com/embed/track/6DONTnamNDOJdO6DzCu71p" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 Belarusian post-punk group Molchat Doma (translated as “Houses Are Silent”) recently became viral hits on [YouTube](https://www.youtube.com/watch?v=HR5zpFs7YpY) with their dark, yet danceable goth style which may remind you of a lo-fi [Interpol](https://open.spotify.com/artist/3WaJSfKnzc65VDgmj2zU8B?si=2XsUcOytTCyKVSDPpY45fw).
-
-
-
-So there you have it.
