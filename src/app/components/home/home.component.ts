@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['login', { serverError: true }]);
       } else {
         this.userService.setUserState({
-          userImageUrl: user.images[0].url ? user.images[0].url  : '',
+          userImageUrl: (user.images && user.images[0].url) ? user.images[0].url  : '',
           userName: user.display_name ? this.checkName(user.display_name) : '',
           userId: user.id,
         });
