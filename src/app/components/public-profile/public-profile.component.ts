@@ -58,8 +58,6 @@ export class PublicProfileComponent implements OnInit {
     if (this.tokenSvc.oAuthToken.spotifyToken) {
         this.authService.authorized();
         this.getPublicProfile();
-        this.tokenSvc.resetState();
-
       } else {
         this.authService.authorize();
       }
@@ -113,6 +111,8 @@ export class PublicProfileComponent implements OnInit {
                     }
                 }
               );
+
+              this.tokenSvc.resetState();
 
             }
         }

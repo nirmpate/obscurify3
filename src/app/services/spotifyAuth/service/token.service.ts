@@ -50,10 +50,12 @@ export class TokenService {
 
   public resetState() {
       this.token.state = '';
+      window.localStorage.setItem('userToken', JSON.stringify(this.token));
   }
 
   setState(state) {
       this.token.state = state;
+      window.localStorage.setItem('userToken', JSON.stringify(this.token));
   }
 
 
