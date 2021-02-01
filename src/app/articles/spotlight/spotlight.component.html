@@ -10,7 +10,7 @@
     <div class="spotlight__container">
         <h1>Obscurify Spotlight</h1>
 
-        <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="5%">
+        <div *ngIf="blogPosts" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="5%">
             <div fxFlex="50%">
               <app-big-card [post]="blogPosts[0]"></app-big-card>
             </div>
