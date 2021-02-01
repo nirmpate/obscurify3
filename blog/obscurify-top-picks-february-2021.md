@@ -1,5 +1,5 @@
 ---
-title: Obscurify Top Picks February '21
+title: Obscurify Top Picks February ‘21
 description: We ran the numbers and found the top tracks our most obscure users loved this season.
 published: true
 date: February 2nd 2021
@@ -13,7 +13,7 @@ instagram:
 facebook:
 twitter:
 tags: community top picks
-
+---
 
 # Curiosity has always been the catalyst at Obscurify.
 
