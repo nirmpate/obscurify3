@@ -50,7 +50,9 @@
     <div class="article__content" fxFlex="70%">
       <scully-content></scully-content>
       <div class="author__credit" *ngIf="post.instagram">
-          Written by {{post.author}}, who you can find on <a href="https://www.instagram.com/{{post.instagram}}">Instagram</a>.
+          Written by {{post.author}}, who you can find on
+           <span *ngIf="post.website"><a [href]="https://{{post.website}}">{{post.website}}</a> or on</span>
+           <a href="https://www.instagram.com/{{post.instagram}}">Instagram</a>.
       </div>
     </div>
 
