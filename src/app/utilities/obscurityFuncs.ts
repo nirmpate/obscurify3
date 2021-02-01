@@ -85,9 +85,18 @@ export class ObscurityFuncs {
 
   sortBlogPosts(links) {
       const sortedLinks = links.filter(link => link.published).sort(this.blogDateComparator);
-      const featuredPostIndex = sortedLinks.findIndex(link => {
-          return link.featured === "yes";
-      });
+      const featuredPostIndicies = [];
+      let featuredPostIndex = -1;
+      for (let i = 0; i < sortedLinks.length; i++) {
+          if (sortedLinks[i].featured === "yes") {
+              featuredPostIndicies.push(i)
+          }
+      }
+      if (featuredPostIndicies.length > 0) {
+          featuredPostIndex = featuredPostIndicies[
+              Math.floor(Math.random() * featuredPostIndicies.length)
+          ];
+      }
       if (featuredPostIndex > -1) {
           const featuredPost = sortedLinks[featuredPostIndex];
           sortedLinks.splice(featuredPostIndex, 1);

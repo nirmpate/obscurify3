@@ -1,12 +1,12 @@
 ---
 title: Obscurify Top Picks February ‘21
-description: We ran the numbers and found the top tracks our most obscure users have been loving recently.
+description: We ran the numbers and found the tracks our most obscure users have been loving recently.
 published: true
 date: February 2nd 2021
 isoDate: 2021-02-02
-featured: no
+featured: yes
 author: Alex Olivero
-img: https://d129l1mriif4tx.cloudfront.net/top-picks-february-21.png
+img: https://d129l1mriif4tx.cloudfront.net/top-picks-feb-2021.png
 category: Top Picks
 caption: Phoebe Bridgers, MF DOOM, Molchat Doma, and Miki Matsubara.
 instagram:

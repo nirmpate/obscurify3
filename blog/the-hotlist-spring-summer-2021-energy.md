@@ -1,18 +1,20 @@
 ---
-title: The Hotlist Spring/Summer 2021 &#35;Energy
-description: If you come to find yourself longing for the last time you were out dancing, pre-COVID… close your eyes, turn this playlist all the way up, and envision a better place.
-published: true
-date: February 1st 2021
-isoDate: 2021-02-01
-featured: no
-author: Terrance Nixon
-img: https://d129l1mriif4tx.cloudfront.net/the-hotlist-energy.jpg
-category: Music Review
-caption:
+title: 'The Hotlist Spring/Summer 2021'
+description: 'If you come to find yourself longing for the last time you were out dancing, pre-COVID… close your eyes, turn this playlist all the way up, and envision a better place.'
+published: false
+date: 'February 1st 2021'
+isoDate: 2021-02-01T00:00:00.000Z
+featured: yes
+author: 'Terrance Nixon'
+img: 'https://d129l1mriif4tx.cloudfront.net/the-hotlist-energy.jpg'
+category: 'Music Review'
+caption: null
 instagram: Teransu
-facebook:
-twitter:
-tags: dance, house, electronic
+facebook: null
+twitter: null
+tags: 'dance, house, electronic'
+slugs:
+    - ___UNPUBLISHED___kkm8zsdr_sc6tAuaQJK5mkrCplqpSOxqAB7VRUKWQ
 ---
 
 # 2020 was the absolute worst. All of your favorite fests and friends got locked down and somehow— you survived.
