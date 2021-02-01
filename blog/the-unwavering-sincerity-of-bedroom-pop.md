@@ -4,7 +4,7 @@ description: The quintessential genre for lovingly lo-fi moments.
 published: true
 date: January 24th 2021
 isoDate: 2021-01-24
-featured: no
+featured: yes
 author: Alex Klunk
 img: https://d129l1mriif4tx.cloudfront.net/jakob-ogawa.jpg
 category: Music Review
