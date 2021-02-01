@@ -43,19 +43,25 @@ export class AuthService {
     return text;
   }
 
+  public redirectToAuth() {
+    window.location.href = this.buildAuthUrl();
+
+  }
+
   public authorize() {
     if (this.isBrowser) {
       const date  = new Date();
+      const time = date.getTime();
       let localUserToken = null;
       if (window) {
         localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
       }
       if (localUserToken && localUserToken.spotifyTokenRefresh &&
-          date.getTime() < localUserToken.spotifyTokenRefresh) {
+        time < localUserToken.spotifyTokenRefresh) {
               this.tokenSvc.setAuthTokenFromStorage(localUserToken);
               this.authorized();
         } else {
-            window.location.href = this.buildAuthUrl();
+            this.redirectToAuth();
         }
 
     }
