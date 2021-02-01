@@ -50,11 +50,10 @@ export class AuthService {
       if (window) {
         localUserToken = JSON.parse(window.localStorage.getItem('userToken'));
       }
-      if (localUserToken && localUserToken.spotifyTokenRefresh) {
-          if (date.getTime() < localUserToken.spotifyTokenRefresh) {
+      if (localUserToken && localUserToken.spotifyTokenRefresh &&
+          date.getTime() < localUserToken.spotifyTokenRefresh) {
               this.tokenSvc.setAuthTokenFromStorage(localUserToken);
               this.authorized();
-          }
         } else {
             window.location.href = this.buildAuthUrl();
         }
