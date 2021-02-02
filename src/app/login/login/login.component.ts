@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
+      this.authService.resetState();
     this.authService.authorize();
   }
 }

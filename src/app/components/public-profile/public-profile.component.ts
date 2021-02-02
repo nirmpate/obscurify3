@@ -44,7 +44,8 @@ export class PublicProfileComponent implements OnInit {
       public authService: AuthService,
       public obscurifyService: ObscurifyService,
       public spotifyService: SpotifyService,
-      public userService: UserService
+      public userService: UserService,
+      public router: Router
   ) {
       this.profileUserID = routeParams.snapshot.queryParams.id;
       this.shareCode = routeParams.snapshot.queryParams.code;
@@ -81,6 +82,13 @@ export class PublicProfileComponent implements OnInit {
               this.obscurifyScore = (userData.obscurifyScore ? userData.obscurifyScore.N : null);
               this.userHistory = (userData.userHistory ?
                   userData.userHistory.L.map(x => x.M) : null);
+              for (const history of this.userHistory) {
+                let tempDate = history.formattedDate;
+                if (tempDate.length > 2) {
+                  tempDate = tempDate.slice(0, tempDate.length - 2) + '\'' + tempDate.slice(tempDate.length - 2);
+                }
+                history.formattedDate = tempDate;
+              }
               this.spotifyService.getArtists({artistIDs: this.longTermArtistIDs})
                 .then((res: any) => {
                   this.longTermArtists = [...res.artists];
@@ -116,8 +124,10 @@ export class PublicProfileComponent implements OnInit {
             }
         },
         err => {
-            this.tokenSvc.clearToken();
-            this.authService.redirectToAuth();
+            this.authService.resetState()
+            this.tokenSvc.resetState()
+            alert('Sorry! The profile you are trying to view either does not exist or the unique share code is not active.')
+            window.location.href = 'home'
         }
       );
   }
