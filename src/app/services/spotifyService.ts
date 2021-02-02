@@ -62,20 +62,31 @@ export class SpotifyService {
           + config.allTimeTrackIDs[Math.floor(Math.random() * config.allTimeTrackIDs.length)] + ','
               + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
                   + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=15' + '&limit=15';
+      } else if (config.currentArtistIDs.length > 0 &&
+        config.currentTrackIDs.length > 0) {
+          url = 'https://api.spotify.com/v1/recommendations?seed_artists=' +
+          config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
+          + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
+                  + '&market=' + config.country + '&max_popularity=65' + '&min_popularity=15' + '&limit=15';
+
       } else if (config.allTimeArtistIDs.length > 0 &&
-        config.allTimeTrackIDs.length > 0 &&
-        config.currentArtistIDs.length <= 0 &&
-        config.currentTrackIDs.length <= 0) {
+        config.allTimeTrackIDs.length > 0) {
           url = 'https://api.spotify.com/v1/recommendations?seed_artists=' +
           config.allTimeArtistIDs[Math.floor(Math.random() * config.allTimeArtistIDs.length)] + '&seed_tracks='
           + config.allTimeTrackIDs[Math.floor(Math.random() * config.allTimeTrackIDs.length)]
-                  + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=15' + '&limit=15';
+                  + '&market=' + config.country + '&max_popularity=65' + '&min_popularity=15' + '&limit=15';
 
-      } else {
+      } else if (config.currentTrackIDs.length > 0) {
+        url = 'https://api.spotify.com/v1/recommendations?seed_tracks=' +
+        config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
+                + '&market=' + config.country + '&max_popularity=65' + '&min_popularity=15' + '&limit=15';
+      } else if (config.allTimeArtistIDs.length > 0) {
         url = 'https://api.spotify.com/v1/recommendations?seed_artists=' +
-        config.currentArtistIDs[Math.floor(Math.random() * config.currentArtistIDs.length)] + '&seed_tracks='
-            + config.currentTrackIDs[Math.floor(Math.random() * config.currentTrackIDs.length)]
-                + '&market=' + config.country + '&max_popularity=55' + '&min_popularity=15' + '&limit=15';
+        config.allTimeArtistIDs[Math.floor(Math.random() * config.allTimeArtistIDs.length)]
+                + '&market=' + config.country + '&max_popularity=65' + '&min_popularity=15' + '&limit=15';
+      } else {
+        url = 'https://api.spotify.com/v1/recommendations'
+                + '?market=' + config.country + '&max_popularity=65' + '&min_popularity=15' + '&limit=15';
       }
 
       return new Promise((resolve, reject) => {
