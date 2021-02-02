@@ -80,10 +80,16 @@ export class MoodsGraphComponent implements OnInit, AfterViewInit {
   }
 
   private getMoodTracks() {
-      this.happinessTrack = this.findTrackByAudioFeature("valence", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
-      this.energyTrack = this.findTrackByAudioFeature("energy", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
-      this.danceabilityTrack = this.findTrackByAudioFeature("danceability", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
-      this.acousticnessTrack = this.findTrackByAudioFeature("acousticness", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+      if (
+          this.data.currentTracks && this.data.shortTermAudioFeaturesPerTrack &&
+          this.data.currentTracks.length == this.data.shortTermAudioFeaturesPerTrack.length
+      ) {
+          this.happinessTrack = this.findTrackByAudioFeature("valence", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+          this.energyTrack = this.findTrackByAudioFeature("energy", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+          this.danceabilityTrack = this.findTrackByAudioFeature("danceability", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+          this.acousticnessTrack = this.findTrackByAudioFeature("acousticness", this.data.currentTracks, this.data.shortTermAudioFeaturesPerTrack);
+      }
+
   }
 
   private createAudioFeatures(emitAudioFeatureFlag) {
