@@ -73,13 +73,17 @@ export class ObscurityFuncs {
   }
 
   calculateMoodText(userFeatureAverage, obscurifyFeatureAverage) {
-      const diff = userFeatureAverage - obscurifyFeatureAverage;
-      if (diff > 0.01) {
-          return (diff * 100).toFixed(1) + "% higher than";
-      } else if (diff < -0.01) {
-          return (Math.abs(diff) * 100).toFixed(1) + "% lower than";
+      if (!isNaN(userFeatureAverage) && !isNaN(obscurifyFeatureAverage)) {
+          const diff = userFeatureAverage - obscurifyFeatureAverage;
+          if (diff > 0.01) {
+              return (diff * 100).toFixed(1) + "% higher than";
+          } else if (diff < -0.01) {
+              return (Math.abs(diff) * 100).toFixed(1) + "% lower than";
+          } else {
+              return " same as ";
+          }
       } else {
-          return " same as ";
+          return "";
       }
   }
 

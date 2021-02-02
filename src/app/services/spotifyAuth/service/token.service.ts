@@ -37,6 +37,7 @@ export class TokenService {
       spotifyTokenRefresh: null
     };
     window.localStorage.removeItem('userToken');
+    window.localStorage.removeItem('userProfile');
     this.token$.next(this.token);
   }
 
