@@ -20,11 +20,13 @@ export const config: ScullyConfig = {
     '/home': {
       type: 'ignored',
     },
-    '/profiles': {
+    '/profile': {
       type: 'ignored'
     },
-
       '/login': {
+        type: 'ignored'
+      },
+      '': {
         type: 'ignored'
       }
 
