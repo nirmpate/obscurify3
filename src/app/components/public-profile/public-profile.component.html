@@ -11,7 +11,7 @@
     <div class="public__profile__container ">
       <div class="mb-4" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="2em" fxFlexAlign="center">
 
-        <div class="profile__image">
+        <div *ngIf="imageURL" class="profile__image">
           <img [src]="imageURL" alt="Profile Picture">
         </div>
 

@@ -33,7 +33,7 @@
                     <p *ngIf="longTermAudioFeatures.happiness - shortTermAudioFeatures.happiness < -0.01" class="mb-1">
                         Your music is getting happier or more cheerful 😄
                     </p>
-                    <p class="moods-graph__card__paragraph">
+                    <p *ngIf="happinessCurrentText" class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{happinessCurrentText}} the {{data.country}} avg
                     </p>
                     <p class="moods-graph__card__paragraph">
@@ -79,7 +79,7 @@
                     <p *ngIf="longTermAudioFeatures.danceability - shortTermAudioFeatures.danceability < -0.01" class="mb-1">
                         Lately your music has been getting dancier with a stronger beat 🕺🏼
                     </p>
-                    <p class="moods-graph__card__paragraph">
+                    <p *ngIf="danceabilityCurrentText" class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{danceabilityCurrentText}} the {{data.country}} avg
                     </p>
                     <p class="moods-graph__card__paragraph">
@@ -120,7 +120,7 @@
                     <p *ngIf="longTermAudioFeatures.energy - shortTermAudioFeatures.energy < -0.01" class="mb-1">
                         Your music has been getting more energetic and noisy recently ⚡
                     </p>
-                    <p class="moods-graph__card__paragraph">
+                    <p *ngIf="energyCurrentText" class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{energyCurrentText}} the {{data.country}} avg
                     </p>
                     <p class="moods-graph__card__paragraph">
@@ -162,7 +162,7 @@
                     <p *ngIf="longTermAudioFeatures.acousticness - shortTermAudioFeatures.acousticness < -0.01" class="mb-1">
                         You've been into some more acoustic tracks lately 🏕️
                     </p>
-                    <p class="moods-graph__card__paragraph">
+                    <p *ngIf="acousticnessCurrentText" class="moods-graph__card__paragraph">
                       <strong>Current:</strong> {{acousticnessCurrentText}} the {{data.country}} avg
                     </p>
                     <p class="moods-graph__card__paragraph">
