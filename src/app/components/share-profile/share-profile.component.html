@@ -5,13 +5,13 @@
 
         <p class="mb-1">
             If you have profile sharing enabled, anyone that clicks your unique link
-            can see your top tracks, artists, genres, and Obscurify Rating.
+            can see your top tracks, artists, genres, and Obscurity rating.
         </p>
 
         <p class="mb-1">Below is the link to your public profile.  Share it with your friends!</p>
 
         <mat-form-field class="mb-1">
-            <mat-label>Share this link to your profile!</mat-label>
+            <mat-label>Your unique link</mat-label>
             <input #field placeholder="Turn on sharing"  [disabled]="!userState.profileCode"[readonly]="true" type="text" matInput [value]="userProfileUrl">
         </mat-form-field>
 
