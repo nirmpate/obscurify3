@@ -130,6 +130,10 @@ such matters. This feeling can be mollified by the unifying reality that we are 
 same situation. The Space Song reassures the point that: we are lost together…all
 trying to find our place.
 
+<div style="margin: 2em auto">
+  <!-- ObscurifyMusic_S2S_Leaderboard_ROS_BTF -->
+  <div id="bsa-zone_1597164587977-6_123456"></div>
+</div>
 
 
 # 4. Space Oddity - David Bowie (1969)

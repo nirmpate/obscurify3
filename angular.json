@@ -206,7 +206,7 @@
               "/"
             ]
           },
-          "serviceWorker": true,
+          "serviceWorker": false,
           "configurations": {
             "production": {
               "browserTarget": "obscurify3:build:production",

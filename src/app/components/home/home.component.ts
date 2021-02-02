@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit {
 
     userStream.subscribe((user: any ) => {
       if (user.error && user.error.error.status === 401) {
+        this.tokenSvc.clearToken();
         this.authService.authorize();
       } else if (user.error && user.error.error.status === 402) {
         this.router.navigate(['login', { serverError: true }]);
