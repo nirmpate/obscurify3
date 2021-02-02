@@ -22,8 +22,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
-            "serviceWorker": true,
+            "aot": false,
+            "serviceWorker": false,
             "ngswConfigPath": "ngsw-config.json",
             "assets": [
               "src/favicon.ico",
@@ -206,7 +206,7 @@
               "/"
             ]
           },
-          "serviceWorker": true,
+          "serviceWorker": false,
           "configurations": {
             "production": {
               "browserTarget": "obscurify3:build:production",
