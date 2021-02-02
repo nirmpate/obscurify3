@@ -1,9 +1,9 @@
-<nav *ngIf="userImage">
+<nav >
     <div class="light-theme" fxLayout="row" fxLayoutAlign="end">
       <!-- <button class="share__btn" color="primary" mat-button (click)="openShareDialog()"><i class="fas fa-external-link-alt"></i> Share profile</button> -->
 
         <button  class="menu__btn" [matMenuTriggerFor]="appMenu">
-            <span class="profile__image">
+            <span class="profile__image" *ngIf="userImage">
                 <img  alt="User Image" [src]="this.userImage ? this.userImage : 'assets/images/app/profile-placeholder.png'">
             </span>
              Menu
