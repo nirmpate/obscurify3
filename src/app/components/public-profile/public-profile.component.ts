@@ -98,6 +98,10 @@ export class PublicProfileComponent implements OnInit {
                   this.genres = this.obscurityFunc.findTopGenres(this.longTermArtists);
                 })
                 .catch(err => {
+                  if (err.error && err.error.error.status === 401) {
+                    this.tokenSvc.clearToken();
+                    this.authService.authorize();
+                  };
                   console.log(err);
                 });
               this.spotifyService.getTracks({trackIDs: this.longTermTrackIDs})
