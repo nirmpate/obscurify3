@@ -34,6 +34,10 @@ export class AuthService {
       this.authConfig.state = state;
   }
 
+  public resetState() {
+      this.authConfig.state = "";
+  }
+
   private generateRandomString() {
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -83,7 +87,6 @@ export class AuthService {
   }
 
   private buildAuthUrl(): string {
-
     const params = [];
     for (const [key, value] of Object.entries(this.authConfig)) {
       if (typeof (value) === 'object') {
