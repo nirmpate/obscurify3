@@ -16,7 +16,7 @@
                       Scores with a higher number sound more happy or cheerful,
                        while tracks with a lower number sound more sad or angry.
                     </p> -->
-                    <div class="moods-graph__card__paragraph">
+                    <div *ngIf="happinessTrack" class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
                             <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(happinessTrack.uri)">
                                 <img [src]="happinessTrack.album.images[0].url" alt=""/>
@@ -62,7 +62,7 @@
                     <!-- <p class="moods-graph__card__paragraph">
                       Danceability is a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.
                     </p> -->
-                    <div class="moods-graph__card__paragraph">
+                    <div *ngIf="danceabilityTrack" class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
                             <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(danceabilityTrack.uri)">
                                 <img [src]="danceabilityTrack.album.images[0].url" alt=""/>
@@ -103,7 +103,7 @@
 
                 <div class="moods-graph__card" fxLayout="column" fxLayout.gt-xs="row nowrap">
                   <div class="moods-graph__card__container">
-                    <div class="moods-graph__card__paragraph">
+                    <div *ngIf="energyTrack" class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
                             <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(energyTrack.uri)">
                                 <img [src]="energyTrack.album.images[0].url" alt=""/>
@@ -145,7 +145,7 @@
                 <div class="moods-graph__card" fxLayout="column" fxLayout.gt-xs="row nowrap">
 
                   <div class="moods-graph__card__container">
-                    <div class="moods-graph__card__paragraph">
+                    <div *ngIf="acousticnessTrack" class="moods-graph__card__paragraph">
                         <div class="mb-1" fxLayout="row" >
                             <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(acousticnessTrack.uri)">
                                 <img [src]="acousticnessTrack.album.images[0].url" alt=""/>
