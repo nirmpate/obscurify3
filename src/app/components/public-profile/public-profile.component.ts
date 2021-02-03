@@ -56,14 +56,12 @@ export class PublicProfileComponent implements OnInit {
     this.authService.setState(`/profile/${this.profileUserID}/${this.shareCode}`);
     this.tokenSvc.setState(`/profile/${this.profileUserID}/${this.shareCode}`);
     const now = new Date().getTime();
-    if (this.tokenSvc.oAuthToken.spotifyToken &&
-        this.tokenSvc.oAuthToken.spotifyTokenRefresh &&
-        now < this.tokenSvc.oAuthToken.spotifyTokenRefresh) {
-        this.authService.authorized();
-        this.getPublicProfile();
-      } else {
-        this.authService.authorize();
-      }
+    this.authService.authorizedStream.subscribe( res => {
+      this.getPublicProfile();
+    })
+    this.authService.authorize();
+
+
   }
 
   getPublicProfile() {
