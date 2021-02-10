@@ -98,7 +98,8 @@ export class ObscurityFuncs {
       }
       if (featuredPostIndicies.length > 0) {
           featuredPostIndex = featuredPostIndicies[
-              Math.floor(Math.random() * featuredPostIndicies.length)
+            //   Math.floor(Math.random() * featuredPostIndicies.length)
+            0
           ];
       }
       if (featuredPostIndex > -1) {
