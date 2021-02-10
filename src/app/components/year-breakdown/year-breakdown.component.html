@@ -1,0 +1,35 @@
+<div class="slate" >
+    <div class="moods-graph" [ngClass]="{'show': this.show}">
+        <div class="header">
+            <h2 class="header__title">
+                By the Years
+            </h2>
+        </div>
+
+        <div class="decade__card" fxLayout="column" fxLayout.gt-xs="row nowrap">
+            <p>You've been recently listening to music across {{currentBreakdown.length}} decades</p>
+            <div *ngFor="let decade of currentBreakdown">
+                {{decade.decade}}
+                {{decade.tracks.length}} tracks
+                <div *ngFor="let track of decade.tracks">
+                    {{track.name}}
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="decade__card" fxLayout="column" fxLayout.gt-xs="row nowrap">
+            <p>Your all-time top tracks span {{allTimeBreakdown.length}} decades</p>
+            <div *ngFor="let decade of allTimeBreakdown">
+                {{decade.decade}}
+                {{decade.tracks.length}} tracks
+                <div *ngFor="let track of decade.tracks">
+                    {{track.name}}
+                </div>
+            </div>
+        </div>
+        
+
+        
+    </div>
+</div>

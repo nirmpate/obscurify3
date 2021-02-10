@@ -1,0 +1,86 @@
+@import 'components/header';
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.slate {
+    background: white;
+}
+
+.decade {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: .3s cubic-bezier(.25,.1,.25,1);
+    align-items: flex-start;
+
+    img {
+        width: 90px;
+        height: 90px;
+        margin-right: 7px;
+    }
+
+    &.show {
+        opacity: 1;
+        transform: translateY(0px);
+
+    }
+
+    &__container {
+        margin-top: 1em;
+    }
+
+    &__container--right {
+        align-self: flex-end;
+
+        h3 {
+            text-align: right;
+        }
+
+
+    }
+
+    &__content {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            font-size: 36px;
+        }
+    }
+
+    &__card {
+        padding: 1em;
+        background-color: white;
+        margin-top: 1em;
+        display: flex;
+        border-radius: 5px;
+    }
+
+    &__card--reverse {
+        flex-direction: row-reverse;
+    }
+
+    &__card__header {
+        font-size: 24px;
+        margin-bottom: 0.5em;
+    }
+
+    &__card__paragraph {
+        font-family: $secondary-font;
+        font-weight: normal;
+        line-height: 1.5;
+        margin-bottom: 1em
+    }
+
+    &__card__container {
+        width: 100%;
+    }
+}

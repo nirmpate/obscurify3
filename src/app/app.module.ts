@@ -54,6 +54,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { LoaderComponent } from './components/loader/loader.component';
+import { YearBreakdownComponent } from './components/year-breakdown/year-breakdown.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     NavMenuComponent,
     ShareProfileComponent,
     LoaderComponent,
+    YearBreakdownComponent,
   ],
   imports: [
     BrowserAnimationsModule,
