@@ -2,8 +2,8 @@
 title: Artist Spotlight // Raveena
 description: Welcome to the lush, loving, and dreamy world of Queens-based rising star Raveena Aurora.
 published: true
-date: February 16th 2021
-isoDate: 2021-02-16
+date: February 17th 2021
+isoDate: 2021-02-17
 featured: yes
 author: Alex Olivero
 img: https://d129l1mriif4tx.cloudfront.net/raveena.jpg
@@ -16,7 +16,7 @@ tags: neo-soul, r&b
 ---
 
 
-You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
+> You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
 
 This might be your fate if you start up Raveena's catalog. Over the course of a full-length album, 2 EPs, and a handful of singles, Raveena has shown her consistent vision and ability to transport the listener to a lush, loving, and dreamy place with incredibly warm layered vocals, wide electric piano, tastefully funky bass tightly fitting over subdued drums, and jazz-inspired guitars gliding overtop.
 
@@ -60,4 +60,4 @@ Combining a magnificent harp with a biting bass and electic piano, "Sweet Time" 
 
 <iframe src="https://open.spotify.com/embed/track/2NDMLu8ZNrAsAsPAoW5VOx" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-Raveena's latest song (and cover image) has a distinctly '90s aesthetic, and there's more of an 808-inspired bass and drum sound this time around. What didn't change is her ear for amazingly catchy melodies and bright harmonies. If this track is any indication, I'm excited to see where she will take her music from here on.
+Raveena's latest song (and cover image) has a distinctly '90s aesthetic, and there's more of an 808-inspired bass and drum sound this time around. What didn't change is her ear for amazingly catchy melodies and bright harmonies. If this track is any indication, I'm excited to see where she will take her music from here on out.
