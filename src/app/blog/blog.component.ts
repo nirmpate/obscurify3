@@ -62,7 +62,7 @@ export class BlogComponent implements OnInit {
 
   filterPosts() {
     const posts = this.blogPosts.filter((post) => post !== this.post);
-    this.filteredPosts = this.obscurifyFunc.sortBlogPosts(posts);
+    this.filteredPosts = this.obscurifyFunc.sortBlogPosts(posts).slice(0, 4);
   }
 
   twitterShare() {

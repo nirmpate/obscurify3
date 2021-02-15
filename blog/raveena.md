@@ -8,7 +8,7 @@ featured: yes
 author: Alex Olivero
 img: https://d129l1mriif4tx.cloudfront.net/raveena.jpg
 category: Artist Spotlight
-caption: 
+caption: Photo credit Cameron Robert for NPR
 instagram: obscurifymusic
 facebook:
 twitter:
@@ -31,8 +31,6 @@ The [2018 Camp Flog Gnaw](https://earmilk.com/2018/11/14/6-standout-up-and-comin
 Please enjoy the following small sampling of excellent tracks across her catalog. 
 
 
-# If Only
-
 <iframe src="https://open.spotify.com/embed/track/4jyU03J2YOhRxgOHit2auK" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 Raveena's biggest hit thus far, "If Only" is an irresistable slow jam with bouncing bass, layered guitar, and a smooth, swelling electic piano.
@@ -42,8 +40,6 @@ Her vocals effortlessly fly into falsetto and backing vox provide a warm embrace
 <br/>You're saying "if only I could get over you"
 
 
-# Stone
-
 <iframe src="https://open.spotify.com/embed/track/2qhahbZ5iMNmKIFCcVDGur" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 Much more melancholy than the previous song, Raveena shows a more vulnerable side of herself. Slightly detuned, yearning guitar chords call out overtop the downtempo drum and bass. Her lyrics paint a picture of love lost and the difficulty of overcoming once-joyful memories.
@@ -52,21 +48,15 @@ Much more melancholy than the previous song, Raveena shows a more vulnerable sid
 <br/>By then I’ll forget what it’s like to have you on my mind
 
 
-# Headaches
-
 <iframe src="https://open.spotify.com/embed/track/4MNu1bSmyV3S4Y2MJMGrrP" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 Evolving across five minutes, "Headaches" captures the positive and negative feelings of a new romance. The impressive production will have you seamlessly following along.
 
 
-# Sweet Time
-
 <iframe src="https://open.spotify.com/embed/track/3wv9jIR1DAGxTRMm1kH6GL" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 Combining a magnificent harp with a biting bass and electic piano, "Sweet Time" has an upbeat groove that just might make you put on your dancing shoes.
 
-
-# Tweety
 
 <iframe src="https://open.spotify.com/embed/track/2NDMLu8ZNrAsAsPAoW5VOx" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
