@@ -4,7 +4,7 @@ description: If you come to find yourself longing for the last time you were out
 published: true
 date: February 1st 2021
 isoDate: 2021-02-01
-featured: yes
+featured: no
 author: Terrance Nixon
 img: https://d129l1mriif4tx.cloudfront.net/the-hotlist-ss21.png
 category: Music Review
