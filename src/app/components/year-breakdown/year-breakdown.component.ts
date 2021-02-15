@@ -11,13 +11,17 @@ export class YearBreakdownComponent implements OnInit {
   @Input() currentTracks: any;
 
   public allTimeBreakdown: any = [];
+  public allTimeTopDecade: string;
   public currentBreakdown: any = [];
+  public currentTopDecade: string;
 
   constructor() { }
 
   ngOnInit(): void {
     this.allTimeBreakdown = this.calculateBreakdown(this.allTimeTracks);
     this.currentBreakdown = this.calculateBreakdown(this.currentTracks);
+    this.allTimeTopDecade = this.findTopDecade(this.allTimeBreakdown);
+    this.currentTopDecade = this.findTopDecade(this.currentBreakdown);
   }
 
   private calculateBreakdown = function(tracks) {
@@ -42,6 +46,18 @@ export class YearBreakdownComponent implements OnInit {
     }
     console.log(breakdownList);
     return breakdownList;
+  }
+
+  private findTopDecade = function(breakdown) {
+    let topDecade = "";
+    let highestCount = 0;
+    for(let decade of breakdown) {
+      if (decade.tracks.length > highestCount) {
+        highestCount = decade.tracks.length;
+        topDecade = decade.decade;
+      }
+    }
+    return topDecade;
   }
 
 }
