@@ -1,33 +1,30 @@
 <mat-card>
 
     <mat-card-title>{{ decadeConfig.decade }}</mat-card-title>
-    <mat-card-actions>
-        <mat-button-toggle-group #trackGroup="matButtonToggleGroup" name="trackGroup" aria-label="Choose current or all time">
-            <mat-button-toggle value="current" *ngIf="decadeConfig.current.length > 0">Current</mat-button-toggle>
-            <mat-button-toggle value="allTime" *ngIf="decadeConfig.allTime.length > 0">All Time</mat-button-toggle>
-
-          </mat-button-toggle-group>
-    </mat-card-actions>
     <mat-card-content>
+        <div fxLayout="row" fxLayoutGap="2em">
+            <div class="decade" fxFlex="50%">
+                <h2 *ngIf="decadeConfig.current.length > 0">Current</h2>
+                <div class="decade__tracklist" *ngFor="let track of decadeConfig.current; let i = index">
+                    <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="i < 5">
+                        <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
+                        <span>{{track.name}}</span>
+                        <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="decade" fxFlex="50%">
+                <h2 *ngIf="decadeConfig.allTime.length > 0">All Time</h2>
+                <div class="decade__tracklist" *ngFor="let track of decadeConfig.allTime; let i = index">
+                    <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="i < 5">
+                        <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
+                        <span>{{track.name}}</span>
+                        <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-        <div class="decade" *ngIf="trackGroup.value === 'current'">
-            <div class="decade__tracklist" *ngFor="let track of decadeConfig.current; let i = index">
-                <div *ngIf="i < 5">
-                    <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                    <span>{{track.name}}</span>
-                    <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
-                </div>
-            </div>
-        </div>
-        <div *ngIf="trackGroup.value === 'allTime'">
-            <div class="decade__tracklist" *ngFor="let track of decadeConfig.allTime; let i = index">
-                <div *ngIf="i < 5">
-                    <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                    <span>{{track.name}}</span>
-                    <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
-                </div>
-            </div>
-        </div>
     </mat-card-content>
 
 </mat-card>

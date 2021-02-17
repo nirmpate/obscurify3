@@ -28,8 +28,10 @@
 
         </div>
 
-        <div class="year-breakdown__decade" fxLayout="row wrap" fxLayoutGap="1em">
-            <div class="decade__card" *ngFor="let breakdown of breakDownList" fxFlex.lt-sm="100%"fxFlex="49%" fxFlexFill>
+        <div class="year-breakdown__decade" fxLayout="column wrap" fxLayoutGap="1em">
+            <div class="decade__card" *ngFor="let breakdown of breakDownList; let i = index" fxFlex.lt-sm="100%" fxFlex="70%" [fxFlexAlign]="i % 2 === 0 ? 'end': 'start'">
+                
+            
                 <app-decade-card [decadeConfig]="breakdown"></app-decade-card>
     
             </div>
