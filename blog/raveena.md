@@ -1,20 +1,21 @@
 ---
-title: Artist Spotlight // Raveena
-description: Welcome to the lush, loving, and dreamy world of Queens-based rising star Raveena Aurora.
+title: 'Artist Spotlight: Raveena'
+description: 'Welcome to the lush, loving, and dreamy world of rising star Raveena Aurora.'
 published: false
-date: February 17th 2021
-isoDate: 2021-02-17
+date: 'February 17th 2021'
+isoDate: 2021-02-17T00:00:00.000Z
 featured: yes
-author: Alex Olivero
-img: https://d129l1mriif4tx.cloudfront.net/raveena.jpg
-category: Artist Spotlight
-caption: Photo credit Cameron Robert for NPR
+author: 'Alex Olivero'
+img: 'https://d129l1mriif4tx.cloudfront.net/raveena.jpg'
+category: 'Artist Spotlight'
+caption: 'Photo credit Cameron Robert for NPR'
 instagram: obscurifymusic
-facebook:
-twitter:
-tags: neo-soul, r&b
+facebook: null
+twitter: null
+tags: 'neo-soul, r&b'
+slugs:
+    - ___UNPUBLISHED___kl8sx9cc_idpiRNOrtn7tYydHCGdXmNmeQafeKJwW
 ---
-
 
 > You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
 
@@ -26,7 +27,7 @@ The [2018 Camp Flog Gnaw](https://earmilk.com/2018/11/14/6-standout-up-and-comin
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pre9lE3Wa78" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Please enjoy the following small sampling of excellent tracks across this rising star's catalog. 
+Please enjoy the following small sampling of excellent tracks across her catalog. 
 
 
 <iframe src="https://open.spotify.com/embed/track/4jyU03J2YOhRxgOHit2auK" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>

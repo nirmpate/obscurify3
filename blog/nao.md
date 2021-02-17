@@ -1,6 +1,6 @@
 ---
-title: Artist Spotlight // Nao
-description: 
+title: 'Artist Spotlight: Nao'
+description: Meet London-based "wonky funk" pioneer Nao.
 published: true
 date: February 16th 2021
 isoDate: 2021-02-16
@@ -8,7 +8,7 @@ featured: yes
 author: 24KVoltage
 img: https://d129l1mriif4tx.cloudfront.net/nao.jpg
 category: Artist Spotlight
-caption: 
+caption: Description
 instagram: 
 facebook:
 twitter:
@@ -16,7 +16,9 @@ tags: soul, alt-r&b, electronic, funk
 ---
 
 
-# Neo Jessica Joshua, or Nao, is someone who's quite the outlier in the UK Electronic R&B scene. Her music isn't normally the usual electronic production with R&B vocals like James Blake, Jack Garratt, or SOHN make. So, where does she fit into the scene? Before we answer that question, you all may recognize Nao from her features, [Firefly (Mura Masa's Mura Masa)](https://open.spotify.com/track/2s9C5THb9llwyVXtjveV4E?si=UFm-ZGTgTNmeQCU3hGwIlQ) and [Superego (Disclosure's Caracal)](https://open.spotify.com/track/4vd7KzctkhCVCUnCCyoO0d?si=nj1G8PPxSsi-D-7Kj2T25A).
+# Neo Jessica Joshua, or Nao, is someone who's quite the outlier in the UK Electronic R&B scene. 
+
+Her music isn't normally the usual electronic production with R&B vocals like James Blake, Jack Garratt, or SOHN make. So, where does she fit into the scene? Before we answer that question, you all may recognize Nao from her features, [Firefly (Mura Masa's Mura Masa)](https://open.spotify.com/track/2s9C5THb9llwyVXtjveV4E?si=UFm-ZGTgTNmeQCU3hGwIlQ) and [Superego (Disclosure's Caracal)](https://open.spotify.com/track/4vd7KzctkhCVCUnCCyoO0d?si=nj1G8PPxSsi-D-7Kj2T25A).
 
 
 What makes Nao an outlier in the UK Electronic Alternative R&B wave is her sound. Instead of the usual subtle, smooth, heavy bass, reverberated sound, Nao takes a more livelier and bouncy approach for her style of Alternative R&B. Nao describes her sound as "wonky funk". Wonky is a style of electronic music, that uses of-beat hip-hop rhythms and combines them with elements of dubstep or IDM. Nao combining funk with Wonky is what gives her music that lively bouncy sound that you won't see with artists like [Roses Gabor](https://open.spotify.com/artist/2gcdX1NqiPU2F4QxSlBo7r?si=4icFECdmTqSB7e9MJjGBuQ), [Szjerdene](https://open.spotify.com/artist/5WcgyMkdfILvNCPTavIINv?si=-lpasD0hSIGoshhtlagxIw), or [Fka Twigs](https://open.spotify.com/artist/6nB0iY1cjSY1KyhYyuIIKH?si=MdQSL9GsRWKEEGideK-3cQ). A few of her songs that fit that lively, bouncy sound would be [Good Girl](https://open.spotify.com/track/6bl1EIJjAAmot2ya5lfYyv?si=eVIoP2NIRwa5G9Vp53NmsA), [Get to Know Ya](https://open.spotify.com/track/7coWZzFEyhoZTcMfZixvwB?si=o8-2WnGWQm2vCenw-ZtD0A), and [Trophy](https://open.spotify.com/track/4wfruBEWWb0iYHbMRd01GA?si=Q3uGLTWqTmyamPwGBjQ59A). 
