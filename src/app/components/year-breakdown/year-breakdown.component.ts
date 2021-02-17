@@ -1,11 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import IntersectionObserverService from 'src/app/services/intersectionObserver';
 
 @Component({
   selector: 'app-year-breakdown',
   templateUrl: './year-breakdown.component.html',
-  styleUrls: ['./year-breakdown.component.scss']
+  styleUrls: ['./year-breakdown.component.scss'],
+  providers: [IntersectionObserverService]
 })
-export class YearBreakdownComponent implements OnInit {
+export class YearBreakdownComponent implements OnInit, AfterViewInit {
 
   @Input() allTimeTracks: any;
   @Input() currentTracks: any;
@@ -13,22 +16,74 @@ export class YearBreakdownComponent implements OnInit {
   public allTimeBreakdown: any = [];
   public allTimeTopDecade: string;
   public currentBreakdown: any = [];
-  public currentTopDecade: string;
 
-  constructor() { }
+  public breakDownList: any = [];
+  public currentTopDecade: string;
+  public intersectionObserverSubs: Subscription;
+  public show = false;
+
+  constructor(
+    public intersectionObserverService: IntersectionObserverService,
+    public element: ElementRef
+  ) { }
 
   ngOnInit(): void {
     this.allTimeBreakdown = this.calculateBreakdown(this.allTimeTracks);
     this.currentBreakdown = this.calculateBreakdown(this.currentTracks);
     this.allTimeTopDecade = this.findTopDecade(this.allTimeBreakdown);
     this.currentTopDecade = this.findTopDecade(this.currentBreakdown);
+    console.log(this.allTimeBreakdown, this.currentBreakdown);
+    this.createBreakDownObject(this.allTimeBreakdown, this.currentBreakdown);
   }
 
-  private calculateBreakdown = function(tracks) {
-    let breakdown = {};
+  ngAfterViewInit(): void {
+    this.intersectionObserverService.init(this.element.nativeElement, {
+      threshold: 0.20
+    });
+    this.intersectionObserverSubs = this.intersectionObserverService
+    .getSubject()
+    .subscribe(el => {
+      if (el.isIntersecting) {
+        this.show = true;
+      }
+    });
+  }
+
+  private createBreakDownObject(allTimeBreakdown, currentBreakdown) {
+    const keysArray = [];
+    allTimeBreakdown.forEach(item => {
+      if (!keysArray.includes(item.decade)) {
+        keysArray.push(item.decade);
+      }
+    });
+    currentBreakdown.forEach(item => {
+      if (!keysArray.includes(item.decade)) {
+        keysArray.push(item.decade);
+      }
+    });
+
+    keysArray.forEach(key => {
+      const breakdownConfig = {
+        decade: null,
+        current: [],
+        allTime: []
+      };
+      breakdownConfig.decade = key;
+      const currentTracks = currentBreakdown.find(item => item.decade === key);
+      currentTracks ? breakdownConfig.current = currentTracks.tracks : breakdownConfig.current = [];
+      const allTimeTracks = allTimeBreakdown.find(item => item.decade === key);
+      allTimeTracks ? breakdownConfig.allTime = allTimeTracks.tracks : breakdownConfig.allTime = [];
+
+      this.breakDownList.push(breakdownConfig);
+    });
+    console.log( 'breakdownlist', this.breakDownList);
+  }
+
+  private calculateBreakdown = (tracks) => {
+    const breakdown = {};
     tracks.map(track => {
       if (track.album && track.album.release_date) {
-        const year = parseInt(track.album.release_date.substring(0,4));
+        const year = parseInt(track.album.release_date.substring(0, 4), 10);
         const decade = Math.floor(year / 10) * 10;
         if (breakdown[decade]) {
           breakdown[decade].push(track);
@@ -37,21 +92,24 @@ export class YearBreakdownComponent implements OnInit {
         }
       }
     });
-    let breakdownList = [];
+    const breakdownList = [];
     for (const property in breakdown) {
-      breakdownList.push({
-        "decade": property,
-        "tracks": breakdown[property]
-      });
+      if (property) {
+        breakdownList.push({
+          decade: property,
+          tracks: breakdown[property]
+        });
+      }
+
     }
     console.log(breakdownList);
     return breakdownList;
   }
 
-  private findTopDecade = function(breakdown) {
-    let topDecade = "";
+  private findTopDecade = (breakdown) => {
+    let topDecade = '';
     let highestCount = 0;
-    for(let decade of breakdown) {
+    for (const decade of breakdown) {
       if (decade.tracks.length > highestCount) {
         highestCount = decade.tracks.length;
         topDecade = decade.decade;

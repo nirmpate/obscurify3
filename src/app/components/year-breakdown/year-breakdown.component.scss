@@ -10,7 +10,7 @@
     background: white;
 }
 
-.decade {
+.year-breakdown {
     max-width: 1024px;
     margin: 0 auto;
     display: flex;
@@ -19,12 +19,6 @@
     transform: translateY(100px);
     transition: .3s cubic-bezier(.25,.1,.25,1);
     align-items: flex-start;
-
-    img {
-        width: 90px;
-        height: 90px;
-        margin-right: 7px;
-    }
 
     &.show {
         opacity: 1;
@@ -37,15 +31,6 @@
         overflow-x: auto;
     }
 
-    &__container--right {
-        align-self: flex-end;
-
-        h3 {
-            text-align: right;
-        }
-
-
-    }
 
     &__description {
         min-width: 200px;
@@ -65,7 +50,10 @@
         font-size: 14px;
     }
 
-
+    &__decade {
+        margin-top: 2em;
+        width: 100%;
+    }
 
     &__content {
         margin-top: 2em;
@@ -76,32 +64,8 @@
             font-size: 36px;
         }
     }
+}
 
-    &__card {
-        padding: 1em;
-        background-color: white;
-        min-width: 250px;
-        margin-top: 1em;
-        border-radius: 5px;
-    }
-
-    &__card--reverse {
-        flex-direction: row-reverse;
-    }
-
-    &__card__header {
-        font-size: 24px;
-        margin-bottom: 0.5em;
-    }
-
-    &__card__paragraph {
-        font-family: $secondary-font;
-        font-weight: normal;
-        line-height: 1.5;
-        margin-bottom: 1em
-    }
-
-    &__card__container {
-        width: 100%;
-    }
+.decade__card {
+    margin-bottom: 1em;
 }
