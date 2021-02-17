@@ -55,6 +55,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { LoaderComponent } from './components/loader/loader.component';
 import { YearBreakdownComponent } from './components/year-breakdown/year-breakdown.component';
+import { DecadeCardComponent } from './decade-card/decade-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -81,6 +84,7 @@ import { YearBreakdownComponent } from './components/year-breakdown/year-breakdo
     ShareProfileComponent,
     LoaderComponent,
     YearBreakdownComponent,
+    DecadeCardComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -107,6 +111,8 @@ import { YearBreakdownComponent } from './components/year-breakdown/year-breakdo
     MatProgressBarModule,
     MatBottomSheetModule,
     MatTabsModule,
+    MatCardModule,
+    MatButtonToggleModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ScullyLibModule,
   ],

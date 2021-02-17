@@ -1,40 +1,43 @@
 <div class="slate" >
-    <div class="header">
-        <h2 class="header__title">
-            By the Years
-        </h2>
-    </div>
+    <div class="year-breakdown" [ngClass]="{'show': this.show}">
+        <div class="header">
+            <h2 class="header__title">
+                By the Years
+            </h2>
+        </div>
+    
+        <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
+            <p  *ngIf="currentBreakdown.length > 1" class="decade__description">You've been recently listening to music made across decades, but the 
+                <strong>{{currentTopDecade}}s</strong> are your favorite
+            </p>
 
-    <div class="decade__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
-        <p class="decade__description">You've been recently listening to music across {{currentBreakdown.length}} decades, but the 
-            <strong>{{currentTopDecade}}s</strong> are your favorite
-        </p>
-        <div class="decade__card" *ngFor="let decade of currentBreakdown">
-            <h3>The {{decade.decade}}s <span class="decade__trackcount">{{decade.tracks.length}} tracks</span></h3>
-            <div class="decade_tracklist" *ngFor="let track of decade.tracks; let i = index">
-                <span *ngIf="i < 5">
-                    <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                    <span>{{track.name}}</span>
-                    <span class="decade__trackyear">{{track.album.release_date.substring(0,4)}}</span>
-                </span>
+            <p *ngIf="currentBreakdown.length === 1">
+                You've recently been listening to music from only <strong>{{currentTopDecade}}</strong>.
+            </p>
+        </div>
+    
+        
+        <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
+            <p *ngIf="allTimeBreakdown.length > 1"  class="decade__description">
+                Your all-time top tracks span decades, and your favorite is the <strong>{{allTimeTopDecade}}s</strong>
+            </p>
+
+            <p *ngIf="allTimeBreakdown.length === 1">
+                Your all-time top tracks span only the <strong>{{allTimeTopDecade}}s</strong>
+            </p>
+
+        </div>
+
+        <div class="year-breakdown__decade" fxLayout="row wrap" fxLayoutGap="1em">
+            <div class="decade__card" *ngFor="let breakdown of breakDownList" fxFlex.lt-sm="100%"fxFlex="49%" fxFlexFill>
+                <app-decade-card [decadeConfig]="breakdown"></app-decade-card>
+    
             </div>
         </div>
-    </div>
 
     
-    <div class="decade__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
-        <p class="decade__description">
-            Your all-time top tracks span {{allTimeBreakdown.length}} decades, and your favorite is the <strong>{{allTimeTopDecade}}s</strong>
-        </p>
-        <div class="decade__card" *ngFor="let decade of allTimeBreakdown">
-            <h3>The {{decade.decade}}s <span class="decade__trackcount">{{decade.tracks.length}} tracks</span></h3>
-            <div class="decade_tracklist" *ngFor="let track of decade.tracks; let i = index">
-                <div *ngIf="i < 5">
-                    <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                    <span>{{track.name}}</span>
-                    <span class="decade__trackyear"> {{track.album.release_date.substring(0,4)}}</span>
-                </div>
-            </div>
-        </div>
+    
     </div>
+
+
 </div>

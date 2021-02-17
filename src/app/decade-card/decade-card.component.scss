@@ -1,0 +1,25 @@
+
+.decade {
+    min-width: 200px;
+
+    &__track-year {
+        opacity: 0.5;
+        margin-left: 1em;
+    }
+
+    &__trackcount {
+        opacity: 0.5;
+        font-size: 14px;
+    }
+
+    &__tracklist { 
+        margin-bottom: 1em;
+        div {
+            display: flex;
+            align-items: center;
+        }
+        img {
+            margin-right: 1em;
+        }
+    }
+}
