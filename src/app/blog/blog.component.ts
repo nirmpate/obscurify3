@@ -43,7 +43,7 @@ export class BlogComponent implements OnInit {
       this.filterPosts();
       this.location = window.location.href;
       this.seoService.setMetaTags({
-        title: `Obscurify Music | ${this.post.title}`,
+        title: `Obscurify | ${this.post.title}`,
         description: this.post.description,
         image: this.post.img
       });

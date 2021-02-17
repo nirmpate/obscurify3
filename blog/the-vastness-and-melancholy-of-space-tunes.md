@@ -12,7 +12,7 @@ instagram: whiskey__pharroah
 facebook:
 twitter:
 caption: Photo credit Shawn Marie Hardy
-tags: music philosophy, thought piece
+tags: music philosophy
 ---
 
 # An intricate, swirling feeling that we can all relate to, yet struggle to communicate;
