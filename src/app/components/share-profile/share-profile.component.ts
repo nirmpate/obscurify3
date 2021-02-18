@@ -19,7 +19,10 @@ export class ShareProfileComponent implements OnInit, OnDestroy {
   public userProfileUrl = '';
   public checked;
   public userSub: Subscription;
-  constructor(public userService: UserService, public obscurifyService: ObscurifyService, public tokenSvc: TokenService, public snkBar: MatSnackBar) { }
+  constructor(public userService: UserService,
+              public obscurifyService: ObscurifyService,
+              public tokenSvc: TokenService,
+              public snkBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.checked = this.userState.profileCode ? true : false;
@@ -56,6 +59,9 @@ export class ShareProfileComponent implements OnInit, OnDestroy {
             if (response.error) {
               console.log(response.error);
             } else {
+              this.userService.setUserState({
+                profileCode: ''
+              });
               this.userProfileUrl = '';
               this.checked = false;
             }

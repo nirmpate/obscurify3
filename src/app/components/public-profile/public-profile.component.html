@@ -1,6 +1,6 @@
 
 
-<div class="public__profile dark-theme">
+<div *ngIf="!showError" class="public__profile dark-theme">
 
   <header class="public__profile__container">
     <a class="back__btn" routerLink="/home"> <i class="fas fa-arrow-left"></i> Go back </a>
@@ -61,6 +61,24 @@
             userHistory: userHistory
         }"
       ></app-artist-list>
+    </div>
+
+  </main>
+</div>
+
+<div *ngIf="showError" class="public__profile dark-theme">
+
+  <header class="public__profile__container">
+    <a class="back__btn" routerLink="/home"> <i class="fas fa-arrow-left"></i> Go back </a>
+
+  </header>
+  <main>
+    <div class="public__profile__container" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+      <div class="mt-2" style="width: 70%">
+        <h1>Sorry! The profile you are trying to view either does not exist or the unique share code is not active.</h1>
+
+      </div>
+
     </div>
 
   </main>

@@ -1,4 +1,4 @@
-<div class="slate" >
+<div class="slate" *ngIf="breakDownList.length > 0">
     <div class="year-breakdown" [ngClass]="{'show': this.show}">
         <div class="header">
             <h2 class="header__title">
@@ -29,7 +29,7 @@
         </div>
 
         <div class="year-breakdown__decade" fxLayout="column wrap" fxLayoutGap="1em">
-            <div class="decade__card" *ngFor="let breakdown of breakDownList; let i = index" fxFlex.lt-sm="100%" fxFlex="70%" [fxFlexAlign]="i % 2 === 0 ? 'end': 'start'">
+            <div class="decade__card" *ngFor="let breakdown of breakDownList; let i = index" fxFlex.lt-sm="100%" fxFlex="70%" [fxFlexAlign]="i % 2 === 0 ? 'start': 'end'">
                 
             
                 <app-decade-card [decadeConfig]="breakdown"></app-decade-card>
