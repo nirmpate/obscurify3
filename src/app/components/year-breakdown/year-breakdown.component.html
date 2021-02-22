@@ -7,7 +7,7 @@
         </div>
     
         <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
-            <p  *ngIf="currentBreakdown.length > 1" class="decade__description">You've been recently listening to music made across decades, but the 
+            <p  *ngIf="currentBreakdown.length > 1" class="decade__description">You've been recently listening to music made across {{ currentBreakdown.length }} decades, but the 
                 <strong>{{currentTopDecade}}s</strong> are your favorite
             </p>
 
@@ -19,7 +19,7 @@
         
         <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
             <p *ngIf="allTimeBreakdown.length > 1"  class="decade__description">
-                Your all-time top tracks span decades, and your favorite is the <strong>{{allTimeTopDecade}}s</strong>
+                Your all-time top tracks span {{ allTimeBreakdown.length }} decades, and your favorite is the <strong>{{allTimeTopDecade}}s</strong>
             </p>
 
             <p *ngIf="allTimeBreakdown.length === 1">
