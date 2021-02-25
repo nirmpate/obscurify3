@@ -15,6 +15,7 @@ import { UserService } from 'src/app/services/userService';
 export class PublicProfileComponent implements OnInit {
 
     public profileUserID: string;
+    public showError = false;
     private shareCode: string;
     public loaded = false;
     public country: string;
@@ -129,10 +130,10 @@ export class PublicProfileComponent implements OnInit {
             }
         },
         err => {
-            this.authService.resetState()
-            this.tokenSvc.resetState()
-            alert('Sorry! The profile you are trying to view either does not exist or the unique share code is not active.')
-            window.location.href = 'home'
+            this.authService.resetState();
+            this.tokenSvc.resetState();
+            this.showError = true;
+            this.loaded = true;
         }
       );
   }

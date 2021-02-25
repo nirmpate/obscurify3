@@ -1,15 +1,15 @@
 ---
-title: Obscurify Top Picks February ‘21
+title: Community Top Picks February ‘21
 description: We ran the numbers and found the tracks our most obscure users have been loving recently.
 published: true
 date: February 2nd 2021
 isoDate: 2021-02-02
-featured: yes
+featured: no
 author: Alex Olivero
 img: https://d129l1mriif4tx.cloudfront.net/top-picks-feb-2021.png
-category: Top Picks
+category: Community Top Picks
 caption: Phoebe Bridgers, MF DOOM, Molchat Doma, and Miki Matsubara.
-instagram:
+instagram: obscurifymusic
 facebook:
 twitter:
 tags: community top picks
@@ -64,7 +64,7 @@ Swedish rapper Bladee has an impressive discography dating back to 2013 consisti
 # Me and My Husband - Mitski (2018)
 <iframe src="https://open.spotify.com/embed/track/5ErtQGRKEibK2WHaA729O8" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-Mitski takes on the persona as a suburban housewife to illustrate the loneliness [she felt on tour](https://www.gq.com/story/mitski-writes-bangers-for-the-loners). The '50s instrumentation and tone contribute to the imagery which make for overall poignant commentary.
+Mitski takes on the persona as a suburban housewife to illustrate the loneliness she felt [on tour](https://www.gq.com/story/mitski-writes-bangers-for-the-loners). The '50s instrumentation and tone contribute to the imagery which make for overall poignant commentary.
 
 
 # I Want Wind to Blow - The Microphones (2001)

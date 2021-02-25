@@ -7,12 +7,12 @@ isoDate: 2021-01-25
 featured: no
 author: Kristen Paige
 img: https://d129l1mriif4tx.cloudfront.net/sinatra.jpeg
-category: Music Review
+category: Thought Piece
 caption: Frank Sinatra, 1954 © Shutterstock
 instagram: kristenepaige
 facebook:
 twitter:
-tags:
+tags: thought piece
 ---
 
 # For possibly the first time in my adult life, this year I celebrated the New Year at home, sans party.

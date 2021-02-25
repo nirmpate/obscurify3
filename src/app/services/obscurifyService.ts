@@ -50,7 +50,7 @@ export class ObscurifyService {
           displayName,
           imageURL
         };
-        return this.http.post(this.obscurifyUrl + '/publicProfile', togglePublicProfileBody);
+        return this.http.post(this.obscurifyUrl + '/publicProfile', togglePublicProfileBody)
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

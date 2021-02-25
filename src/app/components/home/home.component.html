@@ -53,6 +53,12 @@
             }">
         </app-moods-graph>
 
+        <app-year-breakdown
+            *ngIf="allTimeTracks"
+            [allTimeTracks]="allTimeTracks.allTimeTracks"
+            [currentTracks]="currentTracks.currentTracks">
+        </app-year-breakdown>
+
 
     </div>
 

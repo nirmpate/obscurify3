@@ -1,0 +1,65 @@
+<div class="slate" *ngIf="breakDownList.length > 0">
+    <div class="year-breakdown" [ngClass]="{'show': this.show}">
+        <div class="header">
+            <h2 class="header__title">
+                By the Years
+            </h2>
+        </div>
+    
+        <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
+            <p  
+                *ngIf="!currentBreakdown && allTimeBreakdown.length >= 1 && allTimeTopDecade.length > 0" 
+                class="decade__description">
+                Your favorite decade of music is the <strong>{{allTimeTopDecade}}s</strong>
+            </p>
+            <p  
+                *ngIf="currentBreakdown.length >= 1 && allTimeBreakdown.length >= 1 && currentTopDecade == allTimeTopDecade" 
+                class="decade__description">
+                Your favorite decade of music is the <strong>{{currentTopDecade}}s</strong>
+            </p>
+            <p  
+                *ngIf="currentBreakdown.length > 1 && allTimeBreakdown.length > 1 && currentTopDecade != allTimeTopDecade" 
+                class="decade__description">
+                Your current favorite decade of music is the <strong>{{currentTopDecade}}s</strong>, but your all-time favorite is the <strong>{{allTimeTopDecade}}s</strong>
+            </p>
+        </div>
+    
+        
+        <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
+            <p 
+                *ngIf="breakDownList.length === 1"
+                class="decade__description">
+                You've been listening to music from only one decade
+            </p>
+            <p 
+                *ngIf="breakDownList.length === 2 || breakDownList.length === 3"
+                class="decade__description">
+                You've been listening to music made across <strong>{{breakDownList.length}} decades</strong> 
+            </p>
+            <p 
+                *ngIf="breakDownList.length === 4 || breakDownList.length === 5"
+                class="decade__description">
+                You have love for a few different eras, listening to music made across <strong>{{breakDownList.length}} decades</strong> 
+            </p>
+            <p 
+                *ngIf="breakDownList.length > 5"
+                class="decade__description">
+                You're a musical time traveler, listening to music made across a whopping <strong>{{breakDownList.length}} decades</strong> 
+            </p>
+        </div>
+
+        <div class="year-breakdown__decade" fxLayout="column wrap" fxLayoutGap="1em">
+            <div class="decade__card" *ngFor="let breakdown of breakDownList; let i = index" fxFlex.lt-sm="100%" fxFlex="70%" [fxFlexAlign]="i % 2 === 0 ? 'start': 'end'">
+                
+            
+                <app-decade-card [decadeConfig]="breakdown"></app-decade-card>
+    
+            </div>
+        </div>
+
+    
+    
+    </div>
+
+
+</div>

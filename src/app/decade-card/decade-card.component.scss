@@ -1,0 +1,64 @@
+@import 'mixins';
+
+.decade {
+    min-width: 200px;
+
+    &__track-year {
+        opacity: 0.5;
+        margin-left: 1em;
+        font-size: 14px;
+    }
+
+    &__track-name {
+      word-break: break-word;
+      flex: 0 1 100%;
+      font-size: 14px;
+    }
+
+    &__trackcount {
+        opacity: 0.5;
+        font-size: 14px;
+    }
+
+    &__tracklist {
+        margin-bottom: 1em;
+        div {
+            display: flex;
+            align-items: center;
+        }
+        img {
+            margin-right: 1em;
+        }
+    }
+
+
+    h2 {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    a, a:visited, a:active {
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+@include tablet {
+  .decade {
+
+    &__track-year {
+      font-size: 16px;
+    }
+
+    &__track-name {
+      font-size: 16px;
+    }
+  }
+}

@@ -133,7 +133,7 @@ $custom-typography: mat-typography-config(
 // that you are using.
 @include mat-select-typography($custom-typography);
 @include mat-button-typography($custom-typography);
-
+@include mat-card-typography($custom-typography);
 @include angular-material-theme($obscurify3-theme);
 
 .dark-theme {

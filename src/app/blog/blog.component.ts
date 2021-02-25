@@ -43,7 +43,7 @@ export class BlogComponent implements OnInit {
       this.filterPosts();
       this.location = window.location.href;
       this.seoService.setMetaTags({
-        title: `Obscurify Music | ${this.post.title}`,
+        title: `Obscurify | ${this.post.title}`,
         description: this.post.description,
         image: this.post.img
       });
@@ -63,6 +63,9 @@ export class BlogComponent implements OnInit {
   filterPosts() {
     const posts = this.blogPosts.filter((post) => post !== this.post);
     this.filteredPosts = this.obscurifyFunc.sortBlogPosts(posts);
+    if (this.filterPosts.length > 4) {
+      this.filteredPosts = this.filteredPosts.slice(0, 4);
+    }
   }
 
   twitterShare() {

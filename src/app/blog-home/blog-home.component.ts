@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { ObscurityFuncs } from 'src/app/utilities/obscurityFuncs';
 import { Observable } from 'rxjs';
+import { SeoService } from '../services/metaData';
 
 @Component({
   selector: 'app-blog-home',
@@ -13,7 +14,11 @@ export class BlogHomeComponent implements OnInit {
     featuredThreePosts: any[] = [];
     remainingPosts: any[] = [];
 
-    constructor(private scully: ScullyRoutesService, private obscurifyFunc: ObscurityFuncs) { }
+    constructor(
+        private scully: ScullyRoutesService, 
+        private obscurifyFunc: ObscurityFuncs,
+        private seoService: SeoService
+    ) { }
 
     ngOnInit(): void {
         this.links$.subscribe((links) => {
@@ -21,6 +26,8 @@ export class BlogHomeComponent implements OnInit {
             this.featuredThreePosts = allPosts.splice(0, 3);
             this.remainingPosts = allPosts;
         });
+
+        this.seoService.setMetaTags();
     }
 
 }

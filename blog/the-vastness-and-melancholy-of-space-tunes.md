@@ -4,10 +4,10 @@ description: Since the beginning of human consciousness, one of the main questio
 published: true
 date: January 21st 2021
 isoDate: 2021-01-21
-featured: yes
+featured: no
 author: Nicholas Little
 img: https://d129l1mriif4tx.cloudfront.net/vastness-of-space-tunes.jpg
-category: Music Review
+category: Thought Piece
 instagram: whiskey__pharroah
 facebook:
 twitter:
