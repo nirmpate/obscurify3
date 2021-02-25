@@ -3,7 +3,8 @@
     <mat-card-title>The {{ decadeConfig.decade }}s</mat-card-title>
     <mat-card-content>
         <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="2em">
-            <div *ngIf="decadeConfig.current.length > 0" class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
+            <div class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
+              <div *ngIf="decadeConfig.current.length > 0">
                 <h2 >Current</h2>
                 <div>
                     <div class="decade__tracklist" *ngFor="let track of decadeConfig.current; let i = index">
@@ -14,9 +15,10 @@
                         </a>
                     </div>
                 </div>
-
+              </div>
             </div>
-            <div *ngIf="decadeConfig.allTime.length > 0"  class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
+            <div class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
+              <div *ngIf="decadeConfig.allTime.length > 0"  >
                 <h2 >All Time</h2>
                 <div >
                     <div  class="decade__tracklist" *ngFor="let track of decadeConfig.allTime; let i = index">
@@ -27,6 +29,8 @@
                         </a>
                     </div>
                 </div>
+              </div>
+
             </div>
         </div>
 
