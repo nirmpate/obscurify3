@@ -27,24 +27,24 @@
         
         <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
             <p 
-                *ngIf="currentBreakdown.length === 1"
+                *ngIf="breakDownList.length === 1"
                 class="decade__description">
-                You've recently been listening to music from only one decade
+                You've been listening to music from only one decade
             </p>
             <p 
-                *ngIf="currentBreakdown.length === 2 || currentBreakdown.length === 3"
+                *ngIf="breakDownList.length === 2 || breakDownList.length === 3"
                 class="decade__description">
-                You've recently been listening to music across <strong>{{currentBreakdown.length}} decades</strong> 
+                You've been listening to music made across <strong>{{breakDownList.length}} decades</strong> 
             </p>
             <p 
-                *ngIf="currentBreakdown.length === 4"
+                *ngIf="breakDownList.length === 4 || breakDownList.length === 5"
                 class="decade__description">
-                You've recently been showing your love for different eras by listening to music across <strong>{{currentBreakdown.length}} decades</strong> 
+                You have love for a few different eras, listening to music made across <strong>{{breakDownList.length}} decades</strong> 
             </p>
             <p 
-                *ngIf="currentBreakdown.length > 4"
+                *ngIf="breakDownList.length > 5"
                 class="decade__description">
-                You're a musical time traveler! You've been listening to music made across a whopping <strong>{{currentBreakdown.length}} decades</strong> 
+                You're a musical time traveler, listening to music made across a whopping <strong>{{breakDownList.length}} decades</strong> 
             </p>
         </div>
 
