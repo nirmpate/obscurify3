@@ -8,7 +8,7 @@ featured: yes
 author: 24KVoltage
 img: https://d129l1mriif4tx.cloudfront.net/nao.jpg
 category: Artist Spotlight
-caption: Description
+caption: 
 instagram: 
 facebook:
 twitter:
