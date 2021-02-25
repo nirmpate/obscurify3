@@ -14,7 +14,6 @@ export class DecadeCardComponent implements OnInit, AfterViewInit {
   constructor(public sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-
   }
 
   ngAfterViewInit(): void {

@@ -32,7 +32,6 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
     this.currentBreakdown = this.calculateBreakdown(this.currentTracks);
     this.allTimeTopDecade = this.findTopDecade(this.allTimeBreakdown);
     this.currentTopDecade = this.findTopDecade(this.currentBreakdown);
-    console.log(this.allTimeBreakdown, this.currentBreakdown);
     this.createBreakDownObject(this.allTimeBreakdown, this.currentBreakdown);
   }
 
@@ -75,8 +74,10 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
       allTimeTracks ? breakdownConfig.allTime = allTimeTracks.tracks : breakdownConfig.allTime = [];
 
       this.breakDownList.push(breakdownConfig);
+      this.breakDownList = this.breakDownList.sort((a, b) => {
+        return parseInt(a.decade, 10) - parseInt(b.decade, 10);
+      })
     });
-    console.log( 'breakdownlist', this.breakDownList);
   }
 
   private calculateBreakdown = (tracks) => {
@@ -102,7 +103,6 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
       }
 
     }
-    console.log(breakdownList);
     return breakdownList;
   }
 

@@ -1,15 +1,15 @@
 <mat-card>
 
-    <mat-card-title>The {{ decadeConfig.decade }}'s</mat-card-title>
+    <mat-card-title>The {{ decadeConfig.decade }}s</mat-card-title>
     <mat-card-content>
-        <div fxLayout="row" fxLayoutGap="2em">
-            <div class="decade" fxFlex="50%">
+        <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutGap="2em">
+            <div class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
                 <h2 >Current</h2>
                 <div *ngIf="decadeConfig.current.length > 0" >
                     <div class="decade__tracklist" *ngFor="let track of decadeConfig.current; let i = index">
                         <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="i < 5">
                             <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                            <span>{{track.name}}</span>
+                            <span class="decade__track-name">{{track.name}}</span>
                             <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
                         </a>
                     </div>
@@ -17,13 +17,13 @@
 
                 <p *ngIf="!decadeConfig.current.length > 0"> N/A</p>
             </div>
-            <div class="decade" fxFlex="50%">
+            <div class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
                 <h2 >All Time</h2>
                 <div *ngIf="decadeConfig.allTime.length > 0">
                     <div  class="decade__tracklist" *ngFor="let track of decadeConfig.allTime; let i = index">
                         <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="i < 5">
                             <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                            <span>{{track.name}}</span>
+                            <span class="decade__track-name">{{track.name}}</span>
                             <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
                         </a>
                     </div>

@@ -7,12 +7,17 @@
         margin-left: 1em;
     }
 
+    &__track-name {
+      word-break: break-all;
+      flex: 0 1 100%;
+    }
+
     &__trackcount {
         opacity: 0.5;
         font-size: 14px;
     }
 
-    &__tracklist { 
+    &__tracklist {
         margin-bottom: 1em;
         div {
             display: flex;
@@ -22,6 +27,7 @@
             margin-right: 1em;
         }
     }
+
 
     h2 {
         margin-bottom: 1em;
@@ -34,7 +40,7 @@
         display: flex;
         align-items: center;
     }
-    
+
     a:hover {
         text-decoration: underline;
     }
