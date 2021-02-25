@@ -7,25 +7,45 @@
         </div>
     
         <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
-            <p  *ngIf="currentBreakdown.length > 1" class="decade__description">You've been recently listening to music made across {{ currentBreakdown.length }} decades, but the 
-                <strong>{{currentTopDecade}}s</strong> are your favorite
+            <p  
+                *ngIf="!currentBreakdown && allTimeBreakdown.length >= 1 && allTimeTopDecade.length > 0" 
+                class="decade__description">
+                Your favorite decade of music is the <strong>{{allTimeTopDecade}}s</strong>
             </p>
-
-            <p *ngIf="currentBreakdown.length === 1">
-                You've recently been listening to music from only <strong>{{currentTopDecade}}</strong>.
+            <p  
+                *ngIf="currentBreakdown.length >= 1 && allTimeBreakdown.length >= 1 && currentTopDecade == allTimeTopDecade" 
+                class="decade__description">
+                Your favorite decade of music is the <strong>{{currentTopDecade}}s</strong>
+            </p>
+            <p  
+                *ngIf="currentBreakdown.length > 1 && allTimeBreakdown.length > 1 && currentTopDecade != allTimeTopDecade" 
+                class="decade__description">
+                Your current favorite decade of music is the <strong>{{currentTopDecade}}s</strong>, but your all-time favorite is the <strong>{{allTimeTopDecade}}s</strong>
             </p>
         </div>
     
         
         <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
-            <p *ngIf="allTimeBreakdown.length > 1"  class="decade__description">
-                Your all-time top tracks span {{ allTimeBreakdown.length }} decades, and your favorite is the <strong>{{allTimeTopDecade}}s</strong>
+            <p 
+                *ngIf="currentBreakdown.length === 1"
+                class="decade__description">
+                You've recently been listening to music from only one decade
             </p>
-
-            <p *ngIf="allTimeBreakdown.length === 1">
-                Your all-time top tracks span only the <strong>{{allTimeTopDecade}}s</strong>
+            <p 
+                *ngIf="currentBreakdown.length === 2 || currentBreakdown.length === 3"
+                class="decade__description">
+                You've recently been listening to music across <strong>{{currentBreakdown.length}} decades</strong> 
             </p>
-
+            <p 
+                *ngIf="currentBreakdown.length === 4"
+                class="decade__description">
+                You've recently been showing your love for different eras by listening to music across <strong>{{currentBreakdown.length}} decades</strong> 
+            </p>
+            <p 
+                *ngIf="currentBreakdown.length > 4"
+                class="decade__description">
+                You're a musical time traveler! You've been listening to music made across a whopping <strong>{{currentBreakdown.length}} decades</strong> 
+            </p>
         </div>
 
         <div class="year-breakdown__decade" fxLayout="column wrap" fxLayoutGap="1em">
