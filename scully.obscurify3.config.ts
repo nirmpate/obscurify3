@@ -23,12 +23,12 @@ export const config: ScullyConfig = {
     '/profile': {
       type: 'ignored'
     },
-      '/login': {
-        type: 'ignored'
-      },
-      '': {
-        type: 'ignored'
-      }
+    '/login': {
+      type: 'ignored'
+    },
+    '': {
+      type: 'ignored'
+    }
 
   },
 

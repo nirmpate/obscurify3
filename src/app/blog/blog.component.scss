@@ -216,10 +216,10 @@ iframe {
     .backdrop {
       display: block;
       height: 130%;
-      width: 100%;
+      width: 50%;
       position: absolute;
       top: 0;
-      transform: translate(40%, -60px);
+      transform: translate(90%, -60px);
       z-index: -1;
     }
 
