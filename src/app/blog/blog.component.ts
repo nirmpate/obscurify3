@@ -64,7 +64,7 @@ export class BlogComponent implements OnInit {
     const posts = this.blogPosts.filter((post) => post !== this.post);
     this.filteredPosts = this.obscurifyFunc.sortBlogPosts(posts);
     if (this.filteredPosts.length > 3) {
-      this.filteredPosts = this.filteredPosts.slice(0, 3);
+      this.filteredPosts = this.filteredPosts.slice(0, 4);
     }
   }
 
