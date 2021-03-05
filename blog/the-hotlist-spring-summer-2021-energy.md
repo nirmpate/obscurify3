@@ -6,7 +6,7 @@ date: February 1st 2021
 isoDate: 2021-02-01
 featured: no
 author: Terrance Nixon
-img: https://d129l1mriif4tx.cloudfront.net/the-hotlist-ss21.png
+img: https://d129l1mriif4tx.cloudfront.net/the-hotlist-ss21.jpg
 category: Music Review
 caption:
 instagram: Teransu
