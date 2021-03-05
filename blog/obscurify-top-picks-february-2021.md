@@ -6,7 +6,7 @@ date: February 2nd 2021
 isoDate: 2021-02-02
 featured: no
 author: Alex Olivero
-img: https://d129l1mriif4tx.cloudfront.net/top-picks-feb-2021.png
+img: https://d129l1mriif4tx.cloudfront.net/top-picks-feb-2021.jpg
 category: Community Top Picks
 caption: Phoebe Bridgers, MF DOOM, Molchat Doma, and Miki Matsubara.
 instagram: obscurifymusic
