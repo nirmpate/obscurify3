@@ -1,7 +1,7 @@
 ---
 title: 'Artist Spotlight: Raveena'
 description: 'Welcome to the lush, loving, and dreamy world of rising star Raveena Aurora.'
-published: false
+published: true
 date: 'February 17th 2021'
 isoDate: 2021-02-17T00:00:00.000Z
 featured: yes
@@ -13,8 +13,6 @@ instagram: obscurifymusic
 facebook: null
 twitter: null
 tags: 'neo-soul, r&b'
-slugs:
-    - ___UNPUBLISHED___kl8sx9cc_idpiRNOrtn7tYydHCGdXmNmeQafeKJwW
 ---
 
 > You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
