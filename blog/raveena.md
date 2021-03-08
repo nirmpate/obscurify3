@@ -2,8 +2,8 @@
 title: 'Artist Spotlight: Raveena'
 description: 'Welcome to the lush, loving, and dreamy world of rising star Raveena Aurora.'
 published: true
-date: 'February 17th 2021'
-isoDate: 2021-02-17T00:00:00.000Z
+date: 'March 8th 2021'
+isoDate: 2021-03-08T00:00:00.000Z
 featured: yes
 author: 'Alex Olivero'
 img: 'https://d129l1mriif4tx.cloudfront.net/raveena.jpg'
