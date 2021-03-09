@@ -15,7 +15,7 @@ twitter: null
 tags: 'neo-soul, r&b'
 ---
 
-> You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
+# You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
 
 This might be your fate if you start up Raveena's catalog. Over the course of a full-length album, 2 EPs, and a handful of singles, Raveena has shown her consistent vision and ability to transport the listener to a lush, loving, and dreamy place with incredibly warm layered vocals, wide electric piano, tastefully funky bass tightly fitting over subdued drums and jazz-inspired guitars gliding overtop. Lyrically, Raveena ticks all the boxes of classic R&B in terms of the topic of love and relationships, but her approach is remarkably uplifting as she focuses on healing, self-care, and self-love.
 
