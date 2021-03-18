@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 
@@ -9,8 +9,8 @@ export class IntersectionObserverService {
 
     private intersectionObserverSubject = new Subject<any>();
 
-    getSubject(): Subject<any> {
-        return this.intersectionObserverSubject;
+    getSubject(): Observable<any> {
+        return this.intersectionObserverSubject.asObservable();
     }
     init(el: HTMLElement, options: object): void {
         if (this.platform.isBrowser) {
