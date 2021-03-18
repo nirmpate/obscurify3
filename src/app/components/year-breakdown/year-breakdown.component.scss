@@ -68,4 +68,11 @@
 
 .decade__card {
     margin-bottom: 1em;
+    width: 100%;
+}
+
+@include tablet {
+    .decade__card {
+        width: auto;
+    }
 }

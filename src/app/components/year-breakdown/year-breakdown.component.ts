@@ -37,7 +37,7 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.intersectionObserverService.init(this.element.nativeElement, {
-      threshold: 0.20
+      threshold: [0.2, 0.5, 1]
     });
     this.intersectionObserverSubs = this.intersectionObserverService
     .getSubject()
