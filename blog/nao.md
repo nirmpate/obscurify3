@@ -4,7 +4,7 @@ description: Meet London-based "wonky funk" pioneer Nao.
 published: true
 date: February 25th 2021
 isoDate: 2021-02-25
-featured: yes
+featured: no
 author: 24KVoltage
 img: https://d129l1mriif4tx.cloudfront.net/nao.jpg
 category: Artist Spotlight

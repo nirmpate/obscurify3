@@ -1,9 +1,9 @@
 ---
 title: 'Artist Spotlight: Raveena'
-description: 'Welcome to the lush, loving, and dreamy world of rising star Raveena Aurora.'
-published: false
-date: 'February 17th 2021'
-isoDate: 2021-02-17T00:00:00.000Z
+description: 'Get lost in the the lush, loving, and dreamy world of rising star Raveena Aurora.'
+published: true
+date: 'March 8th 2021'
+isoDate: 2021-03-08T00:00:00.000Z
 featured: yes
 author: 'Alex Olivero'
 img: 'https://d129l1mriif4tx.cloudfront.net/raveena.jpg'
@@ -13,27 +13,26 @@ instagram: obscurifymusic
 facebook: null
 twitter: null
 tags: 'neo-soul, r&b'
-slugs:
-    - ___UNPUBLISHED___kl8sx9cc_idpiRNOrtn7tYydHCGdXmNmeQafeKJwW
 ---
 
-> You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
+# You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.
 
-This might be your fate if you start up Raveena's catalog. Over the course of a full-length album, 2 EPs, and a handful of singles, Raveena has shown her consistent vision and ability to transport the listener to a lush, loving, and dreamy place with incredibly warm layered vocals, wide electric piano, tastefully funky bass tightly fitting over subdued drums and jazz-inspired guitars gliding overtop.
+This might be your fate if you start up Raveena's catalog. Over the course of a full-length album, 2 EPs, and a handful of singles, Raveena has shown her consistent vision and ability to transport the listener to a lush, loving, and dreamy place with incredibly warm layered vocals, wide electric piano, tastefully funky bass tightly fitting over subdued drums and jazz-inspired guitars gliding overtop. Lyrically, Raveena ticks all the boxes of classic R&B in terms of the topic of love and relationships, but her approach is remarkably uplifting as she focuses on healing, self-care, and self-love.
 
 The [2018 Camp Flog Gnaw](https://earmilk.com/2018/11/14/6-standout-up-and-coming-acts-from-this-years-camp-flog-gnaw-carnival/) performer's live shows are filled with the same energy. In between songs on her appearance on [NPR's Tiny Desk](https://www.youtube.com/embed/pre9lE3Wa78), she says:
 
 > In any live space that I do, I want to cultivate this feeling of softness in the room, and community... And create a sense of togetherness, and a sense of love and vulnerability.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pre9lE3Wa78" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" style="max-width: 550px" height="315" src="https://www.youtube.com/embed/pre9lE3Wa78" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Please enjoy the following small sampling of excellent tracks across her catalog. 
+
+Now that you have an idea of what Raveena is all about, please enjoy the following small sampling of tracks showcasing her delicate R&B mastery.
 
 
 <iframe src="https://open.spotify.com/embed/track/4jyU03J2YOhRxgOHit2auK" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 Raveena's biggest hit thus far, "If Only" is an irresistable slow jam with bouncing bass, layered guitar, and a smooth, swelling electic piano.
-Her vocals effortlessly fly into falsetto and backing vox provide a warm embrace of harmony. This track has been known to induce a severe case of head nodding to any and all listeners.
+Her vocals effortlessly fly into falsetto and backing vocals provide a warm embrace of harmony. This track has been known to induce a severe case of head nodding to any and all listeners.
 
 > It's too late to hold me, too late to call me too
 <br/>You're saying "if only I could get over you"
@@ -41,7 +40,7 @@ Her vocals effortlessly fly into falsetto and backing vox provide a warm embrace
 
 <iframe src="https://open.spotify.com/embed/track/2qhahbZ5iMNmKIFCcVDGur" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-Much more melancholy than the previous song, Raveena shows a more vulnerable side of herself. Slightly detuned, yearning guitar strums that are sure to entice [Mac DeMarco](https://open.spotify.com/artist/3Sz7ZnJQBIHsXLUSo0OQtM?si=NSV9_0r3QdKbiS6Lt05yHA) fans call out overtop the downtempo drums and bass. Her lyrics along with the instrumentation paint a picture of the difficulty of love lost.
+Much more melancholy than the previous song, Raveena shows a more vulnerable side of herself. Slightly detuned, yearning guitar strums that are sure to entice a [Mac DeMarco](https://open.spotify.com/artist/3Sz7ZnJQBIHsXLUSo0OQtM?si=NSV9_0r3QdKbiS6Lt05yHA) fan call out overtop the downtempo drums and bass. Her lyrics along with the instrumentation paint a picture of the difficulty of love lost.
 
 > Six months from now, it’ll be the summertime
 <br/>By then I’ll forget what it’s like to have you on my mind
@@ -58,9 +57,9 @@ Evolving across five minutes, "Headaches" captures the positive and negative fee
 
 <iframe src="https://open.spotify.com/embed/track/3wv9jIR1DAGxTRMm1kH6GL" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-Featuring a magnificent harp paired up with a popping bass and electic piano, "Sweet Time" has a classic 2000s R&B throwback feel and an upbeat groove that just might make you put on your dancing shoes.
+Featuring a magnificent harp paired up with a popping bass and electic piano, "Sweet Time" has a classic 2000s R&B throwback feel and an upbeat groove. The lyrics, a celebration of self-contentment, just might make you turn it up and dance with nobody but yourself.
 
 
 <iframe src="https://open.spotify.com/embed/track/2NDMLu8ZNrAsAsPAoW5VOx" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-Raveena's latest song (and cover image) has a refined and distinctly '90s aesthetic, and there's more of an 808-inspired bass and drum sound this time around. What didn't change is her ear for amazingly catchy melodies and bright harmonies. If this track is any indication, I'm excited to see where she will take her music from here on out.
+Raveena's latest song has a refined and distinctly '90s aesthetic, and there's more of an 808-inspired bass and drum sound this time around. What didn't change is her ear for amazingly catchy melodies and bright harmonies. If this track is any indication, I'm excited to see where she will take her music from here on out.
