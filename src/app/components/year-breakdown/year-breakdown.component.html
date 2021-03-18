@@ -4,47 +4,46 @@
             <h2 class="header__title">
                 By the Years
             </h2>
-        </div>
-    
-        <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
-            <p  
-                *ngIf="!currentBreakdown && allTimeBreakdown.length >= 1 && allTimeTopDecade.length > 0" 
-                class="decade__description">
-                Your favorite decade of music is the <strong>{{allTimeTopDecade}}s</strong>
-            </p>
-            <p  
-                *ngIf="currentBreakdown.length >= 1 && allTimeBreakdown.length >= 1 && currentTopDecade == allTimeTopDecade" 
-                class="decade__description">
-                Your favorite decade of music is the <strong>{{currentTopDecade}}s</strong>
-            </p>
-            <p  
-                *ngIf="currentBreakdown.length > 1 && allTimeBreakdown.length > 1 && currentTopDecade != allTimeTopDecade" 
-                class="decade__description">
-                Your current favorite decade of music is the <strong>{{currentTopDecade}}s</strong>, but your all-time favorite is the <strong>{{allTimeTopDecade}}s</strong>
-            </p>
-        </div>
-    
+        </div>    
         
         <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
             <p 
                 *ngIf="breakDownList.length === 1"
                 class="decade__description">
-                You've been listening to music from only one decade
+                You're consistent! You've been listening to music from only one decade.
             </p>
             <p 
                 *ngIf="breakDownList.length === 2 || breakDownList.length === 3"
                 class="decade__description">
-                You've been listening to music made across <strong>{{breakDownList.length}} decades</strong> 
+                You've been listening to music made from <strong>{{breakDownList.length}}</strong> decades.
             </p>
             <p 
                 *ngIf="breakDownList.length === 4 || breakDownList.length === 5"
                 class="decade__description">
-                You have love for a few different eras, listening to music made across <strong>{{breakDownList.length}} decades</strong> 
+                Your music taste spans generations! You've been listening to music made from <strong>{{breakDownList.length}}</strong> decades.
             </p>
             <p 
                 *ngIf="breakDownList.length > 5"
                 class="decade__description">
-                You're a musical time traveler, listening to music made across a whopping <strong>{{breakDownList.length}} decades</strong> 
+                You're a musical time traveler! You've been listening to music made from a whopping <strong>{{breakDownList.length}}</strong> decades.
+            </p>
+        </div>
+
+        <div class="year-breakdown__container" fxLayout="column" fxLayout.gt-xs="row nowrap">
+            <p  
+                *ngIf="!currentBreakdown && allTimeBreakdown.length >= 1 && allTimeTopDecade.length > 0" 
+                class="decade__description">
+                But only one gets to be your favorite - the <strong>{{allTimeTopDecade}}s</strong>.
+            </p>
+            <p  
+                *ngIf="currentBreakdown.length >= 1 && allTimeBreakdown.length >= 1 && currentTopDecade == allTimeTopDecade" 
+                class="decade__description">
+                But only one gets to be your favorite - the <strong>{{currentTopDecade}}s</strong>.
+            </p>
+            <p  
+                *ngIf="currentBreakdown.length > 1 && allTimeBreakdown.length > 1 && currentTopDecade != allTimeTopDecade" 
+                class="decade__description">
+                Your current favorite decade of music is the <strong>{{currentTopDecade}}s</strong>, but your all-time favorite is the <strong>{{allTimeTopDecade}}s</strong>.
             </p>
         </div>
 
