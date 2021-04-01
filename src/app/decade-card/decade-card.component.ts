@@ -9,19 +9,23 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class DecadeCardComponent implements OnInit, AfterViewInit {
 
   @Input() decadeConfig;
-  @ViewChild('trackGroup') trackGroup;
 
   constructor(public sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    console.log(this.decadeConfig)
+    this.decadeConfig.combinedList = [];
+    while (this.decadeConfig.combinedList.length <= 8 && (this.decadeConfig.current.length > 0 || this.decadeConfig.allTime.length > 0)) {
+      if (this.decadeConfig.current.length > 0) {
+        this.decadeConfig.combinedList.push(this.decadeConfig.current.shift());
+      }
+      if (this.decadeConfig.allTime.length > 0) {
+        this.decadeConfig.combinedList.push(this.decadeConfig.allTime.shift());
+      }
+    }
   }
 
   ngAfterViewInit(): void {
 
-    if (this.decadeConfig.current.length > 0) {
-      this.trackGroup.value = 'current';
-    } else {
-      this.trackGroup.value = 'allTime';
-    }
   }
 }

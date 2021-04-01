@@ -2,7 +2,7 @@
     <div class="year-breakdown show">
         <div class="header">
             <h2 class="header__title">
-                By the Years
+                By the Decades
             </h2>
         </div>    
         
@@ -47,8 +47,8 @@
             </p>
         </div>
 
-        <div class="year-breakdown__decade" fxLayout="column wrap" fxLayoutGap="1em">
-            <div class="decade__card" *ngFor="let breakdown of breakDownList; let i = index" fxFlex.lt-sm="100%" fxFlex="70%" [fxFlexAlign]="i % 2 === 0 ? 'start': 'end'">
+        <div class="year-breakdown__decade" fxLayout="row" fxLayoutGap="1em">
+            <div class="decade__card" *ngFor="let breakdown of breakDownList" fxFlex.lt-sm="100%" fxFlex="70%">
                 
             
                 <app-decade-card [decadeConfig]="breakdown"></app-decade-card>

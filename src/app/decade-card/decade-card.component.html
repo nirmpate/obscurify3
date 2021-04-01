@@ -1,40 +1,16 @@
 <mat-card>
-
     <mat-card-title>The {{ decadeConfig.decade }}s</mat-card-title>
     <mat-card-content>
-        <div fxLayout.lt-sm="column" [fxLayout]="decadeConfig.current.length === 0 ? 'row reverse' : 'row'" fxLayoutGap="2em" >
-            <div class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
-              <div *ngIf="decadeConfig.current.length > 0">
-                <h2 >Current</h2>
-                <div>
-                    <div class="decade__tracklist" *ngFor="let track of decadeConfig.current; let i = index">
-                        <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="i < 5">
-                            <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                            <span class="decade__track-name">{{track.name}}</span>
-                            <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
-                        </a>
-                    </div>
+        <div fxLayout.lt-sm="row" fxLayoutGap="2em" >
+            <div class="decade" fxFlex.lt-sm="100%" fxFlex="100%">
+                <div class="decade__tracklist" *ngFor="let track of decadeConfig.combinedList">
+                    <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)">
+                        <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
+                        <span class="decade__track-name">{{track.name}}</span>
+                        <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
+                    </a>
                 </div>
-              </div>
-            </div>
-            <div class="decade" fxFlex.lt-sm="100%" fxFlex="50%">
-              <div *ngIf="decadeConfig.allTime.length > 0"  >
-                <h2 >All Time</h2>
-                <div >
-                    <div  class="decade__tracklist" *ngFor="let track of decadeConfig.allTime; let i = index">
-                        <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)" *ngIf="i < 5">
-                            <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
-                            <span class="decade__track-name">{{track.name}}</span>
-                            <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
-                        </a>
-                    </div>
-                </div>
-              </div>
-
             </div>
         </div>
-
     </mat-card-content>
-
 </mat-card>
-
