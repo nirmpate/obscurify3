@@ -55,9 +55,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { LoaderComponent } from './components/loader/loader.component';
 import { YearBreakdownComponent } from './components/year-breakdown/year-breakdown.component';
-import { DecadeCardComponent } from './decade-card/decade-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -83,8 +83,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     NavMenuComponent,
     ShareProfileComponent,
     LoaderComponent,
-    YearBreakdownComponent,
-    DecadeCardComponent
+    YearBreakdownComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -108,6 +107,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     HttpClientModule,
     ClipboardModule,
     MatMenuModule,
+    MatExpansionModule,
     MatProgressBarModule,
     MatBottomSheetModule,
     MatTabsModule,

@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, Subscription } from 'rxjs';
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
+
 
 @Component({
   selector: 'app-year-breakdown',
@@ -22,9 +24,12 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
   public intersectionObserverSubs: Subscription;
   public show = false;
 
+  panelOpenState = false;
+
   constructor(
     public intersectionObserverService: IntersectionObserverService,
-    public element: ElementRef
+    public element: ElementRef,
+    public sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +38,7 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
     this.allTimeTopDecade = this.findTopDecade(this.allTimeBreakdown);
     this.currentTopDecade = this.findTopDecade(this.currentBreakdown);
     this.createBreakDownObject(this.allTimeBreakdown, this.currentBreakdown);
+    console.log(this.breakDownList)
   }
 
   ngAfterViewInit(): void {
@@ -65,13 +71,27 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
       const breakdownConfig = {
         decade: null,
         current: [],
-        allTime: []
+        allTime: [],
+        combinedList: []
       };
       breakdownConfig.decade = key;
       const currentTracks = currentBreakdown.find(item => item.decade === key);
       currentTracks ? breakdownConfig.current = currentTracks.tracks : breakdownConfig.current = [];
       const allTimeTracks = allTimeBreakdown.find(item => item.decade === key);
       allTimeTracks ? breakdownConfig.allTime = allTimeTracks.tracks : breakdownConfig.allTime = [];
+
+      breakdownConfig.combinedList = [];
+      while (breakdownConfig.combinedList.length <= 6 && (breakdownConfig.current.length > 0 || breakdownConfig.allTime.length > 0)) {
+        if (breakdownConfig.current.length > 0) {
+          breakdownConfig.combinedList.push(breakdownConfig.current.shift());
+        }
+        if (breakdownConfig.allTime.length > 0) {
+          breakdownConfig.combinedList.push(breakdownConfig.allTime.shift());
+        }
+      }
+      breakdownConfig.combinedList = breakdownConfig.combinedList.sort((a, b) => {
+        return parseInt(a.album.release_date.substring(0, 4), 10) - parseInt(b.album.release_date.substring(0, 4), 10);
+      })
 
       this.breakDownList.push(breakdownConfig);
       this.breakDownList = this.breakDownList.sort((a, b) => {

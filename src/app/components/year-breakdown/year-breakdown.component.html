@@ -33,12 +33,12 @@
             <p  
                 *ngIf="!currentBreakdown && allTimeBreakdown.length >= 1 && allTimeTopDecade.length > 0" 
                 class="decade__description">
-                But only one gets to be your favorite - the <strong>{{allTimeTopDecade}}s</strong>.
+                Your favorite decade of music is the <strong>{{allTimeTopDecade}}s</strong>.
             </p>
             <p  
                 *ngIf="currentBreakdown.length >= 1 && allTimeBreakdown.length >= 1 && currentTopDecade == allTimeTopDecade" 
                 class="decade__description">
-                But only one gets to be your favorite - the <strong>{{currentTopDecade}}s</strong>.
+                Your favorite decade of music is the <strong>{{currentTopDecade}}s</strong>.
             </p>
             <p  
                 *ngIf="currentBreakdown.length > 1 && allTimeBreakdown.length > 1 && currentTopDecade != allTimeTopDecade" 
@@ -47,11 +47,36 @@
             </p>
         </div>
 
-        <div class="year-breakdown__decade" fxLayout="row" fxLayoutGap="1em">
-            <div class="decade__card" *ngFor="let breakdown of breakDownList" fxFlex.lt-sm="100%" fxFlex="70%">
+        <div class="year-breakdown__decade" fxLayout="column">
+            <div class="decade__card"  fxFlex.lt-sm="100%">
+
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let breakdown of breakDownList" 
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          The {{breakdown.decade}}s
+                        </mat-panel-title>
+                        <!-- <mat-panel-description>
+                            {{breakdown.allTime.length + breakdown.current.length + breakdown.combinedList.length}} tracks
+                          </mat-panel-description> -->
+                      </mat-expansion-panel-header>
+                      <div fxLayout.lt-sm="row" fxLayoutGap="1em" >
+                        <div class="decade" fxFlex.lt-sm="100%" fxFlex="100%">
+                            <div class="decade__tracklist" *ngFor="let track of breakdown.combinedList">
+                                <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)">
+                                    <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
+                                    <span class="decade__track-name">{{track.name}}</span>
+                                    <span class="decade__track-year"> {{track.album.release_date.substring(0,4)}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    </mat-expansion-panel>
+
+                </mat-accordion>
                 
-            
-                <app-decade-card [decadeConfig]="breakdown"></app-decade-card>
     
             </div>
         </div>
