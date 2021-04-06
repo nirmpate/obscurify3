@@ -55,14 +55,14 @@
                     (opened)="panelOpenState = true"
                     (closed)="panelOpenState = false"
                     >
-                      <mat-expansion-panel-header [collapsedHeight]="'80px'">
+                      <mat-expansion-panel-header [collapsedHeight]="'60px'">
                         <mat-panel-title>
                           <h1>The {{breakdown.decade}}s</h1>
                         </mat-panel-title>
                       </mat-expansion-panel-header>
                       <div fxLayout.lt-sm="row" fxLayoutGap="1em" >
-                        <div class="decade" fxFlex.lt-sm="100%" fxFlex="100%">
-                            <div class="decade__tracklist" *ngFor="let track of breakdown.combinedList">
+                        <div class="decade" fxFlex.lt-sm="100%" fxFlex="100%" fxLayout.gt-sm="row wrap">
+                            <div class="decade__tracklist" *ngFor="let track of breakdown.combinedList" fxFlex.gt-sm="50%">
                                 <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(track.uri)">
                                     <img *ngIf="track.album.images.length > 1" [src]="track.album.images[1].url" width="35px" height="35px"/>
                                     <span class="decade__track-name">{{track.name}}</span>
