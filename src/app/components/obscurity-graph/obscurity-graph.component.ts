@@ -89,7 +89,7 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
       borderWidth: 2,
       label: {
         fontColor: 'rgb(162, 158, 255)',
-        content: `Your All Time ${Math.round(this.data.percentileByCountryAllTime)}%`,
+        content: `Your All Time ${Math.floor(this.data.percentileByCountryAllTime)}%`,
         enabled: true,
         position: 'center',
         fontSize: 10,
@@ -107,7 +107,7 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
       borderWidth: 2,
       label: {
         fontColor: 'rgb(229, 202, 169)',
-        content: `Your Current ${Math.round(this.data.percentileByCountryRecent)}%`,
+        content: `Your Current ${Math.floor(this.data.percentileByCountryRecent)}%`,
         enabled: true,
         position: 'center',
         yAdjust: -65,
@@ -115,25 +115,6 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
         xAdjust: recentXAdjust
       }
     };
-
-    // const globalAverageAnnotation = {
-    //   type: 'line',
-    //   mode: 'vertical',
-    //   scaleID: 'x-axis-0',
-    //   value: this.data.averageScoreGlobal,
-    //   borderColor: 'rgb(169, 196, 229)',
-    //   borderWidth: 2,
-    //   z: 2,
-    //   label: {
-    //     fontColor: 'rgb(169, 196, 229)',
-    //     content: `Global Avg ${this.data.averageScoreGlobal}`,
-    //     enabled: true,
-    //     position: 'center',
-    //     fontSize: 10,
-    //     yAdjust: -10
-    //   }
-    // };
-
 
     const data = {
       labels: (labels),
@@ -176,7 +157,7 @@ export class ObscurityGraphComponent implements OnInit, OnChanges {
           scaleLabel: {
             display: true,
             fontColor: '#fff',
-            labelString: 'User Count'
+            labelString: 'Users'
           },
           ticks: {
             fontColor: '#fff',

@@ -55,13 +55,18 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
     {value: 'VN', viewValue: 'Vietnam'}
   ];
 
+  private percentileByCountryAllTime: number;
+  private percentileByCountryRecent: number;
+
   ngOnInit() {
       window['twttr'].ready().then((callback) => {
           window['twttr'].widgets.createShareButton('obscurifymusic.com 🎧', this.tweetContainer.nativeElement, {
-              text: `My music taste is more obscure than ${Math.round(this.data.obscurifyInfo.percentileByCountryAllTime)}% of other listeners on Obscurify. \n\nFind yours at`,
+              text: `My music taste is more obscure than ${Math.floor(this.data.obscurifyInfo.percentileByCountryAllTime)}% of other listeners on Obscurify. \n\nFind yours at`,
               size: 'large'
           });
       })
+      this.percentileByCountryAllTime = Math.floor(this.data.obscurifyInfo.percentileByCountryAllTime);
+      this.percentileByCountryRecent = Math.floor(this.data.obscurifyInfo.percentileByCountryRecent);
   }
 
   openSummary() {
@@ -70,8 +75,8 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
         maxHeight: '682px',
         width: '100vw',
         data: {
-            percentileByCountryAllTime: this.data.obscurifyInfo.percentileByCountryAllTime,
-            percentileByCountryRecent: this.data.obscurifyInfo.percentileByCountryRecent,
+            percentileByCountryAllTime: this.percentileByCountryAllTime,
+            percentileByCountryRecent: this.percentileByCountryRecent,
             country: this.data.country,
             allTimeArtists: this.data.allTimeArtists,
             allTimeTracks: this.data.allTimeTracks,

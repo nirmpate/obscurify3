@@ -20,8 +20,6 @@ export class ObscurifyService {
                 `/getObscurifyData?code=${countryID}&obscurifyScore=${obscurifyScore}&recentObscurifyScore=${recentObscurifyScore}`;
         return this.http.get(url).pipe(
             tap((data: any) => {
-              data.averageScore = Math.round(data.averageScore);
-              data.globalAverageScore = Math.round(data.globalAverageScore);
               this.obscurifyData = {...data};
               this.obscurifyData$.next(this.obscurifyData);
             }),

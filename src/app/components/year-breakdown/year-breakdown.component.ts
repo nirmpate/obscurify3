@@ -38,7 +38,6 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
     this.allTimeTopDecade = this.findTopDecade(this.allTimeBreakdown);
     this.currentTopDecade = this.findTopDecade(this.currentBreakdown);
     this.createBreakDownObject(this.allTimeBreakdown, this.currentBreakdown);
-    console.log(this.breakDownList)
   }
 
   ngAfterViewInit(): void {
