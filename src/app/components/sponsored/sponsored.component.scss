@@ -21,9 +21,11 @@
   // transform: translateY(100px);
   // transition: .3s cubic-bezier(.25,.1,.25,1);
   align-items: flex-start;
+  text-align: center;
 
   .tagline {
     margin-bottom: 0.5em;
+    font-size: 2em;
   }
 
   &__container {
@@ -41,7 +43,6 @@
     letter-spacing: 1.49px;
     text-align: center;
     text-decoration: none;
-    width: 100px;
     font-weight: bold;
     border-radius: 5px;
   }
@@ -77,10 +78,12 @@
 @include gt-md {
   .sponsored {
 
+    text-align: left;
+
     &__picture-card {
       position: absolute;
-      max-width: 200px;
-      max-height: 200px;
+      max-width: 250px;
+      max-height: 250px;
 
       &:first-child {
         transform: translate3d(25%, 0px, 0px) rotate(-15deg);
@@ -90,6 +93,14 @@
       &:last-child {
         transform: translate3d(100%, 0%, 0px) rotate(10deg);
       }
+    }
+
+    .sponsored__btn {
+      width: 150px;
+    }
+
+    .tagline {
+      font-size: 3em;
     }
   }
 }

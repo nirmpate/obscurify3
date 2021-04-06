@@ -4,10 +4,8 @@
         <div class="sponsored__container" fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="1em">
             <div fxFlex="50">
                 <img src="../../../assets/images/app/spotiparel-logo-white.png" height="30px">
-                <h1 class="tagline">Get songs like {{allTimeTracks[0].name}} on a sweatshirt</h1>
-                <p class="mb-1">Your favorite songs printed on a scannable Spotify code onto sweatshirts perfect for spring</p>
-                <a class="sponsored__btn" href="{{href}}" target="_blank">Shop now</a>
-                <p class="disclaimer">To help support Obscurify, use this sponsored link to shop.</p>
+                <h1 class="tagline">Get songs like <br>{{trackName}}<br> on a sweatshirt</h1>
+                <p>Your favorite songs printed on a scannable Spotify code onto sweatshirts perfect for spring</p>
             </div>
             <div fxFlex="50" >
                 <div class="sponsored__pictures" fxLayout="row nowrap">
@@ -19,6 +17,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+            <a class="sponsored__btn" href="{{href}}" target="_blank">Shop now</a>
+            <p class="disclaimer">To help support Obscurify, use this sponsored link to shop.</p>
         </div>
 
         
