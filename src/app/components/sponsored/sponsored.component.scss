@@ -1,0 +1,43 @@
+@import 'components/header';
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.slate {
+    background: #AD96DC;
+    color: white;
+    padding: 4rem 1em;
+}
+
+.sponsored {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  // opacity: 0;
+  // transform: translateY(100px);
+  // transition: .3s cubic-bezier(.25,.1,.25,1);
+  align-items: flex-start;
+
+  .tagline {
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    background: #5C1C74;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 8px 1em;
+  }
+
+  .disclaimer {
+    font-size: 12px;
+  }
+}
+

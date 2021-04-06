@@ -58,6 +58,7 @@ import { YearBreakdownComponent } from './components/year-breakdown/year-breakdo
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { SponsoredComponent } from './components/sponsored/sponsored.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     NavMenuComponent,
     ShareProfileComponent,
     LoaderComponent,
-    YearBreakdownComponent
+    YearBreakdownComponent,
+    SponsoredComponent
   ],
   imports: [
     BrowserAnimationsModule,
