@@ -40,6 +40,10 @@
             </app-artist-list>
         </div>
 
+        <app-sponsored
+            [allTimeTracks]="allTimeTracks.allTimeTracks">
+        </app-sponsored>
+
         <app-moods-graph
             (audioData)="getUserHistory($event)"
             *ngIf="(shortTermAudioFeatures && longTermAudioFeatures && obscurifyInfo && user)"
@@ -52,10 +56,6 @@
                 country: user.country
             }">
         </app-moods-graph>
-
-        <!-- <app-sponsored
-            [allTimeTracks]="allTimeTracks.allTimeTracks">
-        </app-sponsored> -->
 
         <app-year-breakdown
             *ngIf="allTimeTracks"
