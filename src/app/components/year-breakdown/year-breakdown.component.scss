@@ -7,7 +7,7 @@
 }
 
 .slate {
-    background: #FFA69E;
+    background: #fff;
 }
 
 .year-breakdown {
@@ -57,7 +57,7 @@
         overflow-x: auto;
 
         @include desktop {
-            width: 60%;
+            width: 100%;
 
             img {
                 height: 70px;
@@ -92,7 +92,7 @@
 
     &__track-name {
       word-break: break-word;
-      flex: 0 1 100%;
+      flex: 0 1 50%;
       font-size: 14px;
 
         @include desktop {
@@ -125,7 +125,7 @@
     a, a:visited, a:active {
         font-weight: bold;
         text-decoration: none;
-        color: black;
+        color: white;
         display: flex;
         align-items: center;
     }

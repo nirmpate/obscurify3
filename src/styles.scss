@@ -135,6 +135,8 @@ $custom-typography: mat-typography-config(
 @include mat-button-typography($custom-typography);
 @include mat-card-typography($custom-typography);
 @include angular-material-theme($obscurify3-theme);
+@include mat-expansion-panel-typography($custom-typography);
+@include mat-expansion-panel-theme($obscurify3-theme);
 
 .dark-theme {
   @include angular-material-theme($dark-theme);

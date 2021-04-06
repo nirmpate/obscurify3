@@ -48,19 +48,17 @@
         </div>
 
         <div class="year-breakdown__decade" fxLayout="column">
-            <div class="decade__card"  fxFlex.lt-sm="100%">
+            <div class="decade__card dark-theme"  fxFlex.lt-sm="100%">
 
-                <mat-accordion>
+                <mat-accordion #matAccordion>
                     <mat-expansion-panel *ngFor="let breakdown of breakDownList" 
                     (opened)="panelOpenState = true"
-                    (closed)="panelOpenState = false">
-                      <mat-expansion-panel-header>
+                    (closed)="panelOpenState = false"
+                    >
+                      <mat-expansion-panel-header [collapsedHeight]="'80px'">
                         <mat-panel-title>
-                          The {{breakdown.decade}}s
+                          <h1>The {{breakdown.decade}}s</h1>
                         </mat-panel-title>
-                        <!-- <mat-panel-description>
-                            {{breakdown.allTime.length + breakdown.current.length + breakdown.combinedList.length}} tracks
-                          </mat-panel-description> -->
                       </mat-expansion-panel-header>
                       <div fxLayout.lt-sm="row" fxLayoutGap="1em" >
                         <div class="decade" fxFlex.lt-sm="100%" fxFlex="100%">

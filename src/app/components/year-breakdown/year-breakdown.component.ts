@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, Subscription } from 'rxjs';
 import IntersectionObserverService from 'src/app/services/intersectionObserver';
@@ -12,6 +13,8 @@ import IntersectionObserverService from 'src/app/services/intersectionObserver';
 })
 export class YearBreakdownComponent implements OnInit, AfterViewInit {
 
+  @ViewChild(MatExpansionPanel) matExpansionPanel;
+   
   @Input() allTimeTracks: any;
   @Input() currentTracks: any;
 
@@ -51,6 +54,8 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
         this.show = true;
       }
     });
+
+    this.matExpansionPanel.open();
   }
 
   private createBreakDownObject(allTimeBreakdown, currentBreakdown) {
