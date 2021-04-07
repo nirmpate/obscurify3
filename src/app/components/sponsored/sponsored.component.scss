@@ -17,10 +17,8 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  // opacity: 0;
-  // transform: translateY(100px);
-  // transition: .3s cubic-bezier(.25,.1,.25,1);
-  align-items: flex-start;
+  
+  align-items: center;
   text-align: center;
 
   .tagline {
@@ -51,12 +49,17 @@
     font-size: 12px;
   }
 
+  &__pictures {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
   &__picture-card {
     max-width: 120px;
     max-height: 120px;
     padding: 0.5em;
     background: white;
-    margin: 1em 0.5em;
+    margin: 1em auto;
     position: relative;
   
     img {
@@ -77,8 +80,12 @@
 
 @include gt-md {
   .sponsored {
-
+    align-items: flex-start;
     text-align: left;
+    
+    &__pictures {
+      margin: none;
+    }
 
     &__picture-card {
       position: absolute;
@@ -86,7 +93,7 @@
       max-height: 250px;
 
       &:first-child {
-        transform: translate3d(25%, 0px, 0px) rotate(-15deg);
+        transform: translate3d(0%, 0px, 0px) rotate(-15deg);
         z-index: 1;
       }
 
