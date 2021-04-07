@@ -8,6 +8,8 @@
     </app-intro>
     <div *ngIf="allTimeTracks && allTimeTracks.allTimeTracks.length > 0">
 
+        <app-top-genres [data]="{topGenres: topGenresAllTime}"></app-top-genres>
+
         <app-obscurity-rating
             *ngIf="obscurifyInfo && user && allTimeArtists && currentArtists"
             (switchCountryEvent)="switchCountry($event)"
@@ -43,8 +45,6 @@
         <app-sponsored
             [allTimeTracks]="allTimeTracks.allTimeTracks">
         </app-sponsored>
-
-        <app-top-genres [data]="{topGenres: topGenresAllTime}"></app-top-genres>
 
         <app-moods-graph
             (audioData)="getUserHistory($event)"
