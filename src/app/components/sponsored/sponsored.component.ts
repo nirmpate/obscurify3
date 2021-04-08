@@ -18,9 +18,8 @@ export class SponsoredComponent implements OnInit {
 
   ngOnInit(): void {
     this.href = `https://spotiparel.com?utm_source=obscurify&utm_medium=banner&ref_tracks=${this.allTimeTracks.slice(0,6).map(track => track.id).join()}`;
-    this.timer = setInterval(() => {this.onInterval()}, 5000);
+    this.timer = setInterval(() => {this.onInterval()}, 2500);
     this.trackTitlesToDisplay = this.allTimeTracks.map(track => track.name).filter(track => track.length < 20);
-    console.log(this.trackTitlesToDisplay)
     if (this.trackTitlesToDisplay.length == 0) {
       this.trackTitlesToDisplay = this.allTimeTracks.map(track => track.name);
     }
