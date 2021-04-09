@@ -29,6 +29,17 @@
                 </div>
             </div>
         </div>
+
+        <div *ngIf="mostObscureArtists" class="most__obscure">
+            <h2>Your most obscure artists</h2>
+            <div *ngFor="let artist of mostObscureArtists" fxLayout="row" class="artist__container">
+                <img *ngIf="artist.images.length > 1" [src]="artist.images[1].url " width="50px" height="50px"/>
+                <a [href]="this.sanitizer.bypassSecurityTrustResourceUrl(artist.uri)">
+                    {{artist.name}}
+                </a>
+            </div>
+        </div>
+
         <div class="dark-theme" fxLayout="row" fxLayoutAlign="end center">
           <p>Switch country to</p>
 
@@ -51,16 +62,6 @@
         }">
 
         </app-obscurity-graph>
-
-        <div class="most__obscure">
-            <h2>Your most obscure artists</h2>
-            <div *ngFor="let artist of mostObscureArtists" fxLayout="row" class="artist__container">
-                <img *ngIf="artist.images.length > 1" [src]="artist.images[1].url " width="50px" height="50px"/>
-                <p>
-                    {{artist.name}}
-                </p>
-            </div>
-        </div>
 
     </div>
 </div>

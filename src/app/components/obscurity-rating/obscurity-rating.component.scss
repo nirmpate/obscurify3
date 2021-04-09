@@ -90,14 +90,31 @@
 
   .most__obscure {
     color: white;
+    margin-top: 3em;
 
     img {
+      margin-right: 0.5em;
       border-radius: 50%;
+    }
+
+    h2 {
+      margin-bottom: 0.5em;
     }
 
     .artist__container {
       align-items: center;
+      margin-top: 0.5em;
+      
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
     }
+
   }
 
 

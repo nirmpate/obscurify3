@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectChange } from '@angular/material/select';
 import { MatDialog } from '@angular/material/dialog';
 import { SummaryComponent } from '../summary/summary.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -20,7 +21,12 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   @Output() switchCountryEvent: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild('tweetContainer') tweetContainer;
-  constructor(public element: ElementRef, public intersectionObserverService: IntersectionObserverService, public dialog: MatDialog) { }
+  constructor(
+    public element: ElementRef, 
+    public intersectionObserverService: IntersectionObserverService, 
+    public dialog: MatDialog,
+    public sanitizer: DomSanitizer) 
+    { }
   public show = false;
   private intersectionObserverSubs: Subscription;
   public countryList: any = [
