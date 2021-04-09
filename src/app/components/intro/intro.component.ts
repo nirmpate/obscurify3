@@ -103,7 +103,8 @@ export class IntroComponent implements OnInit, OnChanges {
     const messages = [
       'Let\'s see how obscure your taste is...',
       'Check out your stats below',
-      'Find out more about your music taste below'
+      'Find out more about your music taste below',
+      'Let\'s check out your stats...'
     ];
     return messages[Math.floor(Math.random() * Math.floor(messages.length - 1))];
   }
