@@ -88,6 +88,18 @@
     }
   }
 
+  .most__obscure {
+    color: white;
+
+    img {
+      border-radius: 50%;
+    }
+
+    .artist__container {
+      align-items: center;
+    }
+  }
+
 
 @include desktop {
 

@@ -57,6 +57,7 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
 
   private percentileByCountryAllTime: number;
   private percentileByCountryRecent: number;
+  private mostObscureArtists: any[];
 
   ngOnInit() {
       window['twttr'].ready().then((callback) => {
@@ -67,6 +68,14 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
       })
       this.percentileByCountryAllTime = Math.floor(this.data.obscurifyInfo.percentileByCountryAllTime);
       this.percentileByCountryRecent = Math.floor(this.data.obscurifyInfo.percentileByCountryRecent);
+      this.findMostObscureArtist();
+  }
+
+  findMostObscureArtist() {
+    this.mostObscureArtists = this.data.allTimeArtists
+      .concat(this.data.currentArtists)
+      .sort((a, b) => (a.popularity > b.popularity) ? 1 : -1)
+      .slice(0, 5)
   }
 
   openSummary() {
