@@ -78,10 +78,13 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
   }
 
   findMostObscureArtist() {
-    this.mostObscureArtists = [... new Set(this.data.allTimeArtists
+
+    this.mostObscureArtists = this.data.allTimeArtists
       .concat(this.data.currentArtists)
       .sort((a, b) => (a.popularity > b.popularity) ? 1 : -1)
-      .slice(0, 15))].slice(0, 5);
+      .slice(0, 15)
+      .filter((track, index, self) => self.findIndex(t => t.id === track.id) === index)
+      .slice(0, 5);
   }
 
   openSummary() {
