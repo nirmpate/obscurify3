@@ -72,9 +72,16 @@ export class ObscurityRatingComponent implements OnInit, AfterViewInit {
               size: 'large'
           });
       })
-      this.percentileByCountryAllTime = Math.floor(this.data.obscurifyInfo.percentileByCountryAllTime);
-      this.percentileByCountryRecent = Math.floor(this.data.obscurifyInfo.percentileByCountryRecent);
       this.findMostObscureArtist();
+  }
+
+  ngOnChanges(change) {
+    if (change.data.previousValue != change.data.currentValue) {
+        if (this.data) {
+          this.percentileByCountryAllTime = Math.floor(this.data.obscurifyInfo.percentileByCountryAllTime);
+          this.percentileByCountryRecent = Math.floor(this.data.obscurifyInfo.percentileByCountryRecent);
+        }
+    }
   }
 
   findMostObscureArtist() {
