@@ -16,7 +16,7 @@ export class SeoService {
     if (!config) {
         config = {
           title: `Obscurify Music`,
-          description: `Learn more about your music taste and compare it to others' with Obscurify.`,
+          description: `How obscure (or basic) is your Spotify? Judge for yourself! Learn more about your music taste and compare it to others' with Obscurify.`,
           image: `https://www.obscurifymusic.com/assets/images/app/card-image.png`,
           url: `https://www.obscurifymusic.com/${this.router.url}`,
           ...config
