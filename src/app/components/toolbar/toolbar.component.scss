@@ -1,0 +1,27 @@
+@import 'variables';
+
+.toolbar {
+    background-color: #FFF;
+    box-shadow: $box-shadow;
+}
+
+.toolbar__container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    button, a {
+        margin-right: 1em;
+        transition: .2s cubic-bezier(.25,.1,.25,1);
+        
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+}
+
+.toolbar__btn {
+    font-size: 1em;
+}

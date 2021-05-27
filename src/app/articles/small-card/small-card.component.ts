@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-small-card',
@@ -9,9 +10,13 @@ export class SmallCardComponent implements OnInit {
 
   @Input() post;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  routeToPost(route) {
+    this.router.navigateByUrl(route);
   }
 
 }

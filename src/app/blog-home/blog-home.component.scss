@@ -21,9 +21,8 @@
   }
 }
 header {
-  max-width: 1440px;
-  margin: 3em auto 2em;
-  padding: 0 1em;
+  width: 100%;
+  margin: 0 auto 6em;
 }
 
 main {
@@ -34,6 +33,7 @@ main {
 
   .spotlight__container{
       margin-bottom: 4em;
+      padding: 1em;
   }
 
   .line-break {

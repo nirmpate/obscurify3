@@ -5,6 +5,7 @@ import { BigCardComponent } from './big-card/big-card.component';
 import { SmallCardComponent } from './small-card/small-card.component';
 import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FlexModule,
     FlexLayoutModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule
   ],
   exports: [SpotlightComponent, BigCardComponent, SmallCardComponent]
 })

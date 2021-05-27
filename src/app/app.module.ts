@@ -43,7 +43,6 @@ import { ArticlesModule } from './articles/articles.module';
 import { LoginModule } from './login/login.module';
 import { GlobalModule } from './global/global.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { PublicProfileComponent } from './components/public-profile/public-profile.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -78,7 +77,6 @@ import { SponsoredComponent } from './components/sponsored/sponsored.component';
     AboutComponent,
     PrivacyComponent,
     SpyOnDirective,
-    BlogHomeComponent,
     SummaryComponent,
     PublicProfileComponent,
     NavMenuComponent,
@@ -116,7 +114,7 @@ import { SponsoredComponent } from './components/sponsored/sponsored.component';
     MatCardModule,
     MatButtonToggleModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ScullyLibModule,
+    ScullyLibModule
   ],
   providers: [
     UserService,
