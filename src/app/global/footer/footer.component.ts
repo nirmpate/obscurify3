@@ -14,6 +14,8 @@ export class FooterComponent implements OnInit {
   @Input() privacy;
   @Input() about;
 
+  userProfile: any;
+
   constructor(
     public router: Router,
     public tokenSvc: TokenService,
@@ -22,6 +24,10 @@ export class FooterComponent implements OnInit {
 
 
   ngOnInit() {
+    this.userProfile = JSON.parse(window.localStorage.getItem('userProfile'));
+    if (this.userProfile) {
+      this.login = false;
+    }
   }
 
   logout() {

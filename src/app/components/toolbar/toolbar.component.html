@@ -15,7 +15,18 @@
     </div>
 
     <div class="right__links">
-        <a mat-flat-button routerLink="/home" class="toolbar__btn" aria-label="Login Link"> Login </a>
+        <div *ngIf="userLogedIn" style="display: inline-flex">
+            <span class="profile__image">
+                <img  alt="User Image" [src]="userProfile.userImageUrl ? this.userProfile.userImageUrl : 'assets/images/app/profile-placeholder.png'">
+            </span>
+            <a   mat-flat-button routerLink="/home" class="toolbar__btn toolbar__btn--profile">
+                 Profile
+            </a>
+
+        </div>
+
+
+        <a *ngIf="!userLogedIn" mat-flat-button routerLink="/home" class="toolbar__btn" aria-label="Login Link"> Login </a>
     </div>
 
   </div>
