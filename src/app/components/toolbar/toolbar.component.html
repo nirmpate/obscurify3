@@ -15,7 +15,7 @@
     </div>
 
     <div class="right__links">
-        <div *ngIf="userLogedIn" style="display: inline-flex">
+        <div *ngIf="userLogedIn" style="display: inline-flex; margin: auto 0">
             <span class="profile__image">
                 <img  alt="User Image" [src]="userProfile.userImageUrl ? this.userProfile.userImageUrl : 'assets/images/app/profile-placeholder.png'">
             </span>
