@@ -6,7 +6,7 @@ date: 'June 1st 2021'
 isoDate: 2021-06-01T00:00:00.000Z
 featured: yes
 author: 'Terrance Nixon'
-img: 'https://d129l1mriif4tx.cloudfront.net/'
+img: 'https://d129l1mriif4tx.cloudfront.net/the-hotlist-sf-21.jpg'
 category: 'Music Review'
 caption: ''
 instagram: teransu
