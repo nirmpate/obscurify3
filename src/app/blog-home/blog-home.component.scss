@@ -21,26 +21,27 @@
   }
 }
 header {
-  max-width: 1440px;
-  margin: 3em auto 2em;
-  padding: 0 1em;
+  width: 100%;
+  margin: 0 auto 1em;
 }
 
 main {
   max-width: 1440px;
+  min-height: 720px;
   margin: 0 auto;
   padding: 0 1em;
   background-color: white;
 
   .spotlight__container{
       margin-bottom: 4em;
+      padding: 1em;
   }
 
   .line-break {
       background: #A9E5AC;
-      width: 200px;
+      max-width: 600px;
       height: 5px;
-      margin: 3em auto;
+      margin: 1em 0 3em;
   }
 
   .banner-container {
@@ -64,6 +65,12 @@ main {
       }
   }
 
+  .contribute {
+    text-align: center;
+    margin-top: 3em;
+    font-style: italic;
+  }
+
 
 }
 
@@ -71,6 +78,5 @@ main {
 @include desktop {
     h1 {
       font-size: 4em;
-      margin-bottom: 2rem;
     }
 }

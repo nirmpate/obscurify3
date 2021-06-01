@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar">
+  <div class="toolbar__container">
+    <div class="left__links">
+        <a mat-flat-button routerLink="/" class="toolbar__btn" aria-label="Home Link">
+            Home
+          </a>
+          <a
+            mat-flat-button
+            routerLink="/blog"
+            class="toolbar__btn"
+            aria-label="Spotlight Link"
+          >
+            Spotlight
+          </a>
+    </div>
+
+    <div class="right__links">
+        <div *ngIf="userLogedIn" style="display: inline-flex; margin: auto 0">
+            <span class="profile__image">
+                <img  alt="User Image" [src]="userProfile.userImageUrl ? this.userProfile.userImageUrl : 'assets/images/app/profile-placeholder.png'">
+            </span>
+            <a   mat-flat-button routerLink="/home" class="toolbar__btn toolbar__btn--profile">
+                 Profile
+            </a>
+
+        </div>
+
+
+        <a *ngIf="!userLogedIn" mat-flat-button routerLink="/home" class="toolbar__btn" aria-label="Login Link"> Login </a>
+    </div>
+
+  </div>
+</mat-toolbar>

@@ -11,8 +11,7 @@ import { SeoService } from '../services/metaData';
 })
 export class BlogHomeComponent implements OnInit {
     links$: Observable<ScullyRoute[]> = this.scully.available$;
-    featuredThreePosts: any[] = [];
-    remainingPosts: any[] = [];
+    allPosts: any[];
 
     constructor(
         private scully: ScullyRoutesService, 
@@ -22,9 +21,7 @@ export class BlogHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.links$.subscribe((links) => {
-            const allPosts = this.obscurifyFunc.sortBlogPosts(links);
-            this.featuredThreePosts = allPosts.splice(0, 3);
-            this.remainingPosts = allPosts;
+            this.allPosts = this.obscurifyFunc.sortBlogPosts(links);
         });
 
         this.seoService.setMetaTags();

@@ -12,7 +12,7 @@ caption: 'Photo credit Cameron Robert for NPR'
 instagram: obscurifymusic
 facebook: null
 twitter: null
-tags: 'neo-soul, r&b'
+tags: 'r&b, neo-soul'
 ---
 
 # You can start exploring an artist's discography, spend an hour in the world they've created, take a look at the clock and wonder where the time went.

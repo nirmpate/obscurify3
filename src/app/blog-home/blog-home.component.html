@@ -1,37 +1,28 @@
+<header>
+  <app-toolbar></app-toolbar>
+</header>
 <main>
 
-    <div class="banner-container">
+    <div class="spotlight__container">
+      <div class="banner-container">
         <!-- ObscurifyMusic_S2S_Leaderboard_ROS_ATF -->
         <div id="bsa-zone_1597164528738-4_123456"></div>
-    </div>
+      </div>
+        <div>
+          <h1>Obscurify Spotlight</h1>
+          <div class="line-break"></div>
+        </div>
 
-    <header>
-      <a class="back__btn" routerLink="/login"> <i class="fas fa-arrow-left"></i> Go home </a>
-    </header>
-
-    <div class="spotlight__container">
-        <h1>Obscurify Spotlight</h1>
-
-        <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="5%">
-            <div fxFlex="50%">
-              <app-big-card [post]="featuredThreePosts[0]"></app-big-card>
-            </div>
-
-            <div fxFlex="45%">
-                <div class="spotlight-recent" fxLayout="column">
-                    <h2>More Posts</h2>
-                    <div fxLayout.lt-md="column" fxLayout="row" fxLayoutGap="2em">
-                      <app-small-card [post]="featuredThreePosts[1]"></app-small-card>
-                      <app-small-card [post]="featuredThreePosts[2]"></app-small-card>
-                    </div>
-                </div>
+        <div class="spotlight-all" fxLayout="column" *ngIf="allPosts.length > 0">
+            <div fxLayout.lt-md="column" fxLayout="row wrap" fxLayoutGap="2em">
+              <app-small-card *ngFor="let post of allPosts" [post]="post"></app-small-card>
             </div>
         </div>
 
-        <div class="spotlight-all" fxLayout="column">
-            <div fxLayout.lt-md="column" fxLayout="row wrap" fxLayoutGap="2em">
-              <app-small-card *ngFor="let post of remainingPosts" [post]="post"></app-small-card>
-            </div>
+        <div class="contribute">
+          <p>
+            Interested in contributing or being featured on Spotlight? <a href="mailto:oliveroalex@gmail.com">Let us know!</a>
+          </p>
         </div>
 
     </div>
