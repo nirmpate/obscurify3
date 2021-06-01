@@ -1,6 +1,6 @@
 ---
 title: 'The Hotlist (#Vaxed&Waxed) Summer ‘21'
-description: 'If you're not vaxed, this playlist is for you. If you are, it's about you.'
+description: "If you're not vaxed, this playlist is for you. If you are, it's about you."
 published: true
 date: 'June 1st 2021'
 isoDate: 2021-06-01T00:00:00.000Z
