@@ -18,7 +18,7 @@
     "prerender": "npx angular-prerender --exclude-routes /authorized",
     "scully": "scully",
     "scully:serve": "scully serve",
-    "buildscully": "ng build --configuration=develop  && npm run scully -- --scanRoutes --showGuessError",
+    "buildscully": "ng build --configuration=develop && npm run scully -- --scanRoutes",
     "buildscully:prod": "npm run build -- --prod --stats-json && npm run scully -- --scanRoutes --showGuessError",
     "scanscully": "npm run scully -- --scanRoutes --showGuessError"
   },
@@ -70,6 +70,7 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "scully-plugin-disable-angular": "^6.2.0",
+    "scully-plugin-flash-prevention": "0.0.41",
     "scully-plugin-minify-html": "^5.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
