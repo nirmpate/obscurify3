@@ -3,9 +3,9 @@
     <div class="footer__links" fxLayout="column nowrap">
       <a (click)="authorize()" *ngIf="login">Login</a>
       <a *ngIf="spotlight" href="/blog">Spotlight</a>
-      <a href="ko-fi.com/obscurify"> Donate</a>
       <a *ngIf="about" routerLink="/about">About</a>
       <a *ngIf="privacy" routerLink="/privacy">Privacy</a>
+      <a href="ko-fi.com/obscurify"> Donate</a>
       <a (click)="logout()" *ngIf="!login"> Log Out</a>
   </div>
 
