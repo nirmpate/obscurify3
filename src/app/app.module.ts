@@ -94,7 +94,6 @@ import { SponsoredComponent } from './components/sponsored/sponsored.component';
     FlexLayoutModule,
     MatChipsModule,
     MatButtonModule,
-    AppRoutingModule,
     PlatformModule,
     MatInputModule,
     MatRadioModule,
@@ -114,7 +113,10 @@ import { SponsoredComponent } from './components/sponsored/sponsored.component';
     MatCardModule,
     MatButtonToggleModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ScullyLibModule
+    ScullyLibModule.forRoot({
+      useTransferState: true,
+      alwaysMonitor: true
+    })
   ],
   providers: [
     UserService,
