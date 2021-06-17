@@ -1,6 +1,6 @@
 ---
 title: 'Artist Spotlight: Daley'
-description: Meet London-based "wonky funk" pioneer Nao.
+description: Get to know this soulful vocal powerhouse from Manchester.
 published: true
 date: June 16th 2021
 isoDate: 2021-06-16
@@ -18,7 +18,7 @@ tags: r&b, pop, electronic
 
 Daley is an artist who you all may recognize from his feature on Gorillaz's [Doncamatic](https://open.spotify.com/track/7twVmetQlugzgUqdMNjdJ4?si=dGdRAxLKQ7-YQuWchvoLHA). This is the song that also introduced Daley to a larger audience. While [Doncamatic](https://open.spotify.com/track/7twVmetQlugzgUqdMNjdJ4?si=dGdRAxLKQ7-YQuWchvoLHA) is a nice synthpop track, it doesn't give a proper image of Daley's music. Daley's music takes a certain approach to R&B/Soul which he dubs as "future-throwback soul", which is based in R&B and soul mixed with pop, electronica, and dubstep.
 
-<iframe src="https://open.spotify.com/embed/track/3oseAKFioXxUhmByjBGcJt" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="https://open.spotify.com/embed/track/7twVmetQlugzgUqdMNjdJ4" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 Daley's music is often a blend of pop, soul, R&B, and electronic music. This is evident in [Those Who Wait](https://open.spotify.com/track/3oseAKFioXxUhmByjBGcJt?si=BUwXnT_OSs2yH2zz16wvxA), [Time Travel](https://open.spotify.com/track/5kFWLMHA00davpXKKXURar?si=Ve3hJ47mQdGs23QTw1l_Mw), and [Love Somebody](https://open.spotify.com/track/4bP7qDw5baAPXANaCIiN8v?si=SBaip6KBQwOrVwYdhFuiUg). The electronic elements in the music are often very light and minimal. It’s almost to a point where they aren’t even noticed. In the song [Time Travel](https://open.spotify.com/track/5kFWLMHA00davpXKKXURar?si=Ve3hJ47mQdGs23QTw1l_Mw) for instance, the electronic elements add a thumping beat with electronic synths that bring not only a futuristic feel, but also a moody nocturnal vibe as well. The handclaps are also a nice touch to bring the “retro element” to the song.
 
