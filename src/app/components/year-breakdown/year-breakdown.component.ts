@@ -97,6 +97,19 @@ export class YearBreakdownComponent implements OnInit, AfterViewInit {
         return parseInt(a.album.release_date.substring(0, 4), 10) - parseInt(b.album.release_date.substring(0, 4), 10);
       })
 
+      // for any given decade, if there are over 3 different artists in the results, only show one track per artist
+      let uniqueArtistIDs = [...new Set(breakdownConfig.combinedList.map(track => track.artists[0].id))]
+      if (uniqueArtistIDs.length > 3) {
+        let onlyOneSongPerArtist = [];
+        for (let i = 0; i < breakdownConfig.combinedList.length; i++) {
+          if (uniqueArtistIDs.includes(breakdownConfig.combinedList[i].artists[0].id)) {
+            onlyOneSongPerArtist.push(breakdownConfig.combinedList[i])
+            uniqueArtistIDs = uniqueArtistIDs.filter(id => id != breakdownConfig.combinedList[i].artists[0].id)
+          }
+        }
+        breakdownConfig.combinedList = onlyOneSongPerArtist;
+      }
+      
       this.breakDownList.push(breakdownConfig);
       this.breakDownList = this.breakDownList.sort((a, b) => {
         return parseInt(a.decade, 10) - parseInt(b.decade, 10);

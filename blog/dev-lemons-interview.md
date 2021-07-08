@@ -2,8 +2,8 @@
 title: 'Welcome to Lemontopia: An Interview With Dev Lemons'
 description: We got a chance to speak with the dynamic Dev Lemons hot off the release of her second EP, Lemontopia.
 published: true
-date: July 7th 2021
-isoDate: 2021-07-07
+date: July 8th 2021
+isoDate: 2021-07-08
 featured: yes
 author: 'Alex Olivero'
 img: https://d129l1mriif4tx.cloudfront.net/dev-lemons.jpg
