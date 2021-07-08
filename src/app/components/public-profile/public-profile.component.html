@@ -12,7 +12,7 @@
       <div class="mb-4" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="2em" fxFlexAlign="center">
 
         <div *ngIf="imageURL" class="profile__image">
-          <img [src]="imageURL" alt="Profile Picture">
+          <img [src]="imageURL" alt="Profile Picture" onerror="this.style.display='none'">
         </div>
 
         <div class="profile__header">
