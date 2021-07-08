@@ -1,5 +1,5 @@
 ---
-title: 'Artist Spotlight: Interview with Dev Lemons'
+title: 'Welcome to Lemontopia: An Interview With Dev Lemons'
 description: We got a chance to speak with the dynamic Dev Lemons hot off the release of her second EP, Lemontopia.
 published: true
 date: July 7th 2021
